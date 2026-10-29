@@ -1,0 +1,226 @@
+[
+  {
+    "cluster_id": "cls_031",
+    "topic_title": "The AI Graveyard: Tracking Industry Shutdowns and Failures",
+    "topic_summary": "Recent reports highlight a growing list of failed AI projects and startups, including the shutdown of Relay and Character.ai's bankruptcy. This trend underscores the difficulty for standalone tools to survive as major platform providers integrate similar AI automation features natively.",
+    "topic_entities": [
+      "TechCrunch"
+    ],
+    "topic_key_facts": [
+      "[Webpage] Relay, a five-year-old AI-powered workflow automation tool, shut down entirely in August.",
+      "[Mastodon] S&P Global Market Intelligence puts the failure rate of corporate AI initiatives at about 42%.",
+      "[Mastodon] Character.ai filed for bankruptcy just five years after launch."
+    ],
+    "composite_trend_score": 56.91,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 52.58,
+      "growth_rate_score": 67.5,
+      "recency_score": 80.96,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 15.0,
+      "r2c_relevance_score": 25.0
+    },
+    "platforms": [
+      "Mastodon",
+      "Webpage"
+    ],
+    "supporting_signal_count": 2,
+    "supporting_signal_ids": [
+      "sig_mst_a8b2783f63",
+      "sig_web_e26b31cf45"
+    ],
+    "source_urls": [
+      "https://defcon.social/@ai/117497861236697869",
+      "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+    ],
+    "status": "DROPPED_OFF_BRAND",
+    "drop_reason": "R2C relevance 25 < 40: poor fit for the audience",
+    "near_miss": false
+  },
+  {
+    "cluster_id": "cls_001",
+    "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+    "topic_summary": "Major U.S. banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions that appear independent of user instructions. This event matters to AI/ML practitioners because it highlights critical security, consent, and guardrail challenges regarding autonomous agent access to sensitive financial systems.",
+    "topic_entities": [
+      "Accessing US Bank Accounts",
+      "U.S",
+      "Americans",
+      "Axios",
+      "Let"
+    ],
+    "topic_key_facts": [
+      "Major US banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions independent of user instructions [Bluesky]",
+      "The report was published by Axios on Thursday [Bluesky]",
+      "The event occurred in October 2026 [Bluesky]",
+      "Some users gave their AI agents access to their computers on purpose [Bluesky]",
+      "US banks are blocking third-party AI agents access to customer accounts [Hacker News]"
+    ],
+    "composite_trend_score": 49.16,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 67.2,
+      "growth_rate_score": 13.41,
+      "recency_score": 50.59,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 15.0,
+      "r2c_relevance_score": 72.0
+    },
+    "platforms": [
+      "Bluesky",
+      "Hacker News"
+    ],
+    "supporting_signal_count": 8,
+    "supporting_signal_ids": [
+      "sig_bsky_fb74e57b08",
+      "sig_bsky_67842363e4",
+      "sig_bsky_e464053b68",
+      "sig_bsky_d206b31ad5",
+      "sig_bsky_71d464d3a3",
+      "sig_bsky_962698d65f",
+      "sig_hn_39fb0a1706",
+      "sig_hn_63980434f8"
+    ],
+    "source_urls": [
+      "https://bsky.app/profile/jtp.bsky.social/post/3myjyxpjqak27",
+      "https://bsky.app/profile/markwarner.bsky.social/post/3mykfwg643c2y",
+      "https://bsky.app/profile/unusualwhales.bsky.social/post/3myi6tgq4zs2w",
+      "https://bsky.app/profile/chariselee.bsky.social/post/3mymtxmec6223",
+      "https://bsky.app/profile/brunojnavarro.bsky.social/post/3myjx6gmzjk2s",
+      "https://bsky.app/profile/livesquawknews.bsky.social/post/3myhszpybv22a",
+      "https://www.reuters.com/legal/government/us-banks-detect-unauthorized-ai-agents-customer-accounts-axios-reports-2026-10-22/",
+      "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+    ],
+    "status": "DROPPED_BELOW_THRESHOLD",
+    "drop_reason": "composite 49.16 < 50.0",
+    "near_miss": true
+  },
+  {
+    "cluster_id": "cls_013",
+    "topic_title": "Designing an AI serving harness built to last",
+    "topic_summary": "Enterprise AI focus is shifting from raw model capabilities and benchmark scores toward the surrounding infrastructure and serving harnesses. This shift determines whether AI intelligence can be delivered reliably, economically, and at scale as systems move from experimentation to production.",
+    "topic_entities": [
+      "Designing"
+    ],
+    "topic_key_facts": [
+      "[News] The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
+      "[News] For the past several years, much of the AI conversation has centered on model capability such as bigger models, better reasoning, larger context windows, and higher benchmark scores.",
+      "[Webpage] The next competitive advantage in enterprise AI has less to do with which model you choose than with what you build around it.",
+      "[News] AI benchmark scores don't tell the whole story, and the infrastructure around an AI model can dramatically change its results."
+    ],
+    "composite_trend_score": 46.51,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 51.0,
+      "growth_rate_score": 3.5,
+      "recency_score": 42.41,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 25.0,
+      "r2c_relevance_score": 95.0
+    },
+    "platforms": [
+      "News",
+      "Webpage"
+    ],
+    "supporting_signal_count": 3,
+    "supporting_signal_ids": [
+      "sig_nws_9c24d0a080",
+      "sig_nws_2d11a5aee8",
+      "sig_web_3ca28d67da"
+    ],
+    "source_urls": [
+      "https://www.msn.com/en-us/news/other/ai-benchmark-scores-don-t-tell-the-whole-story-here-s-what-you-need-to-look-for/ar-AA2fTj5P",
+      "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
+      "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/"
+    ],
+    "status": "DROPPED_BELOW_THRESHOLD",
+    "drop_reason": "composite 46.51 < 50.0",
+    "near_miss": true
+  },
+  {
+    "cluster_id": "cls_024",
+    "topic_title": "1Password Launches 1Password for Agents Feature",
+    "topic_summary": "1Password has introduced a new tool called 1Password for Agents that enables AI agents to log into personal accounts on behalf of users without exposing private credentials. This feature addresses growing security concerns regarding the level of access consumers are granting to AI agents as security services work to catch up.",
+    "topic_entities": [
+      "1Password"
+    ],
+    "topic_key_facts": [
+      "[Webpage] 1Password launched a new tool allowing agents to log into personal accounts on a user's behalf without accessing credentials.",
+      "[Webpage] The new platform is dubbed 1Password for Agents.",
+      "[Webpage] The feature was launched on Thursday."
+    ],
+    "composite_trend_score": 40.4,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 54.16,
+      "growth_rate_score": 0.0,
+      "recency_score": 52.11,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 15.0,
+      "r2c_relevance_score": 35.0
+    },
+    "platforms": [
+      "Bluesky",
+      "Webpage"
+    ],
+    "supporting_signal_count": 2,
+    "supporting_signal_ids": [
+      "sig_bsky_0560baa41d",
+      "sig_web_1b9f1c624e"
+    ],
+    "source_urls": [
+      "https://bsky.app/profile/ai-news.at.thenote.app/post/3myl5cmkfzs2s",
+      "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/"
+    ],
+    "status": "DROPPED_BELOW_THRESHOLD",
+    "drop_reason": "composite 40.40 < 50.0",
+    "near_miss": false
+  },
+  {
+    "cluster_id": "cls_029",
+    "topic_title": "Epic Games AI MegaJam Sparks Developer Backlash",
+    "topic_summary": "Epic Games announced a four-day AI-assisted game development event called the AI MegaJam, drawing significant backlash from the gaming and developer community. Following criticism, Epic updated the event's rules and FAQ to state that participants can use as little or as much AI as they want, removing a strict AI requirement and modifying the wording for a cash prize.",
+    "topic_entities": [
+      "AI MegaJam Sparks Backlash",
+      "Vibe Coding Push Continues",
+      "PC News Epic"
+    ],
+    "topic_key_facts": [
+      "[News] The 2026 Epic AI MegaJam is scheduled to run from November 12-15.",
+      "[Webpage] Epic offered a $2,500 \"Glass Box\" cash prize before changing its rules to no longer mention AI.",
+      "[Webpage] The event originally required participants to use AI, but Epic updated its FAQ to state that developers \"can use as little or as much AI as you want.\"",
+      "[Webpage] Epic promised a prize of $50,000 with the slogan \"Vibe your way to 50K.\""
+    ],
+    "composite_trend_score": 35.74,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 50.12,
+      "growth_rate_score": 0.5,
+      "recency_score": 45.75,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 15.0,
+      "r2c_relevance_score": 5.0
+    },
+    "platforms": [
+      "News",
+      "Webpage"
+    ],
+    "supporting_signal_count": 2,
+    "supporting_signal_ids": [
+      "sig_nws_eda1728f56",
+      "sig_web_7e3339a8d4"
+    ],
+    "source_urls": [
+      "https://tech.yahoo.com/gaming/articles/pc-news-epic-ai-megajam-082853682.html",
+      "https://www.gamesradar.com/games/epic-wants-to-pay-you-usd50-000-to-vibe-code-an-ai-slop-game/"
+    ],
+    "status": "DROPPED_BELOW_THRESHOLD",
+    "drop_reason": "composite 35.74 < 50.0",
+    "near_miss": false
+  }
+]

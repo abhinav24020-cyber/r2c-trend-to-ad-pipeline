@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R2C.ai — Research Trends → Ad & Picture Generator</title>
+    <meta name="description" content="Turn research links and academic trends into high-converting ready-to-post ads, social copy, and visual graphics.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="theme-cyber-dark">
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar" id="top-navbar">
+        <div class="nav-brand">
+            <div class="brand-logo-icon" id="brand-logo">R</div>
+            <div class="brand-text">
+                <span class="brand-title">R2C.ai</span>
+                <span class="brand-divider">|</span>
+                <span class="brand-tagline">Research Trends → Ad & Picture Generator</span>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <button class="btn btn-outline" id="btn-enter-new-links" onclick="scrollToUrlInput()">
+                <span class="btn-icon">←</span> Enter New Links
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <!-- STEP 0: URL Input Section -->
+        <section class="section-card hero-section" id="section-url-input">
+            <div class="step-pill-tag">STEP 1: ENTER SOURCE PAGES</div>
+            <h1 class="hero-title">Turn Research Links into Ready-to-Post Ads</h1>
+            <p class="hero-subtitle">
+                Paste the URLs of websites, research articles, or discussion threads. We'll scrape them, extract relevant topics, and craft the ad picture & copy for you.
+            </p>
+
+            <div class="input-card-inner">
+                <label class="input-label" for="url-input-textarea">
+                    <span class="label-icon">🔗</span> Website / Article Links (one per line):
+                </label>
+                <div class="code-editor-box">
+                    <textarea id="url-input-textarea" rows="4" spellcheck="false" placeholder='"https://techcrunch.com/category/artificial-intelligence/",&#10;"https://arxiv.org/abs/2401.03462",&#10;"https://en.wikipedia.org/wiki/Artificial_intelligence"'>"https://techcrunch.com/category/artificial-intelligence/",&#10;"https://arxiv.org/abs/2401.03462",&#10;"https://en.wikipedia.org/wiki/Artificial_intelligence"</textarea>
+                </div>
+                <button class="btn btn-primary btn-scrape-full" id="btn-scrape-submit" onclick="submitUrls()">
+                    <span class="btn-text">Scrape Links & Find Topics →</span>
+                    <span class="btn-spinner hidden" id="scrape-spinner"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Loading / Progress State -->
+        <div class="loading-banner hidden" id="pipeline-loading-state">
+            <div class="loading-spinner-large"></div>
+            <div class="loading-text-group">
+                <h3 id="loading-title">Scraping Sources & Extracting Topics...</h3>
+                <p id="loading-desc">Executing Gate 1 quality validation and Gate 2 topic clustering</p>
+            </div>
+        </div>
+
+        <!-- STEP 1: Topics Relevant to R2C -->
+        <section class="section-card" id="section-topics">
+            <div class="section-header-row">
+                <div class="section-title-group">
+                    <div class="step-number-badge step-blue">1</div>
+                    <h2 class="section-title">Topics Relevant to R2C</h2>
+                </div>
+                <div class="pill-badge pill-slate" id="topics-count-badge">3 Topics Extracted</div>
+            </div>
+            <p class="section-subtitle">Click any topic below to view or edit the prompt for its advertisement.</p>
+
+            <!-- 3 Column Cards Grid -->
+            <div class="topics-grid" id="topics-grid-container">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- STEP 2: Prompt Sent to LLM -->
+        <section class="section-card" id="section-prompt-editor">
+            <div class="section-header-row">
+                <div class="section-title-group">
+                    <div class="step-number-badge step-purple">2</div>
+                    <h2 class="section-title">Prompt Sent to LLM (To Make Ad / Picture)</h2>
+                </div>
+            </div>
+            <p class="section-subtitle">This is the exact prompt being sent to the AI to construct the ad picture, headline, and copy. You can tweak it anytime.</p>
+
+            <!-- Selectors Row -->
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="theme-selector" class="control-label">Theme:</label>
+                    <div class="custom-select-wrapper">
+                        <select id="theme-selector" class="custom-select" onchange="onThemeChange()">
+                            <option value="Cyber Dark (Cyan)" selected>Cyber Dark (Cyan)</option>
+                            <option value="Neon Matrix (Green)">Neon Matrix (Green)</option>
+                            <option value="Royal Purple">Royal Purple</option>
+                            <option value="Slate Blue">Slate Blue</option>
+                            <option value="Minimalist Dark">Minimalist Dark</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="format-selector" class="control-label">Format:</label>
+                    <div class="custom-select-wrapper">
+                        <select id="format-selector" class="custom-select" onchange="onFormatChange()">
+                            <option value="X (Twitter)" selected>X (Twitter)</option>
+                            <option value="LinkedIn">LinkedIn Post</option>
+                            <option value="Instagram">Instagram Feed</option>
+                            <option value="Facebook">Facebook Feed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monospace Editor Textarea -->
+            <div class="code-editor-box prompt-editor-box">
+                <textarea id="prompt-textarea" rows="4" spellcheck="false" placeholder="Enter or tweak prompt..."></textarea>
+            </div>
+
+            <!-- Target Topic & Generate Button Row -->
+            <div class="prompt-footer-row">
+                <div class="target-topic-info">
+                    <span class="target-label">Target Topic:</span>
+                    <span class="target-name" id="target-topic-display">Enterprise Shift from Chatbots to Autonomous Multi-Agent Workflows</span>
+                </div>
+                <button class="btn btn-purple" id="btn-generate-ad" onclick="generateAdFromPrompt()">
+                    <span class="btn-sparkle">✨</span>
+                    <span class="btn-text">Generate Ad Image</span>
+                    <span class="btn-spinner hidden" id="generate-spinner"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 3: Final Generated Advertisement & Picture -->
+        <section class="section-card" id="section-ad-output">
+            <div class="section-header-row">
+                <div class="section-title-group">
+                    <div class="step-number-badge step-teal">3</div>
+                    <h2 class="section-title">Final Generated Advertisement & Picture</h2>
+                </div>
+                <div class="pill-badge pill-green" id="ready-status-badge">
+                    <span class="badge-check">✓</span> Final Product Ready
+                </div>
+            </div>
+            <p class="section-subtitle">The final creative output ready to publish on your site or forward to social channels.</p>
+
+            <!-- View Mode Switcher -->
+            <div class="view-mode-tabs" id="ad-view-tabs">
+                <button class="tab-btn active" id="tab-canvas-view" onclick="switchAdView('canvas')">Ad Creative Graphic</button>
+                <button class="tab-btn" id="tab-image-view" onclick="switchAdView('image')">Generated AI Image</button>
+            </div>
+
+            <!-- Ad Visual Display Canvas -->
+            <div class="ad-visual-container" id="ad-visual-container">
+                <!-- Canvas Mode (Default) -->
+                <div class="ad-graphic-canvas" id="ad-graphic-canvas">
+                    <div class="ad-canvas-grid-overlay"></div>
+                    <div class="ad-canvas-content">
+                        <div class="ad-canvas-tag" id="ad-canvas-tag">R2C.AI // OFFICIAL RESEARCH ADVERTISEMENT</div>
+                        <div class="ad-canvas-stat-pill" id="ad-canvas-stat">3.8X ACCURACY BOOST</div>
+                        <h2 class="ad-canvas-headline" id="ad-canvas-headline">Static Chatbots Fail. Multi-Agent Systems Deliver.</h2>
+                        <p class="ad-canvas-subheadline" id="ad-canvas-subheadline">
+                            Upgrade enterprise workflows from fragile chat interfaces to synchronized planner, executor, and reviewer agent pipelines.
+                        </p>
+                        <div class="ad-canvas-cta-btn" id="ad-canvas-cta">Deploy Agentic Workflows →</div>
+                    </div>
+                </div>
+
+                <!-- AI Image Render Mode -->
+                <div class="ad-image-container hidden" id="ad-image-container">
+                    <p id="ad-image-placeholder" class="ad-image-placeholder">Generate an image to preview the artwork here.</p>
+                    <img id="ad-generated-img" alt="Generated Ad Image" class="ad-rendered-image" hidden>
+                </div>
+            </div>
+
+            <!-- Ad Post Copy & Caption Card -->
+            <div class="copy-card" id="copy-card">
+                <div class="copy-card-header">
+                    <span class="copy-header-label">AD POST COPY & CAPTION</span>
+                    <span class="copy-target-audience" id="copy-target-audience">Target Audience: Enterprise Automation Leaders, Chief Technology Officers, and AI Systems Architects</span>
+                </div>
+                
+                <h3 class="copy-headline" id="copy-headline">Static Chatbots Fail. Multi-Agent Systems Deliver.</h3>
+                
+                <div class="copy-body" id="copy-body">
+                    Static chatbots are failing enterprise operations in 2025 because brittle single-agent setups collapse under complex multi-step reasoning. Real enterprise reliability requires distributed autonomy. By separating responsibilities across specialized Planner, Executor, and Reviewer agents, production systems deliver 3.8x higher task completion accuracy over single-agent baselines. Upgrade your operational stack and replace conversational toys with deterministic multi-agent architectures built for scale.
+                </div>
+
+                <div class="copy-hashtags" id="copy-hashtags">
+                    #AutonomousAIEngineers #EnterpriseAutomation #AgenticWorkflows #AIArchitecture
+                </div>
+
+                <div class="copy-footer-row">
+                    <div class="copy-footer-cta">
+                        <span class="label-dim">CTA:</span> <strong id="copy-cta-text">Deploy Agentic Workflows</strong>
+                    </div>
+                    <div class="copy-footer-stat">
+                        <span class="label-dim">Stat Callout:</span> <span class="stat-highlight" id="copy-stat-text">3.8X ACCURACY BOOST</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons Footer -->
+            <div class="actions-row">
+                <button class="btn btn-action" id="btn-copy-ad" onclick="copyAdText()">
+                    <span class="btn-icon">📋</span> Copy Ad Text
+                </button>
+                <button class="btn btn-action" id="btn-share-ad" onclick="shareAd()">
+                    <span class="btn-icon">🔗</span> Forward / Share Ad
+                </button>
+                <button class="btn btn-action" id="btn-reroll-ad" onclick="rerollAd()">
+                    <span class="btn-icon">🔄</span> Re-roll Ad
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification hidden" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toast-message">Ad text copied to clipboard!</span>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

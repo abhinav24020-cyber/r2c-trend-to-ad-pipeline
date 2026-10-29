@@ -1,0 +1,21 @@
+# R2C.ai Social Media Automation v2 - Week 1 (Gate 1 + Gate 2)
+# Python 3.9+
+
+# Schema validation for the intermediate signal schema (ingest.py).
+pydantic>=2.0,<3.0
+
+# Gemini API: embeddings (gemini-embedding-001) + summarisation/relevance
+# (gemini-2.5-flash). OPTIONAL - without it, and without GEMINI_API_KEY, the
+# pipeline runs on deterministic local fallbacks and logs that it did so.
+google-genai>=0.3.0
+
+# Autonomous discovery crawler (web_crawler/): Crawlee for Python with the
+# BeautifulSoup HTTP crawler, plus feedparser for RSS/Atom discovery feeds.
+crawlee[beautifulsoup]>=1.0,<2.0
+feedparser>=6.0
+
+# Decodes and saves images returned by Cloudflare Workers AI (IMAGE_PROVIDER=cloudflare).
+Pillow>=10.0
+
+# Everything else (hashing, MinHash, TF-IDF, cosine, clustering, SQLite)
+# is standard library by design: no scikit-learn, no numpy, no local GPU.

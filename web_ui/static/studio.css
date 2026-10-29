@@ -1,0 +1,34 @@
+.prompt-inspector {
+  margin-top: 13px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(5, 11, 24, .35);
+}
+.prompt-inspector summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  color: #94a5bf;
+  font-size: 10px;
+  cursor: pointer;
+  list-style: none;
+}
+.prompt-inspector summary::-webkit-details-marker { display: none; }
+.prompt-inspector summary > span:first-child {
+  color: var(--cyan);
+  font: 14px var(--mono);
+}
+.prompt-inspector summary .editable-tag { margin-left: auto; }
+.prompt-inspector textarea {
+  display: block;
+  width: calc(100% - 24px);
+  margin: 0 12px 12px;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: #bdcce2;
+  background: #080e1b;
+  font: 10px/1.7 var(--mono);
+  resize: vertical;
+}

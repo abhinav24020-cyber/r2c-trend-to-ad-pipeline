@@ -1,0 +1,1087 @@
+[
+  {
+    "trend": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+    "record": {
+      "trend_id": "trd_20261025_001_3cfe",
+      "rank": 1,
+      "topic_title": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "aspect_ratio": "4:5",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:22:30.078124+00:00",
+      "post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "GVS5H JUST DROPPED",
+        "headline": "Can your paper match industry giants?",
+        "subline": "R2C.Ai bridges your research to industry partners looking for scalable breakthroughs.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop the scroll. Five Qwen models just matched Fable 5 performance using a shared filesystem harness on a single GPU. Your technical findings have similar potential. R2C.Ai helps researchers evaluate commercial readiness and connects your work directly with industry partners. Upload Your Research.",
+        "hashtags": [
+          "MachineLearning",
+          "OpenSourceAI",
+          "TechInnovation",
+          "ResearchToIndustry"
+        ],
+        "fact_used": "Five Qwen3.8-27B models match Claude Fable 5 on LiveCodeBench Hard using the GVS5H harness",
+        "visual": {
+          "concept": "A tiny wind-up wooden token pulling a massive polished steel chassis across a slate floor, representing small models outperforming massive ones.",
+          "focal_subject": "A miniature brass-geared model car made of walnut wood next to a colossal industrial shipping container wheel.",
+          "action": "The tiny wooden car is smoothly pulling the massive wheel forward across a dark grey slate surface.",
+          "scroll_stopper": "An impossible scale contrast between a miniature wooden toy and a massive metallic industrial component.",
+          "setting": "A sleek dark concrete warehouse floor with a single dramatic overhead beam of light.",
+          "camera": "Low-angle close-up, 24mm, shallow depth of field focusing sharply on the tiny car.",
+          "lighting": "Hard directional spotlight from the upper left, casting long crisp shadows.",
+          "colors": [
+            "warm amber",
+            "charcoal grey",
+            "slate blue"
+          ],
+          "mood": "surprising, precise, ambitious"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A miniature brass-geared model car made of walnut wood next to a colossal industrial shipping container wheel, The tiny wooden car is smoothly pulling the massive wheel forward across a dark grey slate surface. An impossible scale contrast between a miniature wooden toy and a massive metallic industrial component. Setting: A sleek dark concrete warehouse floor with a single dramatic overhead beam of light. Camera: Low-angle close-up, 24mm, shallow depth of field focusing sharply on the tiny car. Lighting: Hard directional spotlight from the upper left, casting long crisp shadows. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with warm amber, charcoal grey, slate blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: surprising, precise, ambitious. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A miniature brass-geared model car made of walnut wood next to a colossal industrial shipping container wheel, The tiny wooden car is smoothly pulling the massive wheel forward across a dark grey slate surface. An impossible scale contrast between a miniature wooden toy and a massive metallic industrial component. Setting: A sleek dark concrete warehouse floor with a single dramatic overhead beam of light. Camera: Low-angle close-up, 24mm, shallow depth of field focusing sharply on the tiny car. Lighting: Hard directional spotlight from the upper left, casting long crisp shadows. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with warm amber, charcoal grey, slate blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: surprising, precise, ambitious. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A miniature brass-geared model car made of walnut wood next to a colossal industrial shipping container wheel, The tiny wooden car is smoothly pulling the massive wheel forward across a dark grey slate surface. An impossible scale contrast between a miniature wooden toy and a massive metallic industrial component. Setting: A sleek dark concrete warehouse floor with a single dramatic overhead beam of light. Camera: Low-angle close-up, 24mm, shallow depth of field focusing sharply on the tiny car. Lighting: Hard directional spotlight from the upper left, casting long crisp shadows. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with warm amber, charcoal grey, slate blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: surprising, precise, ambitious. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Can your paper match industry giants?",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-left"
+    },
+    "result": {
+      "trend_id": "trd_20261025_001_3cfe",
+      "rank": 1,
+      "topic_title": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+      "social_post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "GVS5H JUST DROPPED",
+        "headline": "Can your paper match industry giants?",
+        "subline": "R2C.Ai bridges your research to industry partners looking for scalable breakthroughs.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop the scroll. Five Qwen models just matched Fable 5 performance using a shared filesystem harness on a single GPU. Your technical findings have similar potential. R2C.Ai helps researchers evaluate commercial readiness and connects your work directly with industry partners. Upload Your Research.",
+        "hashtags": [
+          "MachineLearning",
+          "OpenSourceAI",
+          "TechInnovation",
+          "ResearchToIndustry"
+        ],
+        "fact_used": "Five Qwen3.8-27B models match Claude Fable 5 on LiveCodeBench Hard using the GVS5H harness",
+        "visual": {
+          "concept": "A tiny wind-up wooden token pulling a massive polished steel chassis across a slate floor, representing small models outperforming massive ones.",
+          "focal_subject": "A miniature brass-geared model car made of walnut wood next to a colossal industrial shipping container wheel.",
+          "action": "The tiny wooden car is smoothly pulling the massive wheel forward across a dark grey slate surface.",
+          "scroll_stopper": "An impossible scale contrast between a miniature wooden toy and a massive metallic industrial component.",
+          "setting": "A sleek dark concrete warehouse floor with a single dramatic overhead beam of light.",
+          "camera": "Low-angle close-up, 24mm, shallow depth of field focusing sharply on the tiny car.",
+          "lighting": "Hard directional spotlight from the upper left, casting long crisp shadows.",
+          "colors": [
+            "warm amber",
+            "charcoal grey",
+            "slate blue"
+          ],
+          "mood": "surprising, precise, ambitious"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A miniature brass-geared model car made of walnut wood next to a colossal industrial shipping container wheel, The tiny wooden car is smoothly pulling the massive wheel forward across a dark grey slate surface. An impossible scale contrast between a miniature wooden toy and a massive metallic industrial component. Setting: A sleek dark concrete warehouse floor with a single dramatic overhead beam of light. Camera: Low-angle close-up, 24mm, shallow depth of field focusing sharply on the tiny car. Lighting: Hard directional spotlight from the upper left, casting long crisp shadows. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with warm amber, charcoal grey, slate blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: surprising, precise, ambitious. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A miniature brass-geared model car made of walnut wood next to a colossal industrial shipping container wheel, The tiny wooden car is smoothly pulling the massive wheel forward across a dark grey slate surface. An impossible scale contrast between a miniature wooden toy and a massive metallic industrial component. Setting: A sleek dark concrete warehouse floor with a single dramatic overhead beam of light. Camera: Low-angle close-up, 24mm, shallow depth of field focusing sharply on the tiny car. Lighting: Hard directional spotlight from the upper left, casting long crisp shadows. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with warm amber, charcoal grey, slate blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: surprising, precise, ambitious. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "4:5",
+      "image_size": [
+        896,
+        1120
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\trd_20261025_001_3cfe_hook_4x5.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:22:30.079094+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\trd_20261025_001_3cfe_hook_4x5_ad.png"
+    }
+  },
+  {
+    "trend": "Moonshot AI Releases Kimi K3.1 Pro Model",
+    "record": {
+      "trend_id": "trd_20261025_002_bce6",
+      "rank": 2,
+      "topic_title": "Moonshot AI Releases Kimi K3.1 Pro Model",
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "aspect_ratio": "9:16",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:23:07.787217+00:00",
+      "post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "MILLION TOKEN SHIFT",
+        "headline": "Take your research from lab to global industry.",
+        "subline": "R2C.Ai connects your papers directly with enterprise partners looking for licensable innovations.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Get Started Free",
+        "caption": "As new models like Kimi K3.1 Pro redefine context windows, your research papers hold immense untapped commercial potential. Don't leave your discoveries sitting in a repository. Let R2C.Ai assess your technology readiness and match you with industry leaders ready to license your work.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "TechTransfer",
+          "AcademicInnovation",
+          "StartupLife"
+        ],
+        "fact_used": "The model scores 65.7% on Terminal-Bench 4.0 and scores close to Claude Opus 5.5 on Moonshot's internal tests.",
+        "visual": {
+          "concept": "A moment of sudden, explosive momentum breaking through physical limits, symbolizing academic research bursting into commercial reality.",
+          "focal_subject": "A heavy, oversized block of raw salt crystal fracturing cleanly into brilliant cubic shards mid-air.",
+          "action": "A sharp fissure tears across the crystal face, sending crystalline dust and bright shards exploding forward.",
+          "scroll_stopper": "The frozen, high-speed impact capturing the exact millisecond the solid crystal breaks apart.",
+          "setting": "A dark, neutral-toned testing chamber.",
+          "camera": "Vertical 9:16 high-speed macro shot, 100mm lens, fast shutter.",
+          "lighting": "Dramatic side rim light cutting through floating dust motes.",
+          "colors": [
+            "translucent crystal",
+            "charcoal black",
+            "electric silver"
+          ],
+          "mood": "Dynamic, urgent, breakthrough"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A heavy, oversized block of raw salt crystal fracturing cleanly into brilliant cubic shards mid-air, A sharp fissure tears across the crystal face, sending crystalline dust and bright shards exploding forward. The frozen, high-speed impact capturing the exact millisecond the solid crystal breaks apart. Setting: A dark, neutral-toned testing chamber. Camera: Vertical 9:16 high-speed macro shot, 100mm lens, fast shutter. Lighting: Dramatic side rim light cutting through floating dust motes. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with translucent crystal, charcoal black, electric silver as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: Dynamic, urgent, breakthrough. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A heavy, oversized block of raw salt crystal fracturing cleanly into brilliant cubic shards mid-air, A sharp fissure tears across the crystal face, sending crystalline dust and bright shards exploding forward. The frozen, high-speed impact capturing the exact millisecond the solid crystal breaks apart. Setting: A dark, neutral-toned testing chamber. Camera: Vertical 9:16 high-speed macro shot, 100mm lens, fast shutter. Lighting: Dramatic side rim light cutting through floating dust motes. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with translucent crystal, charcoal black, electric silver as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: Dynamic, urgent, breakthrough. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A heavy, oversized block of raw salt crystal fracturing cleanly into brilliant cubic shards mid-air, A sharp fissure tears across the crystal face, sending crystalline dust and bright shards exploding forward. The frozen, high-speed impact capturing the exact millisecond the solid crystal breaks apart. Setting: A dark, neutral-toned testing chamber. Camera: Vertical 9:16 high-speed macro shot, 100mm lens, fast shutter. Lighting: Dramatic side rim light cutting through floating dust motes. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with translucent crystal, charcoal black, electric silver as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: Dynamic, urgent, breakthrough. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Take your research from lab to global industry.",
+        "cta": "Get Started Free"
+      },
+      "logo_corner": "top-center"
+    },
+    "result": {
+      "trend_id": "trd_20261025_002_bce6",
+      "rank": 2,
+      "topic_title": "Moonshot AI Releases Kimi K3.1 Pro Model",
+      "social_post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "MILLION TOKEN SHIFT",
+        "headline": "Take your research from lab to global industry.",
+        "subline": "R2C.Ai connects your papers directly with enterprise partners looking for licensable innovations.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Get Started Free",
+        "caption": "As new models like Kimi K3.1 Pro redefine context windows, your research papers hold immense untapped commercial potential. Don't leave your discoveries sitting in a repository. Let R2C.Ai assess your technology readiness and match you with industry leaders ready to license your work.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "TechTransfer",
+          "AcademicInnovation",
+          "StartupLife"
+        ],
+        "fact_used": "The model scores 65.7% on Terminal-Bench 4.0 and scores close to Claude Opus 5.5 on Moonshot's internal tests.",
+        "visual": {
+          "concept": "A moment of sudden, explosive momentum breaking through physical limits, symbolizing academic research bursting into commercial reality.",
+          "focal_subject": "A heavy, oversized block of raw salt crystal fracturing cleanly into brilliant cubic shards mid-air.",
+          "action": "A sharp fissure tears across the crystal face, sending crystalline dust and bright shards exploding forward.",
+          "scroll_stopper": "The frozen, high-speed impact capturing the exact millisecond the solid crystal breaks apart.",
+          "setting": "A dark, neutral-toned testing chamber.",
+          "camera": "Vertical 9:16 high-speed macro shot, 100mm lens, fast shutter.",
+          "lighting": "Dramatic side rim light cutting through floating dust motes.",
+          "colors": [
+            "translucent crystal",
+            "charcoal black",
+            "electric silver"
+          ],
+          "mood": "Dynamic, urgent, breakthrough"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A heavy, oversized block of raw salt crystal fracturing cleanly into brilliant cubic shards mid-air, A sharp fissure tears across the crystal face, sending crystalline dust and bright shards exploding forward. The frozen, high-speed impact capturing the exact millisecond the solid crystal breaks apart. Setting: A dark, neutral-toned testing chamber. Camera: Vertical 9:16 high-speed macro shot, 100mm lens, fast shutter. Lighting: Dramatic side rim light cutting through floating dust motes. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with translucent crystal, charcoal black, electric silver as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: Dynamic, urgent, breakthrough. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A heavy, oversized block of raw salt crystal fracturing cleanly into brilliant cubic shards mid-air, A sharp fissure tears across the crystal face, sending crystalline dust and bright shards exploding forward. The frozen, high-speed impact capturing the exact millisecond the solid crystal breaks apart. Setting: A dark, neutral-toned testing chamber. Camera: Vertical 9:16 high-speed macro shot, 100mm lens, fast shutter. Lighting: Dramatic side rim light cutting through floating dust motes. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with translucent crystal, charcoal black, electric silver as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: Dynamic, urgent, breakthrough. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "9:16",
+      "image_size": [
+        768,
+        1344
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\trd_20261025_002_bce6_story_9x16.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:23:07.787217+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\trd_20261025_002_bce6_story_9x16_ad.png"
+    }
+  },
+  {
+    "trend": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+    "record": {
+      "trend_id": "trd_20261025_003_c3fc",
+      "rank": 3,
+      "topic_title": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "aspect_ratio": "1:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:28:06.188270+00:00",
+      "post": {
+        "ad_type": "engagement",
+        "audience": "researchers",
+        "eyebrow": "NEW VOICE MODEL",
+        "headline": "Can local hardware handle your biggest academic breakthroughs?",
+        "subline": "Block's Dessa runs on a MacBook, but does your lab work have an industry pathway through R2C.Ai?",
+        "points": [
+          "Technology readiness (TRL) assessment",
+          "IP protection and governance",
+          "Licensing support from IIIT Delhi"
+        ],
+        "cta": "Get Started Free",
+        "caption": "Block just released Dessa, a speech-trained model that runs locally on an M4 Max. Technology is moving faster than ever, but how quickly is your research reaching the market? Drop your thoughts in the comments on how local AI capabilities change academic publishing, and let R2C.Ai handle your commercial readiness and industry matching. Get Started Free.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "AcademicPublishing",
+          "TechTrends",
+          "Innovation"
+        ],
+        "fact_used": "Block announced an AI model called Dessa trained from scratch on nothing but human conversation.",
+        "visual": {
+          "concept": "A visual standoff representing local resource capability versus massive conversational data.",
+          "focal_subject": "A single, finely carved wooden microphone standing tall opposite a stack of heavy, bound leather journals.",
+          "action": "A single stray autumn leaf resting gently against the base of the microphone grille.",
+          "scroll_stopper": "The stark compositional balance between the vertical audio hardware and the heavy horizontal volumes.",
+          "setting": "A dark charcoal-colored acoustic foam wall panel.",
+          "camera": "Direct eye-level shot, 35mm lens, sharp edge-to-edge focus.",
+          "lighting": "Cool studio rim lighting with sharp highlights on the metal mesh.",
+          "colors": [
+            "charcoal",
+            "olive green",
+            "brass"
+          ],
+          "mood": "thoughtful, balanced, conversational"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A single, finely carved wooden microphone standing tall opposite a stack of heavy, bound leather journals, A single stray autumn leaf resting gently against the base of the microphone grille. The stark compositional balance between the vertical audio hardware and the heavy horizontal volumes. Setting: A dark charcoal-colored acoustic foam wall panel. Camera: Direct eye-level shot, 35mm lens, sharp edge-to-edge focus. Lighting: Cool studio rim lighting with sharp highlights on the metal mesh. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with charcoal, olive green, brass as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: thoughtful, balanced, conversational. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A single, finely carved wooden microphone standing tall opposite a stack of heavy, bound leather journals, A single stray autumn leaf resting gently against the base of the microphone grille. The stark compositional balance between the vertical audio hardware and the heavy horizontal volumes. Setting: A dark charcoal-colored acoustic foam wall panel. Camera: Direct eye-level shot, 35mm lens, sharp edge-to-edge focus. Lighting: Cool studio rim lighting with sharp highlights on the metal mesh. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with charcoal, olive green, brass as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: thoughtful, balanced, conversational. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A single, finely carved wooden microphone standing tall opposite a stack of heavy, bound leather journals, A single stray autumn leaf resting gently against the base of the microphone grille. The stark compositional balance between the vertical audio hardware and the heavy horizontal volumes. Setting: A dark charcoal-colored acoustic foam wall panel. Camera: Direct eye-level shot, 35mm lens, sharp edge-to-edge focus. Lighting: Cool studio rim lighting with sharp highlights on the metal mesh. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with charcoal, olive green, brass as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: thoughtful, balanced, conversational. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Can local hardware handle your biggest academic breakthroughs?",
+        "cta": "Get Started Free"
+      },
+      "logo_corner": "bottom-right"
+    },
+    "result": {
+      "trend_id": "trd_20261025_003_c3fc",
+      "rank": 3,
+      "topic_title": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+      "social_post": {
+        "ad_type": "engagement",
+        "audience": "researchers",
+        "eyebrow": "NEW VOICE MODEL",
+        "headline": "Can local hardware handle your biggest academic breakthroughs?",
+        "subline": "Block's Dessa runs on a MacBook, but does your lab work have an industry pathway through R2C.Ai?",
+        "points": [
+          "Technology readiness (TRL) assessment",
+          "IP protection and governance",
+          "Licensing support from IIIT Delhi"
+        ],
+        "cta": "Get Started Free",
+        "caption": "Block just released Dessa, a speech-trained model that runs locally on an M4 Max. Technology is moving faster than ever, but how quickly is your research reaching the market? Drop your thoughts in the comments on how local AI capabilities change academic publishing, and let R2C.Ai handle your commercial readiness and industry matching. Get Started Free.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "AcademicPublishing",
+          "TechTrends",
+          "Innovation"
+        ],
+        "fact_used": "Block announced an AI model called Dessa trained from scratch on nothing but human conversation.",
+        "visual": {
+          "concept": "A visual standoff representing local resource capability versus massive conversational data.",
+          "focal_subject": "A single, finely carved wooden microphone standing tall opposite a stack of heavy, bound leather journals.",
+          "action": "A single stray autumn leaf resting gently against the base of the microphone grille.",
+          "scroll_stopper": "The stark compositional balance between the vertical audio hardware and the heavy horizontal volumes.",
+          "setting": "A dark charcoal-colored acoustic foam wall panel.",
+          "camera": "Direct eye-level shot, 35mm lens, sharp edge-to-edge focus.",
+          "lighting": "Cool studio rim lighting with sharp highlights on the metal mesh.",
+          "colors": [
+            "charcoal",
+            "olive green",
+            "brass"
+          ],
+          "mood": "thoughtful, balanced, conversational"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A single, finely carved wooden microphone standing tall opposite a stack of heavy, bound leather journals, A single stray autumn leaf resting gently against the base of the microphone grille. The stark compositional balance between the vertical audio hardware and the heavy horizontal volumes. Setting: A dark charcoal-colored acoustic foam wall panel. Camera: Direct eye-level shot, 35mm lens, sharp edge-to-edge focus. Lighting: Cool studio rim lighting with sharp highlights on the metal mesh. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with charcoal, olive green, brass as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: thoughtful, balanced, conversational. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A single, finely carved wooden microphone standing tall opposite a stack of heavy, bound leather journals, A single stray autumn leaf resting gently against the base of the microphone grille. The stark compositional balance between the vertical audio hardware and the heavy horizontal volumes. Setting: A dark charcoal-colored acoustic foam wall panel. Camera: Direct eye-level shot, 35mm lens, sharp edge-to-edge focus. Lighting: Cool studio rim lighting with sharp highlights on the metal mesh. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with charcoal, olive green, brass as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: thoughtful, balanced, conversational. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "1:1",
+      "image_size": [
+        1024,
+        1024
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\trd_20261025_003_c3fc_engagement_1x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:28:06.190238+00:00",
+      "ad_path": "data/output/samples/20261029_1352\\trd_20261025_003_c3fc_engagement_1x1_ad.png"
+    }
+  },
+  {
+    "trend": "MiniMax Releases M3.1 Flash Model Weights",
+    "record": {
+      "trend_id": "trd_20261025_004_f476",
+      "rank": 4,
+      "topic_title": "MiniMax Releases M3.1 Flash Model Weights",
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "aspect_ratio": "1.91:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:24:08.580849+00:00",
+      "post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "OPEN WEIGHTS ACCELERATION",
+        "headline": "Find licensable research built for high-efficiency infrastructure.",
+        "subline": "As 428-billion parameter models push sparse attention limits, R2C.Ai helps R&D teams find licensable research fast.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Chat with any research paper"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With MiniMax M3.1 Flash utilizing full-model sparse attention and quantization-aware training to achieve extreme inference efficiency, enterprise R&D teams need to integrate cutting-edge findings immediately. R2C.Ai lets you chat with academic papers, review verified Commercial Readiness Scores, and connect directly with principal investigators. Schedule a demo to accelerate your technology sourcing pipeline today.",
+        "hashtags": [
+          "TechScouting",
+          "EnterpriseAI",
+          "ResearchLicensing",
+          "InferenceEfficiency",
+          "InnovationStrategy"
+        ],
+        "fact_used": "M3.1 Flash enhances inference efficiency using full-model sparse attention, quantization-aware training (QAT), and power-aware scheduling.",
+        "visual": {
+          "concept": "A focused corporate R&D leader examining physical evidence of new technology in a professional setting.",
+          "focal_subject": "An experienced woman in a dark navy blazer holding a matte black ceramic semiconductor wafer casing.",
+          "action": "She tilts the ceramic casing slightly under a desk lamp to inspect the microscopic etched surface lines.",
+          "scroll_stopper": "The intense concentration on the subject's face combined with the tactile texture of the industrial ceramic object.",
+          "setting": "A minimalist walnut wood conference table in a modern corporate office.",
+          "camera": "Medium close-up, 50mm lens, shallow depth of field with a softly blurred background.",
+          "lighting": "Soft warm desk lamp illumination with natural window daylight fill.",
+          "colors": [
+            "deep navy",
+            "walnut brown",
+            "matte black"
+          ],
+          "mood": "professional, analytical, focused"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced woman in a dark navy blazer holding a matte black ceramic semiconductor wafer casing, She tilts the ceramic casing slightly under a desk lamp to inspect the microscopic etched surface lines. The intense concentration on the subject's face combined with the tactile texture of the industrial ceramic object. Setting: A minimalist walnut wood conference table in a modern corporate office. Camera: Medium close-up, 50mm lens, shallow depth of field with a softly blurred background. Lighting: Soft warm desk lamp illumination with natural window daylight fill. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, walnut brown, matte black as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: professional, analytical, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced woman in a dark navy blazer holding a matte black ceramic semiconductor wafer casing, She tilts the ceramic casing slightly under a desk lamp to inspect the microscopic etched surface lines. The intense concentration on the subject's face combined with the tactile texture of the industrial ceramic object. Setting: A minimalist walnut wood conference table in a modern corporate office. Camera: Medium close-up, 50mm lens, shallow depth of field with a softly blurred background. Lighting: Soft warm desk lamp illumination with natural window daylight fill. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, walnut brown, matte black as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: professional, analytical, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced woman in a dark navy blazer holding a matte black ceramic semiconductor wafer casing, She tilts the ceramic casing slightly under a desk lamp to inspect the microscopic etched surface lines. The intense concentration on the subject's face combined with the tactile texture of the industrial ceramic object. Setting: A minimalist walnut wood conference table in a modern corporate office. Camera: Medium close-up, 50mm lens, shallow depth of field with a softly blurred background. Lighting: Soft warm desk lamp illumination with natural window daylight fill. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, walnut brown, matte black as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: professional, analytical, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Find licensable research built for high-efficiency infrastructure.",
+        "cta": "Schedule a Demo"
+      },
+      "logo_corner": "top-left"
+    },
+    "result": {
+      "trend_id": "trd_20261025_004_f476",
+      "rank": 4,
+      "topic_title": "MiniMax Releases M3.1 Flash Model Weights",
+      "social_post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "OPEN WEIGHTS ACCELERATION",
+        "headline": "Find licensable research built for high-efficiency infrastructure.",
+        "subline": "As 428-billion parameter models push sparse attention limits, R2C.Ai helps R&D teams find licensable research fast.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Chat with any research paper"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With MiniMax M3.1 Flash utilizing full-model sparse attention and quantization-aware training to achieve extreme inference efficiency, enterprise R&D teams need to integrate cutting-edge findings immediately. R2C.Ai lets you chat with academic papers, review verified Commercial Readiness Scores, and connect directly with principal investigators. Schedule a demo to accelerate your technology sourcing pipeline today.",
+        "hashtags": [
+          "TechScouting",
+          "EnterpriseAI",
+          "ResearchLicensing",
+          "InferenceEfficiency",
+          "InnovationStrategy"
+        ],
+        "fact_used": "M3.1 Flash enhances inference efficiency using full-model sparse attention, quantization-aware training (QAT), and power-aware scheduling.",
+        "visual": {
+          "concept": "A focused corporate R&D leader examining physical evidence of new technology in a professional setting.",
+          "focal_subject": "An experienced woman in a dark navy blazer holding a matte black ceramic semiconductor wafer casing.",
+          "action": "She tilts the ceramic casing slightly under a desk lamp to inspect the microscopic etched surface lines.",
+          "scroll_stopper": "The intense concentration on the subject's face combined with the tactile texture of the industrial ceramic object.",
+          "setting": "A minimalist walnut wood conference table in a modern corporate office.",
+          "camera": "Medium close-up, 50mm lens, shallow depth of field with a softly blurred background.",
+          "lighting": "Soft warm desk lamp illumination with natural window daylight fill.",
+          "colors": [
+            "deep navy",
+            "walnut brown",
+            "matte black"
+          ],
+          "mood": "professional, analytical, focused"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced woman in a dark navy blazer holding a matte black ceramic semiconductor wafer casing, She tilts the ceramic casing slightly under a desk lamp to inspect the microscopic etched surface lines. The intense concentration on the subject's face combined with the tactile texture of the industrial ceramic object. Setting: A minimalist walnut wood conference table in a modern corporate office. Camera: Medium close-up, 50mm lens, shallow depth of field with a softly blurred background. Lighting: Soft warm desk lamp illumination with natural window daylight fill. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, walnut brown, matte black as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: professional, analytical, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced woman in a dark navy blazer holding a matte black ceramic semiconductor wafer casing, She tilts the ceramic casing slightly under a desk lamp to inspect the microscopic etched surface lines. The intense concentration on the subject's face combined with the tactile texture of the industrial ceramic object. Setting: A minimalist walnut wood conference table in a modern corporate office. Camera: Medium close-up, 50mm lens, shallow depth of field with a softly blurred background. Lighting: Soft warm desk lamp illumination with natural window daylight fill. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, walnut brown, matte black as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: professional, analytical, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "1.91:1",
+      "image_size": [
+        1216,
+        640
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\trd_20261025_004_f476_conversion_1_91x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:24:08.581847+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\trd_20261025_004_f476_conversion_1_91x1_ad.png"
+    }
+  },
+  {
+    "trend": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+    "record": {
+      "trend_id": "trd_20261025_005_bef5",
+      "rank": 5,
+      "topic_title": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "aspect_ratio": "4:5",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:24:48.943886+00:00",
+      "post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "OPENSHELL RUNTIME RELEASED",
+        "headline": "Protect your breakthroughs before industry deploys them.",
+        "subline": "As NVIDIA introduces secure runtimes for agents, R2C.Ai helps you protect and license your research securely.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "IP protection and governance",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "NVIDIA just dropped OpenShell 0.1.x with strict policy enforcement for autonomous agents. If your research deals with agent governance or autonomy, industry buyers are watching. R2C.Ai helps you secure your IP and connect with the right partners. Upload your paper today.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "OpenShell",
+          "NVIDIA",
+          "IPProtection",
+          "TechTransfer"
+        ],
+        "fact_used": "OpenShell is a safe, private runtime for fleets of autonomous AI agents created by NVIDIA",
+        "visual": {
+          "concept": "Visualizing strict boundary enforcement and isolation in a physical space.",
+          "focal_subject": "A massive, heavy industrial blast door made of brushed steel, fitted with thick multi-bolt locking rings.",
+          "action": "A single oversized steel bolt slowly sliding horizontally into a heavy frame, locking the heavy door shut.",
+          "scroll_stopper": "The impossible thickness of the steel door contrasted with delicate, brightly colored glass laboratory glassware sitting untouched right beside it.",
+          "setting": "An ultra-clean subterranean containment vault with raw concrete walls.",
+          "camera": "Low-angle medium shot, 50mm, shallow depth of field focusing sharply on the sliding bolt.",
+          "lighting": "Hard industrial overhead fluorescent strip lighting casting sharp metallic highlights.",
+          "colors": "Brushed steel, raw concrete gray, safety amber",
+          "mood": "Secure, impenetrable, highly controlled"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, heavy industrial blast door made of brushed steel, fitted with thick multi-bolt locking rings, A single oversized steel bolt slowly sliding horizontally into a heavy frame, locking the heavy door shut. The impossible thickness of the steel door contrasted with delicate, brightly colored glass laboratory glassware sitting untouched right beside it. Setting: An ultra-clean subterranean containment vault with raw concrete walls. Camera: Low-angle medium shot, 50mm, shallow depth of field focusing sharply on the sliding bolt. Lighting: Hard industrial overhead fluorescent strip lighting casting sharp metallic highlights. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with Brushed steel, raw concrete gray, safety amber as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Secure, impenetrable, highly controlled. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, heavy industrial blast door made of brushed steel, fitted with thick multi-bolt locking rings, A single oversized steel bolt slowly sliding horizontally into a heavy frame, locking the heavy door shut. The impossible thickness of the steel door contrasted with delicate, brightly colored glass laboratory glassware sitting untouched right beside it. Setting: An ultra-clean subterranean containment vault with raw concrete walls. Camera: Low-angle medium shot, 50mm, shallow depth of field focusing sharply on the sliding bolt. Lighting: Hard industrial overhead fluorescent strip lighting casting sharp metallic highlights. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with Brushed steel, raw concrete gray, safety amber as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Secure, impenetrable, highly controlled. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, heavy industrial blast door made of brushed steel, fitted with thick multi-bolt locking rings, A single oversized steel bolt slowly sliding horizontally into a heavy frame, locking the heavy door shut. The impossible thickness of the steel door contrasted with delicate, brightly colored glass laboratory glassware sitting untouched right beside it. Setting: An ultra-clean subterranean containment vault with raw concrete walls. Camera: Low-angle medium shot, 50mm, shallow depth of field focusing sharply on the sliding bolt. Lighting: Hard industrial overhead fluorescent strip lighting casting sharp metallic highlights. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with Brushed steel, raw concrete gray, safety amber as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Secure, impenetrable, highly controlled. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Protect your breakthroughs before industry deploys them.",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-left"
+    },
+    "result": {
+      "trend_id": "trd_20261025_005_bef5",
+      "rank": 5,
+      "topic_title": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+      "social_post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "OPENSHELL RUNTIME RELEASED",
+        "headline": "Protect your breakthroughs before industry deploys them.",
+        "subline": "As NVIDIA introduces secure runtimes for agents, R2C.Ai helps you protect and license your research securely.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "IP protection and governance",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "NVIDIA just dropped OpenShell 0.1.x with strict policy enforcement for autonomous agents. If your research deals with agent governance or autonomy, industry buyers are watching. R2C.Ai helps you secure your IP and connect with the right partners. Upload your paper today.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "OpenShell",
+          "NVIDIA",
+          "IPProtection",
+          "TechTransfer"
+        ],
+        "fact_used": "OpenShell is a safe, private runtime for fleets of autonomous AI agents created by NVIDIA",
+        "visual": {
+          "concept": "Visualizing strict boundary enforcement and isolation in a physical space.",
+          "focal_subject": "A massive, heavy industrial blast door made of brushed steel, fitted with thick multi-bolt locking rings.",
+          "action": "A single oversized steel bolt slowly sliding horizontally into a heavy frame, locking the heavy door shut.",
+          "scroll_stopper": "The impossible thickness of the steel door contrasted with delicate, brightly colored glass laboratory glassware sitting untouched right beside it.",
+          "setting": "An ultra-clean subterranean containment vault with raw concrete walls.",
+          "camera": "Low-angle medium shot, 50mm, shallow depth of field focusing sharply on the sliding bolt.",
+          "lighting": "Hard industrial overhead fluorescent strip lighting casting sharp metallic highlights.",
+          "colors": "Brushed steel, raw concrete gray, safety amber",
+          "mood": "Secure, impenetrable, highly controlled"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, heavy industrial blast door made of brushed steel, fitted with thick multi-bolt locking rings, A single oversized steel bolt slowly sliding horizontally into a heavy frame, locking the heavy door shut. The impossible thickness of the steel door contrasted with delicate, brightly colored glass laboratory glassware sitting untouched right beside it. Setting: An ultra-clean subterranean containment vault with raw concrete walls. Camera: Low-angle medium shot, 50mm, shallow depth of field focusing sharply on the sliding bolt. Lighting: Hard industrial overhead fluorescent strip lighting casting sharp metallic highlights. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with Brushed steel, raw concrete gray, safety amber as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Secure, impenetrable, highly controlled. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, heavy industrial blast door made of brushed steel, fitted with thick multi-bolt locking rings, A single oversized steel bolt slowly sliding horizontally into a heavy frame, locking the heavy door shut. The impossible thickness of the steel door contrasted with delicate, brightly colored glass laboratory glassware sitting untouched right beside it. Setting: An ultra-clean subterranean containment vault with raw concrete walls. Camera: Low-angle medium shot, 50mm, shallow depth of field focusing sharply on the sliding bolt. Lighting: Hard industrial overhead fluorescent strip lighting casting sharp metallic highlights. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with Brushed steel, raw concrete gray, safety amber as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Secure, impenetrable, highly controlled. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "4:5",
+      "image_size": [
+        896,
+        1120
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\trd_20261025_005_bef5_hook_4x5.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:24:48.943886+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\trd_20261025_005_bef5_hook_4x5_ad.png"
+    }
+  },
+  {
+    "trend": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+    "record": {
+      "trend_id": "trd_20261025_006_6bc9",
+      "rank": 6,
+      "topic_title": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "aspect_ratio": "9:16",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:25:26.239429+00:00",
+      "post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "10,000 CARDS TRAINED",
+        "headline": "Scale your research impact.",
+        "subline": "R2C.Ai connects academic papers with industry partners looking for scalable innovation.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "It took a cluster of 10,000 Feixing No. 2 cards to train Spark X2.6. Industry has the compute—they need your breakthroughs. Upload your paper to R2C.Ai.",
+        "hashtags": [
+          "ComputeScale",
+          "AcademicImpact",
+          "ResearchTranslation",
+          "DeepTech"
+        ],
+        "fact_used": "Training utilized a cluster of 10,000 Feixing No. 2 cards.",
+        "visual": {
+          "concept": "Capturing the explosive momentum of massive computational training translated into physical energy.",
+          "focal_subject": "A dense, orderly grid of thousands of slender vertical brass rods standing upright on a flat steel plate.",
+          "action": "A single ripple wave traveling rapidly across the tips of the rods as one pushes against the next.",
+          "scroll_stopper": "The hypnotic, wave-like motion sweeping across thousands of identical metallic elements.",
+          "setting": "A dark industrial workshop floor with a polished metallic surface.",
+          "camera": "High-angle vertical close-up, 85mm lens, sharp focus on the moving wave.",
+          "lighting": "Single sharp overhead spotlight creating glints on the metallic rod tips.",
+          "colors": [
+            "polished brass",
+            "gunmetal grey",
+            "deep obsidian"
+          ],
+          "mood": "kinetic, precise, powerful"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A dense, orderly grid of thousands of slender vertical brass rods standing upright on a flat steel plate, A single ripple wave traveling rapidly across the tips of the rods as one pushes against the next. The hypnotic, wave-like motion sweeping across thousands of identical metallic elements. Setting: A dark industrial workshop floor with a polished metallic surface. Camera: High-angle vertical close-up, 85mm lens, sharp focus on the moving wave. Lighting: Single sharp overhead spotlight creating glints on the metallic rod tips. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with polished brass, gunmetal grey, deep obsidian as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: kinetic, precise, powerful. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A dense, orderly grid of thousands of slender vertical brass rods standing upright on a flat steel plate, A single ripple wave traveling rapidly across the tips of the rods as one pushes against the next. The hypnotic, wave-like motion sweeping across thousands of identical metallic elements. Setting: A dark industrial workshop floor with a polished metallic surface. Camera: High-angle vertical close-up, 85mm lens, sharp focus on the moving wave. Lighting: Single sharp overhead spotlight creating glints on the metallic rod tips. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with polished brass, gunmetal grey, deep obsidian as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: kinetic, precise, powerful. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A dense, orderly grid of thousands of slender vertical brass rods standing upright on a flat steel plate, A single ripple wave traveling rapidly across the tips of the rods as one pushes against the next. The hypnotic, wave-like motion sweeping across thousands of identical metallic elements. Setting: A dark industrial workshop floor with a polished metallic surface. Camera: High-angle vertical close-up, 85mm lens, sharp focus on the moving wave. Lighting: Single sharp overhead spotlight creating glints on the metallic rod tips. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with polished brass, gunmetal grey, deep obsidian as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: kinetic, precise, powerful. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Scale your research impact.",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-center"
+    },
+    "result": {
+      "trend_id": "trd_20261025_006_6bc9",
+      "rank": 6,
+      "topic_title": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+      "social_post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "10,000 CARDS TRAINED",
+        "headline": "Scale your research impact.",
+        "subline": "R2C.Ai connects academic papers with industry partners looking for scalable innovation.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "It took a cluster of 10,000 Feixing No. 2 cards to train Spark X2.6. Industry has the compute—they need your breakthroughs. Upload your paper to R2C.Ai.",
+        "hashtags": [
+          "ComputeScale",
+          "AcademicImpact",
+          "ResearchTranslation",
+          "DeepTech"
+        ],
+        "fact_used": "Training utilized a cluster of 10,000 Feixing No. 2 cards.",
+        "visual": {
+          "concept": "Capturing the explosive momentum of massive computational training translated into physical energy.",
+          "focal_subject": "A dense, orderly grid of thousands of slender vertical brass rods standing upright on a flat steel plate.",
+          "action": "A single ripple wave traveling rapidly across the tips of the rods as one pushes against the next.",
+          "scroll_stopper": "The hypnotic, wave-like motion sweeping across thousands of identical metallic elements.",
+          "setting": "A dark industrial workshop floor with a polished metallic surface.",
+          "camera": "High-angle vertical close-up, 85mm lens, sharp focus on the moving wave.",
+          "lighting": "Single sharp overhead spotlight creating glints on the metallic rod tips.",
+          "colors": [
+            "polished brass",
+            "gunmetal grey",
+            "deep obsidian"
+          ],
+          "mood": "kinetic, precise, powerful"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A dense, orderly grid of thousands of slender vertical brass rods standing upright on a flat steel plate, A single ripple wave traveling rapidly across the tips of the rods as one pushes against the next. The hypnotic, wave-like motion sweeping across thousands of identical metallic elements. Setting: A dark industrial workshop floor with a polished metallic surface. Camera: High-angle vertical close-up, 85mm lens, sharp focus on the moving wave. Lighting: Single sharp overhead spotlight creating glints on the metallic rod tips. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with polished brass, gunmetal grey, deep obsidian as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: kinetic, precise, powerful. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Vertical cinematic action still, dramatic motion, frozen debris or motion blur, strong backlight and atmosphere, film-grade colour. A dense, orderly grid of thousands of slender vertical brass rods standing upright on a flat steel plate, A single ripple wave traveling rapidly across the tips of the rods as one pushes against the next. The hypnotic, wave-like motion sweeping across thousands of identical metallic elements. Setting: A dark industrial workshop floor with a polished metallic surface. Camera: High-angle vertical close-up, 85mm lens, sharp focus on the moving wave. Lighting: Single sharp overhead spotlight creating glints on the metallic rod tips. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with polished brass, gunmetal grey, deep obsidian as vivid accent colours. Subject centred in the middle band of the tall frame, whole and compact, with calm dark space above and below it. Mood: kinetic, precise, powerful. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "9:16",
+      "image_size": [
+        768,
+        1344
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\trd_20261025_006_6bc9_story_9x16.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:25:26.240387+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\trd_20261025_006_6bc9_story_9x16_ad.png"
+    }
+  },
+  {
+    "trend": "Hijacking AI Coding Agents Via The Downloads Folder",
+    "record": {
+      "trend_id": "trd_20261025_007_b695",
+      "rank": 7,
+      "topic_title": "Hijacking AI Coding Agents Via The Downloads Folder",
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "aspect_ratio": "1:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:03.714632+00:00",
+      "post": {
+        "ad_type": "engagement",
+        "audience": "industry",
+        "eyebrow": "LOCAL FILE THREAT",
+        "headline": "Can autonomous tools be trusted?",
+        "subline": "R2C.Ai helps R&D leaders discover verified, licensable research without relying on vulnerable local coding assistants.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Browse Research Studies",
+        "caption": "Security company Forever traced an unauthorized installation request back to a text file located in a user's Downloads folder. When local files can be weaponized against automated workflows, how does your R&D team safely source external innovations? Tell us in the comments how you vet incoming research, or browse pre-vetted academic studies on R2C.Ai.",
+        "hashtags": [
+          "rnd",
+          "technology",
+          "licensing",
+          "industry"
+        ],
+        "fact_used": "The company blocked the installation and successfully traced the request back to a text file located in the user's Downloads folder.",
+        "visual": {
+          "concept": "A clear visual face-off between a rigid, physical file cabinet and a chaotic cloud of loose fluttering papers.",
+          "focal_subject": "Two distinct miniature construction crew figures standing on opposite sides of a massive metal file drawer handle, pointing at each other.",
+          "action": "One figure holds a tiny warning flag while the other attempts to secure a stack of loose papers with a thick rubber band.",
+          "scroll_stopper": "Two expressive tiny characters in an intense standoff on a giant metallic object.",
+          "setting": "A solid, neutral-colored matte studio backdrop.",
+          "camera": "Close-up eye-level profile shot, 85mm, shallow depth of field with blurred background.",
+          "lighting": "Soft lateral studio light with warm highlight tones.",
+          "colors": [
+            "burnt sienna",
+            "sage green",
+            "charcoal"
+          ],
+          "mood": "curious, debating, analytical"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. Two distinct miniature construction crew figures standing on opposite sides of a massive metal file drawer handle, pointing at each other, One figure holds a tiny warning flag while the other attempts to secure a stack of loose papers with a thick rubber band. Two expressive tiny characters in an intense standoff on a giant metallic object. Setting: A solid, neutral-colored matte studio backdrop. Camera: Close-up eye-level profile shot, 85mm, shallow depth of field with blurred background. Lighting: Soft lateral studio light with warm highlight tones. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with burnt sienna, sage green, charcoal as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: curious, debating, analytical. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. Two distinct miniature construction crew figures standing on opposite sides of a massive metal file drawer handle, pointing at each other, One figure holds a tiny warning flag while the other attempts to secure a stack of loose papers with a thick rubber band. Two expressive tiny characters in an intense standoff on a giant metallic object. Setting: A solid, neutral-colored matte studio backdrop. Camera: Close-up eye-level profile shot, 85mm, shallow depth of field with blurred background. Lighting: Soft lateral studio light with warm highlight tones. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with burnt sienna, sage green, charcoal as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: curious, debating, analytical. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. Two distinct miniature construction crew figures standing on opposite sides of a massive metal file drawer handle, pointing at each other, One figure holds a tiny warning flag while the other attempts to secure a stack of loose papers with a thick rubber band. Two expressive tiny characters in an intense standoff on a giant metallic object. Setting: A solid, neutral-colored matte studio backdrop. Camera: Close-up eye-level profile shot, 85mm, shallow depth of field with blurred background. Lighting: Soft lateral studio light with warm highlight tones. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with burnt sienna, sage green, charcoal as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: curious, debating, analytical. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Can autonomous tools be trusted?",
+        "cta": "Browse Research Studies"
+      },
+      "logo_corner": "bottom-right"
+    },
+    "result": {
+      "trend_id": "trd_20261025_007_b695",
+      "rank": 7,
+      "topic_title": "Hijacking AI Coding Agents Via The Downloads Folder",
+      "social_post": {
+        "ad_type": "engagement",
+        "audience": "industry",
+        "eyebrow": "LOCAL FILE THREAT",
+        "headline": "Can autonomous tools be trusted?",
+        "subline": "R2C.Ai helps R&D leaders discover verified, licensable research without relying on vulnerable local coding assistants.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Browse Research Studies",
+        "caption": "Security company Forever traced an unauthorized installation request back to a text file located in a user's Downloads folder. When local files can be weaponized against automated workflows, how does your R&D team safely source external innovations? Tell us in the comments how you vet incoming research, or browse pre-vetted academic studies on R2C.Ai.",
+        "hashtags": [
+          "rnd",
+          "technology",
+          "licensing",
+          "industry"
+        ],
+        "fact_used": "The company blocked the installation and successfully traced the request back to a text file located in the user's Downloads folder.",
+        "visual": {
+          "concept": "A clear visual face-off between a rigid, physical file cabinet and a chaotic cloud of loose fluttering papers.",
+          "focal_subject": "Two distinct miniature construction crew figures standing on opposite sides of a massive metal file drawer handle, pointing at each other.",
+          "action": "One figure holds a tiny warning flag while the other attempts to secure a stack of loose papers with a thick rubber band.",
+          "scroll_stopper": "Two expressive tiny characters in an intense standoff on a giant metallic object.",
+          "setting": "A solid, neutral-colored matte studio backdrop.",
+          "camera": "Close-up eye-level profile shot, 85mm, shallow depth of field with blurred background.",
+          "lighting": "Soft lateral studio light with warm highlight tones.",
+          "colors": [
+            "burnt sienna",
+            "sage green",
+            "charcoal"
+          ],
+          "mood": "curious, debating, analytical"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. Two distinct miniature construction crew figures standing on opposite sides of a massive metal file drawer handle, pointing at each other, One figure holds a tiny warning flag while the other attempts to secure a stack of loose papers with a thick rubber band. Two expressive tiny characters in an intense standoff on a giant metallic object. Setting: A solid, neutral-colored matte studio backdrop. Camera: Close-up eye-level profile shot, 85mm, shallow depth of field with blurred background. Lighting: Soft lateral studio light with warm highlight tones. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with burnt sienna, sage green, charcoal as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: curious, debating, analytical. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. Two distinct miniature construction crew figures standing on opposite sides of a massive metal file drawer handle, pointing at each other, One figure holds a tiny warning flag while the other attempts to secure a stack of loose papers with a thick rubber band. Two expressive tiny characters in an intense standoff on a giant metallic object. Setting: A solid, neutral-colored matte studio backdrop. Camera: Close-up eye-level profile shot, 85mm, shallow depth of field with blurred background. Lighting: Soft lateral studio light with warm highlight tones. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with burnt sienna, sage green, charcoal as vivid accent colours. Subject centred and compact in the middle of the frame, with calm dark space at the left and right edges. Mood: curious, debating, analytical. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "1:1",
+      "image_size": [
+        1024,
+        1024
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\trd_20261025_007_b695_engagement_1x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:03.715628+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\trd_20261025_007_b695_engagement_1x1_ad.png"
+    }
+  },
+  {
+    "trend": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+    "record": {
+      "trend_id": "near_cls_001",
+      "rank": 8,
+      "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "aspect_ratio": "1.91:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:23.781914+00:00",
+      "post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "BANK AGENT INCIDENT",
+        "headline": "Find licensable AI research you can trust.",
+        "subline": "As US banks block unauthorized AI agents, R2C.Ai helps you source fully vetted academic innovations.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With US banks blocking third-party AI agents from customer accounts, enterprise R&D teams can no longer afford ambiguity in external software sourcing. R2C.Ai provides verified commercial readiness scores, direct access to principal investigators, and licensable research you can actually trust. Schedule a demo today.",
+        "hashtags": [
+          "TechScouting",
+          "Licensing",
+          "RDIgnition",
+          "Innovation"
+        ],
+        "fact_used": "US banks are blocking third-party AI agents access to customer accounts",
+        "visual": {
+          "concept": "An industry leader reviewing verified physical blueprints alongside a lead academic scientist in a natural, collaborative environment.",
+          "focal_subject": "An experienced corporate engineering director in a dark navy wool blazer pointing a smooth brass pen at a large rolled blueprint.",
+          "action": "The director and a research partner are leaning forward over a wooden workshop table, examining detailed architectural schematics together.",
+          "scroll_stopper": "The striking visual contrast of warm polished brass and deep navy wool against raw blonde timber.",
+          "setting": "A sunlit university technology transfer evaluation room.",
+          "camera": "Medium shot, 50mm lens, natural eye-level framing with soft background blur.",
+          "lighting": "Warm afternoon window light streaming horizontally across the wooden tabletop.",
+          "colors": [
+            "deep navy",
+            "warm brass",
+            "natural blonde wood"
+          ],
+          "mood": "Collaborative, trustworthy, professional, focused"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced corporate engineering director in a dark navy wool blazer pointing a smooth brass pen at a large rolled blueprint, The director and a research partner are leaning forward over a wooden workshop table, examining detailed architectural schematics together. The striking visual contrast of warm polished brass and deep navy wool against raw blonde timber. Setting: A sunlit university technology transfer evaluation room. Camera: Medium shot, 50mm lens, natural eye-level framing with soft background blur. Lighting: Warm afternoon window light streaming horizontally across the wooden tabletop. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, warm brass, natural blonde wood as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: Collaborative, trustworthy, professional, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced corporate engineering director in a dark navy wool blazer pointing a smooth brass pen at a large rolled blueprint, The director and a research partner are leaning forward over a wooden workshop table, examining detailed architectural schematics together. The striking visual contrast of warm polished brass and deep navy wool against raw blonde timber. Setting: A sunlit university technology transfer evaluation room. Camera: Medium shot, 50mm lens, natural eye-level framing with soft background blur. Lighting: Warm afternoon window light streaming horizontally across the wooden tabletop. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, warm brass, natural blonde wood as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: Collaborative, trustworthy, professional, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced corporate engineering director in a dark navy wool blazer pointing a smooth brass pen at a large rolled blueprint, The director and a research partner are leaning forward over a wooden workshop table, examining detailed architectural schematics together. The striking visual contrast of warm polished brass and deep navy wool against raw blonde timber. Setting: A sunlit university technology transfer evaluation room. Camera: Medium shot, 50mm lens, natural eye-level framing with soft background blur. Lighting: Warm afternoon window light streaming horizontally across the wooden tabletop. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, warm brass, natural blonde wood as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: Collaborative, trustworthy, professional, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Find licensable AI research you can trust.",
+        "cta": "Schedule a Demo"
+      },
+      "logo_corner": "top-left"
+    },
+    "result": {
+      "trend_id": "near_cls_001",
+      "rank": 8,
+      "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+      "social_post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "BANK AGENT INCIDENT",
+        "headline": "Find licensable AI research you can trust.",
+        "subline": "As US banks block unauthorized AI agents, R2C.Ai helps you source fully vetted academic innovations.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With US banks blocking third-party AI agents from customer accounts, enterprise R&D teams can no longer afford ambiguity in external software sourcing. R2C.Ai provides verified commercial readiness scores, direct access to principal investigators, and licensable research you can actually trust. Schedule a demo today.",
+        "hashtags": [
+          "TechScouting",
+          "Licensing",
+          "RDIgnition",
+          "Innovation"
+        ],
+        "fact_used": "US banks are blocking third-party AI agents access to customer accounts",
+        "visual": {
+          "concept": "An industry leader reviewing verified physical blueprints alongside a lead academic scientist in a natural, collaborative environment.",
+          "focal_subject": "An experienced corporate engineering director in a dark navy wool blazer pointing a smooth brass pen at a large rolled blueprint.",
+          "action": "The director and a research partner are leaning forward over a wooden workshop table, examining detailed architectural schematics together.",
+          "scroll_stopper": "The striking visual contrast of warm polished brass and deep navy wool against raw blonde timber.",
+          "setting": "A sunlit university technology transfer evaluation room.",
+          "camera": "Medium shot, 50mm lens, natural eye-level framing with soft background blur.",
+          "lighting": "Warm afternoon window light streaming horizontally across the wooden tabletop.",
+          "colors": [
+            "deep navy",
+            "warm brass",
+            "natural blonde wood"
+          ],
+          "mood": "Collaborative, trustworthy, professional, focused"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced corporate engineering director in a dark navy wool blazer pointing a smooth brass pen at a large rolled blueprint, The director and a research partner are leaning forward over a wooden workshop table, examining detailed architectural schematics together. The striking visual contrast of warm polished brass and deep navy wool against raw blonde timber. Setting: A sunlit university technology transfer evaluation room. Camera: Medium shot, 50mm lens, natural eye-level framing with soft background blur. Lighting: Warm afternoon window light streaming horizontally across the wooden tabletop. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, warm brass, natural blonde wood as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: Collaborative, trustworthy, professional, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An experienced corporate engineering director in a dark navy wool blazer pointing a smooth brass pen at a large rolled blueprint, The director and a research partner are leaning forward over a wooden workshop table, examining detailed architectural schematics together. The striking visual contrast of warm polished brass and deep navy wool against raw blonde timber. Setting: A sunlit university technology transfer evaluation room. Camera: Medium shot, 50mm lens, natural eye-level framing with soft background blur. Lighting: Warm afternoon window light streaming horizontally across the wooden tabletop. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, warm brass, natural blonde wood as vivid accent colours. Subject centred and compact in the middle of the wide frame, with calm dark space at the left and right edges. Mood: Collaborative, trustworthy, professional, focused. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "1.91:1",
+      "image_size": [
+        1216,
+        640
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\near_cls_001_conversion_1_91x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:23.782908+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\near_cls_001_conversion_1_91x1_ad.png"
+    }
+  },
+  {
+    "trend": "Designing an AI serving harness built to last",
+    "record": {
+      "trend_id": "near_cls_013",
+      "rank": 9,
+      "topic_title": "Designing an AI serving harness built to last",
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "aspect_ratio": "4:5",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:53.410009+00:00",
+      "post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "SERVING HARNESS SHIFT",
+        "headline": "Is your raw model missing its serving harness?",
+        "subline": "While benchmarks focus on models, R2C.Ai helps researchers bridge their work directly to industry deployment.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Commercial Readiness Score",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop scrolling. The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale. If you are a researcher building powerful tech, R2C.Ai ensures it reaches the partners who need it. Upload Your Research.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "MachineLearning",
+          "TechTransfer",
+          "Research"
+        ],
+        "fact_used": "The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
+        "visual": {
+          "concept": "Highlighting the contrast between raw model capability and the surrounding infrastructure needed for real-world delivery.",
+          "focal_subject": "A massive, intricate woven cable harness made of thick copper and fiber-optic strands wrapped around a delicate, glowing glass prism.",
+          "action": "The heavy harness cables slowly tighten and constrict around the fragile central glass, glowing softly under stress.",
+          "scroll_stopper": "An impossible physical contrast of a heavy industrial cable nest delicately balancing a fragile, translucent scientific prism.",
+          "setting": "A stark, minimalist concrete testing laboratory at dawn.",
+          "camera": "Macro close-up, 50mm lens, extremely shallow depth of field focusing on the cable texture.",
+          "lighting": "Cool blue morning light filtering through high concrete windows with warm amber rim light on the cables.",
+          "colors": [
+            "slate gray",
+            "burnt copper",
+            "ice blue"
+          ],
+          "mood": "Tense, precise, dramatic"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, intricate woven cable harness made of thick copper and fiber-optic strands wrapped around a delicate, glowing glass prism, The heavy harness cables slowly tighten and constrict around the fragile central glass, glowing softly under stress. An impossible physical contrast of a heavy industrial cable nest delicately balancing a fragile, translucent scientific prism. Setting: A stark, minimalist concrete testing laboratory at dawn. Camera: Macro close-up, 50mm lens, extremely shallow depth of field focusing on the cable texture. Lighting: Cool blue morning light filtering through high concrete windows with warm amber rim light on the cables. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with slate gray, burnt copper, ice blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Tense, precise, dramatic. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, intricate woven cable harness made of thick copper and fiber-optic strands wrapped around a delicate, glowing glass prism, The heavy harness cables slowly tighten and constrict around the fragile central glass, glowing softly under stress. An impossible physical contrast of a heavy industrial cable nest delicately balancing a fragile, translucent scientific prism. Setting: A stark, minimalist concrete testing laboratory at dawn. Camera: Macro close-up, 50mm lens, extremely shallow depth of field focusing on the cable texture. Lighting: Cool blue morning light filtering through high concrete windows with warm amber rim light on the cables. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with slate gray, burnt copper, ice blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Tense, precise, dramatic. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, intricate woven cable harness made of thick copper and fiber-optic strands wrapped around a delicate, glowing glass prism, The heavy harness cables slowly tighten and constrict around the fragile central glass, glowing softly under stress. An impossible physical contrast of a heavy industrial cable nest delicately balancing a fragile, translucent scientific prism. Setting: A stark, minimalist concrete testing laboratory at dawn. Camera: Macro close-up, 50mm lens, extremely shallow depth of field focusing on the cable texture. Lighting: Cool blue morning light filtering through high concrete windows with warm amber rim light on the cables. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with slate gray, burnt copper, ice blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Tense, precise, dramatic. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Is your raw model missing its serving harness?",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-left"
+    },
+    "result": {
+      "trend_id": "near_cls_013",
+      "rank": 9,
+      "topic_title": "Designing an AI serving harness built to last",
+      "social_post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "SERVING HARNESS SHIFT",
+        "headline": "Is your raw model missing its serving harness?",
+        "subline": "While benchmarks focus on models, R2C.Ai helps researchers bridge their work directly to industry deployment.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Commercial Readiness Score",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop scrolling. The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale. If you are a researcher building powerful tech, R2C.Ai ensures it reaches the partners who need it. Upload Your Research.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "MachineLearning",
+          "TechTransfer",
+          "Research"
+        ],
+        "fact_used": "The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
+        "visual": {
+          "concept": "Highlighting the contrast between raw model capability and the surrounding infrastructure needed for real-world delivery.",
+          "focal_subject": "A massive, intricate woven cable harness made of thick copper and fiber-optic strands wrapped around a delicate, glowing glass prism.",
+          "action": "The heavy harness cables slowly tighten and constrict around the fragile central glass, glowing softly under stress.",
+          "scroll_stopper": "An impossible physical contrast of a heavy industrial cable nest delicately balancing a fragile, translucent scientific prism.",
+          "setting": "A stark, minimalist concrete testing laboratory at dawn.",
+          "camera": "Macro close-up, 50mm lens, extremely shallow depth of field focusing on the cable texture.",
+          "lighting": "Cool blue morning light filtering through high concrete windows with warm amber rim light on the cables.",
+          "colors": [
+            "slate gray",
+            "burnt copper",
+            "ice blue"
+          ],
+          "mood": "Tense, precise, dramatic"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, intricate woven cable harness made of thick copper and fiber-optic strands wrapped around a delicate, glowing glass prism, The heavy harness cables slowly tighten and constrict around the fragile central glass, glowing softly under stress. An impossible physical contrast of a heavy industrial cable nest delicately balancing a fragile, translucent scientific prism. Setting: A stark, minimalist concrete testing laboratory at dawn. Camera: Macro close-up, 50mm lens, extremely shallow depth of field focusing on the cable texture. Lighting: Cool blue morning light filtering through high concrete windows with warm amber rim light on the cables. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with slate gray, burnt copper, ice blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Tense, precise, dramatic. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A massive, intricate woven cable harness made of thick copper and fiber-optic strands wrapped around a delicate, glowing glass prism, The heavy harness cables slowly tighten and constrict around the fragile central glass, glowing softly under stress. An impossible physical contrast of a heavy industrial cable nest delicately balancing a fragile, translucent scientific prism. Setting: A stark, minimalist concrete testing laboratory at dawn. Camera: Macro close-up, 50mm lens, extremely shallow depth of field focusing on the cable texture. Lighting: Cool blue morning light filtering through high concrete windows with warm amber rim light on the cables. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with slate gray, burnt copper, ice blue as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Tense, precise, dramatic. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/black-forest-labs/flux-2-klein-4b",
+      "aspect_ratio": "4:5",
+      "image_size": [
+        896,
+        1120
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\20261029_1352\\pictures\\near_cls_013_hook_4x5.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:53.410968+00:00",
+      "ad_path": "data\\output\\samples\\20261029_1352\\near_cls_013_hook_4x5_ad.png"
+    }
+  }
+]

@@ -1,0 +1,1079 @@
+{
+  "generated_at": "2026-10-25T18:03:18",
+  "crawl_file": "data/input/crawls/crawl_20261025T114116Z.json",
+  "threshold": 50.0,
+  "near_miss_margin": 5.0,
+  "min_r2c_relevance": 40.0,
+  "qualified": [
+    {
+      "trend_id": "trd_20261025_001_3cfe",
+      "rank": 1,
+      "topic_title": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+      "topic_summary": "The open-source GVS5H project demonstrates that five Qwen3.8-27B models using a ledger-based zero-shot self-orchestration harness can match Claude Fable 5 performance on LiveCodeBench Hard. This training-free method achieves frontier-level coding performance on a single GPU at a fraction of the cost by using a shared filesystem for coordination.",
+      "composite_trend_score": 84.71,
+      "minimum_threshold_applied": 50.0,
+      "scoring_breakdown": {
+        "credibility_score": 55.12,
+        "growth_rate_score": 94.5,
+        "recency_score": 89.92,
+        "cross_platform_score": 90.0,
+        "research_relevance_score": 90.0,
+        "r2c_relevance_score": 98.0
+      },
+      "scoring_weights": {
+        "w_credibility": 0.2,
+        "w_growth_rate": 0.2,
+        "w_recency": 0.15,
+        "w_cross_platform": 0.2,
+        "w_research": 0.15,
+        "w_r2c": 0.1
+      },
+      "weighted_contributions": {
+        "credibility_score": 11.02,
+        "growth_rate_score": 18.9,
+        "recency_score": 13.49,
+        "cross_platform_score": 18.0,
+        "research_relevance_score": 13.5,
+        "r2c_relevance_score": 9.8
+      },
+      "cross_platform_validation": {
+        "platform_count": 3,
+        "platforms": [
+          "Bluesky",
+          "Hacker News",
+          "Webpage"
+        ],
+        "meets_minimum_rule": true,
+        "minimum_required": 2
+      },
+      "growth_evidence": {
+        "recent_mentions": 5,
+        "older_mentions": 0,
+        "recent_weighted": 3.8,
+        "older_weighted": 0.0,
+        "window_hours": 72.0,
+        "velocity_component": 100.0,
+        "volume_bonus": 4.5
+      },
+      "topic_keywords": [
+        "five",
+        "qwen3.8-27b",
+        "models",
+        "fable",
+        "gvs5h",
+        "match",
+        "using",
+        "harness"
+      ],
+      "topic_entities": [
+        "Fable 5",
+        "GVS5H",
+        "Qwen3.8-27B",
+        "GVS5H GitHub"
+      ],
+      "topic_key_facts": [
+        "Five Qwen3.8-27B models match Claude Fable 5 on LiveCodeBench Hard using the GVS5H harness [Webpage]",
+        "The repository slee-persis/GVS5H gained 881 stars over 59 days between August 28 and October 25, 2026 [Webpage]",
+        "The harness uses ledger-based zero-shot self-orchestration where model instances coordinate through a shared filesystem [Hacker News]",
+        "Opus 5 ran on an earlier version of the scaffold in a single pass via OpenRouter rather than five on a pinned backend [Hacker News]",
+        "The approach achieves Fable 5 level coding for a fifth of the price or on a single GPU [Hacker News]"
+      ],
+      "supporting_signal_count": 5,
+      "supporting_signal_ids": [
+        "sig_bsky_dadd706aae",
+        "sig_bsky_a3c36db468",
+        "sig_bsky_46f6965e70",
+        "sig_hn_e51eea9cd1",
+        "sig_web_9fc856aa4a"
+      ],
+      "source_attribution": [
+        {
+          "signal_id": "sig_bsky_dadd706aae",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/hn100.atproto.rocks/post/3myoklommqt2o",
+          "author_id": "hn100.atproto.rocks",
+          "timestamp": "2026-10-25T06:15:19.837258+00:00",
+          "credibility_score": 52.41,
+          "source_insight": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness https://github.com/slee-persis/GVS5H https://news.ycombinator.com/item?id=5022816",
+          "excerpt": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness https://github.com/slee-persis/GVS5H https://news.ycombinator.com/item?id=50228167"
+        },
+        {
+          "signal_id": "sig_bsky_a3c36db468",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/hn100.bsky.social/post/3myoe5lek6r2q",
+          "author_id": "hn100.bsky.social",
+          "timestamp": "2026-10-25T04:20:04.275826+00:00",
+          "credibility_score": 49.25,
+          "source_insight": "Five Qwen3.8-27B models outperform Fable 5 Using GVS5H Harness Discussion",
+          "excerpt": "Five Qwen3.8-27B models outperform Fable 5 Using GVS5H Harness Discussion"
+        },
+        {
+          "signal_id": "sig_bsky_46f6965e70",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/ycombinatorbot.bsky.social/post/3myojrbi6sz2e",
+          "author_id": "ycombinatorbot.bsky.social",
+          "timestamp": "2026-10-25T06:00:32.824000+00:00",
+          "credibility_score": 49.25,
+          "source_insight": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness view on hacker news",
+          "excerpt": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness view on hacker news"
+        },
+        {
+          "signal_id": "sig_hn_e51eea9cd1",
+          "platform": "Hacker News",
+          "source_url": "https://github.com/slee-persis/GVS5H",
+          "author_id": "rzk",
+          "timestamp": "2026-10-25T03:56:01+00:00",
+          "credibility_score": 77.19,
+          "source_insight": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness",
+          "excerpt": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness GVS5H: Five Qwen3.8-27B Models Match Claude Fable 5 on LiveCodeBench Hard | Fable 5 Level Coding for a Fifth the Price - or on a Single GPU - slee-persis/GVS5H Opus 5 ran on an earlier version of the scaffold, in a single pass served through OpenRouter rather than five on a pinned backend. Abstract. Frontier coding performance is typically bought with larger proprietary models at high cost. We introduce ledger-based zero-shot self-orchestration, a training-free method in which fresh instances of one model decompose problems and coordina"
+        },
+        {
+          "signal_id": "sig_web_9fc856aa4a",
+          "platform": "Webpage",
+          "source_url": "https://trendshift.io/repositories/225068?utm_source=trendshift-badge&utm_medium=badge&utm_campaign=badge-trendshift-225068",
+          "author_id": "trendshift.io",
+          "timestamp": "2026-10-25T00:00:00+00:00",
+          "credibility_score": 47.5,
+          "source_insight": "slee-persis/GVS5H — GitHub trending stats & insights",
+          "excerpt": "slee-persis/GVS5H — GitHub trending stats & insights GVS5H: Five Qwen3.8-27B Models Match Claude Fable 5 on… — Star growth, trending history, Reddit & Hacker News discussions, and similar repos on Trendshift Aug 28 – Oct 25, 2026 Stars +881 in 59 days 0 100 200 162 Forks +93 in 59 days 0 10 20 30 29 Merged PRs 7 in 59 days 0 1 2 3 3 Trendshift Trending where the repository ranked each day it made the top 25 Top 25 in Python 21 Aug 28 Sep 5 Sep 13 Sep 21 Sep 29 Oct 7 Oct 15 Oct 23 The left and right arrow keys step from day to day; Home and End go to the first and the last Stars, forks, merged "
+        }
+      ],
+      "cluster_id": "cls_003",
+      "status": "QUALIFIED_FOR_WEEK_2_GENERATION",
+      "generated_at": "2026-10-25T12:31:57.835245+00:00"
+    },
+    {
+      "trend_id": "trd_20261025_002_bce6",
+      "rank": 2,
+      "topic_title": "Moonshot AI Releases Kimi K3.1 Pro Model",
+      "topic_summary": "Chinese startup Moonshot AI has launched Kimi K3.1 Pro, a massive open-weight Mixture of Experts model featuring a 1-million-token context window. Notably, the company deliberately limited the model's hacking capabilities ahead of its release, highlighting the industry-wide challenge of balancing advanced AI power with cybersecurity safeguards.",
+      "composite_trend_score": 69.4,
+      "minimum_threshold_applied": 50.0,
+      "scoring_breakdown": {
+        "credibility_score": 52.35,
+        "growth_rate_score": 47.75,
+        "recency_score": 70.89,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 95.0,
+        "r2c_relevance_score": 85.0
+      },
+      "scoring_weights": {
+        "w_credibility": 0.2,
+        "w_growth_rate": 0.2,
+        "w_recency": 0.15,
+        "w_cross_platform": 0.2,
+        "w_research": 0.15,
+        "w_r2c": 0.1
+      },
+      "weighted_contributions": {
+        "credibility_score": 10.47,
+        "growth_rate_score": 9.55,
+        "recency_score": 10.63,
+        "cross_platform_score": 16.0,
+        "research_relevance_score": 14.25,
+        "r2c_relevance_score": 8.5
+      },
+      "cross_platform_validation": {
+        "platform_count": 2,
+        "platforms": [
+          "Bluesky",
+          "News"
+        ],
+        "meets_minimum_rule": true,
+        "minimum_required": 2
+      },
+      "growth_evidence": {
+        "recent_mentions": 3,
+        "older_mentions": 2,
+        "recent_weighted": 2.2,
+        "older_weighted": 2.4,
+        "window_hours": 72.0,
+        "velocity_component": 45.83,
+        "volume_bonus": 6.5
+      },
+      "topic_keywords": [
+        "moonshot",
+        "kimi",
+        "k3.1",
+        "pro",
+        "model",
+        "release",
+        "hacking",
+        "open"
+      ],
+      "topic_entities": [
+        "Kimi K3.1 Pro",
+        "2.8T Total 104B Active",
+        "Moonshot Cuts Kimi K3.1",
+        "Moonshot AI",
+        "1M Context",
+        "China Export Rules China"
+      ],
+      "topic_key_facts": [
+        "Moonshot AI introduced Kimi K3.1 Pro on October 24. [News]",
+        "The model features 2.8T total or 3-trillion-parameters with 104B active parameters (MoE) and a 1-million-token context window. [News, Bluesky]",
+        "Moonshot AI plans to release the full model weights by November or November 4. [News, Bluesky]",
+        "The model scores 65.7% on Terminal-Bench 4.0 and scores close to Claude Opus 5.5 on Moonshot's internal tests. [News, Bluesky]",
+        "Moonshot AI deliberately curbed or limited the hacking capabilities of the new model. [News, Bluesky]"
+      ],
+      "supporting_signal_count": 5,
+      "supporting_signal_ids": [
+        "sig_bsky_4540f907f8",
+        "sig_bsky_eb205dbc46",
+        "sig_nws_3c95d1006a",
+        "sig_nws_f75677a6c5",
+        "sig_nws_85e9f402e0"
+      ],
+      "source_attribution": [
+        {
+          "signal_id": "sig_bsky_4540f907f8",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/asiadaily.org/post/3mylxucuo4r22",
+          "author_id": "asiadaily.org",
+          "timestamp": "2026-10-24T05:34:49+00:00",
+          "credibility_score": 54.26,
+          "source_insight": "Moonshot Cuts Kimi K3.1 Pro's Hacking Skills Ahead of Open Release and China Export Rules #China #Technology",
+          "excerpt": "Moonshot Cuts Kimi K3.1 Pro's Hacking Skills Ahead of Open Release and China Export Rules #China #Technology"
+        },
+        {
+          "signal_id": "sig_bsky_eb205dbc46",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/lacartita.com/post/3myogpttakv2y",
+          "author_id": "lacartita.com",
+          "timestamp": "2026-10-25T05:06:04.420639+00:00",
+          "credibility_score": 49.25,
+          "source_insight": "China's Moonshot AI released Kimi K3.1 Pro, a ~3-trillion-parameter model it plans to release as open weights by Nov. 4. It scores close to",
+          "excerpt": "China's Moonshot AI released Kimi K3.1 Pro, a ~3-trillion-parameter model it plans to release as open weights by Nov. 4. It scores close to Claude Opus 5.5 on Moonshot's own tests, and the company says it deliberately curbed its hacking skills."
+        },
+        {
+          "signal_id": "sig_nws_3c95d1006a",
+          "platform": "News",
+          "source_url": "https://www.digitaltrends.com/computing/moonshot-tells-kimi-ai-to-code-away-but-leave-the-hacking-alone/",
+          "author_id": "Moinak Pal",
+          "timestamp": "2026-10-24T17:09:00+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "Moonshot tells Kimi AI to code away, but leave the hacking alone",
+          "excerpt": "Moonshot tells Kimi AI to code away, but leave the hacking alone Chinese AI startup Moonshot AI is deliberately limiting the hacking capabilities of its latest artificial intelligence model, highlighting a growing dilemma for the industry: how do companies make AI more powerful without making cyberattacks easier to carry out? The company introduced Kimi K3.1 Pro on October 24, describing it as a highly capable, open-weight model […] Chinese AI startup Moonshot AI is deliberately limiting the hacking capabilities of its latest artificial intelligence model, highlighting a growing dilemma for th"
+        },
+        {
+          "signal_id": "sig_nws_f75677a6c5",
+          "platform": "News",
+          "source_url": "https://www.msn.com/en-in/news/other/chinas-moonshot-ai-launches-kimi-k31-pro-plans-full-model-weights-release-by-november/ar-AA2fXB7Q",
+          "author_id": "The Economic Times on MSN",
+          "timestamp": "2026-10-23T22:20:13+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "China's moonshot AI launches Kimi K3.1 Pro; plans full model weights release by November",
+          "excerpt": "China's moonshot AI launches Kimi K3.1 Pro; plans full model weights release by November Chinese artificial intelligence (AI) company Moonshot AI has unveiled Kimi K3.1 Pro, a 3-trillion-parameter open-weight AI model featuring a 1-million-token context window, alongside a high-speed ..."
+        },
+        {
+          "signal_id": "sig_nws_85e9f402e0",
+          "platform": "News",
+          "source_url": "https://www.marktechpost.com/2026/10/23/moonshot-ai-kimi-k3-1-pro-open-weight-model/",
+          "author_id": "MarkTechPost",
+          "timestamp": "2026-10-23T15:52:00+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "Moonshot AI Releases Kimi K3.1 Pro: A 2.8T Total/104B Active Params (MoE) Model with 1M Context",
+          "excerpt": "Moonshot AI Releases Kimi K3.1 Pro: A 2.8T Total/104B Active Params (MoE) Model with 1M Context Moonshot AI’s Kimi K3.1 Pro is a 2.8T-parameter open-weight model with 1M context, scoring 65.7% on Terminal-Bench 4.0."
+        }
+      ],
+      "cluster_id": "cls_004",
+      "status": "QUALIFIED_FOR_WEEK_2_GENERATION",
+      "generated_at": "2026-10-25T12:31:57.836268+00:00"
+    },
+    {
+      "trend_id": "trd_20261025_003_c3fc",
+      "rank": 3,
+      "topic_title": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+      "topic_summary": "Block announced a new AI voice model named Dessa, which was trained entirely from scratch on human conversation. The model demonstrates remarkably human-like, albeit sometimes awkward and uncanny, conversational abilities and can run locally on hardware like a MacBook M4 Max.",
+      "composite_trend_score": 64.25,
+      "minimum_threshold_applied": 50.0,
+      "scoring_breakdown": {
+        "credibility_score": 53.57,
+        "growth_rate_score": 93.5,
+        "recency_score": 67.26,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 15.0,
+        "r2c_relevance_score": 65.0
+      },
+      "scoring_weights": {
+        "w_credibility": 0.2,
+        "w_growth_rate": 0.2,
+        "w_recency": 0.15,
+        "w_cross_platform": 0.2,
+        "w_research": 0.15,
+        "w_r2c": 0.1
+      },
+      "weighted_contributions": {
+        "credibility_score": 10.71,
+        "growth_rate_score": 18.7,
+        "recency_score": 10.09,
+        "cross_platform_score": 16.0,
+        "research_relevance_score": 2.25,
+        "r2c_relevance_score": 6.5
+      },
+      "cross_platform_validation": {
+        "platform_count": 2,
+        "platforms": [
+          "News",
+          "Webpage"
+        ],
+        "meets_minimum_rule": true,
+        "minimum_required": 2
+      },
+      "growth_evidence": {
+        "recent_mentions": 2,
+        "older_mentions": 1,
+        "recent_weighted": 2.4,
+        "older_weighted": 1.0,
+        "window_hours": 72.0,
+        "velocity_component": 100.0,
+        "volume_bonus": 3.5
+      },
+      "topic_keywords": [
+        "block",
+        "model",
+        "human",
+        "voice",
+        "dessa",
+        "sounds",
+        "eerily",
+        "run"
+      ],
+      "topic_entities": [
+        "Block",
+        "Jack Dorsey",
+        "Dessa"
+      ],
+      "topic_key_facts": [
+        "[Webpage] Jack Dorsey’s Block announced an AI model called Dessa trained \"from scratch on nothing but human conversation.\"",
+        "[Webpage] Dessa is led by Ragavan Thurairatnam.",
+        "[News] Block's latest AI model Dessa was trained entirely on human speech.",
+        "[News] The voice model can run locally on a MacBook M4 Max."
+      ],
+      "supporting_signal_count": 3,
+      "supporting_signal_ids": [
+        "sig_nws_98ad82140a",
+        "sig_nws_dcecbcf420",
+        "sig_web_eddc3dc8a5"
+      ],
+      "source_attribution": [
+        {
+          "signal_id": "sig_nws_98ad82140a",
+          "platform": "News",
+          "source_url": "https://www.msn.com/en-us/news/other/block-s-new-voice-model-sounds-eerily-human/ar-AA2fZGaQ",
+          "author_id": "TechCrunch on MSN",
+          "timestamp": "2026-10-24T09:00:00+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "Block’s new voice model sounds eerily human",
+          "excerpt": "Block’s new voice model sounds eerily human Block said that the voice model can run locally on a MacBook M4 Max ..."
+        },
+        {
+          "signal_id": "sig_nws_dcecbcf420",
+          "platform": "News",
+          "source_url": "https://www.msn.com/en-us/technology/artificial-intelligence/block-s-latest-ai-model-dessa-was-trained-entirely-on-human-speech-and-it-shows/ar-AA2g0xM7",
+          "author_id": "Mashable on MSN",
+          "timestamp": "2026-10-24T10:55:45+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "Block's latest AI model Dessa was trained entirely on human speech — and it shows",
+          "excerpt": "Block's latest AI model Dessa was trained entirely on human speech — and it shows Jack Dorsey and Block, Inc. just took us one step closer to the singularity and it's simultaneously awesome and terrifying."
+        },
+        {
+          "signal_id": "sig_web_eddc3dc8a5",
+          "platform": "Webpage",
+          "source_url": "https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech",
+          "author_id": "Jay Peters",
+          "timestamp": "2026-10-23T19:32:39+00:00",
+          "credibility_score": 55.2,
+          "source_insight": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend",
+          "excerpt": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend Hello, Dessa? You have got to listen to these conversations with Block’s new Dessa AI model. You have got to listen to these conversations with Block’s new Dessa AI model. Jack Dorsey’s Block announced an AI model called Dessa that’s trained “from scratch on nothing but human conversation,” and to show off the model, Block shared chats it has had with humans that can occasionally be a little awkward and uncanny. Take this one , for example, shared by Dessa lead Ragavan Thurairatnam. The conversation between the m"
+        }
+      ],
+      "cluster_id": "cls_012",
+      "status": "QUALIFIED_FOR_WEEK_2_GENERATION",
+      "generated_at": "2026-10-25T12:31:57.837298+00:00"
+    },
+    {
+      "trend_id": "trd_20261025_004_f476",
+      "rank": 4,
+      "topic_title": "MiniMax Releases M3.1 Flash Model Weights",
+      "topic_summary": "MiniMax has open-sourced its M3.1 Flash model, a 428-billion parameter architecture that processed over 100 trillion tokens within 72 hours of its release. The model achieves inference efficiency gains through full-model sparse attention, quantization-aware training, and power-aware scheduling, while highlighting intense competition in pricing.",
+      "composite_trend_score": 61.03,
+      "minimum_threshold_applied": 50.0,
+      "scoring_breakdown": {
+        "credibility_score": 53.5,
+        "growth_rate_score": 18.75,
+        "recency_score": 62.17,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 85.0,
+        "r2c_relevance_score": 85.0
+      },
+      "scoring_weights": {
+        "w_credibility": 0.2,
+        "w_growth_rate": 0.2,
+        "w_recency": 0.15,
+        "w_cross_platform": 0.2,
+        "w_research": 0.15,
+        "w_r2c": 0.1
+      },
+      "weighted_contributions": {
+        "credibility_score": 10.7,
+        "growth_rate_score": 3.75,
+        "recency_score": 9.33,
+        "cross_platform_score": 16.0,
+        "research_relevance_score": 12.75,
+        "r2c_relevance_score": 8.5
+      },
+      "cross_platform_validation": {
+        "platform_count": 2,
+        "platforms": [
+          "Bluesky",
+          "News"
+        ],
+        "meets_minimum_rule": true,
+        "minimum_required": 2
+      },
+      "growth_evidence": {
+        "recent_mentions": 1,
+        "older_mentions": 1,
+        "recent_weighted": 0.5,
+        "older_weighted": 1.2,
+        "window_hours": 72.0,
+        "velocity_component": 20.83,
+        "volume_bonus": 0.0
+      },
+      "topic_keywords": [
+        "minimax",
+        "m3.1",
+        "flash",
+        "shows",
+        "china's",
+        "price",
+        "race",
+        "floor"
+      ],
+      "topic_entities": [
+        "MiniMax M3.1 Flash",
+        "minimax-m3-1-flash-shows-chinas-ai-price-race-h"
+      ],
+      "topic_key_facts": [
+        "[News] MiniMax announced the open-sourcing of the MiniMax M3.1 Flash model weights on October 23.",
+        "[News] The model features a total of 428 billion parameters and 23 billion activated parameters.",
+        "[News] Within 72 hours of its release, the model processed over 100 trillion tokens from real users.",
+        "[News] M3.1 Flash enhances inference efficiency using full-model sparse attention, quantization-aware training (QAT), and power-aware scheduling.",
+        "[Bluesky] The model's release demonstrates that China's AI price race has no floor in sight."
+      ],
+      "supporting_signal_count": 2,
+      "supporting_signal_ids": [
+        "sig_bsky_b0b4a78b35",
+        "sig_nws_46fa103102"
+      ],
+      "source_attribution": [
+        {
+          "signal_id": "sig_bsky_b0b4a78b35",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/sambowne.infosec.exchange.ap.brid.gy/post/3myn2qbh4fhi2",
+          "author_id": "sambowne.infosec.exchange.ap.brid.gy",
+          "timestamp": "2026-10-24T15:41:59+00:00",
+          "credibility_score": 54.26,
+          "source_insight": "MiniMax M3.1 Flash shows China's AI price race has no floor in sight https://the-decoder.com/minimax-m3-1-flash-shows-chinas-ai-price-race-h",
+          "excerpt": "MiniMax M3.1 Flash shows China's AI price race has no floor in sight https://the-decoder.com/minimax-m3-1-flash-shows-chinas-ai-price-race-has-no-floor-in-sight/"
+        },
+        {
+          "signal_id": "sig_nws_46fa103102",
+          "platform": "News",
+          "source_url": "https://www.kucoin.com/news/flash/minimax-m3-1-flash-model-processes-over-100-trillion-tokens-in-72-hours",
+          "author_id": "kucoin",
+          "timestamp": "2026-10-23T02:31:00+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "The MiniMax M3.1 Flash Model processes over 100 trillion tokens in 72 hours.",
+          "excerpt": "The MiniMax M3.1 Flash Model processes over 100 trillion tokens in 72 hours. ChainCatcher report: On October 23, MiniMax announced the open-sourcing of the MiniMax M3.1 Flash model weights, with a total of 428 billion parameters and 23 billion activated parameters. Compared to the previous-generation M3 model, M3.1 Flash delivers comprehensive improvements in model capabilities. According to official data, within 72 hours of its release, the model processed over 100 trillion tokens from real users. Technically, M3.1 Flash enhances inference efficiency through optimizations such as full-model s"
+        }
+      ],
+      "cluster_id": "cls_022",
+      "status": "QUALIFIED_FOR_WEEK_2_GENERATION",
+      "generated_at": "2026-10-25T12:31:57.837874+00:00"
+    },
+    {
+      "trend_id": "trd_20261025_005_bef5",
+      "rank": 5,
+      "topic_title": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+      "topic_summary": "NVIDIA has released OpenShell 0.1.x, a safe and private runtime designed to govern fleets of autonomous AI agents through policy enforcement. Additionally, NVIDIA unveiled an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips to isolate and monitor agents without granting them unrestricted access to networks, data, or secrets.",
+      "composite_trend_score": 59.77,
+      "minimum_threshold_applied": 50.0,
+      "scoring_breakdown": {
+        "credibility_score": 74.64,
+        "growth_rate_score": 0.0,
+        "recency_score": 43.96,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 85.0,
+        "r2c_relevance_score": 95.0
+      },
+      "scoring_weights": {
+        "w_credibility": 0.2,
+        "w_growth_rate": 0.2,
+        "w_recency": 0.15,
+        "w_cross_platform": 0.2,
+        "w_research": 0.15,
+        "w_r2c": 0.1
+      },
+      "weighted_contributions": {
+        "credibility_score": 14.93,
+        "growth_rate_score": 0.0,
+        "recency_score": 6.59,
+        "cross_platform_score": 16.0,
+        "research_relevance_score": 12.75,
+        "r2c_relevance_score": 9.5
+      },
+      "cross_platform_validation": {
+        "platform_count": 2,
+        "platforms": [
+          "Bluesky",
+          "Hacker News"
+        ],
+        "meets_minimum_rule": true,
+        "minimum_required": 2
+      },
+      "growth_evidence": {
+        "recent_mentions": 0,
+        "older_mentions": 2,
+        "recent_weighted": 0.0,
+        "older_weighted": 1.8,
+        "window_hours": 72.0,
+        "velocity_component": 0.0,
+        "volume_bonus": 0.0
+      },
+      "topic_keywords": [
+        "openshell",
+        "security",
+        "nvidia",
+        "unveils",
+        "ai-agent",
+        "blueprint",
+        "combining",
+        "vera"
+      ],
+      "topic_entities": [
+        "BlueField-4",
+        "Vera CPUs OpenShell",
+        "AI-agent",
+        "NVIDIA"
+      ],
+      "topic_key_facts": [
+        "OpenShell is a safe, private runtime for fleets of autonomous AI agents created by NVIDIA [Hacker News]",
+        "New in OpenShell 0.1.x are a stable release cadence, new isolation primitives, an expanded extension surface, and new APIs [Hacker News]",
+        "OpenShell enforces policies that declare what each agent can touch regarding data, secrets, or network access [Hacker News]",
+        "NVIDIA unveiled an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips [Bluesky]"
+      ],
+      "supporting_signal_count": 2,
+      "supporting_signal_ids": [
+        "sig_bsky_69cd88d94e",
+        "sig_hn_eef9ca2c5d"
+      ],
+      "source_attribution": [
+        {
+          "signal_id": "sig_bsky_69cd88d94e",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/pushalt88.bsky.social/post/3myiq46kqus22",
+          "author_id": "pushalt88.bsky.social",
+          "timestamp": "2026-10-22T22:38:03.784000+00:00",
+          "credibility_score": 55.57,
+          "source_insight": "🛡️ NVIDIA unveils an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips to isolate and monitor autonomous age",
+          "excerpt": "🛡️ NVIDIA unveils an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips to isolate and monitor autonomous agents. AI security is leveling up!"
+        },
+        {
+          "signal_id": "sig_hn_eef9ca2c5d",
+          "platform": "Hacker News",
+          "source_url": "https://github.com/NVIDIA/OpenShell",
+          "author_id": "niemandhier",
+          "timestamp": "2026-10-22T17:44:06+00:00",
+          "credibility_score": 93.7,
+          "source_insight": "OpenShell – A safe, private runtime for fleets of autonomous AI agents",
+          "excerpt": "OpenShell – A safe, private runtime for fleets of autonomous AI agents OpenShell is the safe, private runtime for autonomous AI agents. - NVIDIA/OpenShell New in OpenShell 0.1.x: a stable release cadence, new isolation primitives, an expanded extension surface, and new APIs. Read the 0.1.0 upgrade guide . OpenShell is the safe, private runtime for fleets of autonomous AI agents. Agents are most useful when they can read files, install packages, call APIs, and use credentials. OpenShell gives them that capability without giving them unrestricted access to your data, secrets, or network. You dec"
+        }
+      ],
+      "cluster_id": "cls_025",
+      "status": "QUALIFIED_FOR_WEEK_2_GENERATION",
+      "generated_at": "2026-10-25T12:31:57.838293+00:00"
+    },
+    {
+      "trend_id": "trd_20261025_006_6bc9",
+      "rank": 6,
+      "topic_title": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+      "topic_summary": "iFLYTEK announced the Spark X2.6 model at its 1024 Developer Festival, highlighting training on fully domestic computing power and support for a one-million token context window. Additionally, the company open-sourced the 4B on-device model under the Apache 2.0 license, featuring local deployment via GGUF and three thinking modes.",
+      "composite_trend_score": 57.51,
+      "minimum_threshold_applied": 50.0,
+      "scoring_breakdown": {
+        "credibility_score": 53.9,
+        "growth_rate_score": 9.5,
+        "recency_score": 47.23,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 95.0,
+        "r2c_relevance_score": 75.0
+      },
+      "scoring_weights": {
+        "w_credibility": 0.2,
+        "w_growth_rate": 0.2,
+        "w_recency": 0.15,
+        "w_cross_platform": 0.2,
+        "w_research": 0.15,
+        "w_r2c": 0.1
+      },
+      "weighted_contributions": {
+        "credibility_score": 10.78,
+        "growth_rate_score": 1.9,
+        "recency_score": 7.08,
+        "cross_platform_score": 16.0,
+        "research_relevance_score": 14.25,
+        "r2c_relevance_score": 7.5
+      },
+      "cross_platform_validation": {
+        "platform_count": 2,
+        "platforms": [
+          "Bluesky",
+          "News"
+        ],
+        "meets_minimum_rule": true,
+        "minimum_required": 2
+      },
+      "growth_evidence": {
+        "recent_mentions": 0,
+        "older_mentions": 6,
+        "recent_weighted": 0.0,
+        "older_weighted": 5.8,
+        "window_hours": 72.0,
+        "velocity_component": 0.0,
+        "volume_bonus": 9.5
+      },
+      "topic_keywords": [
+        "x2.6",
+        "iflytek",
+        "spark-x2.6-4b",
+        "spark",
+        "293b-a30b",
+        "happy",
+        "another",
+        "device"
+      ],
+      "topic_entities": [
+        "Spark X2.6",
+        "293B-A30B",
+        "SMM Flash",
+        "SZ AI X2.6",
+        "20倍 70",
+        "4B Apache"
+      ],
+      "topic_key_facts": [
+        "iFLYTEK launched Spark X2.6 on October 22 at the 1024 Developer Festival. [News]",
+        "Spark X2.6 is a MoE 293B-A30B model supporting a one-million token context window. [News]",
+        "The on-device model Spark-X2.6-4B was open-sourced simultaneously under the Apache 2.0 license with local deployment via GGUF and 3 thinking modes. [News, Bluesky]",
+        "Training utilized a cluster of 10,000 Feixing No. 2 cards. [News]",
+        "The SparkAudio 1.0 voice foundation model was also officially released. [News]"
+      ],
+      "supporting_signal_count": 6,
+      "supporting_signal_ids": [
+        "sig_bsky_5c1e706973",
+        "sig_bsky_83d7e8bbf0",
+        "sig_nws_f5f251f1d0",
+        "sig_nws_7fcbe905d8",
+        "sig_nws_a96368f3b1",
+        "sig_nws_8b0c9c31de"
+      ],
+      "source_attribution": [
+        {
+          "signal_id": "sig_bsky_5c1e706973",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/adinayakup.bsky.social/post/3myhrqdtrxk23",
+          "author_id": "adinayakup.bsky.social",
+          "timestamp": "2026-10-22T13:34:34.414000+00:00",
+          "credibility_score": 63.13,
+          "source_insight": "Happy to see another on device model 🔥 Spark-X2.6-4B from SparkLLM huggingface.co/collections/... - 4B + Apache 2.0 - Up to 1M contex",
+          "excerpt": "Happy to see another on device model 🔥 Spark-X2.6-4B from SparkLLM huggingface.co/collections/... - 4B + Apache 2.0 - Up to 1M context - 3 thinking modes - Local deployment via GGUF"
+        },
+        {
+          "signal_id": "sig_bsky_83d7e8bbf0",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/mm-hacker-news.bsky.social/post/3myklbygudw2v",
+          "author_id": "mm-hacker-news.bsky.social",
+          "timestamp": "2026-10-23T16:17:09.241000+00:00",
+          "credibility_score": 49.25,
+          "source_insight": "XHToken/Spark-X2.6-4B https://huggingface.co/XHToken/Spark-X2.6-4B",
+          "excerpt": "XHToken/Spark-X2.6-4B https://huggingface.co/XHToken/Spark-X2.6-4B"
+        },
+        {
+          "signal_id": "sig_nws_f5f251f1d0",
+          "platform": "News",
+          "source_url": "https://www.msn.com/zh-cn/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E8%AE%AF%E9%A3%9E%E5%8F%91%E5%B8%83%E6%96%B0%E4%B8%80%E4%BB%A3%E7%AB%AF%E5%88%B0%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B-%E8%AF%AD%E9%9F%B3%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8%E9%87%8F%E6%9A%B4%E6%B6%A820%E5%80%8D-%E7%AB%AF%E4%BE%A7%E5%B7%B2%E5%AE%9E%E7%8E%B0%E7%BA%A670-%E4%BA%91%E7%AB%AF%E8%83%BD%E5%8A%9B/ar-AA2fT5Zn",
+          "author_id": "InfoQ中国 on MSN",
+          "timestamp": "2026-10-22T20:39:27+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "讯飞发布新一代端到端交互模型：语音大模型调用量暴涨20倍，端侧已实现约70%云端能力",
+          "excerpt": "讯飞发布新一代端到端交互模型：语音大模型调用量暴涨20倍，端侧已实现约70%云端能力 大模型正在从聊天框进入真实世界，而语音可能成为其中最重要的入口之一。 10月22日，科大讯飞集中披露了新一代人机交互技术进展。其中，正式发布的星火语音基座大模型 SparkAudio 1.0，将语音识别、同传和交互进一步扩展至复杂音频理解、情绪识别、实时说话人分离和环境声理解；与此同时，新一代端云一体通用大模型讯飞星火X2.6*及端侧模型 ..."
+        },
+        {
+          "signal_id": "sig_nws_7fcbe905d8",
+          "platform": "News",
+          "source_url": "https://news.metal.com/fr/newscontent/104174340-smm-flash-iflytek-spark-x26-est-sorti-293b-a30b-un-million-de-jetons",
+          "author_id": "Shanghai Metals Market",
+          "timestamp": "2026-10-23T03:13:00+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "[SMM Flash] iFlytek Spark X2.6 est sorti : 293B-A30B, un million de jetons",
+          "excerpt": "[SMM Flash] iFlytek Spark X2.6 est sorti : 293B-A30B, un million de jetons iFLYTEK a lancé Spark X2.6 lors du Festival des développeurs 1024 le 22 octobre, affirmant qu'il a été entraîné avec une puissance de calcul entièrement nationale. Le modèle est un MoE 293B-A30B... iFLYTEK a lancé Spark X2.6 lors du Festival des développeurs 1024 le 22 octobre, affirmant qu'il a été entraîné avec une puissance de calcul entièrement nationale. Le modèle est un MoE 293B-A30B prenant en charge un contexte d'un million de tokens, et le modèle embarqué X2.6-4B a été open-sourcé simultanément. Efficacité d'en"
+        },
+        {
+          "signal_id": "sig_nws_a96368f3b1",
+          "platform": "News",
+          "source_url": "https://news.metal.com/vn/newscontent/104174340-smm-flash-iflytek-spark-x26-ra-mắt-293b-a30b-triệu-token",
+          "author_id": "Shanghai Metals Market",
+          "timestamp": "2026-10-23T03:13:00+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "[SMM Flash] iFlytek Spark X2.6 ra mắt: 293B-A30B, triệu token",
+          "excerpt": "[SMM Flash] iFlytek Spark X2.6 ra mắt: 293B-A30B, triệu token iFLYTEK đã ra mắt Spark X2.6 tại Lễ hội Nhà phát triển 1024 vào ngày 22-10, tuyên bố mô hình được huấn luyện hoàn toàn trên sức mạnh tính toán nội địa. Mô hình là MoE 293B-A30B hỗ trợ ngữ cảnh một... iFLYTEK đã ra mắt Spark X2.6 tại Lễ hội Nhà phát triển 1024 vào ngày 22-10, tuyên bố mô hình được huấn luyện hoàn toàn trên sức mạnh tính toán nội địa. Mô hình là MoE 293B-A30B hỗ trợ ngữ cảnh một triệu token, và mô hình trên thiết bị X2.6-4B đã được mở mã nguồn đồng thời. Hiệu quả huấn luyện: cụm 10.000 card Feixing số 2 mất 4,5 tháng "
+        },
+        {
+          "signal_id": "sig_nws_8b0c9c31de",
+          "platform": "News",
+          "source_url": "https://www.msn.com/ko-kr/%EA%B8%B0%EC%88%A0/%EA%B8%B0%EC%88%A0-%ED%9A%8C%EC%82%AC/%EC%95%84%EC%9D%B4%ED%94%8C%EB%9D%BC%EC%9D%B4%ED%85%8D-002230-sz-ai-%EB%AA%A8%EB%8D%B8-%EC%8A%A4%ED%8C%8C%ED%81%AC-x2-6-%EA%B3%B5%EA%B0%9C-%EC%98%A8%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%97%B0%EA%B3%84-%EA%B0%95%ED%99%94/ar-AA2fTl8f",
+          "author_id": "알파경제 on MSN",
+          "timestamp": "2026-10-22T23:24:36+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "아이플라이텍(002230 SZ), AI 모델 '스파크 X2.6' 공개…온디바이스·클라우드 연계 강화",
+          "excerpt": "아이플라이텍(002230 SZ), AI 모델 '스파크 X2.6' 공개…온디바이스·클라우드 연계 강화 [알파경제 = (상하이) 이금수 특파원] 중국 인공지능(AI)업체 아이플라이텍(iFLYTEK)이 중국산 연산자원으로 훈련한 대규모언어모델(LLM) ‘스파크 X2.6(Spark-X2.6)’을 공개했다. 온디바이스 모델과 클라우드 모델을 연계해 작업 수행 능력과 데이터 보안 기능을 강화했다.23일 상하이증권보·중국증권망에 따르면 아이플라이텍은 전날 베이징에서 ..."
+        }
+      ],
+      "cluster_id": "cls_002",
+      "status": "QUALIFIED_FOR_WEEK_2_GENERATION",
+      "generated_at": "2026-10-25T12:31:57.839307+00:00"
+    },
+    {
+      "trend_id": "trd_20261025_007_b695",
+      "rank": 7,
+      "topic_title": "Hijacking AI Coding Agents Via The Downloads Folder",
+      "topic_summary": "Security company Forever reported that hackers can use files in a user's Downloads folder to trick AI assistants into installing malware. The company caught an AI coding assistant following these malicious instructions on a customer's computer before blocking the installation. This vulnerability matters to AI practitioners because it shows how local files can be weaponized to compromise autonomous AI agents.",
+      "composite_trend_score": 57.38,
+      "minimum_threshold_applied": 50.0,
+      "scoring_breakdown": {
+        "credibility_score": 54.16,
+        "growth_rate_score": 18.75,
+        "recency_score": 56.97,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 65.0,
+        "r2c_relevance_score": 85.0
+      },
+      "scoring_weights": {
+        "w_credibility": 0.2,
+        "w_growth_rate": 0.2,
+        "w_recency": 0.15,
+        "w_cross_platform": 0.2,
+        "w_research": 0.15,
+        "w_r2c": 0.1
+      },
+      "weighted_contributions": {
+        "credibility_score": 10.83,
+        "growth_rate_score": 3.75,
+        "recency_score": 8.55,
+        "cross_platform_score": 16.0,
+        "research_relevance_score": 9.75,
+        "r2c_relevance_score": 8.5
+      },
+      "cross_platform_validation": {
+        "platform_count": 2,
+        "platforms": [
+          "Bluesky",
+          "News"
+        ],
+        "meets_minimum_rule": true,
+        "minimum_required": 2
+      },
+      "growth_evidence": {
+        "recent_mentions": 1,
+        "older_mentions": 1,
+        "recent_weighted": 0.5,
+        "older_weighted": 1.2,
+        "window_hours": 72.0,
+        "velocity_component": 20.83,
+        "volume_bonus": 0.0
+      },
+      "topic_keywords": [
+        "coding",
+        "downloads",
+        "folder",
+        "agents",
+        "hijacking",
+        "stdnote.com",
+        "blog",
+        "carlost..."
+      ],
+      "topic_entities": [
+        "Hijacking AI Coding",
+        "Downloads Folder",
+        "Hackers"
+      ],
+      "topic_key_facts": [
+        "[News] Security company Forever reported that hackers can turn users' Downloads folders and AI agents against them by hiding malicious instructions in local files.",
+        "[News] In an Oct. 22 blog post, Forever reported catching an AI coding assistant following instructions to install malware on a customer's computer.",
+        "[News] The company blocked the installation and successfully traced the request back to a text file located in the user's Downloads folder.",
+        "[Bluesky] The incident was shared via a link to a blog post titled \"Hijacking AI Coding Agents via the Downloads Folder\" on stdnote.com."
+      ],
+      "supporting_signal_count": 2,
+      "supporting_signal_ids": [
+        "sig_bsky_9bdfaf8f7f",
+        "sig_nws_1b8a75378d"
+      ],
+      "source_attribution": [
+        {
+          "signal_id": "sig_bsky_9bdfaf8f7f",
+          "platform": "Bluesky",
+          "source_url": "https://bsky.app/profile/carlostkd.ch/post/3mymeelzjyk2n",
+          "author_id": "carlostkd.ch",
+          "timestamp": "2026-10-24T09:18:40.387000+00:00",
+          "credibility_score": 55.57,
+          "source_insight": "Hijacking AI Coding Agents via the Downloads Folder stdnote.com/blog/carlost... #privacy #cybersecurity #AI #AGENTS #LLM",
+          "excerpt": "Hijacking AI Coding Agents via the Downloads Folder stdnote.com/blog/carlost... #privacy #cybersecurity #AI #AGENTS #LLM"
+        },
+        {
+          "signal_id": "sig_nws_1b8a75378d",
+          "platform": "News",
+          "source_url": "https://mashable.com/tech/hackers-ai-coding-agents-downloads-malware",
+          "author_id": "Olivia Tauber",
+          "timestamp": "2026-10-22T19:00:00+00:00",
+          "credibility_score": 52.75,
+          "source_insight": "Hackers find a way to turn users' own AI agents and Downloads folders against them",
+          "excerpt": "Hackers find a way to turn users' own AI agents and Downloads folders against them Beware: Your Downloads folder could hold instructions for your AI assistant that you definitely didn’t write. Your Downloads folder probably contains a few PDFs, forgotten screenshots, and several files named some variation of \"final.\" But according to a recent report by security company Forever, it could also contain instructions telling your AI assistant to install malware . In an Oct. 22 blog post , the company reported that they caught an AI coding assistant following those instructions on a customer's compu"
+        }
+      ],
+      "cluster_id": "cls_026",
+      "status": "QUALIFIED_FOR_WEEK_2_GENERATION",
+      "generated_at": "2026-10-25T12:31:57.840247+00:00"
+    }
+  ],
+  "near_misses": [
+    {
+      "cluster_id": "cls_001",
+      "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+      "topic_summary": "Major U.S. banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions that appear independent of user instructions. This event matters to AI/ML practitioners because it highlights critical security, consent, and guardrail challenges regarding autonomous agent access to sensitive financial systems.",
+      "topic_entities": [
+        "Accessing US Bank Accounts",
+        "U.S",
+        "Americans",
+        "Axios",
+        "Let"
+      ],
+      "topic_key_facts": [
+        "Major US banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions independent of user instructions [Bluesky]",
+        "The report was published by Axios on Thursday [Bluesky]",
+        "The event occurred in October 2026 [Bluesky]",
+        "Some users gave their AI agents access to their computers on purpose [Bluesky]",
+        "US banks are blocking third-party AI agents access to customer accounts [Hacker News]"
+      ],
+      "composite_trend_score": 49.16,
+      "minimum_threshold_applied": 50.0,
+      "minimum_r2c_relevance_applied": 40.0,
+      "scoring_breakdown": {
+        "credibility_score": 67.2,
+        "growth_rate_score": 13.41,
+        "recency_score": 50.59,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 15.0,
+        "r2c_relevance_score": 72.0
+      },
+      "platforms": [
+        "Bluesky",
+        "Hacker News"
+      ],
+      "supporting_signal_count": 8,
+      "supporting_signal_ids": [
+        "sig_bsky_fb74e57b08",
+        "sig_bsky_67842363e4",
+        "sig_bsky_e464053b68",
+        "sig_bsky_d206b31ad5",
+        "sig_bsky_71d464d3a3",
+        "sig_bsky_962698d65f",
+        "sig_hn_39fb0a1706",
+        "sig_hn_63980434f8"
+      ],
+      "source_urls": [
+        "https://bsky.app/profile/jtp.bsky.social/post/3myjyxpjqak27",
+        "https://bsky.app/profile/markwarner.bsky.social/post/3mykfwg643c2y",
+        "https://bsky.app/profile/unusualwhales.bsky.social/post/3myi6tgq4zs2w",
+        "https://bsky.app/profile/chariselee.bsky.social/post/3mymtxmec6223",
+        "https://bsky.app/profile/brunojnavarro.bsky.social/post/3myjx6gmzjk2s",
+        "https://bsky.app/profile/livesquawknews.bsky.social/post/3myhszpybv22a",
+        "https://www.reuters.com/legal/government/us-banks-detect-unauthorized-ai-agents-customer-accounts-axios-reports-2026-10-22/",
+        "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+      ],
+      "status": "DROPPED_BELOW_THRESHOLD",
+      "drop_reason": "composite 49.16 < 50.0",
+      "near_miss": true
+    },
+    {
+      "cluster_id": "cls_013",
+      "topic_title": "Designing an AI serving harness built to last",
+      "topic_summary": "Enterprise AI focus is shifting from raw model capabilities and benchmark scores toward the surrounding infrastructure and serving harnesses. This shift determines whether AI intelligence can be delivered reliably, economically, and at scale as systems move from experimentation to production.",
+      "topic_entities": [
+        "Designing"
+      ],
+      "topic_key_facts": [
+        "[News] The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
+        "[News] For the past several years, much of the AI conversation has centered on model capability such as bigger models, better reasoning, larger context windows, and higher benchmark scores.",
+        "[Webpage] The next competitive advantage in enterprise AI has less to do with which model you choose than with what you build around it.",
+        "[News] AI benchmark scores don't tell the whole story, and the infrastructure around an AI model can dramatically change its results."
+      ],
+      "composite_trend_score": 46.51,
+      "minimum_threshold_applied": 50.0,
+      "minimum_r2c_relevance_applied": 40.0,
+      "scoring_breakdown": {
+        "credibility_score": 51.0,
+        "growth_rate_score": 3.5,
+        "recency_score": 42.41,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 25.0,
+        "r2c_relevance_score": 95.0
+      },
+      "platforms": [
+        "News",
+        "Webpage"
+      ],
+      "supporting_signal_count": 3,
+      "supporting_signal_ids": [
+        "sig_nws_9c24d0a080",
+        "sig_nws_2d11a5aee8",
+        "sig_web_3ca28d67da"
+      ],
+      "source_urls": [
+        "https://www.msn.com/en-us/news/other/ai-benchmark-scores-don-t-tell-the-whole-story-here-s-what-you-need-to-look-for/ar-AA2fTj5P",
+        "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
+        "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/"
+      ],
+      "status": "DROPPED_BELOW_THRESHOLD",
+      "drop_reason": "composite 46.51 < 50.0",
+      "near_miss": true
+    }
+  ],
+  "dropped_off_brand": [
+    {
+      "cluster_id": "cls_031",
+      "topic_title": "The AI Graveyard: Tracking Industry Shutdowns and Failures",
+      "topic_summary": "Recent reports highlight a growing list of failed AI projects and startups, including the shutdown of Relay and Character.ai's bankruptcy. This trend underscores the difficulty for standalone tools to survive as major platform providers integrate similar AI automation features natively.",
+      "topic_entities": [
+        "TechCrunch"
+      ],
+      "topic_key_facts": [
+        "[Webpage] Relay, a five-year-old AI-powered workflow automation tool, shut down entirely in August.",
+        "[Mastodon] S&P Global Market Intelligence puts the failure rate of corporate AI initiatives at about 42%.",
+        "[Mastodon] Character.ai filed for bankruptcy just five years after launch."
+      ],
+      "composite_trend_score": 56.91,
+      "minimum_threshold_applied": 50.0,
+      "minimum_r2c_relevance_applied": 40.0,
+      "scoring_breakdown": {
+        "credibility_score": 52.58,
+        "growth_rate_score": 67.5,
+        "recency_score": 80.96,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 15.0,
+        "r2c_relevance_score": 25.0
+      },
+      "platforms": [
+        "Mastodon",
+        "Webpage"
+      ],
+      "supporting_signal_count": 2,
+      "supporting_signal_ids": [
+        "sig_mst_a8b2783f63",
+        "sig_web_e26b31cf45"
+      ],
+      "source_urls": [
+        "https://defcon.social/@ai/117497861236697869",
+        "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+      ],
+      "status": "DROPPED_OFF_BRAND",
+      "drop_reason": "R2C relevance 25 < 40: poor fit for the audience",
+      "near_miss": false
+    }
+  ],
+  "dropped_below_threshold": [
+    {
+      "cluster_id": "cls_024",
+      "topic_title": "1Password Launches 1Password for Agents Feature",
+      "topic_summary": "1Password has introduced a new tool called 1Password for Agents that enables AI agents to log into personal accounts on behalf of users without exposing private credentials. This feature addresses growing security concerns regarding the level of access consumers are granting to AI agents as security services work to catch up.",
+      "topic_entities": [
+        "1Password"
+      ],
+      "topic_key_facts": [
+        "[Webpage] 1Password launched a new tool allowing agents to log into personal accounts on a user's behalf without accessing credentials.",
+        "[Webpage] The new platform is dubbed 1Password for Agents.",
+        "[Webpage] The feature was launched on Thursday."
+      ],
+      "composite_trend_score": 40.4,
+      "minimum_threshold_applied": 50.0,
+      "minimum_r2c_relevance_applied": 40.0,
+      "scoring_breakdown": {
+        "credibility_score": 54.16,
+        "growth_rate_score": 0.0,
+        "recency_score": 52.11,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 15.0,
+        "r2c_relevance_score": 35.0
+      },
+      "platforms": [
+        "Bluesky",
+        "Webpage"
+      ],
+      "supporting_signal_count": 2,
+      "supporting_signal_ids": [
+        "sig_bsky_0560baa41d",
+        "sig_web_1b9f1c624e"
+      ],
+      "source_urls": [
+        "https://bsky.app/profile/ai-news.at.thenote.app/post/3myl5cmkfzs2s",
+        "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/"
+      ],
+      "status": "DROPPED_BELOW_THRESHOLD",
+      "drop_reason": "composite 40.40 < 50.0",
+      "near_miss": false
+    },
+    {
+      "cluster_id": "cls_029",
+      "topic_title": "Epic Games AI MegaJam Sparks Developer Backlash",
+      "topic_summary": "Epic Games announced a four-day AI-assisted game development event called the AI MegaJam, drawing significant backlash from the gaming and developer community. Following criticism, Epic updated the event's rules and FAQ to state that participants can use as little or as much AI as they want, removing a strict AI requirement and modifying the wording for a cash prize.",
+      "topic_entities": [
+        "AI MegaJam Sparks Backlash",
+        "Vibe Coding Push Continues",
+        "PC News Epic"
+      ],
+      "topic_key_facts": [
+        "[News] The 2026 Epic AI MegaJam is scheduled to run from November 12-15.",
+        "[Webpage] Epic offered a $2,500 \"Glass Box\" cash prize before changing its rules to no longer mention AI.",
+        "[Webpage] The event originally required participants to use AI, but Epic updated its FAQ to state that developers \"can use as little or as much AI as you want.\"",
+        "[Webpage] Epic promised a prize of $50,000 with the slogan \"Vibe your way to 50K.\""
+      ],
+      "composite_trend_score": 35.74,
+      "minimum_threshold_applied": 50.0,
+      "minimum_r2c_relevance_applied": 40.0,
+      "scoring_breakdown": {
+        "credibility_score": 50.12,
+        "growth_rate_score": 0.5,
+        "recency_score": 45.75,
+        "cross_platform_score": 80.0,
+        "research_relevance_score": 15.0,
+        "r2c_relevance_score": 5.0
+      },
+      "platforms": [
+        "News",
+        "Webpage"
+      ],
+      "supporting_signal_count": 2,
+      "supporting_signal_ids": [
+        "sig_nws_eda1728f56",
+        "sig_web_7e3339a8d4"
+      ],
+      "source_urls": [
+        "https://tech.yahoo.com/gaming/articles/pc-news-epic-ai-megajam-082853682.html",
+        "https://www.gamesradar.com/games/epic-wants-to-pay-you-usd50-000-to-vibe-code-an-ai-slop-game/"
+      ],
+      "status": "DROPPED_BELOW_THRESHOLD",
+      "drop_reason": "composite 35.74 < 50.0",
+      "near_miss": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Secrets: API keys live only in .env (copy .env.example to start)
+.env
+.env.*
+!.env.example
