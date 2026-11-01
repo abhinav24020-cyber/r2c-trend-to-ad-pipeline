@@ -1,0 +1,1136 @@
+[
+  {
+    "trend": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+    "record": {
+      "trend_id": "trd_20261025_001_3cfe",
+      "rank": 1,
+      "topic_title": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "aspect_ratio": "4:5",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:22:30.078124+00:00",
+      "post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "GVS5H JUST DROPPED",
+        "headline": "Can your paper match industry giants?",
+        "subline": "R2C.Ai bridges your research to industry partners looking for scalable breakthroughs.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop the scroll. Five Qwen models just matched Fable 5 performance using a shared filesystem harness on a single GPU. Your technical findings have similar potential. R2C.Ai helps researchers evaluate commercial readiness and connects your work directly with industry partners. Upload Your Research.",
+        "hashtags": [
+          "MachineLearning",
+          "OpenSourceAI",
+          "TechInnovation",
+          "ResearchToIndustry"
+        ],
+        "fact_used": "Five Qwen3.8-27B models match Claude Fable 5 on LiveCodeBench Hard using the GVS5H harness",
+        "visual": {
+          "concept": "A scrappy IIIT Delhi researcher casually out-lifting a towering, corporate tech-giant executive in a local Delhi tea stall using only stacked research papers.",
+          "focal_subject": "A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock.",
+          "action": "The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant.",
+          "scroll_stopper": "The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research.",
+          "setting": "A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air.",
+          "camera": "Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background.",
+          "lighting": "Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene.",
+          "colors": [
+            "sunflower yellow",
+            "black",
+            "cobalt blue"
+          ],
+          "mood": "energetic, witty, triumphant, authentic"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock, The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant. The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research. Setting: A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air. Camera: Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background. Lighting: Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, witty, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "5 VS 1"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock, The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant. The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research. Setting: A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air. Camera: Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background. Lighting: Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, witty, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock, The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant. The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research. Setting: A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air. Camera: Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background. Lighting: Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, witty, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Can your paper match industry giants?",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-left",
+      "theme": "solar"
+    },
+    "result": {
+      "trend_id": "trd_20261025_001_3cfe",
+      "rank": 1,
+      "topic_title": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+      "social_post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "GVS5H JUST DROPPED",
+        "headline": "Can your paper match industry giants?",
+        "subline": "R2C.Ai bridges your research to industry partners looking for scalable breakthroughs.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop the scroll. Five Qwen models just matched Fable 5 performance using a shared filesystem harness on a single GPU. Your technical findings have similar potential. R2C.Ai helps researchers evaluate commercial readiness and connects your work directly with industry partners. Upload Your Research.",
+        "hashtags": [
+          "MachineLearning",
+          "OpenSourceAI",
+          "TechInnovation",
+          "ResearchToIndustry"
+        ],
+        "fact_used": "Five Qwen3.8-27B models match Claude Fable 5 on LiveCodeBench Hard using the GVS5H harness",
+        "visual": {
+          "concept": "A scrappy IIIT Delhi researcher casually out-lifting a towering, corporate tech-giant executive in a local Delhi tea stall using only stacked research papers.",
+          "focal_subject": "A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock.",
+          "action": "The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant.",
+          "scroll_stopper": "The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research.",
+          "setting": "A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air.",
+          "camera": "Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background.",
+          "lighting": "Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene.",
+          "colors": [
+            "sunflower yellow",
+            "black",
+            "cobalt blue"
+          ],
+          "mood": "energetic, witty, triumphant, authentic"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock, The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant. The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research. Setting: A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air. Camera: Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background. Lighting: Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, witty, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "5 VS 1"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock, The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant. The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research. Setting: A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air. Camera: Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background. Lighting: Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, witty, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "solar",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "4:5",
+      "image_size": [
+        896,
+        1120
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\trd_20261025_001_3cfe_hook_4x5.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:31:56.909122+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\trd_20261025_001_3cfe_hook_4x5_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "Moonshot AI Releases Kimi K3.1 Pro Model",
+    "record": {
+      "trend_id": "trd_20261025_002_bce6",
+      "rank": 2,
+      "topic_title": "Moonshot AI Releases Kimi K3.1 Pro Model",
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "aspect_ratio": "9:16",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:23:07.787217+00:00",
+      "post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "MILLION TOKEN SHIFT",
+        "headline": "Take your research to global industry.",
+        "subline": "R2C.Ai connects your papers directly with enterprise partners looking for licensable innovations.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Get Started Free",
+        "caption": "As new models like Kimi K3.1 Pro redefine context windows, your research papers hold immense untapped commercial potential. Don't leave your discoveries sitting in a repository. Let R2C.Ai assess your technology readiness and match you with industry leaders ready to license your work.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "TechTransfer",
+          "AcademicInnovation",
+          "StartupLife"
+        ],
+        "fact_used": "The model scores 65.7% on Terminal-Bench 4.0 and scores close to Claude Opus 5.5 on Moonshot's internal tests.",
+        "visual": {
+          "concept": "A chaotic computer science lab at IIIT Delhi where a researcher’s massive printed 1-million-token paper is literally too long for the room, spilling out of the doorway and onto the sunny campus steps, while curious industry executives in crisp suits try to catch the trailing end.",
+          "focal_subject": "A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window.",
+          "action": "A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel.",
+          "scroll_stopper": "A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase.",
+          "setting": "A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants.",
+          "camera": "Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students.",
+          "lighting": "Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows.",
+          "colors": [
+            "coral red",
+            "warm cream",
+            "deep navy"
+          ],
+          "mood": "Energetic, witty, authentic, triumphant"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window, A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel. A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase. Setting: A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants. Camera: Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students. Lighting: Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Energetic, witty, authentic, triumphant. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "1M TOKENS"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window, A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel. A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase. Setting: A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants. Camera: Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students. Lighting: Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Energetic, witty, authentic, triumphant. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window, A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel. A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase. Setting: A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants. Camera: Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students. Lighting: Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Energetic, witty, authentic, triumphant. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Take your research to global industry.",
+        "cta": "Get Started Free"
+      },
+      "logo_corner": "top-center",
+      "theme": "coral"
+    },
+    "result": {
+      "trend_id": "trd_20261025_002_bce6",
+      "rank": 2,
+      "topic_title": "Moonshot AI Releases Kimi K3.1 Pro Model",
+      "social_post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "MILLION TOKEN SHIFT",
+        "headline": "Take your research to global industry.",
+        "subline": "R2C.Ai connects your papers directly with enterprise partners looking for licensable innovations.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Get Started Free",
+        "caption": "As new models like Kimi K3.1 Pro redefine context windows, your research papers hold immense untapped commercial potential. Don't leave your discoveries sitting in a repository. Let R2C.Ai assess your technology readiness and match you with industry leaders ready to license your work.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "TechTransfer",
+          "AcademicInnovation",
+          "StartupLife"
+        ],
+        "fact_used": "The model scores 65.7% on Terminal-Bench 4.0 and scores close to Claude Opus 5.5 on Moonshot's internal tests.",
+        "visual": {
+          "concept": "A chaotic computer science lab at IIIT Delhi where a researcher’s massive printed 1-million-token paper is literally too long for the room, spilling out of the doorway and onto the sunny campus steps, while curious industry executives in crisp suits try to catch the trailing end.",
+          "focal_subject": "A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window.",
+          "action": "A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel.",
+          "scroll_stopper": "A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase.",
+          "setting": "A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants.",
+          "camera": "Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students.",
+          "lighting": "Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows.",
+          "colors": [
+            "coral red",
+            "warm cream",
+            "deep navy"
+          ],
+          "mood": "Energetic, witty, authentic, triumphant"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window, A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel. A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase. Setting: A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants. Camera: Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students. Lighting: Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Energetic, witty, authentic, triumphant. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "1M TOKENS"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window, A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel. A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase. Setting: A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants. Camera: Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students. Lighting: Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Energetic, witty, authentic, triumphant. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "coral",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "9:16",
+      "image_size": [
+        768,
+        1344
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\trd_20261025_002_bce6_story_9x16.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:32:09.419850+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\trd_20261025_002_bce6_story_9x16_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+    "record": {
+      "trend_id": "trd_20261025_003_c3fc",
+      "rank": 3,
+      "topic_title": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "aspect_ratio": "1:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:28:06.188270+00:00",
+      "post": {
+        "ad_type": "engagement",
+        "audience": "researchers",
+        "eyebrow": "NEW VOICE MODEL",
+        "headline": "Can local hardware handle breakthroughs?",
+        "subline": "Block's Dessa runs on a MacBook, but does your lab work have an industry pathway through R2C.Ai?",
+        "points": [
+          "Technology readiness (TRL) assessment",
+          "IP protection and governance",
+          "Licensing support from IIIT Delhi"
+        ],
+        "cta": "Get Started Free",
+        "caption": "Block just released Dessa, a speech-trained model that runs locally on an M4 Max. Technology is moving faster than ever, but how quickly is your research reaching the market? Drop your thoughts in the comments on how local AI capabilities change academic publishing, and let R2C.Ai handle your commercial readiness and industry matching. Get Started Free.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "AcademicPublishing",
+          "TechTrends",
+          "Innovation"
+        ],
+        "fact_used": "Block announced an AI model called Dessa trained from scratch on nothing but human conversation.",
+        "visual": {
+          "concept": "A chaotic, hyper-detailed Indian university lab where a researcher's laptop has hilariously sprouted a massive physical megaphone made of stacked cardboard boxes that blasts voice waves straight through the wall into a bustling corporate boardroom next door.",
+          "focal_subject": "An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook.",
+          "action": "Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler.",
+          "scroll_stopper": "The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office.",
+          "setting": "A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits.",
+          "camera": "Eye-level medium shot, dynamic angle capturing the explosive cross-section action.",
+          "lighting": "Flat, punchy vector studio lighting with high-contrast shadows.",
+          "colors": [
+            "acid lime green",
+            "deep purple",
+            "white"
+          ],
+          "mood": "witty, energetic, bold, playful"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook, Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler. The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office. Setting: A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits. Camera: Eye-level medium shot, dynamic angle capturing the explosive cross-section action. Lighting: Flat, punchy vector studio lighting with high-contrast shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: witty, energetic, bold, playful. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "M4 MAX"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook, Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler. The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office. Setting: A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits. Camera: Eye-level medium shot, dynamic angle capturing the explosive cross-section action. Lighting: Flat, punchy vector studio lighting with high-contrast shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: witty, energetic, bold, playful. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook, Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler. The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office. Setting: A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits. Camera: Eye-level medium shot, dynamic angle capturing the explosive cross-section action. Lighting: Flat, punchy vector studio lighting with high-contrast shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: witty, energetic, bold, playful. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Can local hardware handle breakthroughs?",
+        "cta": "Get Started Free"
+      },
+      "logo_corner": "bottom-right",
+      "theme": "lime"
+    },
+    "result": {
+      "trend_id": "trd_20261025_003_c3fc",
+      "rank": 3,
+      "topic_title": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+      "social_post": {
+        "ad_type": "engagement",
+        "audience": "researchers",
+        "eyebrow": "NEW VOICE MODEL",
+        "headline": "Can local hardware handle breakthroughs?",
+        "subline": "Block's Dessa runs on a MacBook, but does your lab work have an industry pathway through R2C.Ai?",
+        "points": [
+          "Technology readiness (TRL) assessment",
+          "IP protection and governance",
+          "Licensing support from IIIT Delhi"
+        ],
+        "cta": "Get Started Free",
+        "caption": "Block just released Dessa, a speech-trained model that runs locally on an M4 Max. Technology is moving faster than ever, but how quickly is your research reaching the market? Drop your thoughts in the comments on how local AI capabilities change academic publishing, and let R2C.Ai handle your commercial readiness and industry matching. Get Started Free.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "AcademicPublishing",
+          "TechTrends",
+          "Innovation"
+        ],
+        "fact_used": "Block announced an AI model called Dessa trained from scratch on nothing but human conversation.",
+        "visual": {
+          "concept": "A chaotic, hyper-detailed Indian university lab where a researcher's laptop has hilariously sprouted a massive physical megaphone made of stacked cardboard boxes that blasts voice waves straight through the wall into a bustling corporate boardroom next door.",
+          "focal_subject": "An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook.",
+          "action": "Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler.",
+          "scroll_stopper": "The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office.",
+          "setting": "A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits.",
+          "camera": "Eye-level medium shot, dynamic angle capturing the explosive cross-section action.",
+          "lighting": "Flat, punchy vector studio lighting with high-contrast shadows.",
+          "colors": [
+            "acid lime green",
+            "deep purple",
+            "white"
+          ],
+          "mood": "witty, energetic, bold, playful"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook, Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler. The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office. Setting: A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits. Camera: Eye-level medium shot, dynamic angle capturing the explosive cross-section action. Lighting: Flat, punchy vector studio lighting with high-contrast shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: witty, energetic, bold, playful. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "M4 MAX"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook, Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler. The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office. Setting: A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits. Camera: Eye-level medium shot, dynamic angle capturing the explosive cross-section action. Lighting: Flat, punchy vector studio lighting with high-contrast shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: witty, energetic, bold, playful. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "lime",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "1:1",
+      "image_size": [
+        1024,
+        1024
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\trd_20261025_003_c3fc_engagement_1x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:32:21.309696+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\trd_20261025_003_c3fc_engagement_1x1_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "MiniMax Releases M3.1 Flash Model Weights",
+    "record": {
+      "trend_id": "trd_20261025_004_f476",
+      "rank": 4,
+      "topic_title": "MiniMax Releases M3.1 Flash Model Weights",
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "aspect_ratio": "1.91:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:24:08.580849+00:00",
+      "post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "OPEN WEIGHTS ACCELERATION",
+        "headline": "Find licensable research fast.",
+        "subline": "As 428-billion parameter models push sparse attention limits, R2C.Ai helps R&D teams find licensable research fast.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Chat with any research paper"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With MiniMax M3.1 Flash utilizing full-model sparse attention and quantization-aware training to achieve extreme inference efficiency, enterprise R&D teams need to integrate cutting-edge findings immediately. R2C.Ai lets you chat with academic papers, review verified Commercial Readiness Scores, and connect directly with principal investigators. Schedule a demo to accelerate your technology sourcing pipeline today.",
+        "hashtags": [
+          "TechScouting",
+          "EnterpriseAI",
+          "ResearchLicensing",
+          "InferenceEfficiency",
+          "InnovationStrategy"
+        ],
+        "fact_used": "M3.1 Flash enhances inference efficiency using full-model sparse attention, quantization-aware training (QAT), and power-aware scheduling.",
+        "visual": {
+          "concept": "An exhausted Indian corporate R&D team buried under an avalanche of physical paper printouts of massive academic research papers, while a savvy young intern effortlessly slides one specific, glowing-orange flagged paper right to the director.",
+          "focal_subject": "A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over.",
+          "action": "The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream.",
+          "scroll_stopper": "The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews.",
+          "setting": "A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations.",
+          "camera": "Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing.",
+          "lighting": "Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls.",
+          "colors": [
+            "warm cream",
+            "terracotta orange",
+            "navy"
+          ],
+          "mood": "energetic, humorous, triumphant, authentic"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over, The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream. The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews. Setting: A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations. Camera: Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing. Lighting: Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, humorous, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "428B"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over, The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream. The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews. Setting: A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations. Camera: Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing. Lighting: Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, humorous, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over, The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream. The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews. Setting: A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations. Camera: Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing. Lighting: Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, humorous, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Find licensable research fast.",
+        "cta": "Schedule a Demo"
+      },
+      "logo_corner": "top-left",
+      "theme": "cream"
+    },
+    "result": {
+      "trend_id": "trd_20261025_004_f476",
+      "rank": 4,
+      "topic_title": "MiniMax Releases M3.1 Flash Model Weights",
+      "social_post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "OPEN WEIGHTS ACCELERATION",
+        "headline": "Find licensable research fast.",
+        "subline": "As 428-billion parameter models push sparse attention limits, R2C.Ai helps R&D teams find licensable research fast.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Chat with any research paper"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With MiniMax M3.1 Flash utilizing full-model sparse attention and quantization-aware training to achieve extreme inference efficiency, enterprise R&D teams need to integrate cutting-edge findings immediately. R2C.Ai lets you chat with academic papers, review verified Commercial Readiness Scores, and connect directly with principal investigators. Schedule a demo to accelerate your technology sourcing pipeline today.",
+        "hashtags": [
+          "TechScouting",
+          "EnterpriseAI",
+          "ResearchLicensing",
+          "InferenceEfficiency",
+          "InnovationStrategy"
+        ],
+        "fact_used": "M3.1 Flash enhances inference efficiency using full-model sparse attention, quantization-aware training (QAT), and power-aware scheduling.",
+        "visual": {
+          "concept": "An exhausted Indian corporate R&D team buried under an avalanche of physical paper printouts of massive academic research papers, while a savvy young intern effortlessly slides one specific, glowing-orange flagged paper right to the director.",
+          "focal_subject": "A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over.",
+          "action": "The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream.",
+          "scroll_stopper": "The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews.",
+          "setting": "A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations.",
+          "camera": "Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing.",
+          "lighting": "Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls.",
+          "colors": [
+            "warm cream",
+            "terracotta orange",
+            "navy"
+          ],
+          "mood": "energetic, humorous, triumphant, authentic"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over, The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream. The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews. Setting: A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations. Camera: Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing. Lighting: Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, humorous, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "428B"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over, The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream. The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews. Setting: A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations. Camera: Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing. Lighting: Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, humorous, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "cream",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "1.91:1",
+      "image_size": [
+        1216,
+        640
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\trd_20261025_004_f476_conversion_1_91x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:32:33.552100+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\trd_20261025_004_f476_conversion_1_91x1_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+    "record": {
+      "trend_id": "trd_20261025_005_bef5",
+      "rank": 5,
+      "topic_title": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "aspect_ratio": "4:5",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:24:48.943886+00:00",
+      "post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "OPENSHELL RUNTIME RELEASED",
+        "headline": "Protect your breakthroughs before industry deploys them.",
+        "subline": "As NVIDIA introduces secure runtimes for agents, R2C.Ai helps you protect and license your research securely.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "IP protection and governance",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "NVIDIA just dropped OpenShell 0.1.x with strict policy enforcement for autonomous agents. If your research deals with agent governance or autonomy, industry buyers are watching. R2C.Ai helps you secure your IP and connect with the right partners. Upload your paper today.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "OpenShell",
+          "NVIDIA",
+          "IPProtection",
+          "TechTransfer"
+        ],
+        "fact_used": "OpenShell is a safe, private runtime for fleets of autonomous AI agents created by NVIDIA",
+        "visual": {
+          "concept": "A chaotic IIIT Delhi university lab where a stressed-out PhD student has physically barricaded his prototype research server using hazard tape and stacks of old research papers, while a bewildered corporate executive in a sharp tangerine suit tries to sneak a USB drive underneath the door.",
+          "focal_subject": "A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires.",
+          "action": "The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin.",
+          "scroll_stopper": "The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab.",
+          "setting": "A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals.",
+          "camera": "Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp.",
+          "lighting": "Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows.",
+          "colors": "Mint green, charcoal, tangerine orange",
+          "mood": "Witty, urgent, playfully chaotic, highly relatable"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires, The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin. The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab. Setting: A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals. Camera: Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp. Lighting: Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows. Colour palette: mint green, charcoal and tangerine orange dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, urgent, playfully chaotic, highly relatable. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "0.1.X"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires, The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin. The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab. Setting: A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals. Camera: Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp. Lighting: Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows. Colour palette: mint green, charcoal and tangerine orange dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, urgent, playfully chaotic, highly relatable. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires, The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin. The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab. Setting: A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals. Camera: Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp. Lighting: Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows. Colour palette: mint green, charcoal and tangerine orange dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, urgent, playfully chaotic, highly relatable. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Protect your breakthroughs before industry deploys them.",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-left",
+      "theme": "mint"
+    },
+    "result": {
+      "trend_id": "trd_20261025_005_bef5",
+      "rank": 5,
+      "topic_title": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+      "social_post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "OPENSHELL RUNTIME RELEASED",
+        "headline": "Protect your breakthroughs before industry deploys them.",
+        "subline": "As NVIDIA introduces secure runtimes for agents, R2C.Ai helps you protect and license your research securely.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "IP protection and governance",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "NVIDIA just dropped OpenShell 0.1.x with strict policy enforcement for autonomous agents. If your research deals with agent governance or autonomy, industry buyers are watching. R2C.Ai helps you secure your IP and connect with the right partners. Upload your paper today.",
+        "hashtags": [
+          "ResearchCommercialization",
+          "OpenShell",
+          "NVIDIA",
+          "IPProtection",
+          "TechTransfer"
+        ],
+        "fact_used": "OpenShell is a safe, private runtime for fleets of autonomous AI agents created by NVIDIA",
+        "visual": {
+          "concept": "A chaotic IIIT Delhi university lab where a stressed-out PhD student has physically barricaded his prototype research server using hazard tape and stacks of old research papers, while a bewildered corporate executive in a sharp tangerine suit tries to sneak a USB drive underneath the door.",
+          "focal_subject": "A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires.",
+          "action": "The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin.",
+          "scroll_stopper": "The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab.",
+          "setting": "A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals.",
+          "camera": "Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp.",
+          "lighting": "Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows.",
+          "colors": "Mint green, charcoal, tangerine orange",
+          "mood": "Witty, urgent, playfully chaotic, highly relatable"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires, The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin. The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab. Setting: A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals. Camera: Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp. Lighting: Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows. Colour palette: mint green, charcoal and tangerine orange dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, urgent, playfully chaotic, highly relatable. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "0.1.X"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires, The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin. The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab. Setting: A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals. Camera: Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp. Lighting: Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows. Colour palette: mint green, charcoal and tangerine orange dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, urgent, playfully chaotic, highly relatable. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "mint",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "4:5",
+      "image_size": [
+        896,
+        1120
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\trd_20261025_005_bef5_hook_4x5.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:32:43.096552+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\trd_20261025_005_bef5_hook_4x5_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+    "record": {
+      "trend_id": "trd_20261025_006_6bc9",
+      "rank": 6,
+      "topic_title": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "aspect_ratio": "9:16",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:25:26.239429+00:00",
+      "post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "10,000 CARDS TRAINED",
+        "headline": "Scale your research impact.",
+        "subline": "R2C.Ai connects academic papers with industry partners looking for scalable innovation.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "It took a cluster of 10,000 Feixing No. 2 cards to train Spark X2.6. Industry has the compute—they need your breakthroughs. Upload your paper to R2C.Ai.",
+        "hashtags": [
+          "ComputeScale",
+          "AcademicImpact",
+          "ResearchTranslation",
+          "DeepTech"
+        ],
+        "fact_used": "Training utilized a cluster of 10,000 Feixing No. 2 cards.",
+        "visual": {
+          "concept": "A massive stack of dense academic printouts literally spilling out of an IIIT Delhi campus lab door and transforming into a chaotic, colourful stream of real-world products on the crowded street outside.",
+          "focal_subject": "An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses.",
+          "action": "Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging.",
+          "scroll_stopper": "A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street.",
+          "setting": "The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway.",
+          "camera": "Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws.",
+          "lighting": "Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture.",
+          "colors": [
+            "deep navy",
+            "electric blue",
+            "amber"
+          ],
+          "mood": "energetic, chaotic, triumphant, grounded"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses, Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging. A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street. Setting: The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway. Camera: Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws. Lighting: Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture. Colour palette: deep navy, electric blue and amber dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, chaotic, triumphant, grounded. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "1M TOKENS"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses, Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging. A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street. Setting: The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway. Camera: Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws. Lighting: Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture. Colour palette: deep navy, electric blue and amber dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, chaotic, triumphant, grounded. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses, Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging. A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street. Setting: The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway. Camera: Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws. Lighting: Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture. Colour palette: deep navy, electric blue and amber dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, chaotic, triumphant, grounded. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Scale your research impact.",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-center",
+      "theme": "night"
+    },
+    "result": {
+      "trend_id": "trd_20261025_006_6bc9",
+      "rank": 6,
+      "topic_title": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+      "social_post": {
+        "ad_type": "story",
+        "audience": "researchers",
+        "eyebrow": "10,000 CARDS TRAINED",
+        "headline": "Scale your research impact.",
+        "subline": "R2C.Ai connects academic papers with industry partners looking for scalable innovation.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Technology readiness (TRL) assessment",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "It took a cluster of 10,000 Feixing No. 2 cards to train Spark X2.6. Industry has the compute—they need your breakthroughs. Upload your paper to R2C.Ai.",
+        "hashtags": [
+          "ComputeScale",
+          "AcademicImpact",
+          "ResearchTranslation",
+          "DeepTech"
+        ],
+        "fact_used": "Training utilized a cluster of 10,000 Feixing No. 2 cards.",
+        "visual": {
+          "concept": "A massive stack of dense academic printouts literally spilling out of an IIIT Delhi campus lab door and transforming into a chaotic, colourful stream of real-world products on the crowded street outside.",
+          "focal_subject": "An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses.",
+          "action": "Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging.",
+          "scroll_stopper": "A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street.",
+          "setting": "The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway.",
+          "camera": "Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws.",
+          "lighting": "Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture.",
+          "colors": [
+            "deep navy",
+            "electric blue",
+            "amber"
+          ],
+          "mood": "energetic, chaotic, triumphant, grounded"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses, Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging. A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street. Setting: The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway. Camera: Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws. Lighting: Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture. Colour palette: deep navy, electric blue and amber dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, chaotic, triumphant, grounded. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "1M TOKENS"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses, Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging. A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street. Setting: The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway. Camera: Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws. Lighting: Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture. Colour palette: deep navy, electric blue and amber dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, chaotic, triumphant, grounded. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "story",
+      "placement": "Instagram & Facebook Stories / Reels",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "night",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "9:16",
+      "image_size": [
+        768,
+        1344
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\trd_20261025_006_6bc9_story_9x16.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:32:55.139651+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\trd_20261025_006_6bc9_story_9x16_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "Hijacking AI Coding Agents Via The Downloads Folder",
+    "record": {
+      "trend_id": "trd_20261025_007_b695",
+      "rank": 7,
+      "topic_title": "Hijacking AI Coding Agents Via The Downloads Folder",
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "aspect_ratio": "1:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:03.714632+00:00",
+      "post": {
+        "ad_type": "engagement",
+        "audience": "industry",
+        "eyebrow": "LOCAL FILE THREAT",
+        "headline": "Can autonomous tools be trusted?",
+        "subline": "R2C.Ai helps R&D leaders discover verified, licensable research without relying on vulnerable local coding assistants.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Browse Research Studies",
+        "caption": "Security company Forever traced an unauthorized installation request back to a text file located in a user's Downloads folder. When local files can be weaponized against automated workflows, how does your R&D team safely source external innovations? Tell us in the comments how you vet incoming research, or browse pre-vetted academic studies on R2C.Ai.",
+        "hashtags": [
+          "rnd",
+          "technology",
+          "licensing",
+          "industry"
+        ],
+        "fact_used": "The company blocked the installation and successfully traced the request back to a text file located in the user's Downloads folder.",
+        "visual": {
+          "concept": "A panicked Indian R&D engineer in a vibrant Delhi startup office watches helplessly as a literal, cartoonish gremlin crawls out of his laptop's open downloads folder and steals a stamped university research paper off his desk.",
+          "focal_subject": "A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript.",
+          "action": "The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late.",
+          "scroll_stopper": "The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed.",
+          "setting": "A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams.",
+          "camera": "Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp.",
+          "lighting": "Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows.",
+          "colors": [
+            "sunflower yellow",
+            "black",
+            "cobalt blue",
+            "warm white",
+            "terracotta"
+          ],
+          "mood": "playful, frantic, high-energy, alarming"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript, The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late. The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed. Setting: A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams. Camera: Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp. Lighting: Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: playful, frantic, high-energy, alarming. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "LOCAL FILE"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript, The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late. The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed. Setting: A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams. Camera: Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp. Lighting: Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: playful, frantic, high-energy, alarming. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript, The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late. The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed. Setting: A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams. Camera: Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp. Lighting: Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: playful, frantic, high-energy, alarming. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Can autonomous tools be trusted?",
+        "cta": "Browse Research Studies"
+      },
+      "logo_corner": "bottom-right",
+      "theme": "solar"
+    },
+    "result": {
+      "trend_id": "trd_20261025_007_b695",
+      "rank": 7,
+      "topic_title": "Hijacking AI Coding Agents Via The Downloads Folder",
+      "social_post": {
+        "ad_type": "engagement",
+        "audience": "industry",
+        "eyebrow": "LOCAL FILE THREAT",
+        "headline": "Can autonomous tools be trusted?",
+        "subline": "R2C.Ai helps R&D leaders discover verified, licensable research without relying on vulnerable local coding assistants.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Browse Research Studies",
+        "caption": "Security company Forever traced an unauthorized installation request back to a text file located in a user's Downloads folder. When local files can be weaponized against automated workflows, how does your R&D team safely source external innovations? Tell us in the comments how you vet incoming research, or browse pre-vetted academic studies on R2C.Ai.",
+        "hashtags": [
+          "rnd",
+          "technology",
+          "licensing",
+          "industry"
+        ],
+        "fact_used": "The company blocked the installation and successfully traced the request back to a text file located in the user's Downloads folder.",
+        "visual": {
+          "concept": "A panicked Indian R&D engineer in a vibrant Delhi startup office watches helplessly as a literal, cartoonish gremlin crawls out of his laptop's open downloads folder and steals a stamped university research paper off his desk.",
+          "focal_subject": "A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript.",
+          "action": "The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late.",
+          "scroll_stopper": "The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed.",
+          "setting": "A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams.",
+          "camera": "Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp.",
+          "lighting": "Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows.",
+          "colors": [
+            "sunflower yellow",
+            "black",
+            "cobalt blue",
+            "warm white",
+            "terracotta"
+          ],
+          "mood": "playful, frantic, high-energy, alarming"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript, The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late. The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed. Setting: A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams. Camera: Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp. Lighting: Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: playful, frantic, high-energy, alarming. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "LOCAL FILE"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript, The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late. The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed. Setting: A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams. Camera: Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp. Lighting: Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: playful, frantic, high-energy, alarming. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "engagement",
+      "placement": "LinkedIn & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "solar",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "1:1",
+      "image_size": [
+        1024,
+        1024
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\trd_20261025_007_b695_engagement_1x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:33:07.256666+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\trd_20261025_007_b695_engagement_1x1_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+    "record": {
+      "trend_id": "near_cls_001",
+      "rank": 8,
+      "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "aspect_ratio": "1.91:1",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:23.781914+00:00",
+      "post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "BANK AGENT INCIDENT",
+        "headline": "Find trusted licensable AI research.",
+        "subline": "As US banks block unauthorized AI agents, R2C.Ai helps you source fully vetted academic innovations.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With US banks blocking third-party AI agents from customer accounts, enterprise R&D teams can no longer afford ambiguity in external software sourcing. R2C.Ai provides verified commercial readiness scores, direct access to principal investigators, and licensable research you can actually trust. Schedule a demo today.",
+        "hashtags": [
+          "TechScouting",
+          "Licensing",
+          "RDIgnition",
+          "Innovation"
+        ],
+        "fact_used": "US banks are blocking third-party AI agents access to customer accounts",
+        "visual": {
+          "concept": "A beleaguered bank CTO and a grinning IIIT Delhi researcher sitting on the floor of a chaotic server hallway, sharing a cutting chai while rogue rogue AI printouts flutter around them like confetti.",
+          "focal_subject": "An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout.",
+          "action": "The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them.",
+          "scroll_stopper": "A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables.",
+          "setting": "A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations.",
+          "camera": "Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background.",
+          "lighting": "Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air.",
+          "colors": [
+            "coral red",
+            "warm cream",
+            "deep navy"
+          ],
+          "mood": "Witty, chaotic-good, grounded, relatable, energetic"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout, The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them. A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables. Setting: A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations. Camera: Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background. Lighting: Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, chaotic-good, grounded, relatable, energetic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "UNAUTHORIZED"
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout, The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them. A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables. Setting: A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations. Camera: Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background. Lighting: Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, chaotic-good, grounded, relatable, energetic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout, The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them. A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables. Setting: A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations. Camera: Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background. Lighting: Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, chaotic-good, grounded, relatable, energetic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Find trusted licensable AI research.",
+        "cta": "Schedule a Demo"
+      },
+      "logo_corner": "top-left",
+      "theme": "coral"
+    },
+    "result": {
+      "trend_id": "near_cls_001",
+      "rank": 8,
+      "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+      "social_post": {
+        "ad_type": "conversion",
+        "audience": "industry",
+        "eyebrow": "BANK AGENT INCIDENT",
+        "headline": "Find trusted licensable AI research.",
+        "subline": "As US banks block unauthorized AI agents, R2C.Ai helps you source fully vetted academic innovations.",
+        "points": [
+          "Find licensable research fast",
+          "Commercial readiness scores",
+          "Meet the principal investigator"
+        ],
+        "cta": "Schedule a Demo",
+        "caption": "With US banks blocking third-party AI agents from customer accounts, enterprise R&D teams can no longer afford ambiguity in external software sourcing. R2C.Ai provides verified commercial readiness scores, direct access to principal investigators, and licensable research you can actually trust. Schedule a demo today.",
+        "hashtags": [
+          "TechScouting",
+          "Licensing",
+          "RDIgnition",
+          "Innovation"
+        ],
+        "fact_used": "US banks are blocking third-party AI agents access to customer accounts",
+        "visual": {
+          "concept": "A beleaguered bank CTO and a grinning IIIT Delhi researcher sitting on the floor of a chaotic server hallway, sharing a cutting chai while rogue rogue AI printouts flutter around them like confetti.",
+          "focal_subject": "An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout.",
+          "action": "The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them.",
+          "scroll_stopper": "A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables.",
+          "setting": "A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations.",
+          "camera": "Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background.",
+          "lighting": "Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air.",
+          "colors": [
+            "coral red",
+            "warm cream",
+            "deep navy"
+          ],
+          "mood": "Witty, chaotic-good, grounded, relatable, energetic"
+        },
+        "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout, The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them. A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables. Setting: A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations. Camera: Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background. Lighting: Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, chaotic-good, grounded, relatable, energetic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+        "sticker": "UNAUTHORIZED"
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout, The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them. A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables. Setting: A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations. Camera: Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background. Lighting: Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, chaotic-good, grounded, relatable, energetic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "conversion",
+      "placement": "LinkedIn & Facebook link ad",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "coral",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "1.91:1",
+      "image_size": [
+        1216,
+        640
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\near_cls_001_conversion_1_91x1.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:33:19.194109+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\near_cls_001_conversion_1_91x1_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  },
+  {
+    "trend": "Designing an AI serving harness built to last",
+    "record": {
+      "trend_id": "near_cls_013",
+      "rank": 9,
+      "topic_title": "Designing an AI serving harness built to last",
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "aspect_ratio": "4:5",
+      "prompt_version": "ads-v1",
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-10-29T08:26:53.410009+00:00",
+      "post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "SERVING HARNESS SHIFT",
+        "headline": "Is your raw model missing its serving harness?",
+        "subline": "While benchmarks focus on models, R2C.Ai helps researchers bridge their work directly to industry deployment.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Commercial Readiness Score",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop scrolling. The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale. If you are a researcher building powerful tech, R2C.Ai ensures it reaches the partners who need it. Upload Your Research.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "MachineLearning",
+          "TechTransfer",
+          "Research"
+        ],
+        "fact_used": "The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
+        "visual": {
+          "concept": "Bridging academic research to industrial deployment through a surreal, high-fashion structural metaphor.",
+          "focal_subject": "A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton.",
+          "action": "The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page.",
+          "scroll_stopper": "An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing.",
+          "setting": "A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight.",
+          "camera": "Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture.",
+          "lighting": "High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows.",
+          "colors": [
+            "deep navy",
+            "royal blue",
+            "obsidian black",
+            "raw paper cream"
+          ],
+          "mood": "Authoritative, breathtaking, avant-garde, precise"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton, The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page. An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing. Setting: A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight. Camera: Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture. Lighting: High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, royal blue, obsidian black, raw paper cream as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Authoritative, breathtaking, avant-garde, precise. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "render_mode": "overlay",
+      "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton, The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page. An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing. Setting: A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight. Camera: Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture. Lighting: High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Authoritative, breathtaking, avant-garde, precise. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "background_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton, The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page. An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing. Setting: A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight. Camera: Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture. Lighting: High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Authoritative, breathtaking, avant-garde, precise. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "ad_text": {
+        "headline": "Is your raw model missing its serving harness?",
+        "cta": "Upload Your Research"
+      },
+      "logo_corner": "top-left",
+      "theme": "lime"
+    },
+    "result": {
+      "trend_id": "near_cls_013",
+      "rank": 9,
+      "topic_title": "Designing an AI serving harness built to last",
+      "social_post": {
+        "ad_type": "hook",
+        "audience": "researchers",
+        "eyebrow": "SERVING HARNESS SHIFT",
+        "headline": "Is your raw model missing its serving harness?",
+        "subline": "While benchmarks focus on models, R2C.Ai helps researchers bridge their work directly to industry deployment.",
+        "points": [
+          "AI analysis of your paper or patent",
+          "Commercial Readiness Score",
+          "Matched with industry partners"
+        ],
+        "cta": "Upload Your Research",
+        "caption": "Stop scrolling. The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale. If you are a researcher building powerful tech, R2C.Ai ensures it reaches the partners who need it. Upload Your Research.",
+        "hashtags": [
+          "ArtificialIntelligence",
+          "MachineLearning",
+          "TechTransfer",
+          "Research"
+        ],
+        "fact_used": "The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
+        "visual": {
+          "concept": "Bridging academic research to industrial deployment through a surreal, high-fashion structural metaphor.",
+          "focal_subject": "A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton.",
+          "action": "The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page.",
+          "scroll_stopper": "An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing.",
+          "setting": "A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight.",
+          "camera": "Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture.",
+          "lighting": "High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows.",
+          "colors": [
+            "deep navy",
+            "royal blue",
+            "obsidian black",
+            "raw paper cream"
+          ],
+          "mood": "Authoritative, breathtaking, avant-garde, precise"
+        },
+        "image_prompt": "Premium key visual for a 2026 tech-brand ad campaign. Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, rich saturated colour, crisp focus. A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton, The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page. An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing. Setting: A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight. Camera: Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture. Lighting: High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows. Brand colour grade: deep navy (#0A1F3C) shadows and royal blue (#3B5DE7) light shape the whole scene, with deep navy, royal blue, obsidian black, raw paper cream as vivid accent colours. Subject centred in the middle band of the frame, whole and compact, with calm dark space above and below it. Mood: Authoritative, breathtaking, avant-garde, precise. Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, one clear subject, uncluttered background. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image."
+      },
+      "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton, The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page. An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing. Setting: A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight. Camera: Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture. Lighting: High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Authoritative, breathtaking, avant-garde, precise. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+      "aida_stage": null,
+      "ad_type": "hook",
+      "placement": "Instagram & Facebook feed",
+      "creative_angle": null,
+      "render_mode": "overlay",
+      "theme": "lime",
+      "image_provider": "cloudflare-workers-ai",
+      "image_model": "@cf/stabilityai/stable-diffusion-xl-base-1.0",
+      "aspect_ratio": "4:5",
+      "image_size": [
+        896,
+        1120
+      ],
+      "image_path": "C:\\Users\\sa\\Downloads\\R2C_v2_Week1\\r2c_v2_week1\\data\\output\\samples\\stable-diffusion-xl-base-1.0\\pictures\\near_cls_013_hook_4x5.png",
+      "image_url": null,
+      "status": "success",
+      "error_message": null,
+      "generated_at": "2026-11-01T03:33:28.714148+00:00",
+      "ad_path": "data\\output\\samples\\stable-diffusion-xl-base-1.0\\near_cls_013_hook_4x5_ad.png",
+      "image_model_name": "Stable Diffusion XL base 1.0"
+    }
+  }
+]

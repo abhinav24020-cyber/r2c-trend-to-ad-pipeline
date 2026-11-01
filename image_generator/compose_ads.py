@@ -325,6 +325,218 @@ def compose_ad(background_path: str, out_path: str, ratio: str, headline: str, s
 
 
 # --------------------------------------------------------------------------
+# Poster template: text and branding wrapped around the picture
+# --------------------------------------------------------------------------
+# Per theme: background, ink (headline/body), chip fill + chip text, sticker fill + sticker
+# text, and which logo colour reads on the background.
+POSTER_THEMES: Dict[str, Dict[str, str]] = {
+    "solar": {"bg": "#FFD23F", "ink": "#111111", "chip": "#111111", "chip_text": "#FFFFFF",
+              "sticker": "#FF3D68", "sticker_text": "#FFFFFF", "logo": "light"},
+    "coral": {"bg": "#FF6F59", "ink": "#FFFFFF", "chip": "#FFFFFF", "chip_text": "#0A1F3C",
+              "sticker": "#FFD23F", "sticker_text": "#111111", "logo": "dark"},
+    "lime": {"bg": "#C6F432", "ink": "#1B1036", "chip": "#1B1036", "chip_text": "#FFFFFF",
+             "sticker": "#5B2EFF", "sticker_text": "#FFFFFF", "logo": "light"},
+    "cream": {"bg": "#F6EFE3", "ink": "#0A1F3C", "chip": "#0A1F3C", "chip_text": "#FFFFFF",
+              "sticker": "#FF6B35", "sticker_text": "#FFFFFF", "logo": "light"},
+    "mint": {"bg": "#BFF0DA", "ink": "#10302A", "chip": "#10302A", "chip_text": "#FFFFFF",
+             "sticker": "#FF7A1A", "sticker_text": "#FFFFFF", "logo": "light"},
+    "night": {"bg": "#0A1F3C", "ink": "#FFFFFF", "chip": "#FFFFFF", "chip_text": "#0A1F3C",
+              "sticker": "#FFD23F", "sticker_text": "#111111", "logo": "dark"},
+}
+
+
+def _rounded(img: Image.Image, radius: int) -> Image.Image:
+    mask = Image.new("L", img.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, img.width, img.height), radius, fill=255)
+    out = img.convert("RGBA")
+    out.putalpha(mask)
+    return out
+
+
+def _cover(picture: Image.Image, size: Tuple[int, int]) -> Image.Image:
+    w, h = size
+    scale = max(w / picture.width, h / picture.height)
+    resized = picture.convert("RGB").resize((int(picture.width * scale + 1), int(picture.height * scale + 1)),
+                                            Image.LANCZOS)
+    left, top = (resized.width - w) // 2, (resized.height - h) // 2
+    return resized.crop((left, top, left + w, top + h))
+
+
+def _sticker(canvas: Image.Image, center: Tuple[int, int], radius: int, text: str, theme: Dict[str, str]) -> None:
+    """Round, slightly rotated badge (e.g. "1M TOKENS") overlapping the picture's corner."""
+    size = radius * 2 + 8
+    badge = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(badge)
+    draw.ellipse((4, 4, size - 4, size - 4), fill=_hex(theme["sticker"]), outline=_hex(TEXT),
+                 width=max(3, radius // 18))
+    words = text.split()
+    half = max(1, len(words) // 2)
+    lines = [" ".join(words[:half]), " ".join(words[half:])] if len(words) > 1 else [text]
+    lines = [line for line in lines if line]
+    font_size = radius
+    while font_size > 10:
+        font = _font("sans", font_size, 850)
+        if (max(draw.textlength(line, font=font) for line in lines) <= radius * 1.45
+                and font_size * 1.05 * len(lines) <= radius * 1.25):
+            break
+        font_size -= 2
+    font = _font("sans", font_size, 850)
+    y = (size - font_size * 1.05 * len(lines)) / 2 - font_size * 0.08
+    for line in lines:
+        draw.text(((size - draw.textlength(line, font=font)) / 2, y), line, font=font,
+                  fill=_hex(theme["sticker_text"]))
+        y += font_size * 1.05
+    badge = badge.rotate(-10, resample=Image.BICUBIC)
+    canvas.alpha_composite(badge, (center[0] - size // 2, center[1] - size // 2))
+
+
+def _chips(draw, items: Sequence[str], x: int, y: int, max_w: int, font, theme: Dict[str, str],
+           dry: bool = False) -> int:
+    """Service chips with a check mark, wrapped into rows; returns the height used."""
+    pad_x, pad_y, gap = int(font.size * 0.8), int(font.size * 0.45), int(font.size * 0.5)
+    chip_h = int(font.size * 1.25) + pad_y * 2
+    cx, cy = x, y
+    for item in items:
+        mark = int(font.size * 0.95)
+        w = int(draw.textlength(item, font=font)) + pad_x * 2 + mark + int(font.size * 0.4)
+        if cx > x and cx + w > x + max_w:
+            cx, cy = x, cy + chip_h + gap
+        if not dry:
+            draw.rounded_rectangle((cx, cy, cx + w, cy + chip_h), radius=chip_h // 2, fill=_hex(theme["chip"]))
+            mx, my = cx + pad_x, cy + (chip_h - mark) // 2
+            draw.ellipse((mx, my, mx + mark, my + mark), fill=_hex(ACCENT))
+            draw.line([(mx + mark * 0.28, my + mark * 0.52), (mx + mark * 0.44, my + mark * 0.68),
+                       (mx + mark * 0.73, my + mark * 0.34)], fill=_hex(TEXT), width=max(2, mark // 7))
+            draw.text((mx + mark + int(font.size * 0.4), cy + pad_y - int(font.size * 0.02)), item, font=font,
+                      fill=_hex(theme["chip_text"]))
+        cx += w + gap
+    return cy + chip_h - y
+
+
+def compose_poster(background_path: str, out_path: str, ratio: str, headline: str, subline: str, cta: str,
+                   eyebrow: str = "", points: Optional[Sequence[str]] = None, sticker: str = "",
+                   theme_name: str = "solar") -> str:
+    """
+    Poster-style ad: a coloured background with the brand wrapped around the picture.
+
+        logo + site line ............... ( HOOK )
+        BIG HEADLINE
+        [ picture card ]  (sticker)
+        subline
+        (v) service  (v) service  (v) service
+        === navy strip: [ CTA -> ]        r2c.iiitd.edu.in / Incubated at IIIT Delhi ===
+
+    Wide formats put the picture card on the left and the text column on the right.
+    """
+    theme = POSTER_THEMES.get(theme_name, POSTER_THEMES["solar"])
+    picture = Image.open(background_path)
+    width, height = picture.size
+    canvas = Image.new("RGBA", (width, height), _hex(theme["bg"]))
+    draw = ImageDraw.Draw(canvas)
+    wide = width / height > 1.3
+    m = int(min(width, height) * 0.055)
+    bottom_safe = int(height * 0.10) if ratio == "9:16" else 0  # Stories reply bar
+    points = [str(p).strip() for p in (points or []) if str(p).strip()][:3]
+
+    # Navy brand strip: CTA button, website, institute.
+    strip_h = int(max(min(width, height) * 0.13, 64))
+    strip_top = height - bottom_safe - strip_h
+    draw.rectangle((0, strip_top, width, height), fill=_hex(NAVY))
+    cta_font = _font("sans", int(strip_h * 0.25), 700)
+    label = cta + "  →"
+    pad_x = int(cta_font.size * 1.0)
+    cta_w, cta_h = int(draw.textlength(label, font=cta_font)) + pad_x * 2, int(strip_h * 0.58)
+    cy = strip_top + (strip_h - cta_h) // 2
+    draw.rounded_rectangle((m, cy, m + cta_w, cy + cta_h), radius=cta_h // 2, fill=_hex(ACCENT))
+    draw.text((m + pad_x, cy + (cta_h - cta_font.size * 1.2) / 2), label, font=cta_font, fill=_hex(TEXT))
+    site_font, small = _font("sans", int(strip_h * 0.22), 700), _font("sans", int(strip_h * 0.17), 500)
+    right = width - m
+    draw.text((right - draw.textlength(WEBSITE, font=site_font), strip_top + strip_h * 0.22), WEBSITE,
+              font=site_font, fill=_hex(TEXT))
+    draw.text((right - draw.textlength(FOOTER_LINE, font=small), strip_top + strip_h * 0.56), FOOTER_LINE,
+              font=small, fill=_hex(SUBTEXT))
+
+    # Header: logo and site line on the left, hook pill on the right.
+    logo = Image.open(os.path.join(ASSETS_DIR, LOGO_FILES[theme["logo"]])).convert("RGBA")
+    logo_w = int(width * (0.17 if not wide else 0.13))
+    logo = logo.resize((logo_w, int(logo.height * logo_w / logo.width)), Image.LANCZOS)
+    canvas.alpha_composite(logo, (m, m))
+    site = _font("sans", max(11, int(min(width, height) * 0.02)), 600)
+    draw.text((m, m + logo.height + int(site.size * 0.35)), SITE_LINE, font=site, fill=_hex(theme["ink"]))
+    header_bottom = m + logo.height + int(site.size * 2.6)
+    if eyebrow:
+        ef = _font("sans", max(11, int(min(width, height) * 0.022)), 750)
+        text = eyebrow.upper()
+        ew = _tracked_width(draw, text, ef, ef.size * 0.1) + int(ef.size * 1.6)
+        eh = int(ef.size * 2.1)
+        ex = width - m - ew
+        draw.rounded_rectangle((ex, m + 4, ex + ew, m + 4 + eh), radius=eh // 2, fill=_hex(theme["ink"]))
+        _tracked(draw, (ex + int(ef.size * 0.8), m + 4 + int(eh * 0.22)), text, ef, _hex(theme["bg"]),
+                 ef.size * 0.1)
+
+    if wide:  # picture card left, text column right
+        card = (m, header_bottom, int(width * 0.47), strip_top - m)
+        tx0, tx1 = card[2] + m, width - m
+    else:
+        tx0, tx1 = m, width - m
+    col_w = tx1 - tx0
+
+    # Type scale: the biggest headline (<= 3-4 lines) that still leaves the picture card
+    # its minimum share of the height (tall formats) or fits the text column (wide).
+    head_size = int(col_w * (0.115 if not wide else 0.10))
+    max_lines = 3 if not wide else 4
+    min_card = height * (0.30 if ratio == "1:1" else 0.36)
+    while True:
+        hf = _font("serif", head_size, 800)
+        head_lines = _wrap(draw, headline, hf, col_w)
+        sub_f = _font("sans", max(12, int(head_size * 0.36)), 500)
+        chip_f = _font("sans", max(11, int(head_size * 0.27)), 600)
+        sub_lines = _wrap(draw, subline, sub_f, col_w)[:3]
+        sub_h = int(len(sub_lines) * sub_f.size * 1.3)
+        chips_h = _chips(draw, points, tx0, 0, col_w, chip_f, theme, dry=True) if points else 0
+        gap = int(head_size * 0.28)
+        head_h = int(len(head_lines) * head_size * 1.02)
+        if wide:
+            fits = header_bottom + head_h + gap + sub_h + gap + chips_h <= strip_top - m
+        else:
+            fits = strip_top - m - chips_h - sub_h - 3 * gap - (header_bottom + head_h) >= min_card
+        if (len(head_lines) <= max_lines and fits) or head_size <= 18:
+            break
+        head_size -= 2
+
+    y = header_bottom
+    for line in head_lines:
+        draw.text((tx0, y), line, font=hf, fill=_hex(theme["ink"]))
+        y += int(head_size * 1.02)
+    y += gap
+    if not wide:  # picture card between the headline and the subline
+        card_bottom = strip_top - m - chips_h - gap - sub_h - gap
+        card = (m, y, width - m, card_bottom)
+        y = card_bottom + gap
+    for line in sub_lines:
+        draw.text((tx0, y), line, font=sub_f, fill=_hex(theme["ink"]))
+        y += int(sub_f.size * 1.3)
+    if points:
+        _chips(draw, points, tx0, y + (gap if wide else gap // 2), col_w, chip_f, theme)
+
+    # Picture card: rounded corners, thin ink frame, sticker on the corner.
+    cw, ch = card[2] - card[0], card[3] - card[1]
+    if cw > 40 and ch > 40:
+        radius = int(min(width, height) * 0.035)
+        frame = Image.new("RGBA", (cw + 8, ch + 8), (0, 0, 0, 0))
+        ImageDraw.Draw(frame).rounded_rectangle((0, 0, cw + 7, ch + 7), radius + 4, fill=_hex(theme["ink"]))
+        canvas.alpha_composite(frame, (card[0] - 4, card[1] - 4))
+        canvas.alpha_composite(_rounded(_cover(picture, (cw, ch)), radius), (card[0], card[1]))
+        if sticker:
+            r = int(min(width, height) * (0.095 if not wide else 0.11))
+            _sticker(canvas, (card[2] - int(r * 0.55), card[1] + int(r * 0.45)), r, sticker, theme)
+
+    os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
+    canvas.convert("RGB").save(out_path, "PNG")
+    return out_path
+
+
+# --------------------------------------------------------------------------
 # Logo on an AI-drawn ad
 # --------------------------------------------------------------------------
 def _logo_box(size: Tuple[int, int], logo_size: Tuple[int, int], corner: str, margin: int) -> Tuple[int, int]:
@@ -371,6 +583,11 @@ def compose_record(record: Dict[str, Any], out_dir: Optional[str] = None) -> Opt
     out_dir = out_dir or os.path.join(os.path.dirname(background), "final_ads")
     name = os.path.splitext(os.path.basename(background))[0] + "_ad.png"
     points = post.get("points") if isinstance(post.get("points"), list) else []
+    if record.get("theme"):
+        return compose_poster(background, os.path.join(out_dir, name), record.get("aspect_ratio") or "1:1",
+                              post.get("headline", ""), post.get("subline", ""), post.get("cta", "Learn More"),
+                              eyebrow=post.get("eyebrow", ""), points=points, sticker=post.get("sticker", ""),
+                              theme_name=record["theme"])
     return compose_ad(background, os.path.join(out_dir, name), record.get("aspect_ratio") or "1:1",
                       post.get("headline", ""), post.get("subline", ""), post.get("cta", "Learn More"),
                       eyebrow=post.get("eyebrow", ""), points=points)

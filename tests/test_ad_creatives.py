@@ -100,19 +100,22 @@ class TestAdCreatives(unittest.TestCase):
     def test_image_prompt_is_composed_from_templates(self):
         records = ad_creatives.generate_trend_creatives(_trend(), FakeGemini([json.dumps(_good_brief())]))
         story = records[3]["background_prompt"]
-        self.assertIn("middle band of the tall frame", story)
-        self.assertIn("#0A1F3C", story)
+        self.assertIn("Main subject centred and whole", story)
+        self.assertIn("not CGI", story)
+        self.assertNotIn("glossy", story)
+        themed = ad_creatives.compose_image_prompt("story", records[3]["post"]["visual"], "solar")
+        self.assertIn("sunflower yellow, black and cobalt blue dominate", themed)
         self.assertIn("relay team of five swimmers", story)
         self.assertIn("diving into a night pool", story)
         self.assertIn("Splashes frozen in mid-air", story)
         self.assertIn("Camera: low vertical tracking shot", story)
-        self.assertIn("with electric purple, silver, black as vivid accent colours", story)
+        self.assertIn("Colour palette: electric purple, silver, black, bold and saturated", story)
         self.assertIn("No text, letters", story)
         self.assertNotIn("Small parts working together", story)  # the abstract concept is not drawn
         self.assertGreaterEqual(len(story), 500)  # the image stage requires 500-2400 chars
         self.assertLessEqual(len(story), 2400)
         explainer = records[1]["background_prompt"]
-        self.assertTrue(explainer.startswith("Premium key visual") and "Isometric 3D miniature diorama" in explainer)
+        self.assertTrue(explainer.startswith("Scroll-stopping social media ad image") and "Isometric 3D miniature diorama" in explainer)
 
     def test_full_ad_prompt_carries_layout_exact_text_and_picture(self):
         with patch.object(config, "AD_TEXT_MODE", "ai"):
@@ -218,7 +221,7 @@ class TestAdCreatives(unittest.TestCase):
         brief["creatives"][0]["visual"]["colors"] = ["dusty gold", "rust red", "charcoal"]
         records = ad_creatives.generate_trend_creatives(_trend(), FakeGemini([json.dumps(brief)]))
         self.assertEqual(records[0]["status"], "success", records[0]["error_message"])
-        self.assertIn("with dusty gold, rust red, charcoal as vivid accent", records[0]["image_prompt"])
+        self.assertIn("Colour palette: dusty gold, rust red, charcoal, bold", records[0]["image_prompt"])
         self.assertNotIn("[", records[0]["image_prompt"])
 
     def test_every_visual_field_is_required(self):

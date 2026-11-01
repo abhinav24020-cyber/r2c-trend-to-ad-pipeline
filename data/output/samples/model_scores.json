@@ -1,0 +1,254 @@
+{
+  "flux-2-klein-9b-v2|trd_20261025_001_3cfe": {
+    "adherence": 8,
+    "realism": 8,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "The image has a high-energy composition, but there are visible gibberish texts on the papers and some minor anatomical flaws."
+  },
+  "flux-2-klein-9b-v2|trd_20261025_002_bce6": {
+    "adherence": 7,
+    "realism": 8,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "Visually striking ad with high energy, though minor AI artifacts and gibberish text are present."
+  },
+  "flux-2-klein-9b-v2|trd_20261025_003_c3fc": {
+    "adherence": 8,
+    "realism": 8,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "The vibrant illustration captures the chaotic scene well, though it includes visible gibberish text on the chalkboard."
+  },
+  "flux-2-klein-9b-v2|trd_20261025_004_f476": {
+    "adherence": 6,
+    "realism": 7,
+    "catchiness": 8,
+    "artifacts": 5,
+    "note": "The image captures the lively startup scene and mood well, but fails the negative constraint regarding text and numbers on the whiteboard and paper."
+  },
+  "flux-2-klein-9b-v2|trd_20261025_005_bef5": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 9,
+    "artifacts": 6,
+    "note": "The image is visually striking and humorous, but includes text ('OPENSHELL') despite the prompt's negative constraint."
+  },
+  "flux-2-klein-9b-v2|trd_20261025_006_6bc9": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "A visually striking ad image with great energy, though minor AI artifacting is noticeable upon close inspection."
+  },
+  "flux-2-klein-9b-v2|trd_20261025_007_b695": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 9,
+    "artifacts": 6,
+    "note": "Great bold vector style and energy, but failed the negative constraint by including visible, albeit jumbled, text and labels."
+  },
+  "flux-2-klein-9b-v2|near_cls_001": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 9,
+    "artifacts": 6,
+    "note": "The image captures the prompt well, but contains gibberish text on the whiteboard and paper stack."
+  },
+  "flux-2-klein-9b-v2|near_cls_013": {
+    "adherence": 9,
+    "realism": 8,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "The image is visually striking and adheres well, though some paper edges appear slightly fused or non-existent upon close inspection."
+  },
+  "stable-diffusion-xl-base-1.0|trd_20261025_001_3cfe": {
+    "adherence": 3,
+    "realism": 4,
+    "catchiness": 7,
+    "artifacts": 5,
+    "note": "The image has impressive visual impact, but fails several prompt details like the chai stall setting and the corporate executive."
+  },
+  "stable-diffusion-xl-base-1.0|trd_20261025_002_bce6": {
+    "adherence": 2,
+    "realism": 3,
+    "catchiness": 6,
+    "artifacts": 3,
+    "note": "The image fails multiple prompt details, showing a man floating amidst abstract cubes instead of the requested scene."
+  },
+  "stable-diffusion-xl-base-1.0|trd_20261025_003_c3fc": {
+    "adherence": 6,
+    "realism": 4,
+    "catchiness": 7,
+    "artifacts": 5,
+    "note": "The image has high energy and vibrant colors, but suffers from AI artifacts and lacks specific story elements."
+  },
+  "stable-diffusion-xl-base-1.0|trd_20261025_004_f476": {
+    "adherence": 6,
+    "realism": 7,
+    "catchiness": 8,
+    "artifacts": 8,
+    "note": "The image misses several prompt details like the intern and tumbling papers, but has good realism and catchiness."
+  },
+  "stable-diffusion-xl-base-1.0|trd_20261025_005_bef5": {
+    "adherence": 2,
+    "realism": 4,
+    "catchiness": 8,
+    "artifacts": 3,
+    "note": "The image fails multiple prompt details like the corporate executive and lab setting, showing floating fans and weird anatomy instead."
+  },
+  "stable-diffusion-xl-base-1.0|trd_20261025_006_6bc9": {
+    "adherence": 6,
+    "realism": 5,
+    "catchiness": 7,
+    "artifacts": 5,
+    "note": "The image has a striking concept and high catchiness, but suffers from AI blending artifacts and deviates from several prompt details."
+  },
+  "stable-diffusion-xl-base-1.0|trd_20261025_007_b695": {
+    "adherence": 6,
+    "realism": 7,
+    "catchiness": 8,
+    "artifacts": 5,
+    "note": "The image has minor AI artifacts like deformed hands and missing imp elements from the prompt."
+  },
+  "stable-diffusion-xl-base-1.0|near_cls_001": {
+    "adherence": 3,
+    "realism": 5,
+    "catchiness": 6,
+    "artifacts": 5,
+    "note": "The image misses key elements from the prompt such as the second person and office setting."
+  },
+  "stable-diffusion-xl-base-1.0|near_cls_013": {
+    "adherence": 3,
+    "realism": 4,
+    "catchiness": 6,
+    "artifacts": 3,
+    "note": "The image fails multiple prompt specifications regarding materials, setting, and color palette, resulting in distorted elements."
+  },
+  "stable-diffusion-3.5-medium|trd_20261025_001_3cfe": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 9,
+    "artifacts": 6,
+    "note": "The image captures a dynamic scene with strong colors and a high-impact composition, though some details like the paper stacks show minor AI-generated structural anomalies."
+  },
+  "stable-diffusion-3.5-medium|trd_20261025_002_bce6": {
+    "adherence": 2,
+    "realism": 4,
+    "catchiness": 6,
+    "artifacts": 3,
+    "note": "The image generated depicts an accordion player instead of the prompt's PhD researcher feeding source code."
+  },
+  "stable-diffusion-3.5-medium|trd_20261025_003_c3fc": {
+    "adherence": 6,
+    "realism": 4,
+    "catchiness": 7,
+    "artifacts": 5,
+    "note": "The image is vibrant and energetic, but fails several specific prompt constraints like missing the corporate cross-section and including text/logos."
+  },
+  "stable-diffusion-3.5-medium|trd_20261025_004_f476": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "The image is engaging and fits the mood well, though minor AI artifacts are visible upon close inspection."
+  },
+  "stable-diffusion-3.5-medium|trd_20261025_005_bef5": {
+    "adherence": 4,
+    "realism": 5,
+    "catchiness": 8,
+    "artifacts": 3,
+    "note": "The image generated text contrary to the prompt and contains significant AI artifacts."
+  },
+  "stable-diffusion-3.5-medium|trd_20261025_006_6bc9": {
+    "adherence": 8,
+    "realism": 6,
+    "catchiness": 9,
+    "artifacts": 5,
+    "note": "Eye-catching and energetic, but has typical AI anatomical blending and object warping around the riders."
+  },
+  "stable-diffusion-3.5-medium|trd_20261025_007_b695": {
+    "adherence": 7,
+    "realism": 8,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "Engaging illustration with minor text gibberish and good color contrast."
+  },
+  "stable-diffusion-3.5-medium|near_cls_001": {
+    "adherence": 6,
+    "realism": 6,
+    "catchiness": 7,
+    "artifacts": 5,
+    "note": "The image captures a chaotic office scene well, but has noticeable AI artifacts in the hands and papers."
+  },
+  "stable-diffusion-3.5-medium|near_cls_013": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 9,
+    "artifacts": 8,
+    "note": "A striking and visually arresting surreal image that captures the requested editorial look effectively."
+  },
+  "20261029_1352|trd_20261025_001_3cfe": {
+    "adherence": 8,
+    "realism": 7,
+    "catchiness": 8,
+    "artifacts": 5,
+    "note": "The image looks visually striking and high-end, but it violates the negative prompt by including brand logos and UI text."
+  },
+  "20261029_1352|trd_20261025_002_bce6": {
+    "adherence": 7,
+    "realism": 8,
+    "catchiness": 8,
+    "artifacts": 2,
+    "note": "The image is striking and professional, but it clearly violates the negative constraint against text and logos."
+  },
+  "20261029_1352|trd_20261025_003_c3fc": {
+    "adherence": 6,
+    "realism": 7,
+    "catchiness": 7,
+    "artifacts": 4,
+    "note": "The image looks visually appealing, but it clearly violates the negative prompt regarding text elements."
+  },
+  "20261029_1352|trd_20261025_004_f476": {
+    "adherence": 8,
+    "realism": 8,
+    "catchiness": 9,
+    "artifacts": 7,
+    "note": "The image is visually striking and professional, but contains gibberish text on the left and minor hand distortion."
+  },
+  "20261029_1352|trd_20261025_005_bef5": {
+    "adherence": 7,
+    "realism": 8,
+    "catchiness": 8,
+    "artifacts": 3,
+    "note": "The image looks high-end and realistic, but it violates the negative prompt by containing unwanted text and logos."
+  },
+  "20261029_1352|trd_20261025_006_6bc9": {
+    "adherence": 7,
+    "realism": 8,
+    "catchiness": 8,
+    "artifacts": 3,
+    "note": "The image looks professional and striking, but it violates the negative prompt constraint by including prominent text and logos."
+  },
+  "20261029_1352|trd_20261025_007_b695": {
+    "adherence": 6,
+    "realism": 4,
+    "catchiness": 5,
+    "artifacts": 3,
+    "note": "The image contains severe artifacts like cutoff text and incorrect character positioning compared to the prompt."
+  },
+  "20261029_1352|near_cls_001": {
+    "adherence": 7,
+    "realism": 8,
+    "catchiness": 8,
+    "artifacts": 7,
+    "note": "The image looks professional, but has some minor hand distortions and unintended text artifacts on the left."
+  },
+  "20261029_1352|near_cls_013": {
+    "adherence": 7,
+    "realism": 8,
+    "catchiness": 8,
+    "artifacts": 3,
+    "note": "The image looks high-end and dramatic, but it clearly violates the negative prompt constraint regarding UI elements and logos."
+  }
+}

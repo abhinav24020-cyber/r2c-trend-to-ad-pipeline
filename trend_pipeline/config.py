@@ -60,6 +60,9 @@ CLOUDFLARE_API_TOKEN: str = os.environ.get("CLOUDFLARE_API_TOKEN", "")
 # platform's aspect ratio. FLUX.1 schnell (@cf/black-forest-labs/flux-1-schnell)
 # is square-only (1024x1024) and is still supported. Check the model terms
 # (bfl.ai/legal) before commercial use.
+# Hugging Face Inference Providers (SD 3.5 Medium, Qwen-Image, ...): token with
+# "Make calls to Inference Providers" permission, from huggingface.co/settings/tokens.
+HF_TOKEN: str = os.environ.get("HF_TOKEN", "").strip()
 CLOUDFLARE_IMAGE_MODEL: str = os.environ.get(
     "CLOUDFLARE_IMAGE_MODEL", "@cf/black-forest-labs/flux-2-klein-4b"
 )

@@ -57,10 +57,12 @@ class CloudflareImageClient:
     """
     Text-to-image through the Cloudflare Workers AI REST API.
 
-    Two request shapes, verified against the live API (25 Oct 2026):
+    Three request shapes, verified against the live API:
       - FLUX.2 models: multipart form with prompt, width, height -> any aspect ratio.
       - FLUX.1 schnell: JSON with prompt, steps -> always 1024x1024; width and
         height are ignored and "seed" is rejected.
+      - Stable Diffusion XL: JSON with prompt, negative_prompt, width, height,
+        num_steps (max 20); the response is the raw PNG, not JSON.
     """
 
     provider = "cloudflare-workers-ai"
@@ -75,6 +77,10 @@ class CloudflareImageClient:
     def supports_size(self) -> bool:
         return "flux-2" in self.model
 
+    @property
+    def is_sdxl(self) -> bool:
+        return "stable-diffusion-xl" in self.model
+
     def text_to_image(self, prompt: str, width: Optional[int] = None,
                       height: Optional[int] = None, **_ignored: Any):
         """
@@ -84,7 +90,14 @@ class CloudflareImageClient:
         """
         from PIL import Image
 
-        if self.supports_size:
+        if self.is_sdxl:
+            payload = {"prompt": fit_prompt(prompt), "num_steps": 20, "guidance": 7.5}
+            if width and height:
+                payload.update(width=int(width) // 8 * 8, height=int(height) // 8 * 8)
+            if _ignored.get("negative_prompt"):
+                payload["negative_prompt"] = _ignored["negative_prompt"]
+            body = self._post(json.dumps(payload).encode("utf-8"), "application/json")
+        elif self.supports_size:
             fields: Dict[str, Any] = {"prompt": fit_prompt(prompt)}
             if width and height:
                 fields.update(width=int(width), height=int(height))
@@ -92,6 +105,10 @@ class CloudflareImageClient:
         else:
             payload = {"prompt": fit_prompt(prompt), "steps": self.steps}
             body = self._post(json.dumps(payload).encode("utf-8"), "application/json")
+        if isinstance(body, bytes):  # SDXL answers with the PNG itself
+            image = Image.open(io.BytesIO(body))
+            image.load()
+            return image
         try:
             image_b64 = body["result"]["image"]
         except (KeyError, TypeError) as exc:
@@ -101,7 +118,8 @@ class CloudflareImageClient:
         image.load()
         return image
 
-    def _post(self, data: bytes, content_type: str, attempts: int = 3) -> Dict[str, Any]:
+    def _post(self, data: bytes, content_type: str, attempts: int = 3) -> Any:
+        """JSON response as a dict, or raw bytes when the model returns an image directly."""
         for attempt in range(1, attempts + 1):
             request = Request(self.url, data=data, method="POST", headers={
                 "Authorization": "Bearer " + self._token,
@@ -109,6 +127,9 @@ class CloudflareImageClient:
             })
             try:
                 with urlopen(request, timeout=CLOUDFLARE_TIMEOUT_SECONDS) as response:
+                    headers = getattr(response, "headers", None) or {}
+                    if (headers.get("Content-Type") or "").startswith("image/"):
+                        return response.read()
                     return json.load(response)
             except HTTPError as exc:
                 detail = _cloudflare_errors(_read_json(exc)) or exc.reason
@@ -124,6 +145,89 @@ class CloudflareImageClient:
                     continue
                 raise RuntimeError("Could not reach Cloudflare: {}".format(exc)) from exc
         raise RuntimeError("Cloudflare request failed")
+
+
+class HuggingFaceImageClient:
+    """
+    Text-to-image through Hugging Face Inference Providers (needs HF_TOKEN in .env).
+
+    Hugging Face routes the call to a provider that hosts the model, e.g.
+    stabilityai/stable-diffusion-3.5-medium on Replicate or Qwen/Qwen-Image-2512
+    on fal-ai; usage is billed to the Hugging Face account.
+    """
+
+    provider = "huggingface-inference-providers"
+
+    def __init__(self, model: str, token: str, hf_provider: str = "auto") -> None:
+        from huggingface_hub import InferenceClient
+
+        self.model = model
+        self.hf_provider = hf_provider
+        self._client = InferenceClient(provider=hf_provider, api_key=token)
+
+    def text_to_image(self, prompt: str, width: Optional[int] = None, height: Optional[int] = None,
+                      negative_prompt: Optional[str] = None, **_ignored: Any):
+        kwargs: Dict[str, Any] = {"model": self.model}
+        if width and height:
+            kwargs.update(width=int(width) // 16 * 16, height=int(height) // 16 * 16)
+        if negative_prompt:
+            kwargs["negative_prompt"] = negative_prompt
+        try:
+            return self._client.text_to_image(" ".join(prompt.split()), **kwargs)
+        except Exception as exc:  # surface the provider's message (quota, gating, size)
+            raise RuntimeError("Hugging Face ({} via {}): {}".format(self.model, self.hf_provider, exc)) from exc
+
+
+class HuggingFaceSpaceClient:
+    """
+    Text-to-image through a model's official Hugging Face Space (Gradio app on free
+    ZeroGPU hardware). Free for a logged-in account within a daily GPU-time quota;
+    used when the paid Inference Providers route has no credits.
+
+    Spaces differ in their inputs: some take width/height, others an aspect-ratio
+    choice. `aspects` lists the choices; the closest one to the requested size is used.
+    """
+
+    provider = "huggingface-space"
+
+    def __init__(self, space: str, model: str, token: str, steps: Optional[int] = None,
+                 aspects: Optional[Sequence[str]] = None, extra: Optional[Dict[str, Any]] = None) -> None:
+        from gradio_client import Client
+
+        self.space, self.model, self.steps = space, model, steps
+        self.aspects = list(aspects or [])
+        self.extra = dict(extra or {})
+        self._client = Client(space, token=token, verbose=False)
+
+    def _closest_aspect(self, width: int, height: int) -> str:
+        def value(choice: str) -> float:
+            w, h = choice.split(":")
+            return float(w) / float(h)
+        return min(self.aspects, key=lambda c: abs(value(c) - width / height))
+
+    def text_to_image(self, prompt: str, width: Optional[int] = None, height: Optional[int] = None,
+                      negative_prompt: Optional[str] = None, **_ignored: Any):
+        from PIL import Image
+
+        kwargs: Dict[str, Any] = dict(self.extra, prompt=" ".join(prompt.split()), randomize_seed=True)
+        if self.steps:
+            kwargs["num_inference_steps"] = self.steps
+        if self.aspects:
+            kwargs["aspect_ratio"] = self._closest_aspect(width or 1024, height or 1024)
+        elif width and height:
+            kwargs.update(width=int(width) // 16 * 16, height=int(height) // 16 * 16)
+            if negative_prompt is not None:
+                kwargs["negative_prompt"] = negative_prompt
+        try:
+            output = self._client.predict(api_name="/infer", **kwargs)
+        except Exception as exc:  # quota exhausted, Space asleep or busy
+            raise RuntimeError("Hugging Face Space {}: {}".format(self.space, exc)) from exc
+        path = output[0] if isinstance(output, (list, tuple)) else output
+        if isinstance(path, dict):
+            path = path.get("path") or path.get("url")
+        image = Image.open(path)
+        image.load()
+        return image
 
 
 def _read_json(exc: HTTPError) -> Any:
@@ -250,6 +354,7 @@ def generate_image_record(
         "placement": prompt_record.get("placement"),
         "creative_angle": prompt_record.get("creative_angle"),
         "render_mode": prompt_record.get("render_mode"),
+        "theme": prompt_record.get("theme"),
         "image_provider": getattr(image_client, "provider", "injected-client"),
         "image_model": getattr(image_client, "model", None),
         "aspect_ratio": None,

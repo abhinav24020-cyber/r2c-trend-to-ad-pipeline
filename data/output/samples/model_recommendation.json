@@ -1,0 +1,51 @@
+{
+  "summary": "Four image models were compared on the same 9 trend ads (one image per trend, no retries), scored 1-10 by Gemini vision. FLUX.2 Klein 9B is the clear winner (7.6/10 overall): it scored highest on every criterion and was the most consistent (no ad below 6.5). FLUX.2 Klein 4B (6.5) and SD 3.5 Medium (6.5) are close behind, and SDXL base 1.0 is last (5.1). Qwen-Image-2512 (20B) was not tested because it needs paid GPU time that the free keys do not cover.",
+  "points": [
+    "Use FLUX.2 Klein 9B for the final, published ads: best prompt adherence (7.8), realism (7.4), catchiness (8.9) and fewest defects (6.4). It runs on Cloudflare: about 7 free images a day, or about $0.015 per image on Workers Paid.",
+    "Use FLUX.2 Klein 4B for drafts and prompt testing: similar realism to 9B and about 95 free images a day, but more visible defects (artifacts 4.1). Note its ads used the earlier v1 prompts.",
+    "SD 3.5 Medium is a reasonable alternative (6.5) with good catchiness (8.1), but it is inconsistent (its weakest ad scored 3.75) and has no reliable free API; it ran on a free demo Space with a small daily GPU quota.",
+    "SDXL base 1.0 is not recommended: lowest adherence (4.1) because it reads only about the first 75 words of a prompt, and weaker faces and hands.",
+    "Qwen-Image-2512 (20B) can be added later on the same 9 prompts once paid Hugging Face credits are available (about $0.02-0.03 per image, so about $0.25 for all 9)."
+  ],
+  "models": {
+    "flux-2-klein-9b-v2": {
+      "strengths": [
+        "Best on all four criteria; follows long, detailed prompts (Indian settings, people interacting, colour themes).",
+        "Looks like a real ad shoot; most eye-catching (catchiness 8.9).",
+        "Most consistent: every ad usable (lowest ad 6.5/10)."
+      ],
+      "weaknesses": [
+        "Small defects in places: gibberish text on papers or props, occasional odd hands.",
+        "Free tier allows only about 7 images a day on Cloudflare."
+      ]
+    },
+    "20261029_1352": {
+      "strengths": [
+        "Realism close to Klein 9B (7.3) at a fraction of the cost: about 95 free images a day.",
+        "Good for fast, cheap drafts while tuning prompts."
+      ],
+      "weaknesses": [
+        "Most visible defects of the FLUX models (artifacts 4.1): warped details and stray marks.",
+        "Rendered from the earlier v1 prompts and dark template, so not a like-for-like visual comparison."
+      ]
+    },
+    "stable-diffusion-3.5-medium": {
+      "strengths": [
+        "Strong, realistic, colourful scenes when it follows the prompt; good catchiness (8.1)."
+      ],
+      "weaknesses": [
+        "Inconsistent: some images ignore most of the prompt (weakest ad 3.75/10).",
+        "No reliable free API; the free demo Space has a small daily GPU quota."
+      ]
+    },
+    "stable-diffusion-xl-base-1.0": {
+      "strengths": [
+        "Free and fast on Cloudflare (about 12 s per image); bold, colourful illustrations."
+      ],
+      "weaknesses": [
+        "Lowest prompt adherence (4.1): its text encoder reads only about the first 75 words.",
+        "Weaker faces and hands; photos look more obviously AI-generated."
+      ]
+    }
+  }
+}

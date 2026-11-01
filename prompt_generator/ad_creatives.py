@@ -97,6 +97,24 @@ BRAND_ACCENT = os.environ.get("R2C_BRAND_ACCENT", "royal blue (#3B5DE7)")
 # Official brand look, taken from r2c.iiitd.edu.in (logo colour, theme colour, site fonts).
 BRAND_NAVY = "deep navy (#0A1F3C)"
 BRAND_BLUE = "royal blue (#3B5DE7)"
+# Ad colour themes: the brand template's background and the picture's palette match,
+# and each ad in a run gets a different theme. R2C navy/blue stay on logo, button and strip.
+THEMES = {
+    "solar": "sunflower yellow, black and cobalt blue",
+    "coral": "coral red, warm cream and deep navy",
+    "lime": "acid lime green, deep purple and white",
+    "cream": "warm cream, terracotta orange and navy",
+    "mint": "mint green, charcoal and tangerine orange",
+    "night": "deep navy, electric blue and amber",
+}
+THEME_ORDER = list(THEMES)
+# Real-photo cues instead of the glossy CGI finish image models default to; plus
+# richness so the picture is busy and catchy, not minimal.
+REAL_LOOK = ("Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural "
+             "imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an "
+             "empty void.")
+RICH_FRAME = ("Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero "
+              "subject and a lively background, bold saturated colour, high contrast, eye-catching.")
 # Described, never named: image models draw font names as text.
 BRAND_TYPE = ("headline in a bold, elegant modern serif display typeface; button text in a clean geometric "
               "sans-serif")
@@ -115,8 +133,8 @@ AD_FORMATS: Dict[str, Dict[str, str]] = {
         "aspect_ratio": "4:5",
         "goal": "Stop the scroll. A bold, surprising headline built on the single most striking fact "
                 "of the trend. Curiosity first, R2C.Ai only lightly in the caption.",
-        "style": "Editorial magazine-cover photograph, hyper-real detail, bold graphic composition, "
-                 "rich saturated colour, crisp focus",
+        "style": "Bold editorial advertising photograph, real people and real objects, punchy graphic "
+                 "composition, saturated colour, sharp focus",
         "visual_brief": "PHOTOGRAPH, magazine-cover energy. One hero subject shot so it stops the thumb: "
                         "an impossible scale contrast, an unexpected pairing, or a frozen split-second of "
                         "action. BOLD (for an unrelated trend): 'a tiny wind-up toy car leading a convoy of giant mining trucks down a "
@@ -131,8 +149,8 @@ AD_FORMATS: Dict[str, Dict[str, str]] = {
         "aspect_ratio": "3:4",
         "goal": "Inform. What happened, in one line, and why it matters to researchers or R&D teams. "
                 "The caption gives 2-3 concrete facts from the evidence.",
-        "style": "Isometric 3D miniature diorama, tilt-shift look, glossy toy-like materials, soft studio "
-                 "lighting, clean pastel background",
+        "style": "Isometric 3D miniature diorama, tilt-shift look, matte handmade materials (clay, card, "
+                 "painted wood), busy little scene full of tiny details",
         "visual_brief": "ISOMETRIC MINIATURE WORLD. Turn HOW it works into a tiny busy place: conveyor lines, "
                         "stations, pipes, tiny figurines at work, so the process is visible at a glance. "
                         "BOLD (for an unrelated trend): 'a miniature factory where five small conveyor belts carry code blocks into "
@@ -165,8 +183,8 @@ AD_FORMATS: Dict[str, Dict[str, str]] = {
         "placement": "Instagram & Facebook Stories / Reels",
         "aspect_ratio": "9:16",
         "goal": "Full-screen, fast. One punchy line plus a swipe-up style CTA. Built for a 3-second glance.",
-        "style": "Vertical cinematic action still, dramatic motion, frozen debris or motion blur, "
-                 "strong backlight and atmosphere, film-grade colour",
+        "style": "Vertical action photograph, real motion caught mid-moment, motion blur, energetic "
+                 "street or campus setting, bold colour",
         "visual_brief": "VERTICAL CINEMATIC ACTION. A single moment of breakthrough or speed captured "
                         "mid-motion, readable in one glance. BOLD (for an unrelated trend): 'a sprinter bursting through a paper "
                         "wall in a dark stadium tunnel, shreds frozen in mid-air, backlit'. "
@@ -197,20 +215,6 @@ PEOPLE_WORDS = ("researcher", "scientist", "engineer", "professor", "student", "
                 "duo", "pair of", "two of", "group of", "couple", "crowd")
 AD_TYPES = list(AD_FORMATS)
 
-# The brand template crops the picture to its centre (the middle half of tall
-# formats, the middle 60% of square and wide ones), so the subject must sit there.
-COMPOSITION = {
-    "4:5": "Subject centred in the middle band of the frame, whole and compact, with calm dark space above "
-           "and below it.",
-    "3:4": "Subject centred in the middle band of the frame, whole and compact, with calm dark space above "
-           "and below it.",
-    "1:1": "Subject centred and compact in the middle of the frame, with calm dark space at the left and "
-           "right edges.",
-    "9:16": "Subject centred in the middle band of the tall frame, whole and compact, with calm dark space "
-            "above and below it.",
-    "1.91:1": "Subject centred and compact in the middle of the wide frame, with calm dark space at the left "
-              "and right edges.",
-}
 NEGATIVE = ("No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, "
             "charts or labels anywhere in the image.")
 
@@ -474,7 +478,7 @@ def compose_ad_prompt(ad_type: str, item: Dict[str, Any]) -> str:
     return prompt
 
 
-def compose_image_prompt(ad_type: str, visual: Dict[str, Any]) -> str:
+def compose_image_prompt(ad_type: str, visual: Dict[str, Any], theme: Optional[str] = None) -> str:
     """
     Concrete image prompt in the order FLUX weighs most: medium, then subject and
     action, then the surprising element, then camera, light and colour. The
@@ -487,18 +491,19 @@ def compose_image_prompt(ad_type: str, visual: Dict[str, Any]) -> str:
     def field(name: str) -> str:
         return _text(visual.get(name)).rstrip(".")
 
+    colours = ("Colour palette: {} dominate the whole scene, bold and saturated.".format(THEMES[theme])
+               if theme in THEMES else "Colour palette: {}, bold and saturated.".format(field("colors")))
     parts = [
-        "Premium key visual for a 2026 tech-brand ad campaign. " + fmt["style"] + ".",
+        "Scroll-stopping social media ad image. " + fmt["style"] + ".",
         "{}, {}.".format(field("focal_subject"), field("action")),
         field("scroll_stopper") + ".",
         "Setting: {}.".format(field("setting")),
         "Camera: {}. Lighting: {}.".format(field("camera"), field("lighting")),
-        "Brand colour grade: {} shadows and {} light shape the whole scene, with {} as vivid accent "
-        "colours.".format(BRAND_NAVY, BRAND_BLUE, field("colors")),
-        COMPOSITION[ratio],
+        colours,
+        RICH_FRAME,
+        REAL_LOOK,
+        "Main subject centred and whole, nothing important at the edges of the frame.",
         "Mood: {}.".format(field("mood")),
-        "Cinematic and high-end: crisp detail, rich textures, dramatic depth, glossy commercial finish, "
-        "one clear subject, uncluttered background.",
         NEGATIVE,
     ]
     return " ".join(p for p in parts if p.strip(" .:,"))
@@ -520,17 +525,19 @@ Current picture idea (too safe, replace it): {current}
 Medium for this format: {style}
 
 What makes it creative:
-- ONE striking visual metaphor that fuses the trend with the reader's opportunity ({audience_angle}). A viewer should get the idea in one second.
-- Use at least two of: impossible scale, an unexpected material (glass, paper, light, liquid, origami, porcelain), surreal physics, a frozen split-second, a bold colour clash against deep navy and royal blue.
-- Cinematic and premium, like a Apple or Nike campaign, not clip art or stock photography.
+- ONE clear, witty idea that fuses the trend with the reader's opportunity ({audience_angle}). A viewer should get it in one second.
+- Grounded and believable, like a real ad campaign shoot (think Nike, Swiggy, Zomato, Spotify Wrapped): real people, real objects and real places, ideally Indian (labs, campuses, startup offices, streets), with ONE playful twist. No impossible physics, nothing floating in a void, no glossy CGI.
+- Full of energy and detail, not minimal: a busy, layered, colourful scene with action, expressions and props.
+- The whole picture is in this colour palette: {palette}.
+- sticker: a 1-3 word badge for the ad's corner sticker, ideally a striking number or word from the trend (e.g. "1M TOKENS", "5 vs 1", "NEW", "20x").
 - No text, screens with writing, logos, or these clichés: glowing brains, neural networks, robots, holograms, server racks, padlocks, keys, gears, puzzles, chess, light bulbs, handshakes, rockets, toy cars.
 {people_rule}{headline_rule}
 Return JSON only:
-{{"headline": "...", "visual": {{"concept": "...", "focal_subject": "...", "action": "...", "scroll_stopper": "...", "setting": "...", "camera": "...", "lighting": "...", "colors": "...", "mood": "..."}}}}"""
+{{"headline": "...", "sticker": "...", "visual": {{"concept": "...", "focal_subject": "...", "action": "...", "scroll_stopper": "...", "setting": "...", "camera": "...", "lighting": "...", "colors": "...", "mood": "..."}}}}"""
 
 
 def reimagine_visual(record: Dict[str, Any], trend: Dict[str, Any], client: Any,
-                     attempts: int = 3) -> Dict[str, Any]:
+                     attempts: int = 3, theme: Optional[str] = None) -> Dict[str, Any]:
     """
     Give an approved ad a bolder picture (and, for square/wide formats, a headline
     short enough for the layout). Returns an updated copy of the record; on failure
@@ -545,6 +552,7 @@ def reimagine_visual(record: Dict[str, Any], trend: Dict[str, Any], client: Any,
         eyebrow=post.get("eyebrow"), headline=post.get("headline"), subline=post.get("subline"),
         title=trend.get("topic_title", ""), summary=trend.get("topic_summary", ""),
         current=json.dumps(post.get("visual") or {}, ensure_ascii=False), style=fmt["style"],
+        palette=THEMES.get(theme, "bold, saturated colours of your choice"),
         audience_angle=("their research reaching industry" if post.get("audience") == "researchers"
                         else "finding research their company can license"),
         people_rule=("- Show people (e.g. a researcher and an industry partner) in the picture.\n"
@@ -559,13 +567,16 @@ def reimagine_visual(record: Dict[str, Any], trend: Dict[str, Any], client: Any,
         try:
             payload = parse_json(_generate(client, prompt))
             candidate = dict(post, headline=_text(payload.get("headline")) or post.get("headline"),
-                             visual=payload.get("visual"))
+                             visual=payload.get("visual"), sticker=_text(payload.get("sticker")).upper())
             errors = validate_creative(candidate, ad_type)
+            if not 1 <= len(candidate["sticker"]) <= 14:
+                errors.append("{}: sticker must be 1-3 words, at most 14 characters".format(ad_type))
         except (ValueError, TypeError, AttributeError) as exc:
             errors = [str(exc)]
         if not errors:
             updated = dict(record, post=candidate)
-            updated["background_prompt"] = compose_image_prompt(ad_type, candidate["visual"])
+            updated["background_prompt"] = compose_image_prompt(ad_type, candidate["visual"], theme)
+            updated["theme"] = theme
             updated["image_prompt"] = updated["background_prompt"]
             updated["ad_text"] = {"headline": candidate["headline"], "cta": _text(candidate.get("cta"))}
             candidate["image_prompt"] = updated["image_prompt"]
