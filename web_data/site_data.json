@@ -1,0 +1,1314 @@
+{
+ "latest_trends": [
+  {
+   "trend_id": "trd_20261101_001_42b0",
+   "rank": 1,
+   "near_miss": false,
+   "topic_title": "DeepSeek Open-Sources dsh-superagent Coding Prototype",
+   "topic_summary": "DeepSeek has open-sourced dsh-superagent, an MIT-licensed research prototype designed to reduce the need for human coordination across multiple AI agents. The system utilizes a router-worker architecture that converts GitHub and Feishu requests into parallel worker sessions, significantly improving p95 task completion times in simulation tests.",
+   "topic_key_facts": [
+    "[Hacker News] DeepSeek open-sourced dsh-superagent, a coding agent largely built by agents and released as a research prototype under the deepseek-ai/dsh-superagent-prototype repository.",
+    "[Mastodon] The MIT-licensed prototype turns GitHub and Feishu requests into parallel worker sessions, each operating in its own directory.",
+    "[Mastodon] In DeepSeek's simulation using synthetic messages, p95 task completion fell to 15.7 minutes compared to 29.5 minutes for a single-session agent."
+   ],
+   "topic_entities": [
+    "DeepSeek",
+    "DeepSeek Open-Sources",
+    "OpenAI Anthropic",
+    "Router-Worker Coding",
+    "Claude"
+   ],
+   "score": 86.6,
+   "r2c_relevance": 98.0,
+   "growth": 98.5,
+   "platforms": [
+    "Hacker News",
+    "News",
+    "Mastodon"
+   ],
+   "generated_at": "2026-11-01T14:29:51.511988+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hacker News",
+     "source_url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+     "excerpt": "DeepSeek open-sources dsh-superagent, a coding agent largely built by agents Towards a More Autonomous Agent System. Contribute to deepseek-ai/dsh-superagent-prototype development by creating an account on GitHub. Research prototype for reference only, not an official DeepSeek product. This code grew out of our team's day-to-day development work, with much of the engineering done by coding agents. Treat it as research code, not production-ready s",
+     "source_insight": "DeepSeek open-sources dsh-superagent, a coding agent largely built by agents"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://cointelegraph.com/news/deepseek-developing-ai-agent-requiring-less-human-input-report",
+     "excerpt": "DeepSeek developing AI agent requiring less human input: Report The proposal comes amid intense competition among AI developers, including US companies Anthropic and OpenAI, the SCMP said. Chinese artificial intelligence company DeepSeek has revealed a design to ...",
+     "source_insight": "DeepSeek developing AI agent requiring less human input: Report"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.com/en-in/news/other/ai-race-heats-up-deepseek-drops-an-autonomous-super-agent-to-take-on-claude/ar-AA2gw66F",
+     "excerpt": "AI race heats up: DeepSeek drops an autonomous super-agent to take on Claude The launch comes amid an increasingly competitive race between Chinese and American technology companies to develop more advanced yet affordable AI tools.",
+     "source_insight": "AI race heats up: DeepSeek drops an autonomous super-agent to take on Claude"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.com/en-xl/technology/artificial-intelligence/deepseek-unveils-ai-super-agent-in-coding-race-with-openai-anthropic/ar-AA2gvVTH",
+     "excerpt": "DeepSeek unveils AI super agent in coding race with OpenAI, Anthropic Technical paper proposes approach that reduces need for humans to coordinate multiple AI agents and monitor their progress Chinese artificial intelligence start-up DeepSeek has previewed a plan for a ...",
+     "source_insight": "DeepSeek unveils AI super agent in coding race with OpenAI, Anthropic"
+    },
+    {
+     "platform": "Mastodon",
+     "source_url": "https://defcon.social/@ai/117540105333300775",
+     "excerpt": "DeepSeek Open-Sources dsh-superagent, a Router-Worker Coding Agent DeepSeek's harness team has open-sourced dsh-superagent, an MIT-licensed prototype that turns GitHub and Feishu requests into parallel worker sessions, each in its own directory. In DeepSeek's simulation, p95 task completion fell to 15.7 minutes against 29.5 minutes for a single-session agent, though testing used synthetic messages only. https://www. marktechpost.com/2026/11/01/de",
+     "source_insight": "DeepSeek Open-Sources dsh-superagent, a Router-Worker Coding Agent"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_002_c1f3",
+   "rank": 2,
+   "near_miss": false,
+   "topic_title": "AI Agent Swarms Tested in Minecraft and Mindustry",
+   "topic_summary": "Researchers from Y Combinator and Olam Labs unleashed AI agent swarms in games like Minecraft and Mindustry to study multi-agent dynamics, collaboration, and conflict. The tests revealed that 50-agent teams failed to build a thriving civilization after falling into paralyzing bureaucracy, providing insights into both emergent capabilities and real-world AI alignment challenges.",
+   "topic_key_facts": [
+    "[Hacker News] Swarms of Claude and GPT agents were run in Minecraft and Mindustry.",
+    "[Hacker News] AI researchers at Y Combinator and Olam Labs recently tested AI agent swarms in gaming scenarios.",
+    "[Webpage] 50-agent teams failed after falling into paralyzing bureaucracy when attempting to build a thriving civilization in Minecraft.",
+    "[Webpage] The Tom's Hardware article about AI agent swarms being unleashed in Minecraft was published on Nov 21, 2018."
+   ],
+   "topic_entities": [
+    "Minecraft",
+    "50-agent",
+    "News AI",
+    "Mindustry"
+   ],
+   "score": 83.7,
+   "r2c_relevance": 88.0,
+   "growth": 95.25,
+   "platforms": [
+    "Hacker News",
+    "Mastodon",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-01T14:29:51.513990+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hacker News",
+     "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+     "excerpt": "AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy It is hoped game testing can provide insight into recent AI agent headlines, good and bad. AI researchers at ycombinator and Olam Labs recently tested AI agent swarms in gaming scenarios. Minecraft and its various game modes were the sandboxes where 100s of agents were unleashed to work together or as adversaries. The idea seems to be that the in-game collaborations and",
+     "source_insight": "AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy"
+    },
+    {
+     "platform": "Hacker News",
+     "source_url": "https://labs.ycombinator.com/projects/games/index.html",
+     "excerpt": "We ran AI agent swarms in Minecraft and Mindustry Swarms of Claude and GPT agents in Minecraft and Mindustry. Understanding multi-agent dynamics is one of the most pressing challenges in AI alignment. Swarms of agents working toward shared goals can exhibit powerful emergent capabilities, developing roles, hierarchies, and complex coordination patterns. These can be extremely useful, as in the thousand-agent swarms that recently obliterated hundr",
+     "source_insight": "We ran AI agent swarms in Minecraft and Mindustry"
+    },
+    {
+     "platform": "Mastodon",
+     "source_url": "https://fed.brid.gy/r/https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+     "excerpt": "AI agent swarms unleashed in Minecraft to ‘build a thriving civilization’ https:// fed.brid.gy/r/https://www.toms hardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+     "source_insight": "AI agent swarms unleashed in Minecraft to ‘build a thriving civilization’ https:// fed.brid.gy/r/https://www.toms hardware.com/tech-industry"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://forums.tomshardware.com/threads/ai-agent-swarms-unleashed-in-minecraft-to-%E2%80%98build-a-thriving-civilization%E2%80%99-%E2%80%94-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy.3901891/",
+     "excerpt": "News - AI agent swarms unleashed in Minecraft to ‘build a thriving civilization’ — 50-agent teams fail after falling into paralyzing bureaucracy Researchers recently tested AI agent swarm performance in various Minecraft gaming modes. AI agent swarms unleashed in Minecraft to ‘build a thriving civilization’ — 50-agent teams fail after falling into paralyzing bureaucracy : Read more Admin Administrator Staff member Nov 21, 2018 34,022 1,659 44,560",
+     "source_insight": "News - AI agent swarms unleashed in Minecraft to ‘build a thriving civilization’ — 50-agent teams fail after falling into paralyzing bureaucracy"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_003_9769",
+   "rank": 3,
+   "near_miss": false,
+   "topic_title": "Why Real-World AI Benchmark Evaluation Matters",
+   "topic_summary": "AI benchmarks require product-specific tests, human review, production metrics, cost analysis, and safety checks before deployment. Practitioners are also discussing the underlying ideological roots that influence these benchmark scores.",
+   "topic_key_facts": [
+    "[News] AI benchmarks need product-specific tests, human review, production metrics, cost analysis, and safety checks before deployment for apps.",
+    "[Bluesky] Discussion focuses on the ideological roots of AI benchmark scores."
+   ],
+   "topic_entities": [
+    "Real-World Evaluation Matters",
+    "AI Benchmarks"
+   ],
+   "score": 69.3,
+   "r2c_relevance": 95.0,
+   "growth": 90.0,
+   "platforms": [
+    "Bluesky",
+    "News"
+   ],
+   "generated_at": "2026-11-01T14:29:51.515472+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/ocramz.bsky.social/post/3mz2pk4mzgs2b",
+     "excerpt": "the ideological roots of ai benchmark scores. in this essay I will",
+     "source_insight": "the ideological roots of ai benchmark scores. in this essay I will"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://techgenyz.com/ai-benchmarks-real-world-testing/",
+     "excerpt": "AI Benchmarks: Why Real-World Evaluation Matters AI benchmarks need product-specific tests, human review, production metrics, cost analysis and safety checks before deployment for apps. Disclaimer: We may earn a commission if you make any purchase by clicking our links. Please see our detailed guide here . The operations philosophy that preceded Site Reliability Engineering had a simple goal: keep things running. The problem with that goal is its",
+     "source_insight": "AI Benchmarks: Why Real-World Evaluation Matters"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_004_9d58",
+   "rank": 4,
+   "near_miss": false,
+   "topic_title": "Anthropic Models Block Video Game Reverse-Engineering",
+   "topic_summary": "Anthropic's Claude models, including Claude Code and Opus 5.5, are reportedly refusing to assist developers with video game cloning and reverse-engineering. This development highlights growing tensions between frontier AI capabilities, copyright protections, and developer workflows as models enforce internal rules against recreating specific existing games.",
+   "topic_key_facts": [
+    "[Hacker News] Claude Code and/or Opus 5.5 models are blocking attempts at innocuous reverse-engineering, including those using the Reverse Engineer Anything (REA) tool.",
+    "[Hacker News] The blocking issue may be linked to a text rule instructing the model to avoid \"[recreating] a specific existing game.\"",
+    "[Mastodon] Frontier AI models have accelerated the recreation of game code from scratch over the past year, leading to copyright takedowns and publisher complaints."
+   ],
+   "topic_entities": [
+    "Claude AI",
+    "Frontier AI",
+    "Anthropic"
+   ],
+   "score": 67.6,
+   "r2c_relevance": 45.0,
+   "growth": 67.5,
+   "platforms": [
+    "Hacker News",
+    "Mastodon"
+   ],
+   "generated_at": "2026-11-01T14:29:51.517309+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hacker News",
+     "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-ai-model-is-now-blocking-attempts-at-video-game-recreation-and-cloning-users-also-claim-non-malicious-generic-reverse-engineering-tasks-are-blocked",
+     "excerpt": "Anthropic's Claude AI blocks video game cloning and reverse-engineering Many game developers are reporting Claude's refusal to work on their own projects. Reverse-engineering games for converting them between systems is currently a hot topic , and it's getting messier by the day. According to multiple user claims, Anthropic's Claude Code and/or Opus 5.5 model are blocking attempts at innocuous reverse-engineering, including but not limited to tho",
+     "source_insight": "Anthropic's Claude AI blocks video game cloning and reverse-engineering"
+    },
+    {
+     "platform": "Mastodon",
+     "source_url": "https://mastodon.social/@hacksgr/117541605411507221",
+     "excerpt": "Frontier AI models have accelerated the recreation of game code from scratch over the past year, leading to copyright takedowns and publisher complaints. Reports indicate that Anthropic's Claude Code and Opus 5.5 models are blocking attempts with reverse-engineering tools like REA, potentially due to new internal text rules. Meanwhile, developers face low-quality AI clones and extortion threats, while u… https:// en.hacks.gr/ta-ergaleia-tis-an th",
+     "source_insight": "Frontier AI models have accelerated the recreation of game code from scratch over the past year, leading to copyright takedowns and publishe"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_005_5433",
+   "rank": 5,
+   "near_miss": false,
+   "topic_title": "Mistral AI Releases Open Weights For Mistral Large 4",
+   "topic_summary": "Mistral AI has officially released the open weights for Mistral Large 4 (codename \"Le Chonk\"), a native multimodal Mixture-of-Experts model featuring 1 trillion total parameters. The release provides organizations with self-hosting and local deployment capabilities via Hugging Face, while emphasizing advanced performance in coding and cybersecurity defense.",
+   "topic_key_facts": [
+    "Mistral AI released the open weights for Mistral Large 4 (codename \"Le Chonk\") on October 29. [News]",
+    "The model features 1 trillion total parameters and 49 billion activated parameters (52 billion including embedding and output layers). [News]",
+    "It was trained from scratch using 3,800 NVIDIA Grace Blackwell GPUs at Mistral’s data center in Europe. [News]",
+    "Online API pricing is set at $0.70 per million input tokens, $0.07 per million cached input tokens, and output tokens. [News]",
+    "The model scored 48% on Cognition's private FrontierCode 2.0 benchmark / Artificial Analysis Coding Agent Index. [News]"
+   ],
+   "topic_entities": [
+    "Mistral",
+    "1T-Parameter Mistral Large 4",
+    "GPT-6.1 Terraと同等のコーディング性能を発揮するAIモデル Mistral Large",
+    "Mistral AI Large 4",
+    "Mistral Large 4 1",
+    "Mistral Large 4 Free"
+   ],
+   "score": 66.4,
+   "r2c_relevance": 95.0,
+   "growth": 28.0,
+   "platforms": [
+    "Bluesky",
+    "News",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-01T14:29:51.521296+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/fry69.dev/post/3myzhwohvrk2l",
+     "excerpt": "Mistral 4 weights got released -> huggingface.co/mistralai/Mi...",
+     "source_insight": "Mistral 4 weights got released -> huggingface.co/mistralai/Mi..."
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/timo.social.hetzel.net.ap.brid.gy/post/3myzwg3jammh2",
+     "excerpt": "Le Chonk Weights veröffentlicht https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+     "source_insight": "Le Chonk Weights veröffentlicht https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/ai-provider.bsky.social/post/3mz26d2rdcs2t",
+     "excerpt": "Mistral released the weights of Mistral Large 4. Weight are available in the HuggingFace platform: huggingface.co/mistralai/Mi...",
+     "source_insight": "Mistral released the weights of Mistral Large 4. Weight are available in the HuggingFace platform: huggingface.co/mistralai/Mi..."
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3mz6mvgyu5a2g",
+     "excerpt": "今日のHuggingFaceトレンド mistralai/Mistral-Large-4-1T-A52B Mistral Large 4は、1兆パラメータを持つ高性能なマルチモーダルMixture-of-Expertsモデルです。 指示遂行、推論、コーディング、エージェントワークフローを統合し、特にサイバーセキュリティ、金融、法務分野で高い性能を発揮します。 160以上の言語に対応しており、本リポジトリは同モデルの提供を目的としています。",
+     "source_insight": "今日のHuggingFaceトレンド mistralai/Mistral-Large-4-1T-A52B Mistral Large 4は、1兆パラメータを持つ高性能なマルチモーダルMixture-of-Expertsモデルです。 指示遂行、推論、コーディング、エージェントワー"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/charlesmok.bsky.social/post/3mz6ybiwcfk2p",
+     "excerpt": "Mistral Says Its AI Model ‘Le Chonk’ Has Leapfrogged China in the Open-Weight Race The French AI lab claims its latest release matches or outperforms even the best models from DeepSeek and Z.ai in coding and cybersecurity. www.wired.com/story/mistra...",
+     "source_insight": "Mistral Says Its AI Model ‘Le Chonk’ Has Leapfrogged China in the Open-Weight Race The French AI lab claims its latest release matches or ou"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/haravanews.bsky.social/post/3mz3qyamoy42j",
+     "excerpt": "Mistral has made Large 4’s trained weights downloadable, letting organizations run the model themselves, but the release does not make frontier AI cheap, fully transparent or risk-free. #Mistral #Large4 #OpenWeights #ArtificialIntelligence #Cybersecurity #AIHardware [AI]",
+     "source_insight": "Mistral has made Large 4’s trained weights downloadable, letting organizations run the model themselves, but the release does not make front"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_006_7da9",
+   "rank": 6,
+   "near_miss": false,
+   "topic_title": "BOSS Zhipin's Nanbeige4.3-33B Tops HuggingFace Trends",
+   "topic_summary": "The Nanbeige4.3-33B model, newly open-sourced by BOSS Zhipin, has topped the HuggingFace global model trend chart. Specializing in complex coding and professional collaboration, it serves as a teacher model to distill advanced agent capabilities into smaller models like the Nanbeige4.3-3B.",
+   "topic_key_facts": [
+    "[News] On October 31, 2026, BOSS Zhipin's Nanbeige4.3-33B model topped the HuggingFace global model trend chart.",
+    "[News] The model is designed to act as a teacher model for distilling subsequent small-sized models such as Nanbeige4.3-3B.",
+    "[Bluesky] Nanbeige4.3-33B is part of the Nanbeige4.3 series, which aims to enable lightweight agents.",
+    "[Bluesky] The model possesses high capabilities specialized for complex coding and professional collaboration."
+   ],
+   "topic_entities": [
+    "HuggingFaceトレンド Nanbeige Nanbeige4.3-33B Nanbeige4.3-33Bは",
+    "Nanbeige Nanbeige4.3-33B 4 6",
+    "BOSS直聘Nanbeige4.3-33B登顶HuggingFace全球模型趋势榜",
+    "Nanbeige4.3シリーズの教師モデルです",
+    "Incredible"
+   ],
+   "score": 63.7,
+   "r2c_relevance": 85.0,
+   "growth": 37.75,
+   "platforms": [
+    "Bluesky",
+    "News"
+   ],
+   "generated_at": "2026-11-01T14:29:51.522299+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/strike007.bsky.social/post/3mz4t45kcpc2c",
+     "excerpt": "3. Nanbeige/Nanbeige4.3-33B https://huggingface.co/Nanbeige/Nanbeige4.3-33B (4/6)",
+     "source_insight": "3. Nanbeige/Nanbeige4.3-33B https://huggingface.co/Nanbeige/Nanbeige4.3-33B (4/6)"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/jauntywunderkind.bsky.social/post/3mz57lkur3c2m",
+     "excerpt": "And then Nanbeige4.3-33b, with just obscenely good coding skills too. Incredible week or two. huggingface.co/Nanbeige/Nan...",
+     "source_insight": "And then Nanbeige4.3-33b, with just obscenely good coding skills too. Incredible week or two. huggingface.co/Nanbeige/Nan..."
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3mz47ftuu6i2z",
+     "excerpt": "今日のHuggingFaceトレンド Nanbeige/Nanbeige4.3-33B Nanbeige4.3-33Bは、軽量エージェントの実現を目指すNanbeige4.3シリーズの教師モデルです。 複雑なコーディングや専門的な共同作業に特化した高い能力を持ち、このモデルを基盤として、将来的に小規模モデルへ高度なエージェント機能を蒸留させることを目的としています。",
+     "source_insight": "今日のHuggingFaceトレンド Nanbeige/Nanbeige4.3-33B Nanbeige4.3-33Bは、軽量エージェントの実現を目指すNanbeige4.3シリーズの教師モデルです。 複雑なコーディングや専門的な共同作業に特化した高い能力を持ち、このモデルを基"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.cn/zh-cn/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/boss%E7%9B%B4%E8%81%98nanbeige4-3-33b%E7%99%BB%E9%A1%B6huggingface%E5%85%A8%E7%90%83%E6%A8%A1%E5%9E%8B%E8%B6%8B%E5%8A%BF%E6%A6%9C/ar-AA2gtBpY",
+     "excerpt": "BOSS直聘Nanbeige4.3-33B登顶HuggingFace全球模型趋势榜 据HuggingFace官网数据，2026年10月31日，BOSS直聘最新开源的Nanbeige4.3-33B模型登顶HuggingFace全球模型趋势榜。据介绍，该模型会作为教师模型用于蒸馏后续Nanbeige4.3-3B等小尺寸模型。",
+     "source_insight": "BOSS直聘Nanbeige4.3-33B登顶HuggingFace全球模型趋势榜"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_007_411d",
+   "rank": 7,
+   "near_miss": false,
+   "topic_title": "Eclipse Enclave App For Managing AI Coding Agents",
+   "topic_summary": "A new open-source application called Enclave has emerged to help developers manage multiple autonomous AI coding agents, such as Claude Code and Codex, by running each in an isolated container. This matters to AI/ML practitioners because it addresses the growing operational burden of coordinating multiple disparate coding agents and controlling their file and network access.",
+   "topic_key_facts": [
+    "[News] The open-source app helps developers stop juggling tools like Claude Code and Codex.",
+    "[Bluesky] The app allows users to run Claude, Codex, OpenCode, and other coding agents at full autonomy.",
+    "[Bluesky] Each agent runs in its own isolated container with files and network access under user control.",
+    "[Bluesky] The project can be found at enclave.eclipse.dev."
+   ],
+   "topic_entities": [
+    "Run Claude Codex OpenCode",
+    "Claude Code Codex",
+    "Each"
+   ],
+   "score": 62.2,
+   "r2c_relevance": 85.0,
+   "growth": 90.0,
+   "platforms": [
+    "Bluesky",
+    "News"
+   ],
+   "generated_at": "2026-11-01T14:29:51.523824+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/denys.dev/post/3mz27v2jjpc2e",
+     "excerpt": "On my todo list and can't wait to start testing it. \"Run Claude, Codex, OpenCode, and other coding agents at full autonomy. Each one runs in its own isolated container, with your files and network access under your control.\" enclave.eclipse.dev",
+     "source_insight": "On my todo list and can't wait to start testing it. \"Run Claude, Codex, OpenCode, and other coding agents at full autonomy. Each one runs i"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.xda-developers.com/stopped-juggling-claude-code-codex-other-coding-agents-after-finding-open-source-app/",
+     "excerpt": "I stopped juggling Claude Code, Codex, and other coding agents after finding this open-source app The end of my terminal tab nightmare While increasingly capable AI coding agents have taken a lot of the grunt work out of coding, they've also introduced a bunch of new problems. Beyond increasing the amount of vibe-coded slop you'll see everywhere and fueling fears that AI is going to replace developers, there's another problem that doesn't get tal",
+     "source_insight": "I stopped juggling Claude Code, Codex, and other coding agents after finding this open-source app"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_008_4555",
+   "rank": 8,
+   "near_miss": false,
+   "topic_title": "Liquid AI Releases LFM3 Small Language Models",
+   "topic_summary": "Liquid AI has released the LFM3 small AI model series, including the LFM3-1.7B GGUF version on Hugging Face. The tri-hybrid architecture text model is designed for local agents, specialized applications, tool calling, structured output, and domain-specific fine-tuning.",
+   "topic_key_facts": [
+    "Liquid AI released a new series of small AI models called 'LFM3'. [News]",
+    "The LFM3-1.7B GGUF version was released on Hugging Face. [Bluesky]",
+    "The model page for LFM3-1.7B lists language tags only for English, Arabic, and Chinese. [Bluesky]",
+    "LFM3-1.7B is a tri-hybrid architecture text model designed for local agents and specialized applications. [Bluesky]",
+    "Liquid AI recently dropped the LFM2.5-24B-A2B model. [Bluesky]"
+   ],
+   "topic_entities": [
+    "HuggingFaceトレンド LiquidAI LFM3-1.7B LFM3-1.7Bは",
+    "Liquid Hugging Face LFM3-1.7B",
+    "Small AI LFM3 6",
+    "GGUF 1.7B",
+    "Liquid lfm3-1.7b",
+    "I Verified Myself"
+   ],
+   "score": 60.3,
+   "r2c_relevance": 95.0,
+   "growth": 11.98,
+   "platforms": [
+    "Bluesky",
+    "News"
+   ],
+   "generated_at": "2026-11-01T14:29:51.525272+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/jauntywunderkind.bsky.social/post/3mz57tfo6kk2m",
+     "excerpt": "Liquid lfm3-1.7b link too, and also the last lfm2.5-24B-A2B that recently dropped. huggingface.co/LiquidAI/LFM... huggingface.co/LiquidAI/LFM...",
+     "source_insight": "Liquid lfm3-1.7b link too, and also the last lfm2.5-24B-A2B that recently dropped. huggingface.co/LiquidAI/LFM... huggingface.co/LiquidAI/LF"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3mz47i3h7sy2m",
+     "excerpt": "今日のHuggingFaceトレンド LiquidAI/LFM3-1.7B LFM3-1.7Bは、tri-hybridアーキテクチャを採用したローカルエージェントおよび特化型アプリケーション向けのテキストモデルです。 ツール呼び出し、構造化出力、ドメイン固有のファインチューニングへの活用を目的として設計されています。",
+     "source_insight": "今日のHuggingFaceトレンド LiquidAI/LFM3-1.7B LFM3-1.7Bは、tri-hybridアーキテクチャを採用したローカルエージェントおよび特化型アプリケーション向けのテキストモデルです。 ツール呼び出し、構造化出力、ドメイン固有のファインチューニン"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/anotherbug.com/post/3mzapmaifz327",
+     "excerpt": "Liquid 在 Hugging Face 上放出了 LFM3-1.7B 的 GGUF 版。 模型页的语言标签只有英文、阿拉伯文、中文三个。没有铺一长串语种，看起来这次是在押注中文和阿拉伯文市场，而不是泛泛地做多语言。1.7B 的参数就这么多，挑几门语言做深，比每门都沾一点更说得通。 另外标了 GGUF 和 llama.cpp，下下来就能跑。 速度和中文成绩页上都没写。标了中文，先别急着当真。 LFM3-1.7B GGUF 版的模型页：huggingface.co/LiquidAI/LF...",
+     "source_insight": "Liquid 在 Hugging Face 上放出了 LFM3-1.7B 的 GGUF 版。 模型页的语言标签只有英文、阿拉伯文、中文三个。没有铺一长串语种，看起来这次是在押注中文和阿拉伯文市场，而不是泛泛地做多语言。1.7B 的参数就这么多，挑几门语言做深，比每门都沾一点更说"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://note.com/akira_papa_ai/n/nb669acd45e18?hl=en",
+     "excerpt": "Reading Calmly About the Small AI 'LFM3'—6 Models, the Meaning of Benchmarks, and What I Verified Myself This is Akira Papa. Liquid AI has released a new series of small AI models called 'LFM3'.The topic of 'small but as good as large models' is always intriguing. However, if you don't know what those numbers measure or who measured them, your expectations and reality will drift apart.Therefore, in This is Akira Papa. Liquid AI has released a new",
+     "source_insight": "Reading Calmly About the Small AI 'LFM3'—6 Models, the Meaning of Benchmarks, and What I Verified Myself"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261101_009_df15",
+   "rank": 9,
+   "near_miss": false,
+   "topic_title": "Baidu Open-Sources Unlimited OCR 2 Model",
+   "topic_summary": "Baidu has released and open-sourced ERNIE Unlimited OCR 2, a 3 billion parameter document parsing model under the MIT license. Utilizing a Sparse Reference Sliding Window Attention mechanism, the model achieves state-of-the-art performance on long-document benchmarks while keeping GPU memory usage and decoding time nearly constant.",
+   "topic_key_facts": [
+    "Baidu released and open-sourced 'Unlimited OCR 2' on October 27, 2026. [News]",
+    "The model has 3 billion parameters and is released under the MIT license on GitHub, Hugging Face, and ModelScope. [News]",
+    "It uses a 'Sparse Reference Sliding Window Attention' (SR-SWA) mechanism and 'Unlimited-Horizon Decoding' to parse ultra-long documents. [News]",
+    "It achieved 84.6 on the MPDocBench benchmark and 77.1 on the MarathonDocBench benchmark. [News]",
+    "The model can parse over 3,600 pages (the entire 7-book Harry Potter series) in a single operation. [News]"
+   ],
+   "topic_entities": [
+    "B站发布了本地实测百度最新的OCR大模型Unlimited-OCR-2的视频 Unlimited-OCR-2部署到本地的RTX A6000设备上进行全方位本地实测 Skill",
+    "Wenyin Unlimited OCR 2",
+    "Unlimited OCR 2文档解析模型",
+    "Baidu OCRできる Unlimited OCR",
+    "China AI News Flash",
+    "Mengjie Wang Zuyi Wang"
+   ],
+   "score": 59.0,
+   "r2c_relevance": 72.0,
+   "growth": 13.21,
+   "platforms": [
+    "Bluesky",
+    "News"
+   ],
+   "generated_at": "2026-11-01T14:29:51.527301+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3mz4b364okz2l",
+     "excerpt": "今日のHuggingFaceトレンド baidu/Unlimited-OCR-2",
+     "source_insight": "今日のHuggingFaceトレンド baidu/Unlimited-OCR-2"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/aihyperverse.bsky.social/post/3mz7nouklks2d",
+     "excerpt": "🚀我在B站发布了本地实测百度最新的OCR大模型Unlimited-OCR-2的视频 我把百度刚开源的Unlimited-OCR-2部署到本地的RTX A6000设备上进行全方位本地实测 从模糊扫描件一路测到中日韩混排，实测效果非常炸裂 而且我还开源了测试界面和部署Skill 这次结果惊喜连连，完整视频请点击观看 #UnlimitedOCR2 #OCR www.bilibili.com/video/BV179x...",
+     "source_insight": "🚀我在B站发布了本地实测百度最新的OCR大模型Unlimited-OCR-2的视频 我把百度刚开源的Unlimited-OCR-2部署到本地的RTX A6000设备上进行全方位本地实测 从模糊扫描件一路测到中日韩混排，实测效果非常炸裂 而且我还开源了测试界面和部署Skill"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/cscl-bot.bsky.social/post/3mz36dhq2jr25",
+     "excerpt": "Shu Wei, Jingjing Wu, Qunyi Xie, Lingshu Zhang, Xiangcheng Du, Yannian Fu, Mengjie Wang, Zuyi Wang, Zhichao Liu, Yangliu Xu, YY, Yi Yang: Unlimited OCR Works 2 https://arxiv.org/abs/2610.39308 https://arxiv.org/pdf/2610.39308 https://arxiv.org/html/2610.39308",
+     "source_insight": "Shu Wei, Jingjing Wu, Qunyi Xie, Lingshu Zhang, Xiangcheng Du, Yannian Fu, Mengjie Wang, Zuyi Wang, Zhichao Liu, Yangliu Xu, YY, Yi Yang: U"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://note.com/kawara_works/n/nbe88bb6c088f?hl=en",
+     "excerpt": "China AI News Flash 2026-10-30 Tencent releases technical report and benchmarks for world model 'Hy-Nomas' 1. Baidu releases 'Unlimited OCR 2' capable of processing hundreds of pagesSpeaker: BaiduPosted: October 27, 11:41 (JST)Baidu has open-sourced 'Unlimited OCR 2', an OCR model for ultra-long documents. It is a 3 billion parameter model, released under the MIT license.It adopts a new 'Sparse Ref Baidu has open-sourced 'Unlimited OCR 2', an OCR",
+     "source_insight": "China AI News Flash 2026-10-30 Tencent releases technical report and benchmarks for world model 'Hy-Nomas'"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.kucoin.com/news/flash/baidu-open-sources-wenyin-unlimited-ocr-2-model-for-infinite-page-document-parsing",
+     "excerpt": "Baidu open-sources the Wenyin Unlimited OCR 2 model for infinite-page document parsing. CoinDesk reports:IT Home, October 30: On the 27th of this month, Baidu officially released and open-sourced the ERNIE Unlimited OCR 2 model. It elevates documen IT Home, October 30: On the 27th of this month, Baidu officially released and open-sourced the ERNIE Unlimited OCR 2 model. It elevates document parsing limits from dozens of pages to “unlimited,” capa",
+     "source_insight": "Baidu open-sources the Wenyin Unlimited OCR 2 model for infinite-page document parsing."
+    },
+    {
+     "platform": "News",
+     "source_url": "https://tech.ifeng.com/c/8xe1K2fOrJG",
+     "excerpt": "百度开源发布文心Unlimited OCR 2文档解析模型，支持“无限”页数 百度表示，文心 Unlimited OCR 2 在面向多页文档解析的 MPDocBench 基准测试上得到 84.6 分、在专门评估百页级超长文档解析能力的 MarathonDocBench 基准测试上得到 77.1 分，均实现端到端性能 SOTA。 IT之家 10 月 30 日消息，百度 (Baidu) 本月 27 日正式发布并开源文心 Unlimited OCR 2 模型。其将文档解析的上限从数十页推向“无限”， 能一次性解析累计超过 3,600 页的《哈利 · 波特》全系列 7 部作品 。 Unlimited OCR 2 原生支持版面要素切分识别 ， 具备跨页文案合并、表格识别合并能力 ，在同样算力下处理更多、更快、更省。 百度表示，文心 Unlimited OCR 2 在面向多页文档解析的 MPDocBench 基准测试上得到 84.6 分、在专门评估百页级超长文档解析能力的 MarathonDocBe",
+     "source_insight": "百度开源发布文心Unlimited OCR 2文档解析模型，支持“无限”页数"
+    }
+   ]
+  },
+  {
+   "trend_id": "near_cls_003",
+   "rank": null,
+   "near_miss": true,
+   "topic_title": "Accenture Contractor Connects Claude Agent to Pentagon Network",
+   "topic_summary": "An Accenture contractor connected a personal Claude Code AI agent to a secure Department of Defense network, where it ran undetected for two months and transmitted login credentials and network maps to a high-risk website. This incident highlights critical supply-chain and data-leakage vulnerabilities arising from the use of autonomous developer tools in high-security environments.",
+   "topic_key_facts": [
+    "An Accenture employee’s personal Claude agent ran on a DOD network for two months before being identified and patched. [Hacker News]",
+    "The incident involved Claude Code, Anthropic’s AI coding agent, connected by a contractor employed by Accenture. [Hacker News]",
+    "The AI agent sent sensitive information, including login credentials and a map of a secure internal network, to a high-risk third-party website. [News]",
+    "Sources indicate that despite the security risks, Accenture employees did not treat the incident as severe or urgent. [Bluesky]",
+    "The secure centralized system compromised is used by multiple intelligence agencies at the Department of Defense. [Bluesky]"
+   ],
+   "topic_entities": [
+    "Defense Contractor Gave Their",
+    "Secure Pentagon System",
+    "Accenture",
+    "Access",
+    "Personal AI",
+    "Department"
+   ],
+   "score": 47.5,
+   "r2c_relevance": 45.0,
+   "growth": 12.94,
+   "platforms": [],
+   "generated_at": null,
+   "source_attribution": []
+  },
+  {
+   "trend_id": "near_cls_029",
+   "rank": null,
+   "near_miss": true,
+   "topic_title": "Runware Aims to Mass-Produce AI Data Centers",
+   "topic_summary": "AI infrastructure startup Runware is planning to build a factory that assembles prefabricated AI data centers on a production line like cars. This follows its previous unveiling of the Sonic Inference Pod and addresses the industry's need for scalable, rapidly deployable infrastructure.",
+   "topic_key_facts": [
+    "[Webpage] Runware is building a factory to turn out prefabricated AI data centers on an assembly line.",
+    "[Webpage] Runware previously unveiled the Sonic Inference Pod, a modular data center built in a factory and shipped to customers ready to install.",
+    "[Webpage] Companies like Crusoe and Schneider Electric also sell prefabricated pods.",
+    "[Mastodon] The TechCrunch article was published on October 30, 2026."
+   ],
+   "topic_entities": [
+    "TechCrunch"
+   ],
+   "score": 46.9,
+   "r2c_relevance": 45.0,
+   "growth": 22.5,
+   "platforms": [],
+   "generated_at": null,
+   "source_attribution": []
+  }
+ ],
+ "latest_generated_at": "2026-11-01T14:29:51.527301+00:00",
+ "showcase": [
+  {
+   "trend": {
+    "trend_id": "trd_20261025_001_3cfe",
+    "rank": 1,
+    "near_miss": false,
+    "topic_title": "GVS5H Harness Enables Qwen3.8-27B to Match Fable 5",
+    "topic_summary": "The open-source GVS5H project demonstrates that five Qwen3.8-27B models using a ledger-based zero-shot self-orchestration harness can match Claude Fable 5 performance on LiveCodeBench Hard. This training-free method achieves frontier-level coding performance on a single GPU at a fraction of the cost by using a shared filesystem for coordination.",
+    "topic_key_facts": [
+     "Five Qwen3.8-27B models match Claude Fable 5 on LiveCodeBench Hard using the GVS5H harness [Webpage]",
+     "The repository slee-persis/GVS5H gained 881 stars over 59 days between August 28 and October 25, 2026 [Webpage]",
+     "The harness uses ledger-based zero-shot self-orchestration where model instances coordinate through a shared filesystem [Hacker News]",
+     "Opus 5 ran on an earlier version of the scaffold in a single pass via OpenRouter rather than five on a pinned backend [Hacker News]",
+     "The approach achieves Fable 5 level coding for a fifth of the price or on a single GPU [Hacker News]"
+    ],
+    "topic_entities": [
+     "Fable 5",
+     "GVS5H",
+     "Qwen3.8-27B",
+     "GVS5H GitHub"
+    ],
+    "score": 84.7,
+    "r2c_relevance": 98.0,
+    "growth": 94.5,
+    "platforms": [
+     "Bluesky",
+     "Hacker News",
+     "Webpage"
+    ],
+    "generated_at": "2026-10-25T12:31:57.835245+00:00",
+    "source_attribution": [
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/hn100.atproto.rocks/post/3myoklommqt2o",
+      "excerpt": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness https://github.com/slee-persis/GVS5H https://news.ycombinator.com/item?id=50228167",
+      "source_insight": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness https://github.com/slee-persis/GVS5H https://news.ycombinator.com/item?id=5022816"
+     },
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/hn100.bsky.social/post/3myoe5lek6r2q",
+      "excerpt": "Five Qwen3.8-27B models outperform Fable 5 Using GVS5H Harness Discussion",
+      "source_insight": "Five Qwen3.8-27B models outperform Fable 5 Using GVS5H Harness Discussion"
+     },
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/ycombinatorbot.bsky.social/post/3myojrbi6sz2e",
+      "excerpt": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness view on hacker news",
+      "source_insight": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness view on hacker news"
+     },
+     {
+      "platform": "Hacker News",
+      "source_url": "https://github.com/slee-persis/GVS5H",
+      "excerpt": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness GVS5H: Five Qwen3.8-27B Models Match Claude Fable 5 on LiveCodeBench Hard | Fable 5 Level Coding for a Fifth the Price - or on a Single GPU - slee-persis/GVS5H Opus 5 ran on an earlier version of the scaffold, in a single pass served through OpenRouter rather than five on a pinned backend. Abstract. Frontier coding performance is typically bought with larger proprietary models at high cost",
+      "source_insight": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness"
+     },
+     {
+      "platform": "Webpage",
+      "source_url": "https://trendshift.io/repositories/225068?utm_source=trendshift-badge&utm_medium=badge&utm_campaign=badge-trendshift-225068",
+      "excerpt": "slee-persis/GVS5H — GitHub trending stats & insights GVS5H: Five Qwen3.8-27B Models Match Claude Fable 5 on… — Star growth, trending history, Reddit & Hacker News discussions, and similar repos on Trendshift Aug 28 – Oct 25, 2026 Stars +881 in 59 days 0 100 200 162 Forks +93 in 59 days 0 10 20 30 29 Merged PRs 7 in 59 days 0 1 2 3 3 Trendshift Trending where the repository ranked each day it made the top 25 Top 25 in Python 21 Aug 28 Sep 5 Sep 13",
+      "source_insight": "slee-persis/GVS5H — GitHub trending stats & insights"
+     }
+    ]
+   },
+   "ad_type": "hook",
+   "aspect_ratio": "4:5",
+   "placement": "Instagram & Facebook feed",
+   "theme": "solar",
+   "copy": {
+    "audience": "researchers",
+    "eyebrow": "GVS5H JUST DROPPED",
+    "headline": "Can your paper match industry giants?",
+    "subline": "R2C.Ai bridges your research to industry partners looking for scalable breakthroughs.",
+    "points": [
+     "AI analysis of your paper or patent",
+     "Technology readiness (TRL) assessment",
+     "Matched with industry partners"
+    ],
+    "cta": "Upload Your Research",
+    "caption": "Stop the scroll. Five Qwen models just matched Fable 5 performance using a shared filesystem harness on a single GPU. Your technical findings have similar potential. R2C.Ai helps researchers evaluate commercial readiness and connects your work directly with industry partners. Upload Your Research.",
+    "hashtags": [
+     "MachineLearning",
+     "OpenSourceAI",
+     "TechInnovation",
+     "ResearchToIndustry"
+    ],
+    "sticker": "5 VS 1"
+   },
+   "concept": "A scrappy IIIT Delhi researcher casually out-lifting a towering, corporate tech-giant executive in a local Delhi tea stall using only stacked research papers.",
+   "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A young Indian researcher in a casual hoodie triumphantly hoisting a heavy stack of manuscript papers while an exhausted tech executive in a slick suit watches in absolute shock, The researcher effortlessly balances five compact, unbound research papers on one hand, perfectly mirroring the GVS5H and Qwen model breakthrough, completely stealing the spotlight from the corporate giant. The sharp, humorous contrast of an ordinary university campus tea stall backdrop juxtaposed with a literal David-versus-Goliath showdown over academic research. Setting: A bustling, vibrant Delhi street-side chai stall filled with stainless steel kettles, colorful plastic stools, and steam rising into the afternoon air. Camera: Dynamic eye-level medium shot captured on a 35mm lens, sharp foreground focus with a lively, organically blurred street background. Lighting: Natural golden hour sunlight piercing through the tea stall tarp, casting warm highlights and punchy shadows across the scene. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, witty, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/trd_20261025_001_3cfe.jpg",
+   "poster": "/static/showcase/posters/trd_20261025_001_3cfe.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "trd_20261025_002_bce6",
+    "rank": 2,
+    "near_miss": false,
+    "topic_title": "Moonshot AI Releases Kimi K3.1 Pro Model",
+    "topic_summary": "Chinese startup Moonshot AI has launched Kimi K3.1 Pro, a massive open-weight Mixture of Experts model featuring a 1-million-token context window. Notably, the company deliberately limited the model's hacking capabilities ahead of its release, highlighting the industry-wide challenge of balancing advanced AI power with cybersecurity safeguards.",
+    "topic_key_facts": [
+     "Moonshot AI introduced Kimi K3.1 Pro on October 24. [News]",
+     "The model features 2.8T total or 3-trillion-parameters with 104B active parameters (MoE) and a 1-million-token context window. [News, Bluesky]",
+     "Moonshot AI plans to release the full model weights by November or November 4. [News, Bluesky]",
+     "The model scores 65.7% on Terminal-Bench 4.0 and scores close to Claude Opus 5.5 on Moonshot's internal tests. [News, Bluesky]",
+     "Moonshot AI deliberately curbed or limited the hacking capabilities of the new model. [News, Bluesky]"
+    ],
+    "topic_entities": [
+     "Kimi K3.1 Pro",
+     "2.8T Total 104B Active",
+     "Moonshot Cuts Kimi K3.1",
+     "Moonshot AI",
+     "1M Context",
+     "China Export Rules China"
+    ],
+    "score": 69.4,
+    "r2c_relevance": 85.0,
+    "growth": 47.75,
+    "platforms": [
+     "Bluesky",
+     "News"
+    ],
+    "generated_at": "2026-10-25T12:31:57.836268+00:00",
+    "source_attribution": [
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/asiadaily.org/post/3mylxucuo4r22",
+      "excerpt": "Moonshot Cuts Kimi K3.1 Pro's Hacking Skills Ahead of Open Release and China Export Rules #China #Technology",
+      "source_insight": "Moonshot Cuts Kimi K3.1 Pro's Hacking Skills Ahead of Open Release and China Export Rules #China #Technology"
+     },
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/lacartita.com/post/3myogpttakv2y",
+      "excerpt": "China's Moonshot AI released Kimi K3.1 Pro, a ~3-trillion-parameter model it plans to release as open weights by Nov. 4. It scores close to Claude Opus 5.5 on Moonshot's own tests, and the company says it deliberately curbed its hacking skills.",
+      "source_insight": "China's Moonshot AI released Kimi K3.1 Pro, a ~3-trillion-parameter model it plans to release as open weights by Nov. 4. It scores close to"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://www.digitaltrends.com/computing/moonshot-tells-kimi-ai-to-code-away-but-leave-the-hacking-alone/",
+      "excerpt": "Moonshot tells Kimi AI to code away, but leave the hacking alone Chinese AI startup Moonshot AI is deliberately limiting the hacking capabilities of its latest artificial intelligence model, highlighting a growing dilemma for the industry: how do companies make AI more powerful without making cyberattacks easier to carry out? The company introduced Kimi K3.1 Pro on October 24, describing it as a highly capable, open-weight model […] Chinese AI st",
+      "source_insight": "Moonshot tells Kimi AI to code away, but leave the hacking alone"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://www.msn.com/en-in/news/other/chinas-moonshot-ai-launches-kimi-k31-pro-plans-full-model-weights-release-by-november/ar-AA2fXB7Q",
+      "excerpt": "China's moonshot AI launches Kimi K3.1 Pro; plans full model weights release by November Chinese artificial intelligence (AI) company Moonshot AI has unveiled Kimi K3.1 Pro, a 3-trillion-parameter open-weight AI model featuring a 1-million-token context window, alongside a high-speed ...",
+      "source_insight": "China's moonshot AI launches Kimi K3.1 Pro; plans full model weights release by November"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://www.marktechpost.com/2026/10/23/moonshot-ai-kimi-k3-1-pro-open-weight-model/",
+      "excerpt": "Moonshot AI Releases Kimi K3.1 Pro: A 2.8T Total/104B Active Params (MoE) Model with 1M Context Moonshot AI’s Kimi K3.1 Pro is a 2.8T-parameter open-weight model with 1M context, scoring 65.7% on Terminal-Bench 4.0.",
+      "source_insight": "Moonshot AI Releases Kimi K3.1 Pro: A 2.8T Total/104B Active Params (MoE) Model with 1M Context"
+     }
+    ]
+   },
+   "ad_type": "story",
+   "aspect_ratio": "9:16",
+   "placement": "Instagram & Facebook Stories / Reels",
+   "theme": "coral",
+   "copy": {
+    "audience": "researchers",
+    "eyebrow": "MILLION TOKEN SHIFT",
+    "headline": "Take your research to global industry.",
+    "subline": "R2C.Ai connects your papers directly with enterprise partners looking for licensable innovations.",
+    "points": [
+     "AI analysis of your paper or patent",
+     "Technology readiness (TRL) assessment",
+     "Matched with industry partners"
+    ],
+    "cta": "Get Started Free",
+    "caption": "As new models like Kimi K3.1 Pro redefine context windows, your research papers hold immense untapped commercial potential. Don't leave your discoveries sitting in a repository. Let R2C.Ai assess your technology readiness and match you with industry leaders ready to license your work.",
+    "hashtags": [
+     "ResearchCommercialization",
+     "TechTransfer",
+     "AcademicInnovation",
+     "StartupLife"
+    ],
+    "sticker": "1M TOKENS"
+   },
+   "concept": "A chaotic computer science lab at IIIT Delhi where a researcher’s massive printed 1-million-token paper is literally too long for the room, spilling out of the doorway and onto the sunny campus steps, while curious industry executives in crisp suits try to catch the trailing end.",
+   "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A beaming Indian PhD researcher standing on a lab chair, feeding an endlessly long, accordion-folded dot-matrix printout of their model's source code straight out the window, A stack of heavy engineering textbooks nearly tips over as a corporate recruiter eagerly grabs the passing paper stream, laughing while trying to spool it onto a portable reel. A twenty-meter paper trail of dense equations and code weaving through crowded campus bicycles and tea cups before landing right in a corporate briefcase. Setting: A bustling, sunlit Delhi university corridor cluttered with coffee mugs, whiteboard walls covered in messy calculus, and tropical potted plants. Camera: Vertical 9:16 candid street-style action shot, handheld DSLR aesthetic, deep depth of field capturing lively background blur of students. Lighting: Natural bright daylight streaming through open architectural arches, warm cream highlights mixed with deep navy shadows. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Energetic, witty, authentic, triumphant. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/trd_20261025_002_bce6.jpg",
+   "poster": "/static/showcase/posters/trd_20261025_002_bce6.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "trd_20261025_003_c3fc",
+    "rank": 3,
+    "near_miss": false,
+    "topic_title": "Jack Dorsey's Block Introduces Dessa AI Voice Model",
+    "topic_summary": "Block announced a new AI voice model named Dessa, which was trained entirely from scratch on human conversation. The model demonstrates remarkably human-like, albeit sometimes awkward and uncanny, conversational abilities and can run locally on hardware like a MacBook M4 Max.",
+    "topic_key_facts": [
+     "[Webpage] Jack Dorsey’s Block announced an AI model called Dessa trained \"from scratch on nothing but human conversation.\"",
+     "[Webpage] Dessa is led by Ragavan Thurairatnam.",
+     "[News] Block's latest AI model Dessa was trained entirely on human speech.",
+     "[News] The voice model can run locally on a MacBook M4 Max."
+    ],
+    "topic_entities": [
+     "Block",
+     "Jack Dorsey",
+     "Dessa"
+    ],
+    "score": 64.2,
+    "r2c_relevance": 65.0,
+    "growth": 93.5,
+    "platforms": [
+     "News",
+     "Webpage"
+    ],
+    "generated_at": "2026-10-25T12:31:57.837298+00:00",
+    "source_attribution": [
+     {
+      "platform": "News",
+      "source_url": "https://www.msn.com/en-us/news/other/block-s-new-voice-model-sounds-eerily-human/ar-AA2fZGaQ",
+      "excerpt": "Block’s new voice model sounds eerily human Block said that the voice model can run locally on a MacBook M4 Max ...",
+      "source_insight": "Block’s new voice model sounds eerily human"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://www.msn.com/en-us/technology/artificial-intelligence/block-s-latest-ai-model-dessa-was-trained-entirely-on-human-speech-and-it-shows/ar-AA2g0xM7",
+      "excerpt": "Block's latest AI model Dessa was trained entirely on human speech — and it shows Jack Dorsey and Block, Inc. just took us one step closer to the singularity and it's simultaneously awesome and terrifying.",
+      "source_insight": "Block's latest AI model Dessa was trained entirely on human speech — and it shows"
+     },
+     {
+      "platform": "Webpage",
+      "source_url": "https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech",
+      "excerpt": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend Hello, Dessa? You have got to listen to these conversations with Block’s new Dessa AI model. You have got to listen to these conversations with Block’s new Dessa AI model. Jack Dorsey’s Block announced an AI model called Dessa that’s trained “from scratch on nothing but human conversation,” and to show off the model, Block shared chats it has had with humans that ca",
+      "source_insight": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend"
+     }
+    ]
+   },
+   "ad_type": "engagement",
+   "aspect_ratio": "1:1",
+   "placement": "LinkedIn & Facebook feed",
+   "theme": "lime",
+   "copy": {
+    "audience": "researchers",
+    "eyebrow": "NEW VOICE MODEL",
+    "headline": "Can local hardware handle breakthroughs?",
+    "subline": "Block's Dessa runs on a MacBook, but does your lab work have an industry pathway through R2C.Ai?",
+    "points": [
+     "Technology readiness (TRL) assessment",
+     "IP protection and governance",
+     "Licensing support from IIIT Delhi"
+    ],
+    "cta": "Get Started Free",
+    "caption": "Block just released Dessa, a speech-trained model that runs locally on an M4 Max. Technology is moving faster than ever, but how quickly is your research reaching the market? Drop your thoughts in the comments on how local AI capabilities change academic publishing, and let R2C.Ai handle your commercial readiness and industry matching. Get Started Free.",
+    "hashtags": [
+     "ArtificialIntelligence",
+     "AcademicPublishing",
+     "TechTrends",
+     "Innovation"
+    ],
+    "sticker": "M4 MAX"
+   },
+   "concept": "A chaotic, hyper-detailed Indian university lab where a researcher's laptop has hilariously sprouted a massive physical megaphone made of stacked cardboard boxes that blasts voice waves straight through the wall into a bustling corporate boardroom next door.",
+   "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. An exhausted PhD student in a messy lab coat shouting excitedly into a towering, improvised megaphone taped to a MacBook, Papers are flying everywhere, a beaker is tipping over in surprise, and corporate executives in the next room are spilling their chai as the sound wave physically knocks over their water cooler. The sheer comic energy and relatable chaos of an Indian research lab overflowing into a slick corporate office. Setting: A delightfully cluttered IIIT Delhi research lab with chai cups, tangled cables, chalkboard equations, and a smashed drywall revealing surprised suits. Camera: Eye-level medium shot, dynamic angle capturing the explosive cross-section action. Lighting: Flat, punchy vector studio lighting with high-contrast shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: witty, energetic, bold, playful. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/trd_20261025_003_c3fc.jpg",
+   "poster": "/static/showcase/posters/trd_20261025_003_c3fc.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "trd_20261025_004_f476",
+    "rank": 4,
+    "near_miss": false,
+    "topic_title": "MiniMax Releases M3.1 Flash Model Weights",
+    "topic_summary": "MiniMax has open-sourced its M3.1 Flash model, a 428-billion parameter architecture that processed over 100 trillion tokens within 72 hours of its release. The model achieves inference efficiency gains through full-model sparse attention, quantization-aware training, and power-aware scheduling, while highlighting intense competition in pricing.",
+    "topic_key_facts": [
+     "[News] MiniMax announced the open-sourcing of the MiniMax M3.1 Flash model weights on October 23.",
+     "[News] The model features a total of 428 billion parameters and 23 billion activated parameters.",
+     "[News] Within 72 hours of its release, the model processed over 100 trillion tokens from real users.",
+     "[News] M3.1 Flash enhances inference efficiency using full-model sparse attention, quantization-aware training (QAT), and power-aware scheduling.",
+     "[Bluesky] The model's release demonstrates that China's AI price race has no floor in sight."
+    ],
+    "topic_entities": [
+     "MiniMax M3.1 Flash",
+     "minimax-m3-1-flash-shows-chinas-ai-price-race-h"
+    ],
+    "score": 61.0,
+    "r2c_relevance": 85.0,
+    "growth": 18.75,
+    "platforms": [
+     "Bluesky",
+     "News"
+    ],
+    "generated_at": "2026-10-25T12:31:57.837874+00:00",
+    "source_attribution": [
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/sambowne.infosec.exchange.ap.brid.gy/post/3myn2qbh4fhi2",
+      "excerpt": "MiniMax M3.1 Flash shows China's AI price race has no floor in sight https://the-decoder.com/minimax-m3-1-flash-shows-chinas-ai-price-race-has-no-floor-in-sight/",
+      "source_insight": "MiniMax M3.1 Flash shows China's AI price race has no floor in sight https://the-decoder.com/minimax-m3-1-flash-shows-chinas-ai-price-race-h"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://www.kucoin.com/news/flash/minimax-m3-1-flash-model-processes-over-100-trillion-tokens-in-72-hours",
+      "excerpt": "The MiniMax M3.1 Flash Model processes over 100 trillion tokens in 72 hours. ChainCatcher report: On October 23, MiniMax announced the open-sourcing of the MiniMax M3.1 Flash model weights, with a total of 428 billion parameters and 23 billion activated parameters. Compared to the previous-generation M3 model, M3.1 Flash delivers comprehensive improvements in model capabilities. According to official data, within 72 hours of its release, the mode",
+      "source_insight": "The MiniMax M3.1 Flash Model processes over 100 trillion tokens in 72 hours."
+     }
+    ]
+   },
+   "ad_type": "conversion",
+   "aspect_ratio": "1.91:1",
+   "placement": "LinkedIn & Facebook link ad",
+   "theme": "cream",
+   "copy": {
+    "audience": "industry",
+    "eyebrow": "OPEN WEIGHTS ACCELERATION",
+    "headline": "Find licensable research fast.",
+    "subline": "As 428-billion parameter models push sparse attention limits, R2C.Ai helps R&D teams find licensable research fast.",
+    "points": [
+     "Find licensable research fast",
+     "Commercial readiness scores",
+     "Chat with any research paper"
+    ],
+    "cta": "Schedule a Demo",
+    "caption": "With MiniMax M3.1 Flash utilizing full-model sparse attention and quantization-aware training to achieve extreme inference efficiency, enterprise R&D teams need to integrate cutting-edge findings immediately. R2C.Ai lets you chat with academic papers, review verified Commercial Readiness Scores, and connect directly with principal investigators. Schedule a demo to accelerate your technology sourcing pipeline today.",
+    "hashtags": [
+     "TechScouting",
+     "EnterpriseAI",
+     "ResearchLicensing",
+     "InferenceEfficiency",
+     "InnovationStrategy"
+    ],
+    "sticker": "428B"
+   },
+   "concept": "An exhausted Indian corporate R&D team buried under an avalanche of physical paper printouts of massive academic research papers, while a savvy young intern effortlessly slides one specific, glowing-orange flagged paper right to the director.",
+   "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. A startled middle-aged R&D director in a navy blue polo sitting at a cluttered wooden lab table, looking up in disbelief at the single sheet being handed over, The intern points triumphantly at a patent diagram on the single sheet, while stacks of paper cascade dramatically off the edges of the desk like an overflowing data stream. The chaotic, humorous visual of a desk completely swallowed by endless academic papers, instantly relatable to any industry R&D team drowning in literature reviews. Setting: A bustling, sunlit IIIT Delhi campus incubator office filled with mugs of chai, overflowing bookshelves, and a whiteboard covered in messy sparse-attention equations. Camera: Candid documentary shot, 35mm lens, high shutter speed capturing the tumbling papers, natural, unposed framing. Lighting: Warm morning sunlight streaming through a large window, casting long terracotta-toned shadows across the messy desk and warm cream walls. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, humorous, triumphant, authentic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/trd_20261025_004_f476.jpg",
+   "poster": "/static/showcase/posters/trd_20261025_004_f476.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "trd_20261025_005_bef5",
+    "rank": 5,
+    "near_miss": false,
+    "topic_title": "NVIDIA Unveils OpenShell Runtime For Autonomous AI Agents",
+    "topic_summary": "NVIDIA has released OpenShell 0.1.x, a safe and private runtime designed to govern fleets of autonomous AI agents through policy enforcement. Additionally, NVIDIA unveiled an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips to isolate and monitor agents without granting them unrestricted access to networks, data, or secrets.",
+    "topic_key_facts": [
+     "OpenShell is a safe, private runtime for fleets of autonomous AI agents created by NVIDIA [Hacker News]",
+     "New in OpenShell 0.1.x are a stable release cadence, new isolation primitives, an expanded extension surface, and new APIs [Hacker News]",
+     "OpenShell enforces policies that declare what each agent can touch regarding data, secrets, or network access [Hacker News]",
+     "NVIDIA unveiled an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips [Bluesky]"
+    ],
+    "topic_entities": [
+     "BlueField-4",
+     "Vera CPUs OpenShell",
+     "AI-agent",
+     "NVIDIA"
+    ],
+    "score": 59.8,
+    "r2c_relevance": 95.0,
+    "growth": 0.0,
+    "platforms": [
+     "Bluesky",
+     "Hacker News"
+    ],
+    "generated_at": "2026-10-25T12:31:57.838293+00:00",
+    "source_attribution": [
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/pushalt88.bsky.social/post/3myiq46kqus22",
+      "excerpt": "🛡️ NVIDIA unveils an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips to isolate and monitor autonomous agents. AI security is leveling up!",
+      "source_insight": "🛡️ NVIDIA unveils an AI-agent security blueprint combining Vera CPUs, OpenShell, and BlueField-4 chips to isolate and monitor autonomous age"
+     },
+     {
+      "platform": "Hacker News",
+      "source_url": "https://github.com/NVIDIA/OpenShell",
+      "excerpt": "OpenShell – A safe, private runtime for fleets of autonomous AI agents OpenShell is the safe, private runtime for autonomous AI agents. - NVIDIA/OpenShell New in OpenShell 0.1.x: a stable release cadence, new isolation primitives, an expanded extension surface, and new APIs. Read the 0.1.0 upgrade guide . OpenShell is the safe, private runtime for fleets of autonomous AI agents. Agents are most useful when they can read files, install packages, c",
+      "source_insight": "OpenShell – A safe, private runtime for fleets of autonomous AI agents"
+     }
+    ]
+   },
+   "ad_type": "hook",
+   "aspect_ratio": "4:5",
+   "placement": "Instagram & Facebook feed",
+   "theme": "mint",
+   "copy": {
+    "audience": "researchers",
+    "eyebrow": "OPENSHELL RUNTIME RELEASED",
+    "headline": "Protect your breakthroughs before industry deploys them.",
+    "subline": "As NVIDIA introduces secure runtimes for agents, R2C.Ai helps you protect and license your research securely.",
+    "points": [
+     "AI analysis of your paper or patent",
+     "IP protection and governance",
+     "Matched with industry partners"
+    ],
+    "cta": "Upload Your Research",
+    "caption": "NVIDIA just dropped OpenShell 0.1.x with strict policy enforcement for autonomous agents. If your research deals with agent governance or autonomy, industry buyers are watching. R2C.Ai helps you secure your IP and connect with the right partners. Upload your paper today.",
+    "hashtags": [
+     "ResearchCommercialization",
+     "OpenShell",
+     "NVIDIA",
+     "IPProtection",
+     "TechTransfer"
+    ],
+    "sticker": "0.1.X"
+   },
+   "concept": "A chaotic IIIT Delhi university lab where a stressed-out PhD student has physically barricaded his prototype research server using hazard tape and stacks of old research papers, while a bewildered corporate executive in a sharp tangerine suit tries to sneak a USB drive underneath the door.",
+   "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A frantic Indian researcher mid-leap, dramatically slapping a bright orange 'OPENSHELL' warning label onto a humming desk fan rigged to an absurd tangle of brightly colored jumper wires, The corporate executive is caught red-handed on his knees, holding a gleaming gold cable that's plugged halfway into the researcher's open-source rig, looking up with an awkward grin. The sheer comical panic of the researcher and the deadpan corporate intrusion happening in an authentically messy, hyper-detailed Indian academic lab. Setting: A sunlit, cluttered campus lab in Delhi overflowing with half-empty chai cups, whiteboards covered in dense differential equations, and towers of printed academic journals. Camera: Wide-angle documentary shot, captured on a 24mm lens with deep depth of field keeping both the frantic researcher and the sneaky executive razor-sharp. Lighting: Bright, harsh fluorescent lab overheads clashing with warm afternoon sunlight spilling through large institutional windows, creating sharp, punchy shadows. Colour palette: mint green, charcoal and tangerine orange dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, urgent, playfully chaotic, highly relatable. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/trd_20261025_005_bef5.jpg",
+   "poster": "/static/showcase/posters/trd_20261025_005_bef5.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "trd_20261025_006_6bc9",
+    "rank": 6,
+    "near_miss": false,
+    "topic_title": "iFLYTEK Launches Spark X2.6 and Spark-X2.6-4B Model",
+    "topic_summary": "iFLYTEK announced the Spark X2.6 model at its 1024 Developer Festival, highlighting training on fully domestic computing power and support for a one-million token context window. Additionally, the company open-sourced the 4B on-device model under the Apache 2.0 license, featuring local deployment via GGUF and three thinking modes.",
+    "topic_key_facts": [
+     "iFLYTEK launched Spark X2.6 on October 22 at the 1024 Developer Festival. [News]",
+     "Spark X2.6 is a MoE 293B-A30B model supporting a one-million token context window. [News]",
+     "The on-device model Spark-X2.6-4B was open-sourced simultaneously under the Apache 2.0 license with local deployment via GGUF and 3 thinking modes. [News, Bluesky]",
+     "Training utilized a cluster of 10,000 Feixing No. 2 cards. [News]",
+     "The SparkAudio 1.0 voice foundation model was also officially released. [News]"
+    ],
+    "topic_entities": [
+     "Spark X2.6",
+     "293B-A30B",
+     "SMM Flash",
+     "SZ AI X2.6",
+     "20倍 70",
+     "4B Apache"
+    ],
+    "score": 57.5,
+    "r2c_relevance": 75.0,
+    "growth": 9.5,
+    "platforms": [
+     "Bluesky",
+     "News"
+    ],
+    "generated_at": "2026-10-25T12:31:57.839307+00:00",
+    "source_attribution": [
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/adinayakup.bsky.social/post/3myhrqdtrxk23",
+      "excerpt": "Happy to see another on device model 🔥 Spark-X2.6-4B from SparkLLM huggingface.co/collections/... - 4B + Apache 2.0 - Up to 1M context - 3 thinking modes - Local deployment via GGUF",
+      "source_insight": "Happy to see another on device model 🔥 Spark-X2.6-4B from SparkLLM huggingface.co/collections/... - 4B + Apache 2.0 - Up to 1M contex"
+     },
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/mm-hacker-news.bsky.social/post/3myklbygudw2v",
+      "excerpt": "XHToken/Spark-X2.6-4B https://huggingface.co/XHToken/Spark-X2.6-4B",
+      "source_insight": "XHToken/Spark-X2.6-4B https://huggingface.co/XHToken/Spark-X2.6-4B"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://www.msn.com/zh-cn/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E8%AE%AF%E9%A3%9E%E5%8F%91%E5%B8%83%E6%96%B0%E4%B8%80%E4%BB%A3%E7%AB%AF%E5%88%B0%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B-%E8%AF%AD%E9%9F%B3%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8%E9%87%8F%E6%9A%B4%E6%B6%A820%E5%80%8D-%E7%AB%AF%E4%BE%A7%E5%B7%B2%E5%AE%9E%E7%8E%B0%E7%BA%A670-%E4%BA%91%E7%AB%AF%E8%83%BD%E5%8A%9B/ar-AA2fT5Zn",
+      "excerpt": "讯飞发布新一代端到端交互模型：语音大模型调用量暴涨20倍，端侧已实现约70%云端能力 大模型正在从聊天框进入真实世界，而语音可能成为其中最重要的入口之一。 10月22日，科大讯飞集中披露了新一代人机交互技术进展。其中，正式发布的星火语音基座大模型 SparkAudio 1.0，将语音识别、同传和交互进一步扩展至复杂音频理解、情绪识别、实时说话人分离和环境声理解；与此同时，新一代端云一体通用大模型讯飞星火X2.6*及端侧模型 ...",
+      "source_insight": "讯飞发布新一代端到端交互模型：语音大模型调用量暴涨20倍，端侧已实现约70%云端能力"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://news.metal.com/fr/newscontent/104174340-smm-flash-iflytek-spark-x26-est-sorti-293b-a30b-un-million-de-jetons",
+      "excerpt": "[SMM Flash] iFlytek Spark X2.6 est sorti : 293B-A30B, un million de jetons iFLYTEK a lancé Spark X2.6 lors du Festival des développeurs 1024 le 22 octobre, affirmant qu'il a été entraîné avec une puissance de calcul entièrement nationale. Le modèle est un MoE 293B-A30B... iFLYTEK a lancé Spark X2.6 lors du Festival des développeurs 1024 le 22 octobre, affirmant qu'il a été entraîné avec une puissance de calcul entièrement nationale. Le modèle est",
+      "source_insight": "[SMM Flash] iFlytek Spark X2.6 est sorti : 293B-A30B, un million de jetons"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://news.metal.com/vn/newscontent/104174340-smm-flash-iflytek-spark-x26-ra-mắt-293b-a30b-triệu-token",
+      "excerpt": "[SMM Flash] iFlytek Spark X2.6 ra mắt: 293B-A30B, triệu token iFLYTEK đã ra mắt Spark X2.6 tại Lễ hội Nhà phát triển 1024 vào ngày 22-10, tuyên bố mô hình được huấn luyện hoàn toàn trên sức mạnh tính toán nội địa. Mô hình là MoE 293B-A30B hỗ trợ ngữ cảnh một... iFLYTEK đã ra mắt Spark X2.6 tại Lễ hội Nhà phát triển 1024 vào ngày 22-10, tuyên bố mô hình được huấn luyện hoàn toàn trên sức mạnh tính toán nội địa. Mô hình là MoE 293B-A30B hỗ trợ ngữ ",
+      "source_insight": "[SMM Flash] iFlytek Spark X2.6 ra mắt: 293B-A30B, triệu token"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://www.msn.com/ko-kr/%EA%B8%B0%EC%88%A0/%EA%B8%B0%EC%88%A0-%ED%9A%8C%EC%82%AC/%EC%95%84%EC%9D%B4%ED%94%8C%EB%9D%BC%EC%9D%B4%ED%85%8D-002230-sz-ai-%EB%AA%A8%EB%8D%B8-%EC%8A%A4%ED%8C%8C%ED%81%AC-x2-6-%EA%B3%B5%EA%B0%9C-%EC%98%A8%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%97%B0%EA%B3%84-%EA%B0%95%ED%99%94/ar-AA2fTl8f",
+      "excerpt": "아이플라이텍(002230 SZ), AI 모델 '스파크 X2.6' 공개…온디바이스·클라우드 연계 강화 [알파경제 = (상하이) 이금수 특파원] 중국 인공지능(AI)업체 아이플라이텍(iFLYTEK)이 중국산 연산자원으로 훈련한 대규모언어모델(LLM) ‘스파크 X2.6(Spark-X2.6)’을 공개했다. 온디바이스 모델과 클라우드 모델을 연계해 작업 수행 능력과 데이터 보안 기능을 강화했다.23일 상하이증권보·중국증권망에 따르면 아이플라이텍은 전날 베이징에서 ...",
+      "source_insight": "아이플라이텍(002230 SZ), AI 모델 '스파크 X2.6' 공개…온디바이스·클라우드 연계 강화"
+     }
+    ]
+   },
+   "ad_type": "story",
+   "aspect_ratio": "9:16",
+   "placement": "Instagram & Facebook Stories / Reels",
+   "theme": "night",
+   "copy": {
+    "audience": "researchers",
+    "eyebrow": "10,000 CARDS TRAINED",
+    "headline": "Scale your research impact.",
+    "subline": "R2C.Ai connects academic papers with industry partners looking for scalable innovation.",
+    "points": [
+     "AI analysis of your paper or patent",
+     "Technology readiness (TRL) assessment",
+     "Matched with industry partners"
+    ],
+    "cta": "Upload Your Research",
+    "caption": "It took a cluster of 10,000 Feixing No. 2 cards to train Spark X2.6. Industry has the compute—they need your breakthroughs. Upload your paper to R2C.Ai.",
+    "hashtags": [
+     "ComputeScale",
+     "AcademicImpact",
+     "ResearchTranslation",
+     "DeepTech"
+    ],
+    "sticker": "1M TOKENS"
+   },
+   "concept": "A massive stack of dense academic printouts literally spilling out of an IIIT Delhi campus lab door and transforming into a chaotic, colourful stream of real-world products on the crowded street outside.",
+   "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. An exasperated Indian PhD researcher standing in the doorway, mid-laugh, holding a giant cardboard box overflowing with heavy bound theses, Papers are fluttering wildly like confetti into a bustling Delhi auto-rickshaw packed to the brim with commercial prototype gear, electronics, and market-ready packaging. A chaotic cascade of thousands of academic pages instantly turning into vibrant, consumer-ready boxes right on a sunny, dusty campus street. Setting: The vibrant, sun-drenched red-brick entrance of an IIIT Delhi academic block bleeding directly into a lively tree-lined campus pathway. Camera: Vertical smartphone street-style photograph, candid wide-angle shot, natural motion blur on passing students and auto-rickshaws. Lighting: Bright, golden-hour Delhi sunlight casting sharp shadows, highlighting dust motes and flying paper texture. Colour palette: deep navy, electric blue and amber dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, chaotic, triumphant, grounded. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/trd_20261025_006_6bc9.jpg",
+   "poster": "/static/showcase/posters/trd_20261025_006_6bc9.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "trd_20261025_007_b695",
+    "rank": 7,
+    "near_miss": false,
+    "topic_title": "Hijacking AI Coding Agents Via The Downloads Folder",
+    "topic_summary": "Security company Forever reported that hackers can use files in a user's Downloads folder to trick AI assistants into installing malware. The company caught an AI coding assistant following these malicious instructions on a customer's computer before blocking the installation. This vulnerability matters to AI practitioners because it shows how local files can be weaponized to compromise autonomous AI agents.",
+    "topic_key_facts": [
+     "[News] Security company Forever reported that hackers can turn users' Downloads folders and AI agents against them by hiding malicious instructions in local files.",
+     "[News] In an Oct. 22 blog post, Forever reported catching an AI coding assistant following instructions to install malware on a customer's computer.",
+     "[News] The company blocked the installation and successfully traced the request back to a text file located in the user's Downloads folder.",
+     "[Bluesky] The incident was shared via a link to a blog post titled \"Hijacking AI Coding Agents via the Downloads Folder\" on stdnote.com."
+    ],
+    "topic_entities": [
+     "Hijacking AI Coding",
+     "Downloads Folder",
+     "Hackers"
+    ],
+    "score": 57.4,
+    "r2c_relevance": 85.0,
+    "growth": 18.75,
+    "platforms": [
+     "Bluesky",
+     "News"
+    ],
+    "generated_at": "2026-10-25T12:31:57.840247+00:00",
+    "source_attribution": [
+     {
+      "platform": "Bluesky",
+      "source_url": "https://bsky.app/profile/carlostkd.ch/post/3mymeelzjyk2n",
+      "excerpt": "Hijacking AI Coding Agents via the Downloads Folder stdnote.com/blog/carlost... #privacy #cybersecurity #AI #AGENTS #LLM",
+      "source_insight": "Hijacking AI Coding Agents via the Downloads Folder stdnote.com/blog/carlost... #privacy #cybersecurity #AI #AGENTS #LLM"
+     },
+     {
+      "platform": "News",
+      "source_url": "https://mashable.com/tech/hackers-ai-coding-agents-downloads-malware",
+      "excerpt": "Hackers find a way to turn users' own AI agents and Downloads folders against them Beware: Your Downloads folder could hold instructions for your AI assistant that you definitely didn’t write. Your Downloads folder probably contains a few PDFs, forgotten screenshots, and several files named some variation of \"final.\" But according to a recent report by security company Forever, it could also contain instructions telling your AI assistant to insta",
+      "source_insight": "Hackers find a way to turn users' own AI agents and Downloads folders against them"
+     }
+    ]
+   },
+   "ad_type": "engagement",
+   "aspect_ratio": "1:1",
+   "placement": "LinkedIn & Facebook feed",
+   "theme": "solar",
+   "copy": {
+    "audience": "industry",
+    "eyebrow": "LOCAL FILE THREAT",
+    "headline": "Can autonomous tools be trusted?",
+    "subline": "R2C.Ai helps R&D leaders discover verified, licensable research without relying on vulnerable local coding assistants.",
+    "points": [
+     "Find licensable research fast",
+     "Commercial readiness scores",
+     "Meet the principal investigator"
+    ],
+    "cta": "Browse Research Studies",
+    "caption": "Security company Forever traced an unauthorized installation request back to a text file located in a user's Downloads folder. When local files can be weaponized against automated workflows, how does your R&D team safely source external innovations? Tell us in the comments how you vet incoming research, or browse pre-vetted academic studies on R2C.Ai.",
+    "hashtags": [
+     "rnd",
+     "technology",
+     "licensing",
+     "industry"
+    ],
+    "sticker": "LOCAL FILE"
+   },
+   "concept": "A panicked Indian R&D engineer in a vibrant Delhi startup office watches helplessly as a literal, cartoonish gremlin crawls out of his laptop's open downloads folder and steals a stamped university research paper off his desk.",
+   "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A stressed engineer in a sunflower-yellow hoodie staring wide-eyed at his desk while a mischievous, in-ky-blue digital imp scurries away with a rolled-up academic manuscript, The tiny imp is sprinting across a messy wooden desk piled high with chai cups and notebooks, clutching a research paper labeled 'LICENSED' while the engineer reaches out too late. The sharp contrast of a chaotic, brightly colored Indian office scene hijacked by a bold, blue mischievous creature caught red-handed. Setting: A bustling, sunlit R&D startup workspace in India with whiteboard walls, indoor plants, and scattered technical diagrams. Camera: Eye-level medium shot, 35mm lens, sharp focus on the engineer's frantic expression and the fleeing imp. Lighting: Bright, high-contrast natural daylight streaming through a large window, casting crisp shadows. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: playful, frantic, high-energy, alarming. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/trd_20261025_007_b695.jpg",
+   "poster": "/static/showcase/posters/trd_20261025_007_b695.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "near_cls_001",
+    "rank": null,
+    "near_miss": true,
+    "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
+    "topic_summary": "Major U.S. banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions that appear independent of user instructions. This event matters to AI/ML practitioners because it highlights critical security, consent, and guardrail challenges regarding autonomous agent access to sensitive financial systems.",
+    "topic_key_facts": [
+     "Major US banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions independent of user instructions [Bluesky]",
+     "The report was published by Axios on Thursday [Bluesky]",
+     "The event occurred in October 2026 [Bluesky]",
+     "Some users gave their AI agents access to their computers on purpose [Bluesky]",
+     "US banks are blocking third-party AI agents access to customer accounts [Hacker News]"
+    ],
+    "topic_entities": [
+     "Accessing US Bank Accounts",
+     "U.S",
+     "Americans",
+     "Axios",
+     "Let"
+    ],
+    "score": 49.2,
+    "r2c_relevance": 72.0,
+    "growth": 13.41,
+    "platforms": [],
+    "generated_at": null,
+    "source_attribution": []
+   },
+   "ad_type": "conversion",
+   "aspect_ratio": "1.91:1",
+   "placement": "LinkedIn & Facebook link ad",
+   "theme": "coral",
+   "copy": {
+    "audience": "industry",
+    "eyebrow": "BANK AGENT INCIDENT",
+    "headline": "Find trusted licensable AI research.",
+    "subline": "As US banks block unauthorized AI agents, R2C.Ai helps you source fully vetted academic innovations.",
+    "points": [
+     "Find licensable research fast",
+     "Commercial readiness scores",
+     "Meet the principal investigator"
+    ],
+    "cta": "Schedule a Demo",
+    "caption": "With US banks blocking third-party AI agents from customer accounts, enterprise R&D teams can no longer afford ambiguity in external software sourcing. R2C.Ai provides verified commercial readiness scores, direct access to principal investigators, and licensable research you can actually trust. Schedule a demo today.",
+    "hashtags": [
+     "TechScouting",
+     "Licensing",
+     "RDIgnition",
+     "Innovation"
+    ],
+    "sticker": "UNAUTHORIZED"
+   },
+   "concept": "A beleaguered bank CTO and a grinning IIIT Delhi researcher sitting on the floor of a chaotic server hallway, sharing a cutting chai while rogue rogue AI printouts flutter around them like confetti.",
+   "image_prompt": "Scroll-stopping social media ad image. Candid documentary photograph of real people, natural window light, authentic expressions, modern lab or startup space, warm and optimistic. An exasperated corporate CTO in a rumpled suit sitting cross-legged on a checkerboard tiled floor, holding a steaming paper cup of chai, looking bewildered at a rogue printout, The Indian PhD researcher next to him is calmly pointing at a thick stack of verified academic source code papers, laughing as printer paper streams endlessly from a jammed office machine behind them. A hilarious, hyper-realistic office snapshot of corporate panic meeting academic serenity, surrounded by spilled chai papers and tangled printer cables. Setting: A bustling, sunlit corridor of a modern tech incubator in Delhi with exposed brick walls, vibrant Indian marigolds in a tin can on a desk, and a whiteboard covered in messy ML equations. Camera: Candid documentary style, shot on a 50mm lens at eye-level, capturing authentic micro-expressions and unposed motion blur in the background. Lighting: Warm, golden-hour natural sunlight streaming through large industrial windows, casting long soft shadows and highlighting dust motes in the air. Colour palette: coral red, warm cream and deep navy dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Witty, chaotic-good, grounded, relatable, energetic. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/near_cls_001.jpg",
+   "poster": "/static/showcase/posters/near_cls_001.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  },
+  {
+   "trend": {
+    "trend_id": "near_cls_013",
+    "rank": null,
+    "near_miss": true,
+    "topic_title": "Designing an AI serving harness built to last",
+    "topic_summary": "Enterprise AI focus is shifting from raw model capabilities and benchmark scores toward the surrounding infrastructure and serving harnesses. This shift determines whether AI intelligence can be delivered reliably, economically, and at scale as systems move from experimentation to production.",
+    "topic_key_facts": [
+     "[News] The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
+     "[News] For the past several years, much of the AI conversation has centered on model capability such as bigger models, better reasoning, larger context windows, and higher benchmark scores.",
+     "[Webpage] The next competitive advantage in enterprise AI has less to do with which model you choose than with what you build around it.",
+     "[News] AI benchmark scores don't tell the whole story, and the infrastructure around an AI model can dramatically change its results."
+    ],
+    "topic_entities": [
+     "Designing"
+    ],
+    "score": 46.5,
+    "r2c_relevance": 95.0,
+    "growth": 3.5,
+    "platforms": [],
+    "generated_at": null,
+    "source_attribution": []
+   },
+   "ad_type": "hook",
+   "aspect_ratio": "4:5",
+   "placement": "Instagram & Facebook feed",
+   "theme": "lime",
+   "copy": {
+    "audience": "researchers",
+    "eyebrow": "SERVING HARNESS SHIFT",
+    "headline": "Is your raw model missing its serving harness?",
+    "subline": "While benchmarks focus on models, R2C.Ai helps researchers bridge their work directly to industry deployment.",
+    "points": [
+     "AI analysis of your paper or patent",
+     "Commercial Readiness Score",
+     "Matched with industry partners"
+    ],
+    "cta": "Upload Your Research",
+    "caption": "Stop scrolling. The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale. If you are a researcher building powerful tech, R2C.Ai ensures it reaches the partners who need it. Upload Your Research.",
+    "hashtags": [
+     "ArtificialIntelligence",
+     "MachineLearning",
+     "TechTransfer",
+     "Research"
+    ],
+    "sticker": null
+   },
+   "concept": "Bridging academic research to industrial deployment through a surreal, high-fashion structural metaphor.",
+   "image_prompt": "Scroll-stopping social media ad image. Bold editorial advertising photograph, real people and real objects, punchy graphic composition, saturated colour, sharp focus. A towering, impossibly fragile sculpture built entirely from thousands of stacked, razor-thin sheets of academic research paper, encased and compressed within a sleek, heavy-gauge obsidian and polished chrome industrial exoskeleton, The rigid metal exoskeleton actively clamps down with precise hydraulic force, perfectly shaping and securing the delicate paper monolith without crushing a single page. An impossible, surreal contrast of archival paper architecture being securely hoisted and restrained by ultra-heavyweight luxury industrial framing. Setting: A vast, pitch-black high-end design archive flooded with a single dramatic overhead spotlight. Camera: Ultra-wide cinematic framing, shot on 35mm anamorphic lens, emphasizing scale and material texture. Lighting: High-contrast chiaroscuro with razor-sharp key lighting and deep ambient shadows. Colour palette: acid lime green, deep purple and white dominate the whole scene, bold and saturated. Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero subject and a lively background, bold saturated colour, high contrast, eye-catching. Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an empty void. Main subject centred and whole, nothing important at the edges of the frame. Mood: Authoritative, breathtaking, avant-garde, precise. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+   "picture": "/static/showcase/pictures/near_cls_013.jpg",
+   "poster": "/static/showcase/posters/near_cls_013.jpg",
+   "image_model": "FLUX.2 Klein 9B"
+  }
+ ],
+ "benchmark": [
+  {
+   "model": "FLUX.2 Klein 9B",
+   "size": "9B",
+   "where": "Cloudflare Workers AI",
+   "images": 9,
+   "adherence": 7.8,
+   "realism": 7.4,
+   "catchiness": 8.9,
+   "artifacts": 6.4,
+   "overall": 7.6
+  },
+  {
+   "model": "FLUX.2 Klein 4B",
+   "size": "4B",
+   "where": "Cloudflare Workers AI",
+   "images": 9,
+   "adherence": 7.0,
+   "realism": 7.3,
+   "catchiness": 7.7,
+   "artifacts": 4.1,
+   "overall": 6.5
+  },
+  {
+   "model": "SD 3.5 Medium",
+   "size": "2.5B",
+   "where": "Hugging Face Space",
+   "images": 9,
+   "adherence": 6.3,
+   "realism": 6.0,
+   "catchiness": 8.1,
+   "artifacts": 5.4,
+   "overall": 6.5
+  },
+  {
+   "model": "SDXL base 1.0",
+   "size": "~3.5B",
+   "where": "Cloudflare Workers AI",
+   "images": 9,
+   "adherence": 4.1,
+   "realism": 4.8,
+   "catchiness": 7.0,
+   "artifacts": 4.7,
+   "overall": 5.1
+  }
+ ],
+ "benchmark_not_tested": [
+  {
+   "model": "Qwen-Image-2512",
+   "size": "20B",
+   "reason": "Needs paid GPU time (free Hugging Face quota is too small)."
+  }
+ ],
+ "formats": {
+  "4:5": "Instagram / Facebook feed",
+  "9:16": "Stories / Reels",
+  "1:1": "LinkedIn / Facebook feed",
+  "1.91:1": "LinkedIn / Facebook link ad"
+ },
+ "themes": {
+  "solar": "sunflower yellow, black and cobalt blue",
+  "coral": "coral red, warm cream and deep navy",
+  "lime": "acid lime green, deep purple and white",
+  "cream": "warm cream, terracotta orange and navy",
+  "mint": "mint green, charcoal and tangerine orange",
+  "night": "deep navy, electric blue and amber"
+ },
+ "ctas": [
+  "Get Started Free",
+  "Schedule a Demo",
+  "Upload Your Research",
+  "Browse Research Studies",
+  "Learn More"
+ ],
+ "benefits": {
+  "researchers": [
+   "AI analysis of your paper or patent",
+   "Technology readiness (TRL) assessment",
+   "Commercial Readiness Score",
+   "IP protection and governance",
+   "Matched with industry partners",
+   "Licensing support from IIIT Delhi"
+  ],
+  "industry": [
+   "Find licensable research fast",
+   "Commercial readiness scores",
+   "Chat with any research paper",
+   "Map research to your use case",
+   "Meet the principal investigator",
+   "Compare licensing opportunities"
+  ]
+ }
+}

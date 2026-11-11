@@ -1,0 +1,13 @@
+# Secrets: set keys in Vercel → Project → Settings → Environment Variables instead.
+.env
+.env.*
+!.env.example
+
+# Not needed by the web app (app.py) at runtime; keeps the deployment small.
+data/
+tests/
+scripts/
+docs/
+__pycache__/
+*.py[cod]
+.vscode/

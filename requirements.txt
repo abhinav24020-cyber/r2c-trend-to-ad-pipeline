@@ -19,3 +19,6 @@ Pillow>=10.0
 
 # Everything else (hashing, MinHash, TF-IDF, cosine, clustering, SQLite)
 # is standard library by design: no scikit-learn, no numpy, no local GPU.
+
+# Web app (app.py): local UI and the Vercel deployment.
+flask>=3.0

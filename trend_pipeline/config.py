@@ -304,8 +304,11 @@ RESEARCH_CRITERIA: str = (
 # --------------------------------------------------------------------------
 # Storage & output paths
 # --------------------------------------------------------------------------
-DATA_DIR: str = os.path.join(PROJECT_DIR, "data", "output")
-INPUT_DIR: str = os.path.join(PROJECT_DIR, "data", "input")
+# Serverless hosts (Vercel) allow writes only under /tmp; R2C_DATA_DIR overrides either way.
+_DATA_ROOT: str = os.environ.get("R2C_DATA_DIR") or (
+    os.path.join("/tmp", "r2c", "data") if os.environ.get("VERCEL") else os.path.join(PROJECT_DIR, "data"))
+DATA_DIR: str = os.path.join(_DATA_ROOT, "output")
+INPUT_DIR: str = os.path.join(_DATA_ROOT, "input")
 VALIDATED_SIGNALS_JSON: str = os.path.join(DATA_DIR, "validated_signals.json")
 SIGNALS_DB: str = os.path.join(DATA_DIR, "signals.db")
 POST_HISTORY_JSON: str = os.path.join(DATA_DIR, "post_history.json")

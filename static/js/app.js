@@ -1,370 +1,367 @@
-/**
- * R2C.ai — Research Trends → Ad & Picture Generator
- * Client-side Controller & UI State Manager
- */
+/* R2C.Ai Ad Studio: front end for app.py */
+"use strict";
 
-let state = {
-    topics: [],
-    selectedTopicId: null,
-    activeView: 'canvas', // 'canvas' | 'image'
-    currentTheme: 'Cyber Dark (Cyan)',
-    currentFormat: 'X (Twitter)',
-    isScraping: false,
-    isGenerating: false
+const THEME_COLOURS = {
+    solar: "#FFD23F", coral: "#FF6F59", lime: "#C6F432",
+    cream: "#F6EFE3", mint: "#BFF0DA", night: "#0A1F3C",
 };
+const FORMAT_SHORT = { "4:5": "Feed", "9:16": "Stories", "1:1": "LinkedIn", "1.91:1": "Link ad" };
 
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
-    loadInitialData();
-});
+let DATA = null;
+const state = {
+    trend: null, copy: null, picture: null, poster: null, prompt: "", caption: "",
+    format: "4:5", theme: "solar", audience: "researchers",
+};
+let composeTimer = null;
+let composeSeq = 0;
 
-/**
- * Load initial sample topics from backend
- */
-async function loadInitialData() {
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function toast(message, isError = false) {
+    const el = $("toast");
+    el.textContent = message;
+    el.classList.toggle("error", isError);
+    el.hidden = false;
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => { el.hidden = true; }, isError ? 6000 : 2600);
+}
+
+async function api(path, body) {
+    const response = await fetch(path, body === undefined ? {} : {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
+    });
+    let payload = {};
+    try { payload = await response.json(); } catch (_) { /* non-JSON error page */ }
+    if (!response.ok) throw new Error(payload.error || `Request failed (${response.status})`);
+    return payload;
+}
+
+function busy(on, text = "Updating…") {
+    $("preview-busy").hidden = !on;
+    $("busy-text").textContent = text;
+}
+
+/* ---------------------------------------------------------------- render */
+function renderStats() {
+    const best = (DATA.benchmark || [])[0];
+    const stats = [
+        [DATA.latest_trends.length, "trends in the latest crawl"],
+        [DATA.showcase.length, "ready-to-post ads"],
+        [Object.keys(DATA.formats).length, "ad formats"],
+        [Object.keys(DATA.themes).length, "colour themes"],
+        [best ? `${best.overall}/10` : "-", best ? `best model: ${best.model}` : "model benchmark"],
+    ];
+    $("hero-stats").innerHTML = stats.map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
+}
+
+function renderAds() {
+    $("ad-grid").innerHTML = DATA.showcase.map((item, i) => `
+        <button class="ad-card" type="button" data-i="${i}" aria-label="Open ad: ${esc(item.copy.headline)}">
+            <img src="${esc(item.poster)}" alt="" loading="lazy">
+            <div class="ad-card-body">
+                <div class="ad-card-title">${esc(item.trend.topic_title)}</div>
+                <div class="ad-card-meta">${esc(item.aspect_ratio)} · ${esc(FORMAT_SHORT[item.aspect_ratio] || "")} · ${esc(item.theme)}</div>
+            </div>
+        </button>`).join("");
+    $("ad-grid").querySelectorAll(".ad-card").forEach((el) =>
+        el.addEventListener("click", () => openShowcase(DATA.showcase[+el.dataset.i])));
+}
+
+function trendCard(t, key) {
+    const platforms = (t.platforms || []).map((p) => `<span class="chip">${esc(p)}</span>`).join("");
+    const relevance = Math.max(0, Math.min(100, Number(t.r2c_relevance) || 0));
+    const source = (t.source_attribution || []).find((s) => s.source_url);
+    return `
+        <article class="trend">
+            <div class="trend-top">
+                <h3>${esc(t.topic_title)}</h3>
+                <div class="score" title="Composite trend score">${esc(t.score)}<small>score</small></div>
+            </div>
+            <p>${esc(t.topic_summary || "")}</p>
+            <div class="chips">${t.near_miss ? '<span class="chip near">near miss</span>' : ""}${platforms}</div>
+            <div>
+                <div class="bar-label"><span>R2C relevance</span><span>${relevance ? relevance.toFixed(0) : "-"}</span></div>
+                <div class="bar"><i style="width:${relevance}%"></i></div>
+            </div>
+            <div class="trend-actions">
+                <button class="btn btn-primary" type="button" data-open="${esc(key)}">Make an ad</button>
+                ${source ? `<a href="${esc(source.source_url)}" target="_blank" rel="noopener">Source ↗</a>` : ""}
+            </div>
+        </article>`;
+}
+
+function renderTrends() {
+    const when = DATA.latest_generated_at ? new Date(DATA.latest_generated_at) : null;
+    if (when && !isNaN(when)) {
+        $("trends-sub").textContent = `Trends from the most recent crawl (${when.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" })}), ranked by trend score. Near misses scored just under the threshold.`;
+    }
+    $("trend-list").innerHTML = DATA.latest_trends.map((t, i) => trendCard(t, "latest:" + i)).join("");
+    bindTrendButtons($("trend-list"));
+}
+
+function bindTrendButtons(root) {
+    root.querySelectorAll("[data-open]").forEach((btn) => btn.addEventListener("click", () => {
+        const [list, i] = btn.dataset.open.split(":");
+        const source = list === "latest" ? DATA.latest_trends : scrapedTrends;
+        openTrend(source[+i]);
+    }));
+}
+
+function renderBench() {
+    const rows = (DATA.benchmark || []).map((b, i) => `
+        <tr class="${i === 0 ? "win" : ""}">
+            <td>${i === 0 ? "🥇 " : ""}${esc(b.model)}</td><td>${esc(b.size)}</td><td>${esc(b.where)}</td>
+            <td>${b.adherence}</td><td>${b.realism}</td><td>${b.catchiness}</td><td>${b.artifacts}</td>
+            <td><div class="overall"><b>${b.overall}</b><div class="bar"><i style="width:${b.overall * 10}%"></i></div></div></td>
+        </tr>`).join("");
+    const skipped = (DATA.benchmark_not_tested || []).map((m) => `${esc(m.model)} (${esc(m.size)}): ${esc(m.reason)}`).join(" ");
+    $("bench").innerHTML = `
+        <table>
+            <thead><tr><th>Model</th><th>Size</th><th>Ran on</th><th>Adherence</th><th>Realism</th><th>Catchiness</th><th>Artifacts</th><th>Overall</th></tr></thead>
+            <tbody>${rows}</tbody>
+        </table>
+        <p class="note">Artifacts: 10 = no visible defects. Not tested: ${skipped}</p>`;
+}
+
+function renderFormatButtons() {
+    $("format-buttons").innerHTML = Object.entries(DATA.formats).map(([ratio, name]) => `
+        <button type="button" role="radio" data-format="${esc(ratio)}" aria-checked="false">${esc(ratio)}<small>${esc(name)}</small></button>`).join("");
+    $("format-buttons").querySelectorAll("button").forEach((b) =>
+        b.addEventListener("click", () => setFormat(b.dataset.format)));
+}
+
+function renderThemes() {
+    $("theme-swatches").innerHTML = Object.keys(DATA.themes).map((name) => `
+        <button type="button" class="swatch" role="radio" data-theme="${esc(name)}" aria-checked="false" title="${esc(DATA.themes[name])}">
+            <i style="background:${THEME_COLOURS[name] || "#ccc"}"></i>${esc(name)}</button>`).join("");
+    $("theme-swatches").querySelectorAll(".swatch").forEach((b) =>
+        b.addEventListener("click", () => setTheme(b.dataset.theme)));
+}
+
+function renderPoints() {
+    const options = (DATA.benefits && DATA.benefits[state.audience]) || [];
+    const chosen = new Set((state.copy && state.copy.points) || []);
+    $("f-points").innerHTML = options.map((p) => `
+        <label><input type="checkbox" value="${esc(p)}" ${chosen.has(p) ? "checked" : ""}> ${esc(p)}</label>`).join("");
+    $("f-points").querySelectorAll("input").forEach((box) => box.addEventListener("change", () => {
+        const ticked = [...$("f-points").querySelectorAll("input:checked")].map((x) => x.value);
+        if (ticked.length > 3) { box.checked = false; toast("Pick up to 3 services."); return; }
+        state.copy.points = ticked;
+        scheduleCompose();
+    }));
+}
+
+function syncControls() {
+    $("format-buttons").querySelectorAll("button").forEach((b) => b.setAttribute("aria-checked", String(b.dataset.format === state.format)));
+    $("theme-swatches").querySelectorAll(".swatch").forEach((b) => b.setAttribute("aria-checked", String(b.dataset.theme === state.theme)));
+    $("studio-trend").textContent = state.trend ? state.trend.topic_title : "-";
+    const c = state.copy;
+    $("copy-fields").disabled = !c;
+    $("brief-block").hidden = !!c || !state.trend;
+    $("f-eyebrow").value = c ? c.eyebrow || "" : "";
+    $("f-headline").value = c ? c.headline || "" : "";
+    $("f-subline").value = c ? c.subline || "" : "";
+    $("f-sticker").value = c ? c.sticker || "" : "";
+    $("f-cta").value = c && c.cta ? c.cta : DATA.ctas[0];
+    $("f-prompt").value = state.prompt || "";
+    $("btn-picture").disabled = !c;
+    renderPoints();
+    const hashtags = c && c.hashtags ? "\n\n" + c.hashtags.map((h) => "#" + String(h).replace(/^#/, "")).join(" ") : "";
+    $("caption").textContent = c && c.caption ? c.caption + hashtags : "-";
+    $("btn-copy-caption").disabled = !(c && c.caption);
+}
+
+function showPreview(src, meta) {
+    $("preview-img").src = src;
+    $("preview-img").hidden = false;
+    $("preview-empty").hidden = true;
+    const link = $("btn-download");
+    link.href = src;
+    link.download = `r2c_ad_${state.format.replace(/[:.]/g, "x")}_${state.theme}.jpg`;
+    link.setAttribute("aria-disabled", "false");
+    $("preview-meta").textContent = meta || "";
+}
+
+function clearPreview(message) {
+    $("preview-img").hidden = true;
+    $("preview-empty").hidden = false;
+    $("preview-empty").textContent = message;
+    $("btn-download").setAttribute("aria-disabled", "true");
+    $("btn-download").removeAttribute("href");
+    $("preview-meta").textContent = "";
+}
+
+/* ---------------------------------------------------------------- actions */
+function openShowcase(item, scroll = true) {
+    Object.assign(state, {
+        trend: item.trend, copy: JSON.parse(JSON.stringify(item.copy)), picture: item.picture,
+        poster: item.poster, prompt: item.image_prompt || "", format: item.aspect_ratio,
+        theme: item.theme, audience: item.copy.audience || "researchers",
+    });
+    syncControls();
+    showPreview(item.poster, `${FORMAT_SHORT[item.aspect_ratio] || item.aspect_ratio} · ${item.placement} · picture by ${item.image_model}`);
+    if (scroll) $("studio").scrollIntoView({ behavior: "smooth" });
+}
+
+function openTrend(trend) {
+    Object.assign(state, { trend, copy: null, picture: null, poster: null, prompt: "", audience: "researchers" });
+    syncControls();
+    clearPreview("Click “Write ad copy with Gemini” to create this ad.");
+    $("studio").scrollIntoView({ behavior: "smooth" });
+}
+
+function setFormat(ratio) {
+    if (state.format === ratio) return;
+    state.format = ratio;
+    syncControls();
+    scheduleCompose(0);
+}
+
+function setTheme(name) {
+    if (state.theme === name) return;
+    state.theme = name;
+    // Keep the image prompt's palette in step with the theme for the next generated picture.
+    if (state.prompt && DATA.themes[name]) {
+        state.prompt = state.prompt.replace(/Colour palette: [^.]*?(dominate[^.]*|, bold and saturated)\./,
+            `Colour palette: ${DATA.themes[name]} dominate the whole scene, bold and saturated.`);
+    }
+    syncControls();
+    scheduleCompose(0);
+}
+
+function readCopyFields() {
+    if (!state.copy) return;
+    state.copy.eyebrow = $("f-eyebrow").value;
+    state.copy.headline = $("f-headline").value;
+    state.copy.subline = $("f-subline").value;
+    state.copy.sticker = $("f-sticker").value;
+    state.copy.cta = $("f-cta").value;
+}
+
+function scheduleCompose(delay = 450) {
+    clearTimeout(composeTimer);
+    if (!state.copy || !state.picture) return;
+    composeTimer = setTimeout(compose, delay);
+}
+
+async function compose() {
+    readCopyFields();
+    if (!state.copy.headline.trim()) { toast("The ad needs a headline.", true); return; }
+    const seq = ++composeSeq;
+    busy(true, "Laying out the ad…");
     try {
-        const response = await fetch('/api/sample-data');
-        const data = await response.json();
-        if (data && data.topics && data.topics.length > 0) {
-            state.topics = data.topics;
-            renderTopicCards();
-            selectTopic(data.topics[0].id);
-        }
+        const result = await api("/api/compose", {
+            picture: state.picture, format: state.format, theme: state.theme, copy: state.copy,
+        });
+        if (seq !== composeSeq) return;  // a newer change is already on its way
+        showPreview(result.image, `${FORMAT_SHORT[state.format]} · ${result.size[0]}×${result.size[1]} · ${state.theme} theme`);
     } catch (err) {
-        console.error('Failed to load initial data:', err);
+        if (seq === composeSeq) toast(err.message, true);
+    } finally {
+        if (seq === composeSeq) busy(false);
     }
 }
 
-/**
- * Render Topic Cards Grid (Step 1)
- */
-function renderTopicCards() {
-    const container = document.getElementById('topics-grid-container');
-    const badge = document.getElementById('topics-count-badge');
-    if (!container) return;
-
-    badge.textContent = `${state.topics.length} Topics Extracted`;
-    container.innerHTML = '';
-
-    state.topics.forEach((topic) => {
-        const isSelected = topic.id === state.selectedTopicId;
-        const card = document.createElement('div');
-        card.className = `topic-card ${isSelected ? 'selected' : ''}`;
-        card.id = `topic-card-${topic.id}`;
-        card.onclick = () => selectTopic(topic.id);
-
-        card.innerHTML = `
-            <div class="topic-card-top-row">
-                <span class="category-tag">${escapeHtml(topic.category || 'AI RESEARCH')}</span>
-                <span class="stat-callout-pill">${escapeHtml(topic.stat_callout || '')}</span>
-            </div>
-            <h3 class="topic-card-title">${escapeHtml(topic.title)}</h3>
-            <p class="topic-card-summary">${escapeHtml(topic.summary)}</p>
-            <div class="why-matters-box">
-                <span class="why-matters-label">Why it matters for R2C: </span>
-                <span class="why-matters-text">${escapeHtml(topic.why_it_matters || '')}</span>
-            </div>
-        `;
-        container.appendChild(card);
-    });
-}
-
-/**
- * Select active topic and update Steps 2 & 3
- */
-function selectTopic(topicId) {
-    state.selectedTopicId = topicId;
-    const topic = state.topics.find(t => t.id === topicId);
-    if (!topic) return;
-
-    // Update active class on cards
-    document.querySelectorAll('.topic-card').forEach(card => {
-        card.classList.remove('selected');
-    });
-    const activeCard = document.getElementById(`topic-card-${topicId}`);
-    if (activeCard) activeCard.classList.add('selected');
-
-    // Update Step 2 (Prompt)
-    const promptTextarea = document.getElementById('prompt-textarea');
-    const targetTopicDisplay = document.getElementById('target-topic-display');
-    if (promptTextarea) promptTextarea.value = topic.image_prompt || topic.prompt || '';
-    if (targetTopicDisplay) targetTopicDisplay.textContent = topic.title;
-
-    // Update Step 3 (Visual Canvas)
-    updateCanvasView(topic);
-
-    // Update Step 3.5 (Ad Copy Card)
-    updateCopyCard(topic);
-}
-
-/**
- * Update Graphic Canvas elements
- */
-function updateCanvasView(topic) {
-    const statEl = document.getElementById('ad-canvas-stat');
-    const headlineEl = document.getElementById('ad-canvas-headline');
-    const subheadlineEl = document.getElementById('ad-canvas-subheadline');
-    const ctaEl = document.getElementById('ad-canvas-cta');
-    const imgEl = document.getElementById('ad-generated-img');
-    const imagePlaceholder = document.getElementById('ad-image-placeholder');
-
-    if (statEl) statEl.textContent = topic.stat_badge || '3.8X ACCURACY BOOST';
-    if (headlineEl) headlineEl.textContent = topic.headline || topic.title;
-    if (subheadlineEl) subheadlineEl.textContent = topic.subheadline || topic.summary;
-    if (ctaEl) ctaEl.textContent = `${topic.cta || 'Deploy Workflows'} →`;
-
-    if (imgEl) {
-        imgEl.hidden = !topic.image_url;
-        if (topic.image_url) {
-            imgEl.src = topic.image_url;
-        }
-    }
-    if (imagePlaceholder) imagePlaceholder.hidden = Boolean(topic.image_url);
-}
-
-/**
- * Update Ad Copy Card elements
- */
-function updateCopyCard(topic) {
-    const audienceEl = document.getElementById('copy-target-audience');
-    const headlineEl = document.getElementById('copy-headline');
-    const bodyEl = document.getElementById('copy-body');
-    const hashtagsEl = document.getElementById('copy-hashtags');
-    const ctaTextEl = document.getElementById('copy-cta-text');
-    const statTextEl = document.getElementById('copy-stat-text');
-
-    if (audienceEl) audienceEl.textContent = `Target Audience: ${topic.target_persona || 'Enterprise Automation Leaders'}`;
-    if (headlineEl) headlineEl.textContent = topic.headline || topic.title;
-    if (bodyEl) bodyEl.textContent = topic.body_copy || topic.summary;
-    
-    if (hashtagsEl) {
-        if (Array.isArray(topic.hashtags)) {
-            hashtagsEl.textContent = topic.hashtags.join(' ');
-        } else {
-            hashtagsEl.textContent = topic.hashtags || '#AIInnovation #ResearchCommercialization';
-        }
-    }
-
-    if (ctaTextEl) ctaTextEl.textContent = topic.cta || 'Deploy Agentic Workflows';
-    if (statTextEl) statTextEl.textContent = topic.stat_badge || '3.8X ACCURACY BOOST';
-}
-
-/**
- * Switch between Canvas and AI Image view
- */
-function switchAdView(viewMode) {
-    state.activeView = viewMode;
-    const canvasTab = document.getElementById('tab-canvas-view');
-    const imageTab = document.getElementById('tab-image-view');
-    const canvasContainer = document.getElementById('ad-graphic-canvas');
-    const imageContainer = document.getElementById('ad-image-container');
-
-    if (viewMode === 'canvas') {
-        canvasTab.classList.add('active');
-        imageTab.classList.remove('active');
-        canvasContainer.classList.remove('hidden');
-        imageContainer.classList.add('hidden');
-    } else {
-        imageTab.classList.add('active');
-        canvasTab.classList.remove('active');
-        imageContainer.classList.remove('hidden');
-        canvasContainer.classList.add('hidden');
+async function writeBrief() {
+    if (!state.trend) return;
+    const btn = $("btn-brief");
+    btn.disabled = true;
+    busy(true, "Gemini is writing the ad copy…");
+    try {
+        const result = await api("/api/brief", { trend: state.trend, format: state.format, theme: state.theme });
+        state.copy = { ...result.copy, sticker: "" };
+        state.audience = result.copy.audience || "researchers";
+        state.prompt = result.image_prompt;
+        syncControls();
+        toast("Ad copy ready. Generating the picture…");
+        await generatePicture();
+    } catch (err) {
+        toast(err.message, true);
+        busy(false);
+    } finally {
+        btn.disabled = false;
     }
 }
 
-/**
- * Handle URL submission and pipeline execution
- */
-async function submitUrls() {
-    const textarea = document.getElementById('url-input-textarea');
-    const btn = document.getElementById('btn-scrape-submit');
-    const spinner = document.getElementById('scrape-spinner');
-    const loadingState = document.getElementById('pipeline-loading-state');
-    const urlsText = textarea.value.trim();
+async function generatePicture() {
+    readCopyFields();
+    const prompt = $("f-prompt").value.trim();
+    if (prompt.length < 40) { toast("Write an image prompt of at least a sentence.", true); return; }
+    state.prompt = prompt;
+    const btn = $("btn-picture");
+    btn.disabled = true;
+    busy(true, "Painting the picture (about 10 s)…");
+    try {
+        const result = await api("/api/generate-picture", { prompt, format: state.format, model: $("f-model").value });
+        state.picture = result.picture;
+        await compose();
+        toast("New picture ready.");
+    } catch (err) {
+        toast(err.message, true);
+        busy(false);
+    } finally {
+        btn.disabled = !state.copy;
+    }
+}
 
-    if (!urlsText) {
-        showToast('Please enter at least one URL.', 'error');
+let scrapedTrends = [];
+async function scrapeLinks() {
+    const urls = $("url-input").value.split("\n").map((u) => u.trim()).filter(Boolean);
+    if (!urls.length) { toast("Paste at least one link.", true); return; }
+    const btn = $("btn-scrape");
+    btn.disabled = true;
+    $("scrape-status").textContent = "Scraping and ranking… this can take a minute.";
+    try {
+        const result = await api("/api/scrape", { urls });
+        scrapedTrends = result.trends || [];
+        $("scrape-status").textContent = scrapedTrends.length
+            ? `${scrapedTrends.length} topic(s) found from ${result.urls.length} link(s).`
+            : "No topic passed the quality checks for these links. Try other articles.";
+        $("scrape-results").innerHTML = scrapedTrends.map((t, i) => trendCard(t, "scraped:" + i)).join("");
+        bindTrendButtons($("scrape-results"));
+    } catch (err) {
+        $("scrape-status").textContent = "";
+        toast(err.message, true);
+    } finally {
+        btn.disabled = false;
+    }
+}
+
+async function copyCaption() {
+    const text = $("caption").textContent;
+    try {
+        await navigator.clipboard.writeText(text);
+        toast("Caption copied.");
+    } catch (_) {
+        toast("Could not copy. Select the caption text and copy it manually.", true);
+    }
+}
+
+/* ---------------------------------------------------------------- start */
+async function init() {
+    try {
+        DATA = await api("/api/site-data");
+    } catch (err) {
+        toast("Could not load the studio data: " + err.message, true);
         return;
     }
-
-    state.isScraping = true;
-    btn.disabled = true;
-    spinner.classList.remove('hidden');
-    loadingState.classList.remove('hidden');
-
-    try {
-        const response = await fetch('/api/scrape-and-extract', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ urls: urlsText })
-        });
-        const data = await response.json();
-
-        if (data && data.topics && data.topics.length > 0) {
-            state.topics = data.topics;
-            renderTopicCards();
-            selectTopic(data.topics[0].id);
-            showToast('Links scraped and topics extracted successfully!');
-            // Scroll smoothly to topics section
-            document.getElementById('section-topics').scrollIntoView({ behavior: 'smooth' });
-        } else {
-            showToast('No topics extracted. Please verify the URLs.', 'error');
-        }
-    } catch (err) {
-        console.error('Scrape error:', err);
-        showToast('Scraping completed with fallback data.', 'info');
-    } finally {
-        state.isScraping = false;
-        btn.disabled = false;
-        spinner.classList.add('hidden');
-        loadingState.classList.add('hidden');
-    }
+    $("f-cta").innerHTML = DATA.ctas.map((c) => `<option>${esc(c)}</option>`).join("");
+    renderStats();
+    renderAds();
+    renderTrends();
+    renderBench();
+    renderFormatButtons();
+    renderThemes();
+    syncControls();
+    ["f-eyebrow", "f-headline", "f-subline", "f-sticker"].forEach((id) => $(id).addEventListener("input", () => scheduleCompose()));
+    $("f-cta").addEventListener("change", () => scheduleCompose(0));
+    $("f-prompt").addEventListener("input", () => { state.prompt = $("f-prompt").value; });
+    $("btn-brief").addEventListener("click", writeBrief);
+    $("btn-picture").addEventListener("click", generatePicture);
+    $("btn-scrape").addEventListener("click", scrapeLinks);
+    $("btn-copy-caption").addEventListener("click", copyCaption);
+    if (DATA.showcase.length) openShowcase(DATA.showcase[0], false);  // pre-load the studio, stay at the top
 }
 
-/**
- * Handle Generate Ad button click
- */
-async function generateAdFromPrompt() {
-    const btn = document.getElementById('btn-generate-ad');
-    const spinner = document.getElementById('generate-spinner');
-
-    state.isGenerating = true;
-    btn.disabled = true;
-    spinner.classList.remove('hidden');
-
-    try {
-        const prompt = document.getElementById('prompt-textarea').value;
-        const response = await fetch('/api/generate-ad', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt, format: state.currentFormat }),
-        });
-        const result = await response.json();
-        if (!response.ok || !result.image_url) {
-            throw new Error(result && result.error ? result.error : 'Image generation failed.');
-        }
-        const topic = state.topics.find(t => t.id === state.selectedTopicId) || state.topics[0];
-        if (topic) topic.image_url = result.image_url;
-        updateCanvasView(topic || { image_url: result.image_url });
-        switchAdView('image');
-        showToast(`Image generated (${result.aspect_ratio}).`);
-    } catch (err) {
-        console.error('Image generation error:', err);
-        showToast(err instanceof Error ? err.message : 'Image generation failed.', 'error');
-    } finally {
-        state.isGenerating = false;
-        btn.disabled = false;
-        spinner.classList.add('hidden');
-    }
-}
-
-/**
- * Dropdown Handlers
- */
-function onThemeChange() {
-    const selector = document.getElementById('theme-selector');
-    state.currentTheme = selector.value;
-    const canvas = document.getElementById('ad-graphic-canvas');
-    
-    if (state.currentTheme.includes('Matrix')) {
-        canvas.style.background = 'radial-gradient(circle at 60% 30%, #062b1a 0%, #020d07 100%)';
-    } else if (state.currentTheme.includes('Purple')) {
-        canvas.style.background = 'radial-gradient(circle at 60% 30%, #220e40 0%, #0a0414 100%)';
-    } else if (state.currentTheme.includes('Slate')) {
-        canvas.style.background = 'radial-gradient(circle at 60% 30%, #1e293b 0%, #0f172a 100%)';
-    } else {
-        canvas.style.background = 'radial-gradient(circle at 60% 30%, #0d2138 0%, #040a16 100%)';
-    }
-    showToast(`Theme updated to ${state.currentTheme}`);
-}
-
-function onFormatChange() {
-    const selector = document.getElementById('format-selector');
-    state.currentFormat = selector.value;
-    showToast(`Ad format adjusted for ${state.currentFormat}`);
-}
-
-/**
- * Copy Ad Text to Clipboard
- */
-function copyAdText() {
-    const headline = document.getElementById('copy-headline').textContent;
-    const body = document.getElementById('copy-body').textContent;
-    const hashtags = document.getElementById('copy-hashtags').textContent;
-    const cta = document.getElementById('copy-cta-text').textContent;
-
-    const fullText = `${headline}\n\n${body}\n\n${hashtags}\n\nCTA: ${cta}`;
-
-    navigator.clipboard.writeText(fullText).then(() => {
-        showToast('📋 Ad text copied to clipboard!');
-    }).catch(() => {
-        showToast('Failed to copy to clipboard', 'error');
-    });
-}
-
-/**
- * Forward / Share Ad
- */
-function shareAd() {
-    const headline = document.getElementById('copy-headline').textContent;
-    const shareData = {
-        title: headline,
-        text: document.getElementById('copy-body').textContent,
-        url: window.location.href
-    };
-
-    if (navigator.share) {
-        navigator.share(shareData).catch(err => console.log('Share dismissed:', err));
-    } else {
-        copyAdText();
-        showToast('🔗 Shareable ad content copied to clipboard!');
-    }
-}
-
-/**
- * Re-roll Ad
- */
-function rerollAd() {
-    generateAdFromPrompt();
-}
-
-/**
- * Scroll to top URL input section
- */
-function scrollToUrlInput() {
-    const section = document.getElementById('section-url-input');
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-        const textarea = document.getElementById('url-input-textarea');
-        if (textarea) textarea.focus();
-    }
-}
-
-/**
- * Toast Notification Utility
- */
-function showToast(message, type = 'success') {
-    const toast = document.getElementById('toast');
-    const toastMsg = document.getElementById('toast-message');
-    if (!toast || !toastMsg) return;
-
-    toastMsg.textContent = message;
-    toast.classList.remove('hidden');
-
-    setTimeout(() => {
-        toast.classList.add('hidden');
-    }, 3500);
-}
-
-/**
- * HTML Escape Helper
- */
-function escapeHtml(str) {
-    if (!str) return '';
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
+document.addEventListener("DOMContentLoaded", init);

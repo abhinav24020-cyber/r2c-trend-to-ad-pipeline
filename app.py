@@ -1,89 +1,87 @@
 """
-Flask web application for R2C.ai Research Trends to Ad & Picture Generator.
-Matches the dark cyber-aesthetic UI and orchestrates the full pipeline.
+R2C.Ai Ad Studio: the web app for the trend-to-ad pipeline (local and Vercel).
+
+Pages and API:
+    GET  /                      the studio (templates/index.html)
+    GET  /api/site-data         latest trends, the ad showcase and the model benchmark (web_data/site_data.json)
+    POST /api/compose           picture + ad copy -> finished R2C poster ad for a format and colour theme
+    POST /api/generate-picture  image prompt -> new text-free picture (Cloudflare Workers AI, FLUX.2 Klein)
+    POST /api/scrape            URLs -> scraped, Gate 1/2-ranked trends
+    POST /api/brief             trend -> R2C ad copy and image prompt (Gemini, prompt_generator.ad_creatives)
+    POST /api/generate-ad       legacy: prompt -> picture saved under GENERATED_ADS_DIR
+
+Images travel as base64 data URLs instead of files: on a serverless host each request may
+run on a different instance, and only /tmp is writable.
 """
 from __future__ import annotations
 
+import base64
+import io
+import json
 import logging
 import os
 import sys
+import tempfile
 from datetime import datetime, timezone
-from typing import Any, Dict
+from typing import Tuple
 
 from flask import Flask, jsonify, render_template, request, send_from_directory
 
-from trend_pipeline import config, url_scraper
-from trend_pipeline.gemini_client import get_client
+from trend_pipeline import config
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+SITE_DATA = os.path.join(ROOT, "web_data", "site_data.json")
+SHOWCASE_DIR = os.path.join(ROOT, "static", "showcase")
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
+app.config["MAX_CONTENT_LENGTH"] = 8 * 1024 * 1024  # a picture travels as a data URL
+app.json.sort_keys = False  # keep formats and themes in their intended order
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("r2c_web_app")
-
-# Ensure required directories exist
 os.makedirs(config.DATA_DIR, exist_ok=True)
 os.makedirs(config.GENERATED_ADS_DIR, exist_ok=True)
 
+# Format chosen in the UI -> poster aspect ratio and ad type (prompt_generator.ad_creatives.AD_FORMATS).
+FORMAT_AD_TYPE = {"4:5": "hook", "9:16": "story", "1:1": "engagement", "1.91:1": "conversion"}
+IMAGE_MODELS = {
+    "klein4b": "@cf/black-forest-labs/flux-2-klein-4b",
+    "klein9b": "@cf/black-forest-labs/flux-2-klein-9b",
+}
+# Legacy format names used by /api/generate-ad.
+FORMAT_ASPECT_RATIO = {"X (Twitter)": "16:9", "LinkedIn": "1:1", "Instagram": "4:5", "Facebook": "4:5"}
 
-def get_default_sample_data() -> Dict[str, Any]:
-    """Provide rich sample data matching the exact UI design."""
-    topics = [
-        {
-            "id": "topic-1",
-            "category": "AUTONOMOUS AI",
-            "stat_callout": "3.8x task completion accuracy over single-agent baselines",
-            "stat_badge": "3.8X ACCURACY BOOST",
-            "title": "Enterprise Shift from Chatbots to Autonomous Multi-Agent Workflows",
-            "summary": "Organizations are moving beyond single-turn conversational chatbots toward multi-agent coordination pipelines where planner, executor, and reviewer models collaborate deterministically.",
-            "why_it_matters": "High-value narrative for B2B tech founders looking to position complex agentic AI research into clear, conversion-driven product marketing campaigns.",
-            "target_persona": "Enterprise Automation Leaders, Chief Technology Officers, and AI Systems Architects",
-            "headline": "Static Chatbots Fail. Multi-Agent Systems Deliver.",
-            "subheadline": "Upgrade enterprise workflows from fragile chat interfaces to synchronized planner, executor, and reviewer agent pipelines.",
-            "body_copy": "Static chatbots are failing enterprise operations in 2025 because brittle single-agent setups collapse under complex multi-step reasoning. Real enterprise reliability requires distributed autonomy. By separating responsibilities across specialized Planner, Executor, and Reviewer agents, production systems deliver 3.8x higher task completion accuracy over single-agent baselines. Upgrade your operational stack and replace conversational toys with deterministic multi-agent architectures built for scale.",
-            "hashtags": ["#AutonomousAIEngineers", "#EnterpriseAutomation", "#AgenticWorkflows", "#AIArchitecture"],
-            "cta": "Deploy Agentic Workflows",
-            "prompt": "Create a high-converting LinkedIn post and visual ad copy explaining why static chatbots are failing enterprises in 2025. Highlight the stat '3.8x task completion accuracy over single-agent baselines' with a structured breakdown of planner, executor, and reviewer agents, ending with a compelling CTA for enterprise automation.",
-            "image_prompt": "A clean, high-tech blueprint cyber dark digital graphic with subtle glowing cyan grid lines, depicting a multi-agent architectural pipeline with planner, executor, and reviewer nodes. In bold modern typography: 'Static Chatbots Fail. Multi-Agent Systems Deliver.' with high contrast cyan accent buttons.",
-            "image_url": None,
-        },
-        {
-            "id": "topic-2",
-            "category": "DEVELOPER TOOLS",
-            "stat_callout": "82% reduction in compute and inference costs",
-            "stat_badge": "82% COST REDUCTION",
-            "title": "Cost-Efficiency Revolution in Domain-Specific Model Fine-Tuning",
-            "summary": "New lightweight parameter-efficient fine-tuning methodologies enable domain-specific intelligence at a fraction of foundation model compute requirements.",
-            "why_it_matters": "Perfect hook for technical marketing, demonstrating how academic efficiency breakthroughs directly impact gross margins for software buyers.",
-            "target_persona": "VP of Engineering, ML Infrastructure Leads, and FinOps Directors",
-            "headline": "Stop Overpaying Foundation APIs. Own Your Fine-Tuned Models.",
-            "subheadline": "Achieve domain-specific superintelligence with 82% lower compute overhead using parameter-efficient fine-tuning.",
-            "body_copy": "Massive generic foundation models are burning through engineering budgets. By leveraging state-of-the-art parameter-efficient fine-tuning and activation compression, engineering teams are delivering specialized domain accuracy while slashing inference costs by 82%. Stop leasing generic intelligence and start building proprietary, highly-efficient enterprise model assets.",
-            "hashtags": ["#MachineLearning", "#MLOps", "#CostOptimization", "#AIInfrastructure"],
-            "cta": "Explore Model Efficiency",
-            "prompt": "Create a high-converting developer tools ad post and visual brief focused on 'Cost-Efficiency Revolution in Domain-Specific Model Fine-Tuning'. Emphasize '82% reduction in compute and inference costs' and highlight how engineering teams can achieve superior domain accuracy with tailored weights.",
-            "image_prompt": "A sleek, dark theme technical dashboard showing performance metrics with an 82% cost reduction chart, glowing emerald and cyan visual graphs, modern developer tool aesthetic with clean typography.",
-            "image_url": None,
-        },
-        {
-            "id": "topic-3",
-            "category": "SOFTWARE ENGINEERING AI",
-            "stat_callout": "65% drop in PR turnaround latency",
-            "stat_badge": "65% FASTER SHIPPING",
-            "title": "Automated Code Intelligence and Self-Healing Developer Pipelines",
-            "summary": "Integration of specialized code-generation models into continuous integration creates self-diagnosing and automated bug resolution workflows.",
-            "why_it_matters": "Directly resonates with developer-tool marketers seeking to translate technical repository benchmarks into high-converting developer adoption funnels.",
-            "target_persona": "Engineering Directors, Lead DevOps Architects, and Developer Experience Leads",
-            "headline": "Zero-Latency Code Reviews. Self-Healing CI Pipelines.",
-            "subheadline": "Eliminate reviewer bottlenecks and merge verified code 65% faster with automated agentic pull-request resolution.",
-            "body_copy": "Pull requests shouldn't sit stale in review queues for days. Next-generation self-healing CI pipelines automatically analyze failing tests, generate targeted patch diffs, and benchmark safety before human engineers even open the notification. Teams adopting self-healing code intelligence experience an immediate 65% drop in PR turnaround latency without sacrificing code quality.",
-            "hashtags": ["#SoftwareEngineering", "#DevOps", "#CodeIntelligence", "#DevEx"],
-            "cta": "Accelerate CI/CD Velocity",
-            "prompt": "Create an ad copy targeting software engineering leads about self-healing CI pipelines and automated code intelligence. Emphasize the metric '65% drop in PR turnaround latency' with a modern dev-first tone.",
-            "image_prompt": "Futuristic developer IDE interface with automated self-healing git commit stream, glowing cyan and violet code syntax highlighting, clean dark terminal aesthetic with stat callout '65% FASTER SHIPPING'.",
-            "image_url": None,
-        }
-    ]
 
-    return {"topics": topics}
+def _error(message: str, status: int = 400):
+    return jsonify({"error": message}), status
+
+
+def _data_url(image, fmt: str = "JPEG", quality: int = 90) -> str:
+    buffer = io.BytesIO()
+    image.convert("RGB").save(buffer, format=fmt, quality=quality)
+    return "data:image/{};base64,{}".format(fmt.lower(), base64.b64encode(buffer.getvalue()).decode("ascii"))
+
+
+def _load_picture(source: str):
+    """A picture from the bundled showcase (/static/showcase/...) or a data URL sent by the browser."""
+    from PIL import Image
+
+    if source.startswith("data:image/"):
+        try:
+            raw = base64.b64decode(source.split(",", 1)[1], validate=True)
+        except (ValueError, IndexError) as exc:
+            raise ValueError("The picture data is not valid base64.") from exc
+        return Image.open(io.BytesIO(raw))
+    if source.startswith("/static/showcase/"):
+        path = os.path.normpath(os.path.join(ROOT, source.lstrip("/")))
+        if path.startswith(SHOWCASE_DIR) and os.path.isfile(path):
+            return Image.open(path)
+    raise ValueError("Unknown picture.")
+
+
+def _ratio_size(ratio: str) -> Tuple[int, int]:
+    if ratio not in config.AD_ASPECT_SIZES:
+        raise ValueError("Unknown format {!r}.".format(ratio))
+    return config.AD_ASPECT_SIZES[ratio]
 
 
 @app.route("/")
@@ -91,127 +89,142 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/api/sample-data", methods=["GET"])
-def sample_data():
-    return jsonify(get_default_sample_data())
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(os.path.join(ROOT, "static", "img"), "favicon.png", mimetype="image/png")
 
 
-@app.route("/api/scrape-and-extract", methods=["POST"])
-def scrape_and_extract():
-    data = request.get_json(force=True, silent=True) or {}
-    raw_urls = data.get("urls", [])
-    if isinstance(raw_urls, str):
-        raw_urls = [line.strip().strip('"').strip("'").strip(",") for line in raw_urls.split("\n") if line.strip()]
+@app.route("/api/site-data", methods=["GET"])
+def site_data():
+    with open(SITE_DATA, encoding="utf-8") as handle:
+        return jsonify(json.load(handle))
 
-    urls = [u.strip().strip('"').strip("'").strip(",") for u in raw_urls if u and u.strip()]
 
-    if not urls:
-        # Fallback to default demo samples
-        return jsonify(get_default_sample_data())
+@app.route("/api/compose", methods=["POST"])
+def compose():
+    """Lay out the R2C poster: picture (cover-cropped to the format) + copy + colour theme."""
+    from image_generator import compose_ads
+    from prompt_generator import ad_creatives
 
+    body = request.get_json(silent=True) or {}
+    copy = body.get("copy") or {}
+    ratio = str(body.get("format") or "4:5")
+    theme = str(body.get("theme") or "solar")
+    if theme not in ad_creatives.THEMES:
+        return _error("Unknown colour theme {!r}.".format(theme))
+    if not str(copy.get("headline") or "").strip():
+        return _error("The ad needs a headline.")
     try:
-        from trend_pipeline.main import load_urls_payload, run_pipeline
-        from prompt_generator import generate_prompts
+        width, height = _ratio_size(ratio)
+        picture = compose_ads._cover(_load_picture(str(body.get("picture") or "")), (width, height))
+    except ValueError as exc:
+        return _error(str(exc))
+    points = [str(p).strip() for p in (copy.get("points") or []) if str(p).strip()][:3]
+    with tempfile.TemporaryDirectory() as tmp:
+        background, out = os.path.join(tmp, "picture.png"), os.path.join(tmp, "ad.png")
+        picture.save(background, "PNG")
+        compose_ads.compose_poster(
+            background, out, ratio, str(copy.get("headline")).strip(), str(copy.get("subline") or "").strip(),
+            str(copy.get("cta") or "Learn More").strip(), eyebrow=str(copy.get("eyebrow") or "").strip(),
+            points=points, sticker=str(copy.get("sticker") or "").strip().upper()[:14], theme_name=theme)
+        from PIL import Image
 
-        # 1. Scrape URLs & Run Pipeline
+        with Image.open(out) as ad:
+            image = _data_url(ad)
+    return jsonify({"image": image, "format": ratio, "theme": theme, "size": [width, height]})
+
+
+@app.route("/api/generate-picture", methods=["POST"])
+def generate_picture():
+    """A new text-free picture from an image prompt, at the format's size."""
+    from image_generator import generate_images
+
+    body = request.get_json(silent=True) or {}
+    prompt = str(body.get("prompt") or "").strip()
+    if len(prompt) < 40:
+        return _error("Write an image prompt of at least a sentence.")
+    model = IMAGE_MODELS.get(str(body.get("model") or "klein4b"))
+    if not model:
+        return _error("Unknown image model.")
+    if not (config.CLOUDFLARE_ACCOUNT_ID and config.CLOUDFLARE_API_TOKEN):
+        return _error("Image generation is not configured (CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN).", 503)
+    try:
+        width, height = _ratio_size(str(body.get("format") or "4:5"))
+        client = generate_images.CloudflareImageClient(
+            config.CLOUDFLARE_ACCOUNT_ID, config.CLOUDFLARE_API_TOKEN, model, config.CLOUDFLARE_IMAGE_STEPS)
+        image = client.text_to_image(prompt=prompt, width=width, height=height,
+                                     negative_prompt=generate_images.NEGATIVE_FOR_BACKGROUND)
+    except ValueError as exc:
+        return _error(str(exc))
+    except (RuntimeError, OSError) as exc:
+        logger.error("Picture generation failed: %s", exc)
+        return _error(str(exc), 502)
+    return jsonify({"picture": _data_url(image, quality=92), "model": model})
+
+
+@app.route("/api/scrape", methods=["POST"])
+def scrape():
+    """Scrape the given URLs and run them through Gate 1 and Gate 2."""
+    from trend_pipeline.main import load_urls_payload, run_pipeline
+    from trend_pipeline.web_export import slim_trend
+
+    body = request.get_json(silent=True) or {}
+    raw = body.get("urls") or []
+    if isinstance(raw, str):
+        raw = raw.splitlines()
+    urls = [u.strip().strip("\"',") for u in raw if str(u).strip().strip("\"',")]
+    urls = [u for u in urls if u.startswith(("http://", "https://"))][:8]
+    if not urls:
+        return _error("Paste at least one http(s) link.")
+    try:
         payload = load_urls_payload(urls)
-        trends = run_pipeline(payload, print_json=False, user_submitted_url=True)
-
-        if not trends:
-            logger.warning("No trends extracted; falling back to sample presentation.")
-            return jsonify(get_default_sample_data())
-
-        # 2. Generate Prompts
-        prompt_records = generate_prompts.run(
-            input_path=config.RANKED_TRENDS_JSON,
-            output_path=config.GENERATED_PROMPTS_JSON,
-            stage="action",
-        )
-
-        topics = []
-        for i, trend in enumerate(trends):
-            t_id = trend.get("trend_id", f"topic-{i+1}")
-            title = trend.get("topic_title", "Extracted Research Topic")
-            summary = trend.get("topic_summary", "")
-            
-            # Match prompt record if available
-            p_rec = next((p for p in prompt_records if p.get("trend_id") == t_id and p.get("status") == "success"), None)
-            post = p_rec.get("post", {}) if p_rec else {}
-
-            category = "RESEARCH TREND"
-            if "ai" in title.lower() or "agent" in title.lower():
-                category = "AUTONOMOUS AI"
-            elif "model" in title.lower() or "context" in title.lower() or "transformer" in title.lower():
-                category = "DEVELOPER TOOLS"
-            elif "news" in title.lower() or "tech" in title.lower():
-                category = "TECH & INDUSTRY"
-
-            stat = "Validated Multi-Source Research Signal"
-            keywords = trend.get("topic_keywords", [])
-            if keywords:
-                stat = f"Key Focus: {', '.join(keywords[:3]).title()}"
-
-            why_matters = f"High-relevance intelligence for tech commercialization and bridging academic advancements into production pipelines."
-            if "Activation Beacon" in title:
-                why_matters = "High-value narrative for B2B tech founders looking to position complex transformer context compression into clear, conversion-driven product marketing."
-                stat = "3.8x task completion accuracy over single-agent baselines"
-            elif "TechCrunch" in title:
-                why_matters = "Perfect hook for technical marketing, demonstrating how AI news and ethics updates directly inform product positioning and enterprise trust."
-                stat = "82% reduction in compute and inference costs"
-
-            prompt_text = post.get("image_prompt") or f"Create a high-converting LinkedIn post and visual ad copy explaining {title}. Focus on actionable enterprise value and technical clarity."
-            hook = post.get("hook") or title
-            body = post.get("long_version") or summary or "Bridging cutting-edge research to industry commercialization."
-            hashtags = post.get("hashtags") or ["#ResearchCommercialization", "#AIInnovation"]
-            persona = post.get("target_persona") or "Enterprise Automation Leaders and AI Systems Architects"
-
-            topics.append({
-                "id": t_id,
-                "category": category,
-                "stat_callout": stat,
-                "stat_badge": "VERIFIED RESEARCH",
-                "title": title,
-                "summary": summary,
-                "why_it_matters": why_matters,
-                "target_persona": persona,
-                "headline": hook,
-                "subheadline": summary[:120] + "..." if len(summary) > 120 else summary,
-                "body_copy": body,
-                "hashtags": hashtags,
-                "cta": "Review on R2C.AI",
-                "prompt": prompt_text,
-                "image_prompt": prompt_text,
-                "image_url": None,
-            })
-
-        return jsonify({"topics": topics})
-
-    except Exception as exc:
-        logger.exception("Scrape and extract failed: %s", exc)
-        # Return default samples gracefully with error notification
-        fallback = get_default_sample_data()
-        fallback["error"] = str(exc)
-        return jsonify(fallback)
+        trends = run_pipeline(payload, print_json=False, user_submitted_url=True) or []
+    except Exception as exc:  # scraping is best effort: report, don't crash the page
+        logger.exception("Scrape failed")
+        return _error("Could not process these links: {}".format(exc), 502)
+    return jsonify({"trends": [slim_trend(t) for t in trends], "urls": urls})
 
 
-# Format selector in the UI -> aspect ratio of the generated image.
-FORMAT_ASPECT_RATIO = {
-    "X (Twitter)": "16:9",
-    "LinkedIn": "1:1",
-    "Instagram": "4:5",
-    "Facebook": "4:5",
-}
+@app.route("/api/brief", methods=["POST"])
+def brief():
+    """Write the R2C ad copy and image prompt for one trend in one format (Gemini + rule checks)."""
+    from prompt_generator import ad_creatives
+    from trend_pipeline.gemini_client import get_client
+
+    body = request.get_json(silent=True) or {}
+    trend = body.get("trend") or {}
+    ratio = str(body.get("format") or "4:5")
+    theme = str(body.get("theme") or "solar")
+    ad_type = FORMAT_AD_TYPE.get(ratio)
+    if not trend.get("topic_title") or not ad_type:
+        return _error("Pick a trend and a format.")
+    client = get_client()
+    if not client.online:
+        return _error("Ad copy needs GEMINI_API_KEY to be configured.", 503)
+    records = ad_creatives.generate_trend_creatives(trend, client)
+    record = next((r for r in records if r["ad_type"] == ad_type), None)
+    if not record or record.get("status") != "success":
+        return _error("Gemini's ad copy did not pass the checks: {}".format(
+            (record or {}).get("error_message") or "no result"), 502)
+    post = record["post"]
+    return jsonify({
+        "copy": {k: post.get(k) for k in ("audience", "eyebrow", "headline", "subline", "points", "cta",
+                                           "caption", "hashtags")},
+        "concept": (post.get("visual") or {}).get("concept"),
+        "image_prompt": ad_creatives.compose_image_prompt(ad_type, post.get("visual") or {}, theme),
+        "ad_type": ad_type, "placement": record["placement"],
+    })
 
 
 @app.route("/api/generate-ad", methods=["POST"])
 def generate_ad():
-    """Render the edited image brief with Cloudflare Workers AI at the selected format's ratio."""
+    """Legacy endpoint: render a prompt with the configured image client and save it."""
     from image_generator import generate_images
 
     payload = request.get_json(silent=True) or {}
     prompt = str(payload.get("prompt") or "").strip()
     if len(prompt) < 40:
-        return jsonify({"error": "Write an image brief of at least a sentence before generating."}), 400
+        return _error("Write an image brief of at least a sentence before generating.")
     ratio = FORMAT_ASPECT_RATIO.get(str(payload.get("format") or ""), "1:1")
     width, height = config.AD_ASPECT_SIZES[ratio]
     try:
@@ -222,12 +235,9 @@ def generate_ad():
         image.save(os.path.join(config.GENERATED_ADS_DIR, filename), format="PNG")
     except (RuntimeError, ValueError, OSError) as exc:
         logger.error("Image generation failed: %s", exc)
-        return jsonify({"error": str(exc)}), 502
-    return jsonify({
-        "image_url": "/api/image/{}".format(filename),
-        "aspect_ratio": ratio,
-        "model": getattr(client, "model", None),
-    })
+        return _error(str(exc), 502)
+    return jsonify({"image_url": "/api/image/{}".format(filename), "aspect_ratio": ratio,
+                    "model": getattr(client, "model", None)})
 
 
 @app.route("/api/image/<path:filename>")
@@ -243,9 +253,5 @@ if __name__ == "__main__":
                 reconfigure(encoding="utf-8", errors="replace")
             except Exception:
                 pass
-
-    print("\n" + "=" * 60)
-    print("R2C.ai Research Trends to Ad & Picture Generator UI")
-    print("Running locally at: http://127.0.0.1:5000")
-    print("=" * 60 + "\n")
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    print("\nR2C.Ai Ad Studio running at http://127.0.0.1:5000\n")
+    app.run(host="127.0.0.1", port=int(os.environ.get("PORT", "5000")), debug=False)

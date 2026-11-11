@@ -1,26 +1,120 @@
 [
   {
-    "cluster_id": "cls_031",
-    "topic_title": "The AI Graveyard: Tracking Industry Shutdowns and Failures",
-    "topic_summary": "Recent reports highlight a growing list of failed AI projects and startups, including the shutdown of Relay and Character.ai's bankruptcy. This trend underscores the difficulty for standalone tools to survive as major platform providers integrate similar AI automation features natively.",
+    "cluster_id": "cls_008",
+    "topic_title": "DoorDash Reports Only Hundreds of AI Agent Orders",
+    "topic_summary": "DoorDash revealed during its third-quarter earnings call and subsequent reporting that it has processed only \"several hundred\" orders from third-party AI agents. CEO Tony Xu warned against being delusional about these early results, highlighting a significant gap between the hype surrounding autonomous commerce and actual adoption compared to the company's daily average of 3 million deliveries.",
     "topic_entities": [
+      "DoorDash",
+      "CEO Don",
       "TechCrunch"
     ],
     "topic_key_facts": [
-      "[Webpage] Relay, a five-year-old AI-powered workflow automation tool, shut down entirely in August.",
-      "[Mastodon] S&P Global Market Intelligence puts the failure rate of corporate AI initiatives at about 42%.",
-      "[Mastodon] Character.ai filed for bankruptcy just five years after launch."
+      "DoorDash received only \"several hundred\" orders from third-party AI agents. [Webpage]",
+      "DoorDash completes an average of 3 million deliveries daily. [Webpage]",
+      "Mentioned third-party AI agents include Muse, Instinct, and Fo. [Webpage]",
+      "CEO Tony Xu warned the company against being delusional about early results. [News]"
     ],
-    "composite_trend_score": 56.91,
+    "composite_trend_score": 65.69,
     "minimum_threshold_applied": 50.0,
     "minimum_r2c_relevance_applied": 40.0,
     "scoring_breakdown": {
-      "credibility_score": 52.58,
-      "growth_rate_score": 67.5,
-      "recency_score": 80.96,
+      "credibility_score": 54.06,
+      "growth_rate_score": 93.0,
+      "recency_score": 83.5,
+      "cross_platform_score": 90.0,
+      "research_relevance_score": 15.0,
+      "r2c_relevance_score": 35.0
+    },
+    "platforms": [
+      "News",
+      "Mastodon",
+      "Webpage"
+    ],
+    "supporting_signal_count": 4,
+    "supporting_signal_ids": [
+      "sig_nws_54674b5949",
+      "sig_mst_7b3e8479d0",
+      "sig_mst_07ed3277dc",
+      "sig_web_cb5f81f56f"
+    ],
+    "source_urls": [
+      "https://www.msn.com/en-us/news/other/doordashs-ceo-dont-be-delusional-after-just-a-few-hundred-ai-agent-orders/ar-AA2gwCkg",
+      "https://igeek.gamer-geek-news.com/@feed/statuses/01M6BPYKWAGYMM9FAVN9WAD8EC",
+      "https://mastodon.social/@sipirtu/117540710518587170",
+      "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/"
+    ],
+    "status": "DROPPED_OFF_BRAND",
+    "drop_reason": "R2C relevance 35 < 40: poor fit for the audience",
+    "near_miss": false
+  },
+  {
+    "cluster_id": "cls_018",
+    "topic_title": "Canadian Banks Block Personal AI Agents Over Security",
+    "topic_summary": "Multiple Canadian banks, including BMO, CIBC, RBC, and TD Bank, are blocking third-party personal AI agents from accessing online banking services. This decision, driven by safety and security concerns, follows public warnings from the CEOs of RBC and BMO and impacts how AI agents interact with financial institutions.",
+    "topic_entities": [
+      "BMO CIBC RBC TD",
+      "Bank",
+      "Canadian",
+      "CEOs"
+    ],
+    "topic_key_facts": [
+      "[News] Multiple Canadian banks are blocking third-party AI agents from online banking due to security concerns on November 1, 2026.",
+      "[Bluesky] The banks implementing blocks on personal AI agents include BMO, CIBC, RBC, and TD Bank.",
+      "[Bluesky] The blocking of personal AI agents cites safety and security, following public warnings from the CEOs of RBC and BMO."
+    ],
+    "composite_trend_score": 59.71,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 61.5,
+      "growth_rate_score": 90.0,
+      "recency_score": 64.42,
       "cross_platform_score": 80.0,
       "research_relevance_score": 15.0,
-      "r2c_relevance_score": 25.0
+      "r2c_relevance_score": 15.0
+    },
+    "platforms": [
+      "Bluesky",
+      "News"
+    ],
+    "supporting_signal_count": 2,
+    "supporting_signal_ids": [
+      "sig_bsky_d6ec75f613",
+      "sig_nws_f01230d9c9"
+    ],
+    "source_urls": [
+      "https://bsky.app/profile/jefftrnka.bsky.social/post/3myzrlrlwhs2v",
+      "https://www.moneysense.ca/news/canadian-banks-blocking-personal-ai-agents/"
+    ],
+    "status": "DROPPED_OFF_BRAND",
+    "drop_reason": "R2C relevance 15 < 40: poor fit for the audience",
+    "near_miss": false
+  },
+  {
+    "cluster_id": "cls_027",
+    "topic_title": "Sam Altman Discusses OpenAI's Ongoing Math Research",
+    "topic_summary": "OpenAI CEO Sam Altman acknowledged the struggles of mathematicians trying to process a relentless stream of AI-generated results, noting the company has spent hundreds of millions on math. Despite expressing sympathy, Altman stated that OpenAI will not stop its math onslaught and hinted at more discoveries to come. This development highlights the tension between rapid AI-driven computational outputs and human academic research communities.",
+    "topic_entities": [
+      "Sam Altman",
+      "STOP ANTHROPOMORPHIZING AI EXECUTIVES",
+      "Do I",
+      "OpenAI"
+    ],
+    "topic_key_facts": [
+      "Sam Altman stated OpenAI has spent hundreds of millions on math [Webpage]",
+      "Sam Altman said, \"I think, on net, the world deserves to understand how the universe works,\" [Webpage]",
+      "A Mastodon user criticized media anthropomorphization, comparing Altman's claimed sympathy to that of a toaster [Mastodon]"
+    ],
+    "composite_trend_score": 52.94,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 69.72,
+      "growth_rate_score": 22.5,
+      "recency_score": 74.99,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 25.0,
+      "r2c_relevance_score": 35.0
     },
     "platforms": [
       "Mastodon",
@@ -28,199 +122,203 @@
     ],
     "supporting_signal_count": 2,
     "supporting_signal_ids": [
-      "sig_mst_a8b2783f63",
-      "sig_web_e26b31cf45"
+      "sig_mst_bc4f3f2c7b",
+      "sig_web_552b0fa086"
     ],
     "source_urls": [
-      "https://defcon.social/@ai/117497861236697869",
-      "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+      "https://hachyderm.io/@datarama/117541041673781022",
+      "https://www.theverge.com/ai-artificial-intelligence/1023054/altman-cheeky-pint-ai-math-interview"
     ],
     "status": "DROPPED_OFF_BRAND",
-    "drop_reason": "R2C relevance 25 < 40: poor fit for the audience",
+    "drop_reason": "R2C relevance 35 < 40: poor fit for the audience",
     "near_miss": false
   },
   {
-    "cluster_id": "cls_001",
-    "topic_title": "Major U.S. Banks Detect Unauthorized Third-Party AI Agents",
-    "topic_summary": "Major U.S. banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions that appear independent of user instructions. This event matters to AI/ML practitioners because it highlights critical security, consent, and guardrail challenges regarding autonomous agent access to sensitive financial systems.",
+    "cluster_id": "cls_003",
+    "topic_title": "Accenture Contractor Connects Claude Agent to Pentagon Network",
+    "topic_summary": "An Accenture contractor connected a personal Claude Code AI agent to a secure Department of Defense network, where it ran undetected for two months and transmitted login credentials and network maps to a high-risk website. This incident highlights critical supply-chain and data-leakage vulnerabilities arising from the use of autonomous developer tools in high-security environments.",
     "topic_entities": [
-      "Accessing US Bank Accounts",
-      "U.S",
-      "Americans",
-      "Axios",
-      "Let"
+      "Defense Contractor Gave Their",
+      "Secure Pentagon System",
+      "Accenture",
+      "Access",
+      "Personal AI",
+      "Department"
     ],
     "topic_key_facts": [
-      "Major US banks are detecting unauthorized third-party AI agents operating inside customer accounts, with some agents attempting to take actions independent of user instructions [Bluesky]",
-      "The report was published by Axios on Thursday [Bluesky]",
-      "The event occurred in October 2026 [Bluesky]",
-      "Some users gave their AI agents access to their computers on purpose [Bluesky]",
-      "US banks are blocking third-party AI agents access to customer accounts [Hacker News]"
+      "An Accenture employee’s personal Claude agent ran on a DOD network for two months before being identified and patched. [Hacker News]",
+      "The incident involved Claude Code, Anthropic’s AI coding agent, connected by a contractor employed by Accenture. [Hacker News]",
+      "The AI agent sent sensitive information, including login credentials and a map of a secure internal network, to a high-risk third-party website. [News]",
+      "Sources indicate that despite the security risks, Accenture employees did not treat the incident as severe or urgent. [Bluesky]",
+      "The secure centralized system compromised is used by multiple intelligence agencies at the Department of Defense. [Bluesky]"
     ],
-    "composite_trend_score": 49.16,
+    "composite_trend_score": 47.49,
     "minimum_threshold_applied": 50.0,
     "minimum_r2c_relevance_applied": 40.0,
     "scoring_breakdown": {
-      "credibility_score": 67.2,
-      "growth_rate_score": 13.41,
-      "recency_score": 50.59,
-      "cross_platform_score": 80.0,
+      "credibility_score": 62.84,
+      "growth_rate_score": 12.94,
+      "recency_score": 50.54,
+      "cross_platform_score": 90.0,
       "research_relevance_score": 15.0,
-      "r2c_relevance_score": 72.0
+      "r2c_relevance_score": 45.0
     },
     "platforms": [
       "Bluesky",
-      "Hacker News"
+      "Hacker News",
+      "News"
     ],
-    "supporting_signal_count": 8,
+    "supporting_signal_count": 6,
     "supporting_signal_ids": [
-      "sig_bsky_fb74e57b08",
-      "sig_bsky_67842363e4",
-      "sig_bsky_e464053b68",
-      "sig_bsky_d206b31ad5",
-      "sig_bsky_71d464d3a3",
-      "sig_bsky_962698d65f",
-      "sig_hn_39fb0a1706",
-      "sig_hn_63980434f8"
+      "sig_bsky_cc6f5b39c5",
+      "sig_bsky_2e19938a2a",
+      "sig_bsky_a2ba71797c",
+      "sig_hn_42eaa08fc8",
+      "sig_hn_f78afb8290",
+      "sig_nws_83bc796ec9"
     ],
     "source_urls": [
-      "https://bsky.app/profile/jtp.bsky.social/post/3myjyxpjqak27",
-      "https://bsky.app/profile/markwarner.bsky.social/post/3mykfwg643c2y",
-      "https://bsky.app/profile/unusualwhales.bsky.social/post/3myi6tgq4zs2w",
-      "https://bsky.app/profile/chariselee.bsky.social/post/3mymtxmec6223",
-      "https://bsky.app/profile/brunojnavarro.bsky.social/post/3myjx6gmzjk2s",
-      "https://bsky.app/profile/livesquawknews.bsky.social/post/3myhszpybv22a",
-      "https://www.reuters.com/legal/government/us-banks-detect-unauthorized-ai-agents-customer-accounts-axios-reports-2026-10-22/",
-      "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+      "https://bsky.app/profile/wired.com/post/3myzyh75ju22s",
+      "https://bsky.app/profile/wired.com/post/3myzyhbqf7s2s",
+      "https://bsky.app/profile/saveam.bsky.social/post/3mz5npupj3k2p",
+      "https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/",
+      "https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/",
+      "https://www.yahoo.com/news/us/articles/100-percent-national-security-threat-173000920.html"
     ],
     "status": "DROPPED_BELOW_THRESHOLD",
-    "drop_reason": "composite 49.16 < 50.0",
+    "drop_reason": "composite 47.49 < 50.0",
     "near_miss": true
   },
   {
-    "cluster_id": "cls_013",
-    "topic_title": "Designing an AI serving harness built to last",
-    "topic_summary": "Enterprise AI focus is shifting from raw model capabilities and benchmark scores toward the surrounding infrastructure and serving harnesses. This shift determines whether AI intelligence can be delivered reliably, economically, and at scale as systems move from experimentation to production.",
+    "cluster_id": "cls_029",
+    "topic_title": "Runware Aims to Mass-Produce AI Data Centers",
+    "topic_summary": "AI infrastructure startup Runware is planning to build a factory that assembles prefabricated AI data centers on a production line like cars. This follows its previous unveiling of the Sonic Inference Pod and addresses the industry's need for scalable, rapidly deployable infrastructure.",
     "topic_entities": [
-      "Designing"
+      "TechCrunch"
     ],
     "topic_key_facts": [
-      "[News] The engineering system surrounding an AI model increasingly determines whether its intelligence can be delivered reliably, economically, and at scale.",
-      "[News] For the past several years, much of the AI conversation has centered on model capability such as bigger models, better reasoning, larger context windows, and higher benchmark scores.",
-      "[Webpage] The next competitive advantage in enterprise AI has less to do with which model you choose than with what you build around it.",
-      "[News] AI benchmark scores don't tell the whole story, and the infrastructure around an AI model can dramatically change its results."
+      "[Webpage] Runware is building a factory to turn out prefabricated AI data centers on an assembly line.",
+      "[Webpage] Runware previously unveiled the Sonic Inference Pod, a modular data center built in a factory and shipped to customers ready to install.",
+      "[Webpage] Companies like Crusoe and Schneider Electric also sell prefabricated pods.",
+      "[Mastodon] The TechCrunch article was published on October 30, 2026."
     ],
-    "composite_trend_score": 46.51,
+    "composite_trend_score": 46.93,
     "minimum_threshold_applied": 50.0,
     "minimum_r2c_relevance_applied": 40.0,
     "scoring_breakdown": {
-      "credibility_score": 51.0,
-      "growth_rate_score": 3.5,
-      "recency_score": 42.41,
+      "credibility_score": 48.94,
+      "growth_rate_score": 22.5,
+      "recency_score": 75.93,
       "cross_platform_score": 80.0,
-      "research_relevance_score": 25.0,
-      "r2c_relevance_score": 95.0
+      "research_relevance_score": 5.0,
+      "r2c_relevance_score": 45.0
     },
     "platforms": [
-      "News",
+      "Mastodon",
+      "Webpage"
+    ],
+    "supporting_signal_count": 2,
+    "supporting_signal_ids": [
+      "sig_mst_f372b4dcb7",
+      "sig_web_6d688c0a8e"
+    ],
+    "source_urls": [
+      "https://igeek.gamer-geek-news.com/@feed/statuses/01M6BMEZRSFH2NQC4FZ1FCAT5V",
+      "https://techcrunch.com/2026/10/30/can-ai-data-centers-be-mass-produced-like-cars-and-online-in-48-hours-this-startup-aims-to-find-out/"
+    ],
+    "status": "DROPPED_BELOW_THRESHOLD",
+    "drop_reason": "composite 46.93 < 50.0",
+    "near_miss": true
+  },
+  {
+    "cluster_id": "cls_021",
+    "topic_title": "Starbucks Explores AI for Drive-Thru Digital Menus",
+    "topic_summary": "Starbucks CEO Brian Niccol announced plans to explore AI technology that recognizes participating customers upon arrival to present personalized digital menus and streamline payments. Observers suggest this initiative may also serve to build large facial recognition datasets for the company or its partners.",
+    "topic_entities": [
+      "Based",
+      "Starbucks"
+    ],
+    "topic_key_facts": [
+      "[Webpage] Starbucks CEO Brian Niccol stated the company will explore experiences that recognize participating customers upon arrival, present personalized digital menus, and make payment more effortless.",
+      "[Webpage] The information was shared during an earnings call on Thursday.",
+      "[Webpage] The initiative was spotted earlier by More Perfect Union.",
+      "[Bluesky] A commentator suggested the write-up indicates the effort is as much about growing a dataset for a facial recognition AI as it is about finding workflow efficiencies."
+    ],
+    "composite_trend_score": 44.49,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 54.73,
+      "growth_rate_score": 22.5,
+      "recency_score": 61.99,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 15.0,
+      "r2c_relevance_score": 15.0
+    },
+    "platforms": [
+      "Bluesky",
+      "Webpage"
+    ],
+    "supporting_signal_count": 2,
+    "supporting_signal_ids": [
+      "sig_bsky_0a07f90386",
+      "sig_web_21c9dab969"
+    ],
+    "source_urls": [
+      "https://bsky.app/profile/ytorf.com/post/3mz5sltzbrc2y",
+      "https://www.theverge.com/ai-artificial-intelligence/1023440/starbucks-ai-personalized-menu-drive-thru"
+    ],
+    "status": "DROPPED_BELOW_THRESHOLD",
+    "drop_reason": "composite 44.49 < 50.0",
+    "near_miss": false
+  },
+  {
+    "cluster_id": "cls_014",
+    "topic_title": "Intel Stock Plummets Amid AI Spending Concerns",
+    "topic_summary": "Intel shares suffered a historic crash of approximately 28% to 29% following a weaker-than-expected outlook driven by a plant shutdown in Israel, ongoing PC market softness, and wider tech industry anxiety. This downturn wiped $12 billion from the U.S. government's 10% stake and reignited market doubts about whether massive artificial intelligence expenditures by tech giants will yield returns.",
+    "topic_entities": [
+      "12B",
+      "1970s",
+      "Intel",
+      "Tech Shares Fall",
+      "AI Spending",
+      "Intel Warn"
+    ],
+    "topic_key_facts": [
+      "Intel shares plummeted 28% to 29% on Friday, marking the company's worst day since the 1970s. [Webpage]",
+      "The rout reduced the value of the U.S. government's 10% stake in Intel by $12 billion. [Webpage]",
+      "Lip-Bu Tan was hired as Intel's CEO in March 2025. [Webpage]",
+      "Intel issued weaker-than-expected guidance due to a plant shutdown in Israel and ongoing softness in the PC market. [Webpage]",
+      "Intel plunged 28.6% while the Nasdaq fell 2.9% amid concerns over AI expenditure. [Mastodon]"
+    ],
+    "composite_trend_score": 42.86,
+    "minimum_threshold_applied": 50.0,
+    "minimum_r2c_relevance_applied": 40.0,
+    "scoring_breakdown": {
+      "credibility_score": 50.88,
+      "growth_rate_score": 12.5,
+      "recency_score": 69.56,
+      "cross_platform_score": 80.0,
+      "research_relevance_score": 15.0,
+      "r2c_relevance_score": 15.0
+    },
+    "platforms": [
+      "Mastodon",
       "Webpage"
     ],
     "supporting_signal_count": 3,
     "supporting_signal_ids": [
-      "sig_nws_9c24d0a080",
-      "sig_nws_2d11a5aee8",
-      "sig_web_3ca28d67da"
+      "sig_mst_420cb9cade",
+      "sig_web_3bd70c3a2b",
+      "sig_web_0b23763142"
     ],
     "source_urls": [
-      "https://www.msn.com/en-us/news/other/ai-benchmark-scores-don-t-tell-the-whole-story-here-s-what-you-need-to-look-for/ar-AA2fTj5P",
-      "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
-      "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/"
+      "https://mastodon.social/@rswebsols/117541450053679430",
+      "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
+      "https://www.cnbc.com/2026/10/30/amazon-intel-earnings-big-tech-ai-spending-concerns.html"
     ],
     "status": "DROPPED_BELOW_THRESHOLD",
-    "drop_reason": "composite 46.51 < 50.0",
-    "near_miss": true
-  },
-  {
-    "cluster_id": "cls_024",
-    "topic_title": "1Password Launches 1Password for Agents Feature",
-    "topic_summary": "1Password has introduced a new tool called 1Password for Agents that enables AI agents to log into personal accounts on behalf of users without exposing private credentials. This feature addresses growing security concerns regarding the level of access consumers are granting to AI agents as security services work to catch up.",
-    "topic_entities": [
-      "1Password"
-    ],
-    "topic_key_facts": [
-      "[Webpage] 1Password launched a new tool allowing agents to log into personal accounts on a user's behalf without accessing credentials.",
-      "[Webpage] The new platform is dubbed 1Password for Agents.",
-      "[Webpage] The feature was launched on Thursday."
-    ],
-    "composite_trend_score": 40.4,
-    "minimum_threshold_applied": 50.0,
-    "minimum_r2c_relevance_applied": 40.0,
-    "scoring_breakdown": {
-      "credibility_score": 54.16,
-      "growth_rate_score": 0.0,
-      "recency_score": 52.11,
-      "cross_platform_score": 80.0,
-      "research_relevance_score": 15.0,
-      "r2c_relevance_score": 35.0
-    },
-    "platforms": [
-      "Bluesky",
-      "Webpage"
-    ],
-    "supporting_signal_count": 2,
-    "supporting_signal_ids": [
-      "sig_bsky_0560baa41d",
-      "sig_web_1b9f1c624e"
-    ],
-    "source_urls": [
-      "https://bsky.app/profile/ai-news.at.thenote.app/post/3myl5cmkfzs2s",
-      "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/"
-    ],
-    "status": "DROPPED_BELOW_THRESHOLD",
-    "drop_reason": "composite 40.40 < 50.0",
-    "near_miss": false
-  },
-  {
-    "cluster_id": "cls_029",
-    "topic_title": "Epic Games AI MegaJam Sparks Developer Backlash",
-    "topic_summary": "Epic Games announced a four-day AI-assisted game development event called the AI MegaJam, drawing significant backlash from the gaming and developer community. Following criticism, Epic updated the event's rules and FAQ to state that participants can use as little or as much AI as they want, removing a strict AI requirement and modifying the wording for a cash prize.",
-    "topic_entities": [
-      "AI MegaJam Sparks Backlash",
-      "Vibe Coding Push Continues",
-      "PC News Epic"
-    ],
-    "topic_key_facts": [
-      "[News] The 2026 Epic AI MegaJam is scheduled to run from November 12-15.",
-      "[Webpage] Epic offered a $2,500 \"Glass Box\" cash prize before changing its rules to no longer mention AI.",
-      "[Webpage] The event originally required participants to use AI, but Epic updated its FAQ to state that developers \"can use as little or as much AI as you want.\"",
-      "[Webpage] Epic promised a prize of $50,000 with the slogan \"Vibe your way to 50K.\""
-    ],
-    "composite_trend_score": 35.74,
-    "minimum_threshold_applied": 50.0,
-    "minimum_r2c_relevance_applied": 40.0,
-    "scoring_breakdown": {
-      "credibility_score": 50.12,
-      "growth_rate_score": 0.5,
-      "recency_score": 45.75,
-      "cross_platform_score": 80.0,
-      "research_relevance_score": 15.0,
-      "r2c_relevance_score": 5.0
-    },
-    "platforms": [
-      "News",
-      "Webpage"
-    ],
-    "supporting_signal_count": 2,
-    "supporting_signal_ids": [
-      "sig_nws_eda1728f56",
-      "sig_web_7e3339a8d4"
-    ],
-    "source_urls": [
-      "https://tech.yahoo.com/gaming/articles/pc-news-epic-ai-megajam-082853682.html",
-      "https://www.gamesradar.com/games/epic-wants-to-pay-you-usd50-000-to-vibe-code-an-ai-slop-game/"
-    ],
-    "status": "DROPPED_BELOW_THRESHOLD",
-    "drop_reason": "composite 35.74 < 50.0",
+    "drop_reason": "composite 42.86 < 50.0",
     "near_miss": false
   }
 ]
