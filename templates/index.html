@@ -19,10 +19,10 @@
             <span class="brand-tag">Ad Studio</span>
         </a>
         <nav class="nav" aria-label="Sections">
+            <a href="#links">Scrape now</a>
             <a href="#ads">Ready ads</a>
             <a href="#trends">Trends</a>
             <a href="#studio">Studio</a>
-            <a href="#links">Your links</a>
             <a href="#benchmark">Benchmark</a>
         </nav>
         <a class="site-link" href="https://r2c.iiitd.edu.in" target="_blank" rel="noopener">r2c.iiitd.edu.in ↗</a>
@@ -34,6 +34,10 @@
         <p class="eyebrow">Research to Commercialization · IIIT Delhi</p>
         <h1>Today's AI trends, turned into ready-to-post R2C.Ai ads.</h1>
         <p class="lede">The pipeline crawls 10+ sources, keeps only stories confirmed across platforms, writes R2C ad copy with guardrails, paints a picture, and lays out a branded poster for Instagram, Facebook and LinkedIn.</p>
+        <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#links">Scrape links now →</a>
+            <a class="btn btn-lg" href="#ads">See ready ads</a>
+        </div>
         <div class="stats" id="hero-stats" aria-live="polite"></div>
         <ol class="pipeline" aria-label="Pipeline steps">
             <li><b>Crawl</b><span>10+ sources</span></li>
@@ -43,6 +47,25 @@
             <li><b>Picture</b><span>FLUX.2 Klein</span></li>
             <li><b>Poster</b><span>R2C brand template</span></li>
         </ol>
+    </section>
+
+    <section class="section wrap" id="links">
+        <div class="section-head">
+            <div>
+                <h2>Scrape now</h2>
+                <p>Paste article or research links (up to 8) and click <b>Scrape &amp; find trends</b>. The pipeline scrapes them, runs Gate 1 and Gate 2, and lists the topics it finds (about 20 seconds). Click <b>Make an ad</b> on a topic to turn it into an R2C ad.</p>
+            </div>
+        </div>
+        <div class="links-box">
+            <label for="url-input" class="label">Links, one per line</label>
+            <textarea id="url-input" rows="4" placeholder="https://techcrunch.com/...&#10;https://arxiv.org/abs/..."></textarea>
+            <div class="links-actions">
+                <button class="btn btn-primary btn-lg" id="btn-scrape" type="button">Scrape &amp; find trends</button>
+                <button class="btn" id="btn-examples" type="button">Use example links</button>
+                <span class="hint" id="scrape-status" aria-live="polite"></span>
+            </div>
+            <div class="trend-list" id="scrape-results"></div>
+        </div>
     </section>
 
     <section class="section wrap" id="ads">
@@ -145,23 +168,6 @@
         </div>
     </section>
 
-    <section class="section wrap" id="links">
-        <div class="section-head">
-            <div>
-                <h2>Your links</h2>
-                <p>Paste article or research links (up to 8). The pipeline scrapes them, runs Gate 1 and Gate 2, and lists the topics it finds. Open one in the studio to make an ad.</p>
-            </div>
-        </div>
-        <div class="links-box">
-            <label for="url-input" class="label">Links, one per line</label>
-            <textarea id="url-input" rows="4" placeholder="https://techcrunch.com/...&#10;https://arxiv.org/abs/..."></textarea>
-            <div class="links-actions">
-                <button class="btn btn-primary" id="btn-scrape" type="button">Find trends</button>
-                <span class="hint" id="scrape-status" aria-live="polite"></span>
-            </div>
-            <div class="trend-list" id="scrape-results"></div>
-        </div>
-    </section>
 
     <section class="section wrap" id="benchmark">
         <div class="section-head">

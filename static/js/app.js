@@ -320,6 +320,7 @@ async function scrapeLinks() {
             : "No topic passed the quality checks for these links. Try other articles.";
         $("scrape-results").innerHTML = scrapedTrends.map((t, i) => trendCard(t, "scraped:" + i)).join("");
         bindTrendButtons($("scrape-results"));
+        if (scrapedTrends.length) $("scrape-results").scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (err) {
         $("scrape-status").textContent = "";
         toast(err.message, true);
@@ -336,6 +337,17 @@ async function copyCaption() {
     } catch (_) {
         toast("Could not copy. Select the caption text and copy it manually.", true);
     }
+}
+
+function fillExampleLinks() {
+    // Source links behind the latest crawl's top trends: recent pages that pass Gate 1's freshness check.
+    const links = [];
+    for (const t of DATA.latest_trends) {
+        const s = (t.source_attribution || []).find((x) => /^https?:\/\//.test(x.source_url || ""));
+        if (s && !links.includes(s.source_url)) links.push(s.source_url);
+        if (links.length === 2) break;
+    }
+    if (links.length) $("url-input").value = links.join("\n");
 }
 
 /* ---------------------------------------------------------------- start */
@@ -361,6 +373,8 @@ async function init() {
     $("btn-picture").addEventListener("click", generatePicture);
     $("btn-scrape").addEventListener("click", scrapeLinks);
     $("btn-copy-caption").addEventListener("click", copyCaption);
+    $("btn-examples").addEventListener("click", fillExampleLinks);
+    fillExampleLinks();
     if (DATA.showcase.length) openShowcase(DATA.showcase[0], false);  // pre-load the studio, stay at the top
 }
 
