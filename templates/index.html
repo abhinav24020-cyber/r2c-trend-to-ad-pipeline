@@ -20,6 +20,7 @@
         </a>
         <nav class="nav" aria-label="Sections">
             <a href="#links">Scrape now</a>
+            <a href="#daily" id="nav-daily" hidden>New ads</a>
             <a href="#ads">Ready ads</a>
             <a href="#trends">Trends</a>
             <a href="#studio">Studio</a>
@@ -33,14 +34,14 @@
     <section class="hero wrap">
         <p class="eyebrow">Research to Commercialization · IIIT Delhi</p>
         <h1>Today's AI trends, turned into ready-to-post R2C.Ai ads.</h1>
-        <p class="lede">The pipeline crawls 10+ sources, keeps only stories confirmed across platforms, writes R2C ad copy with guardrails, paints a picture, and lays out a branded poster for Instagram, Facebook and LinkedIn.</p>
+        <p class="lede">Every morning the pipeline crawls 48 sources, keeps only stories confirmed across platforms, writes R2C ad copy with guardrails, paints a picture, and lays out a branded poster for Instagram, Facebook and LinkedIn.</p>
         <div class="hero-actions">
             <a class="btn btn-primary btn-lg" href="#links">Scrape links now →</a>
             <a class="btn btn-lg" href="#ads">See ready ads</a>
         </div>
         <div class="stats" id="hero-stats" aria-live="polite"></div>
         <ol class="pipeline" aria-label="Pipeline steps">
-            <li><b>Crawl</b><span>10+ sources</span></li>
+            <li><b>Crawl</b><span>48 sources, daily 7 AM</span></li>
             <li><b>Gate 1</b><span>quality + 2+ platforms</span></li>
             <li><b>Gate 2</b><span>score ≥ 50, brand fit ≥ 40</span></li>
             <li><b>Ad copy</b><span>Gemini + rule checks</span></li>
@@ -68,11 +69,21 @@
         </div>
     </section>
 
+    <section class="section wrap" id="daily" hidden>
+        <div class="section-head">
+            <div>
+                <h2>New ads · pending review</h2>
+                <p>Made automatically by the daily run every morning at 7:00 AM IST. <b>Approve</b> an ad to move it into Ready ads, or <b>Reject</b> it to hide it. Ads are kept for 7 days.</p>
+            </div>
+        </div>
+        <div class="ad-grid" id="daily-grid"></div>
+    </section>
+
     <section class="section wrap" id="ads">
         <div class="section-head">
             <div>
                 <h2>Ready ads</h2>
-                <p>One finished ad per trend, made end to end by the pipeline. Open one in the studio to change its format, colours or text.</p>
+                <p>One finished ad per trend, made end to end by the pipeline. Ads marked <span class="badge-new">NEW</span> come from the daily run. Open one in the studio to change its format, colours or text.</p>
             </div>
         </div>
         <div class="ad-grid" id="ad-grid"></div>

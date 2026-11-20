@@ -116,6 +116,27 @@ python scripts/build_web_data.py   # package the latest trends, ads and benchmar
 python app.py                      # http://127.0.0.1:5000
 ```
 
+## Daily automatic run
+
+Every morning at **7:00 AM IST** a GitHub Actions job ([`.github/workflows/daily.yml`](.github/workflows/daily.yml)) runs [`scripts/daily_run.py`](scripts/daily_run.py):
+
+1. Crawls all 48 sources and ranks trends (Gate 1 + Gate 2). The dedup memory (`data/output/post_history.json`) is kept in the repository, so stories from earlier days are not picked again.
+2. Makes one ad for each new trend, up to 5 a day: Gemini copy, the creative-director picture idea, two FLUX.2 Klein 9B pictures with the better one chosen by Gemini vision, the branded poster and the 10-second video. Formats and colour themes rotate.
+3. Saves the ads to `web_data/daily.json` and `static/daily/<id>/`, removes ads older than 7 days, refreshes the latest trends, and pushes. Vercel redeploys automatically.
+
+New ads appear on the site under **New ads · pending review**. A reviewer clicks **Approve** to move an ad into Ready ads, or **Reject** to hide it. Decisions are saved to `web_data/reviews.json` in the repository.
+
+One run takes about 30–40 minutes. It can also be started by hand from the repository's **Actions** tab (**Daily trend-to-ad run → Run workflow**), or locally with `python scripts/daily_run.py`.
+
+**Setup:**
+
+| Where | Name | Value |
+|---|---|---|
+| GitHub → Settings → Secrets and variables → Actions | `GEMINI_API_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN` | same as in `.env` (required) |
+| same | `YOUTUBE_API_KEY`, `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | optional extra sources |
+| Vercel → Project → Settings → Environment Variables | `R2C_REVIEW_KEY` | a passcode reviewers type to approve ads |
+| same | `GITHUB_TOKEN` | a fine-grained GitHub token with **Contents: read and write** on this repository only |
+
 ## Engineering decisions worth noting
 
 - **Text is typeset, not generated.** When the image model drew the ad text itself, it was spelled correctly in only about 1 of 25 attempts ("Uppload", "Arrrrive"). The model now paints a text-free picture and code typesets every word, so a misspelled ad can never ship.
@@ -136,7 +157,7 @@ python app.py                      # http://127.0.0.1:5000
 | Layout & branding | Pillow poster template; Fraunces and Inter fonts (SIL OFL) |
 | Web app | Flask Ad Studio (Vercel-ready), vanilla JS front end |
 | Reports | ReportLab PDFs (procedure, prompts and results, model comparison) |
-| Quality | 138 unit tests (`python -m unittest discover -s tests`) |
+| Quality | 156 unit tests (`python -m unittest discover -s tests`) |
 
 ## Run it
 

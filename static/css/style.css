@@ -192,3 +192,15 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--blue-soft);
     .preview-actions .btn { flex: 1; }
     .video-head { flex-direction: column; }
 }
+
+/* Daily run: new ads waiting for review, and the NEW badge on approved ones */
+.badge-new { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .03em; background: var(--blue); color: #fff; border-radius: 999px; padding: 1px 8px; margin-bottom: 4px; }
+.daily-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.daily-card .ad-card { border: 0; border-radius: 0; box-shadow: none; width: 100%; }
+.daily-card .ad-card:hover { transform: none; }
+.review-actions { display: flex; gap: 8px; padding: 0 12px 12px; }
+.review-actions .btn { flex: 1; padding: 7px 10px; font-size: 13px; }
+.btn-ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+.btn-ok:hover { background: #17824A; color: #fff; border-color: #17824A; }
+.review-status { font-size: 12px; font-weight: 700; padding: 0 12px 12px; color: var(--muted); }
+.empty-note { color: var(--muted); font-size: 14px; }

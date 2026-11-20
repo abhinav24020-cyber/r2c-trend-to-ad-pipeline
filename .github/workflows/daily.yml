@@ -1,0 +1,66 @@
+# Daily run: crawl all sources, rank trends, make new ads + videos, update the site.
+# Pushing the results makes Vercel redeploy the site automatically.
+#
+# Needs repository secrets (Settings -> Secrets and variables -> Actions):
+#   GEMINI_API_KEY, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN   (required)
+#   YOUTUBE_API_KEY, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET       (optional extra sources)
+name: Daily trend-to-ad run
+
+on:
+  schedule:
+    - cron: "30 1 * * *"   # 01:30 UTC = 07:00 IST, every day
+  workflow_dispatch:         # "Run workflow" button for a manual run
+    inputs:
+      max_ads:
+        description: "Most new ads to make"
+        default: "5"
+
+permissions:
+  contents: write            # to push the new ads back to the repository
+
+concurrency:
+  group: daily-run
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Crawl, rank and make ads
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          IMAGE_PROVIDER: cloudflare
+          DAILY_MAX_ADS: ${{ github.event.inputs.max_ads || '5' }}
+          DAILY_KEEP_DAYS: "7"
+        run: python scripts/daily_run.py
+
+      - name: Publish to the site
+        run: |
+          git config user.name "r2c-daily-run"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web_data static/daily static/showcase \
+                  data/output/post_history.json data/output/ranked_trends.json \
+                  data/output/dropped_trends.json data/output/autopilot_runs.jsonl
+          if git diff --cached --quiet; then
+            echo "Nothing new today."
+            exit 0
+          fi
+          git commit -m "Daily run $(date -u +%Y-%m-%d): new trends and ads"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"   # picks up review decisions made meanwhile
+          git push origin "HEAD:${GITHUB_REF_NAME}"

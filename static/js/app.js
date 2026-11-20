@@ -47,7 +47,7 @@ function renderStats() {
     const best = (DATA.benchmark || [])[0];
     const stats = [
         [DATA.latest_trends.length, "trends in the latest crawl"],
-        [DATA.showcase.length, "ready-to-post ads"],
+        [readyAds().length, "ready-to-post ads"],
         [Object.keys(DATA.formats).length, "ad formats"],
         [Object.keys(DATA.themes).length, "colour themes"],
         [best ? `${best.overall}/10` : "-", best ? `best model: ${best.model}` : "model benchmark"],
@@ -55,17 +55,89 @@ function renderStats() {
     $("hero-stats").innerHTML = stats.map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
 }
 
-function renderAds() {
-    $("ad-grid").innerHTML = DATA.showcase.map((item, i) => `
-        <button class="ad-card" type="button" data-i="${i}" aria-label="Open ad: ${esc(item.copy.headline)}">
+/* Ready ads = approved daily ads (newest first) + the curated showcase. */
+function readyAds() {
+    return (DATA.daily || []).filter((d) => d.status === "approved").concat(DATA.showcase);
+}
+
+function shortDate(iso) {
+    const d = iso ? new Date(iso + "T00:00:00") : null;
+    return d && !isNaN(d) ? d.toLocaleDateString(undefined, { day: "numeric", month: "short" }) : "";
+}
+
+function adCard(item, attrs) {
+    return `
+        <button class="ad-card" type="button" ${attrs} aria-label="Open ad: ${esc(item.copy.headline)}">
             <img src="${esc(item.poster)}" alt="" loading="lazy">
             <div class="ad-card-body">
+                ${item.source === "daily" ? `<span class="badge-new">NEW · ${esc(shortDate(item.date))}</span>` : ""}
                 <div class="ad-card-title">${esc(item.trend.topic_title)}</div>
                 <div class="ad-card-meta">${esc(item.aspect_ratio)} · ${esc(FORMAT_SHORT[item.aspect_ratio] || "")} · ${esc(item.theme)}${item.video ? ' · <span class="has-video">▶ video</span>' : ""}</div>
             </div>
-        </button>`).join("");
+        </button>`;
+}
+
+function renderAds() {
+    const ads = readyAds();
+    $("ad-grid").innerHTML = ads.map((item, i) => adCard(item, `data-i="${i}"`)).join("");
     $("ad-grid").querySelectorAll(".ad-card").forEach((el) =>
-        el.addEventListener("click", () => openShowcase(DATA.showcase[+el.dataset.i])));
+        el.addEventListener("click", () => openShowcase(ads[+el.dataset.i])));
+}
+
+function renderDaily() {
+    const pending = (DATA.daily || []).filter((d) => d.status === "pending");
+    $("daily").hidden = pending.length === 0;
+    $("nav-daily").hidden = pending.length === 0;
+    $("nav-daily").textContent = `New ads (${pending.length})`;
+    $("daily-grid").innerHTML = pending.map((item) => `
+        <div class="daily-card">
+            ${adCard(item, `data-id="${esc(item.id)}"`)}
+            <div class="review-actions">
+                <button class="btn btn-ok" type="button" data-review="approved" data-id="${esc(item.id)}">Approve</button>
+                <button class="btn" type="button" data-review="rejected" data-id="${esc(item.id)}">Reject</button>
+            </div>
+        </div>`).join("");
+    const byId = (id) => DATA.daily.find((d) => d.id === id);
+    $("daily-grid").querySelectorAll(".ad-card").forEach((el) =>
+        el.addEventListener("click", () => openShowcase(byId(el.dataset.id))));
+    $("daily-grid").querySelectorAll("[data-review]").forEach((el) =>
+        el.addEventListener("click", () => reviewAd(el.dataset.id, el.dataset.review, el)));
+}
+
+function storedKey() {
+    try { return localStorage.getItem("r2c_review_key") || ""; } catch (_) { return ""; }
+}
+
+function storeKey(key) {
+    try { key ? localStorage.setItem("r2c_review_key", key) : localStorage.removeItem("r2c_review_key"); } catch (_) { /* private mode */ }
+}
+
+async function reviewAd(id, decision, button) {
+    if (!DATA.review_enabled) {
+        toast("Reviewing is not set up on this server yet (R2C_REVIEW_KEY).", true);
+        return;
+    }
+    let key = storedKey();
+    if (!key) {
+        key = (window.prompt("Reviewer passcode:") || "").trim();
+        if (!key) return;
+    }
+    button.disabled = true;
+    try {
+        await api("/api/review", { id, decision, key });
+        storeKey(key);
+        const entry = DATA.daily.find((d) => d.id === id);
+        if (entry) entry.status = decision;
+        renderDaily();
+        renderAds();
+        renderStats();
+        toast(decision === "approved" ? "Approved: it's now in Ready ads. The live site updates in about a minute."
+                                      : "Rejected: the ad is hidden.");
+    } catch (err) {
+        if (/passcode/i.test(err.message)) storeKey("");
+        toast(err.message, true);
+        button.disabled = false;
+    }
 }
 
 function trendCard(t, key) {
@@ -409,6 +481,7 @@ async function init() {
     }
     $("f-cta").innerHTML = DATA.ctas.map((c) => `<option>${esc(c)}</option>`).join("");
     renderStats();
+    renderDaily();
     renderAds();
     renderTrends();
     renderBench();
@@ -425,7 +498,8 @@ async function init() {
     $("btn-video").addEventListener("click", makeVideo);
     $("btn-examples").addEventListener("click", fillExampleLinks);
     fillExampleLinks();
-    if (DATA.showcase.length) openShowcase(DATA.showcase[0], false);  // pre-load the studio, stay at the top
+    const first = readyAds()[0];
+    if (first) openShowcase(first, false);  // pre-load the studio, stay at the top
 }
 
 document.addEventListener("DOMContentLoaded", init);

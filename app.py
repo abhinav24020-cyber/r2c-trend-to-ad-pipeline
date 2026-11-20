@@ -3,7 +3,9 @@ R2C.Ai Ad Studio: the web app for the trend-to-ad pipeline (local and Vercel).
 
 Pages and API:
     GET  /                      the studio (templates/index.html)
-    GET  /api/site-data         latest trends, the ad showcase and the model benchmark (web_data/site_data.json)
+    GET  /api/site-data         latest trends, the ad showcase and the model benchmark (web_data/site_data.json),
+                                plus the daily run's ads with their review status (web_data/daily.json)
+    POST /api/review            approve or reject a daily ad (reviewer passcode R2C_REVIEW_KEY)
     POST /api/compose           picture + ad copy -> finished R2C poster ad for a format and colour theme
     POST /api/generate-picture  image prompt -> new text-free picture (Cloudflare Workers AI, FLUX.2 Klein)
     POST /api/scrape            URLs -> scraped, Gate 1/2-ranked trends
@@ -32,6 +34,10 @@ from trend_pipeline import config
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE_DATA = os.path.join(ROOT, "web_data", "site_data.json")
 SHOWCASE_DIR = os.path.join(ROOT, "static", "showcase")
+DAILY_JSON = os.path.join(ROOT, "web_data", "daily.json")      # ads from the daily run (scripts/daily_run.py)
+REVIEWS_JSON = os.path.join(ROOT, "web_data", "reviews.json")  # reviewer decisions: {ad id: approved|rejected}
+DAILY_DIR = os.path.join(ROOT, "static", "daily")
+REVIEW_DECISIONS = ("approved", "rejected", "pending")
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.config["MAX_CONTENT_LENGTH"] = 8 * 1024 * 1024  # a picture travels as a data URL
@@ -71,10 +77,11 @@ def _load_picture(source: str):
         except (ValueError, IndexError) as exc:
             raise ValueError("The picture data is not valid base64.") from exc
         return Image.open(io.BytesIO(raw))
-    if source.startswith("/static/showcase/"):
-        path = os.path.normpath(os.path.join(ROOT, source.lstrip("/")))
-        if path.startswith(SHOWCASE_DIR) and os.path.isfile(path):
-            return Image.open(path)
+    for prefix, folder in (("/static/showcase/", SHOWCASE_DIR), ("/static/daily/", DAILY_DIR)):
+        if source.startswith(prefix):
+            path = os.path.normpath(os.path.join(ROOT, source.lstrip("/")))
+            if path.startswith(folder + os.sep) and os.path.isfile(path):
+                return Image.open(path)
     raise ValueError("Unknown picture.")
 
 
@@ -97,7 +104,106 @@ def favicon():
 @app.route("/api/site-data", methods=["GET"])
 def site_data():
     with open(SITE_DATA, encoding="utf-8") as handle:
-        return jsonify(json.load(handle))
+        data = json.load(handle)
+    reviews = _read_json(REVIEWS_JSON, {})
+    daily = []
+    for entry in _read_json(DAILY_JSON, []):
+        status = reviews.get(entry.get("id"), {}).get("status", "pending")
+        daily.append(dict(entry, status=status if status in REVIEW_DECISIONS else "pending"))
+    data["daily"] = daily
+    data["review_enabled"] = bool(os.environ.get("R2C_REVIEW_KEY"))
+    return jsonify(data)
+
+
+def _read_json(path: str, default):
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return json.load(handle)
+    except (OSError, ValueError):
+        return default
+
+
+def _github_save_review(ad_id: str, decision: str, reviewer: str) -> None:
+    """
+    Record a decision in web_data/reviews.json in the GitHub repository Vercel deploys from,
+    so it survives redeploys; Vercel then redeploys the site with it (about a minute).
+    Needs GITHUB_TOKEN (contents: write on that repository). The repository defaults to the
+    one Vercel built from (VERCEL_GIT_REPO_OWNER / VERCEL_GIT_REPO_SLUG / VERCEL_GIT_COMMIT_REF).
+    """
+    import urllib.error
+    import urllib.request
+
+    repo = os.environ.get("GITHUB_REPO") or "{}/{}".format(
+        os.environ.get("VERCEL_GIT_REPO_OWNER", ""), os.environ.get("VERCEL_GIT_REPO_SLUG", ""))
+    branch = os.environ.get("GITHUB_BRANCH") or os.environ.get("VERCEL_GIT_COMMIT_REF") or "main"
+    if repo.strip("/") != repo or "/" not in repo:
+        raise RuntimeError("GITHUB_REPO is not set.")
+    url = "https://api.github.com/repos/{}/contents/web_data/reviews.json".format(repo)
+    headers = {"Authorization": "Bearer " + os.environ["GITHUB_TOKEN"], "Accept": "application/vnd.github+json",
+               "User-Agent": "r2c-ad-studio"}
+    for _ in range(3):  # retry when another decision was saved in between (sha conflict)
+        reviews, sha = {}, None
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url + "?ref=" + branch, headers=headers),
+                                        timeout=20) as response:
+                current = json.load(response)
+            sha = current["sha"]
+            reviews = json.loads(base64.b64decode(current["content"]).decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            if exc.code != 404:
+                raise RuntimeError("GitHub read failed ({})".format(exc.code)) from exc
+        reviews[ad_id] = {"status": decision, "by": reviewer,
+                          "at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+        body = {"message": "Review: {} {}".format(decision, ad_id), "branch": branch,
+                "content": base64.b64encode((json.dumps(reviews, indent=1, ensure_ascii=False) + "\n")
+                                            .encode("utf-8")).decode("ascii")}
+        if sha:
+            body["sha"] = sha
+        request_put = urllib.request.Request(url, data=json.dumps(body).encode("utf-8"), method="PUT",
+                                             headers=dict(headers, **{"Content-Type": "application/json"}))
+        try:
+            urllib.request.urlopen(request_put, timeout=20).close()
+            return
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (409, 422):
+                raise RuntimeError("GitHub write failed ({})".format(exc.code)) from exc
+    raise RuntimeError("GitHub write kept conflicting; try again.")
+
+
+@app.route("/api/review", methods=["POST"])
+def review():
+    """Approve or reject a daily ad. Protected by the reviewer passcode R2C_REVIEW_KEY."""
+    import hmac
+
+    body = request.get_json(silent=True) or {}
+    ad_id = str(body.get("id") or "")
+    decision = str(body.get("decision") or "")
+    reviewer = str(body.get("reviewer") or "reviewer").strip()[:40] or "reviewer"
+    expected = os.environ.get("R2C_REVIEW_KEY", "")
+    if not expected:
+        return _error("Reviewing is not set up: add R2C_REVIEW_KEY to the server's environment.", 503)
+    if not hmac.compare_digest(str(body.get("key") or "").encode("utf-8"), expected.encode("utf-8")):
+        return _error("Wrong reviewer passcode.", 403)
+    if decision not in REVIEW_DECISIONS:
+        return _error("decision must be approved, rejected or pending.")
+    if not any(e.get("id") == ad_id for e in _read_json(DAILY_JSON, [])):
+        return _error("Unknown ad.", 404)
+    if os.environ.get("GITHUB_TOKEN"):
+        try:
+            _github_save_review(ad_id, decision, reviewer)
+        except (RuntimeError, OSError) as exc:
+            logger.error("Saving the review failed: %s", exc)
+            return _error("Could not save the decision: {}".format(exc), 502)
+        return jsonify({"id": ad_id, "status": decision, "saved": "github"})
+    if os.environ.get("VERCEL"):
+        return _error("Reviewing on Vercel needs GITHUB_TOKEN so decisions are saved to the repository.", 503)
+    reviews = _read_json(REVIEWS_JSON, {})  # local run: write the file directly
+    reviews[ad_id] = {"status": decision, "by": reviewer,
+                      "at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+    with open(REVIEWS_JSON, "w", encoding="utf-8") as handle:
+        json.dump(reviews, handle, indent=1, ensure_ascii=False)
+        handle.write("\n")
+    return jsonify({"id": ad_id, "status": decision, "saved": "local"})
 
 
 @app.route("/api/compose", methods=["POST"])
