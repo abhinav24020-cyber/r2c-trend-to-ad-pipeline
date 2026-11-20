@@ -11,10 +11,12 @@ Steps:
     1. Crawl every source and rank trends (web_crawler.autopilot.run_cycle). The
        dedup memory (data/output/post_history.json) is kept in the repository, so
        stories seen on earlier days are not picked again.
-    2. For each new qualified trend (at most DAILY_MAX_ADS, default 5) make one ad:
+    2. For each new qualified trend (at most DAILY_MAX_ADS, default 3) make one ad:
        Gemini copy with the topic rules, the creative-director picture idea, two
        FLUX.2 Klein 9B pictures with the better one chosen by Gemini vision, the
        branded poster, and the 10-second video. Formats and colour themes rotate.
+       Budget: a Klein 9B picture uses about 1,364 of Cloudflare's 10,000 free daily
+       neurons, so 3 ads x 2 pictures (~8,200) is the most that stays free.
     3. Save the ads to web_data/daily.json and their files to static/daily/<id>/.
        New ads start as "pending" until a reviewer approves them on the site
        (decisions live in web_data/reviews.json). Ads older than DAILY_KEEP_DAYS
@@ -108,6 +110,20 @@ def prune_old(entries: List[Dict[str, Any]], keep_days: int, now: datetime) -> L
     return kept
 
 
+def fit_sticker(text: Optional[str], limit: int = 14) -> str:
+    """The corner sticker holds 14 characters: shorten at a word break, never mid-word."""
+    text = re.sub(r"\s+", " ", str(text or "")).strip().upper()
+    if len(text) <= limit:
+        return text
+    words = re.split(r"(?<=[ \-])", text)
+    out = ""
+    for word in words:
+        if len((out + word).rstrip(" -")) > limit:
+            break
+        out += word
+    return out.rstrip(" -") or text[:limit]
+
+
 def pick_trends(trends: Sequence[Dict[str, Any]], made_titles: Sequence[str], limit: int) -> List[Dict[str, Any]]:
     picked: List[Dict[str, Any]] = []
     seen = list(made_titles)
@@ -159,12 +175,21 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
     from prompt_generator import ad_creatives
 
     records = ad_creatives.generate_trend_creatives(trend, gemini)
-    record = next((r for r in records if r["ad_type"] == ad_type and r["status"] == "success"), None)
-    if record is None:
-        logger.warning("No valid %s copy for %s; skipped", ad_type, trend.get("topic_title"))
+    ok = {r["ad_type"]: r for r in records if r["status"] == "success"}
+    # The planned format first; if its copy failed the checks, the next format whose copy passed.
+    start = next((i for i, (_, t) in enumerate(FORMAT_ROTATION) if t == ad_type), 0)
+    order = FORMAT_ROTATION[start:] + FORMAT_ROTATION[:start]
+    choice = next(((r, t) for r, t in order if t in ok), None)
+    if choice is None:
+        logger.warning("No valid copy in any format for %s; skipped", trend.get("topic_title"))
         return None
+    if choice[1] != ad_type:
+        logger.info("%s copy failed the checks; using the %s format instead", ad_type, choice[1])
+    ratio, ad_type = choice
+    record = ok[ad_type]
     record = ad_creatives.reimagine_visual(record, trend, gemini, theme=theme)
-    post = record["post"]
+    post = dict(record["post"])
+    post["sticker"] = fit_sticker(post.get("sticker"))
     prompt = ad_creatives.compose_image_prompt(ad_type, post.get("visual") or {}, theme)
     picture, score, _ = make_picture(prompt, ratio, gemini)
 
@@ -177,7 +202,7 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
     poster_png = os.path.join(folder, "poster.png")
     compose_ads.compose_poster(picture_path, poster_png, ratio, post["headline"], post.get("subline") or "",
                                post.get("cta") or "Learn More", eyebrow=post.get("eyebrow") or "",
-                               points=post.get("points") or [], sticker=(post.get("sticker") or "")[:14],
+                               points=post.get("points") or [], sticker=fit_sticker(post.get("sticker")),
                                theme_name=theme)
     poster_path = os.path.join(folder, "poster.jpg")
     with Image.open(poster_png) as im:
@@ -212,7 +237,7 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
 
 
 # --------------------------------------------------------------------------- run
-def run(skip_crawl: bool = False, max_ads: int = 5, keep_days: int = 7) -> Dict[str, Any]:
+def run(skip_crawl: bool = False, max_ads: int = 3, keep_days: int = 7) -> Dict[str, Any]:
     from prompt_generator import ad_creatives
     from trend_pipeline.gemini_client import get_client
 
@@ -281,7 +306,7 @@ def run(skip_crawl: bool = False, max_ads: int = 5, keep_days: int = 7) -> Dict[
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Daily run: crawl, rank, make new ads, update the site data.")
     parser.add_argument("--skip-crawl", action="store_true", help="Use the last crawl's ranked trends")
-    parser.add_argument("--max-ads", type=int, default=int(os.environ.get("DAILY_MAX_ADS", "5")))
+    parser.add_argument("--max-ads", type=int, default=int(os.environ.get("DAILY_MAX_ADS", "3")))
     parser.add_argument("--keep-days", type=int, default=int(os.environ.get("DAILY_KEEP_DAYS", "7")))
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s",

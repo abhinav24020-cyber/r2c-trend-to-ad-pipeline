@@ -12,8 +12,8 @@ on:
   workflow_dispatch:         # "Run workflow" button for a manual run
     inputs:
       max_ads:
-        description: "Most new ads to make"
-        default: "5"
+        description: "Most new ads to make (3 fits Cloudflare's free daily image allowance)"
+        default: "3"
 
 permissions:
   contents: write            # to push the new ads back to the repository
@@ -64,7 +64,7 @@ jobs:
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           IMAGE_PROVIDER: cloudflare
-          DAILY_MAX_ADS: ${{ github.event.inputs.max_ads || '5' }}
+          DAILY_MAX_ADS: ${{ github.event.inputs.max_ads || '3' }}
           DAILY_KEEP_DAYS: "7"
         run: python scripts/daily_run.py
 

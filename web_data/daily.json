@@ -1,0 +1,189 @@
+[
+ {
+  "id": "trd_20261120_005_fcd0",
+  "date": "2026-11-20",
+  "created_at": "2026-11-20T12:58:02.082508+00:00",
+  "source": "daily",
+  "trend": {
+   "trend_id": "trd_20261120_005_fcd0",
+   "rank": 5,
+   "near_miss": false,
+   "topic_title": "Recent Advances in Vision-Language-Action Models and Robotics",
+   "topic_summary": "Recent research signals highlight novel frameworks and models—such as WAMotor, ROAM, CoachSI, A²-VLA, Verify2Act, GraF-VTA, MAWAM, and CHAC—designed to improve robot navigation, manipulation, policy steering, and world-action modeling. These developments matter to AI/ML practitioners as they address key robotics challenges including latency, multi-step planning, tool adaptation, and multi-agent coordination using foundation models and vision-language integration.",
+   "topic_key_facts": [
+    "[Webpage] ROAM (Robust Open-world Autonomous Mobility) combines internet-scale VLM world knowledge with reinforcement learning-based locomotion and local planning for kilometer-scale navigation.",
+    "[Webpage] CoachSI uses a frozen, off-the-shelf VLM to coach policies in language by naming the next step in the format of atomic instructions.",
+    "[Webpage] A²-VLA combines an embodied agent with a VLA policy to treat tool affordances as hypotheses that the agent can construct, test, and revise.",
+    "[Webpage] Verify2Act features a latent world model (V2A-WM) that imagines candidate plans in the DINOv2 feature space and uses a dual-head critic for verification.",
+    "[Webpage] MAWAM is a multi-agent world-action model that jointly generates each robot's future views and executable action chunks in a single sample."
+   ],
+   "topic_entities": [
+    "Verify2Act Critic-Guided Latent World",
+    "Actions Change Action Effect",
+    "CauSyncVLA Causal Latent World",
+    "Cognitive-Horizon Action Chunking Memory-Guided",
+    "Dual Nonuniform Denoising Dynamics",
+    "GraF-VTA Neuro-Symbolic Trajectory Generation"
+   ],
+   "score": 83.9,
+   "r2c_relevance": 72.0,
+   "growth": 100.0,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-20T17:27:31.543810+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.25980",
+     "excerpt": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models World models aim to predict environment dynamics under actions, enabling the prediction of action consequences without executing them in the real world. Yet despite producing increasingly realistic videos, current world models often fail to capture how small action changes affect future observations. This limits their use in tasks such as robotic policy evalua",
+     "source_insight": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models"
+    },
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.26414",
+     "excerpt": "ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation ",
+     "source_insight": "ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.25105",
+     "excerpt": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation Every move in a robot team changes the world in which its teammates must act. Coordinated manipulation therefore calls for predicting the team's actions together with the physical future they jointly create. We introduce MAWAM, a multi-agent world-action model that jointly generates each robot's future views and executable action chunks in a single sample. Built from a pretraine",
+     "source_insight": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.25199",
+     "excerpt": "VG-Steer: Visual-Geometric Policy Steering from In-Context Aligned Abstractions Adapting robot policies to out-of-distribution (OOD) settings with limited real-world data remains a key bottleneck to generalist robots. The multimodality and scarcity of robotics data lead end-to-end approaches to overfit and break under small distribution shifts. Test-time adaptation can alleviate this by correcting frozen policies at inference, but most methods gr",
+     "source_insight": "VG-Steer: Visual-Geometric Policy Steering from In-Context Aligned Abstractions"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.25215",
+     "excerpt": "Bridging vision-language reasoning and learned control for legged navigation in the wild Autonomous navigation in diverse real-world environments remains one of the greatest challenges in robotics. It demands both robust low-level motion control to handle diverse terrain and high-level reasoning to interpret environmental cues. We present ROAM (Robust Open-world Autonomous Mobility), a system that enables legged robots to perform kilometer-scale ",
+     "source_insight": "Bridging vision-language reasoning and learned control for legged navigation in the wild"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.25243",
+     "excerpt": "Verify2Act: Critic-Guided Latent World Models for Verifying Language-Conditioned Manipulation Plans Vision-Language Models (VLMs) can propose multi-step manipulation plans, but they have no grounded model of how a scene will change, and the pixel-level world models that could check those plans are slow and drift over long horizons. We present Verify2Act, a modular verification framework that separates semantic action proposal from latent physical",
+     "source_insight": "Verify2Act: Critic-Guided Latent World Models for Verifying Language-Conditioned Manipulation Plans"
+    }
+   ]
+  },
+  "ad_type": "story",
+  "aspect_ratio": "9:16",
+  "placement": "Instagram & Facebook Stories / Reels",
+  "theme": "cream",
+  "copy": {
+   "audience": "researchers",
+   "eyebrow": "ZERO-FINE-TUNING",
+   "headline": "Protect your VLM architecture.",
+   "subline": "Recent Advances in Vision-Language-Action Models and Robotics prevent weight degradation. R2C.Ai handles your IP governance.",
+   "points": [
+    "AI analysis of your paper or patent",
+    "Commercial Readiness Score",
+    "IP protection and governance"
+   ],
+   "cta": "Upload Your Research",
+   "caption": "Recent Advances in Vision-Language-Action Models and Robotics introduce ZeroVLN to navigate without supervised fine-tuning of the VLM brain. Your academic work on preserving base visual capabilities deserves strong IP protection. R2C.Ai provides commercial readiness scores and IP protection and governance. Upload Your Research.",
+   "hashtags": [
+    "ZeroVLN",
+    "VisionLanguageAction",
+    "ResearchIP",
+    "AI"
+   ],
+   "sticker": "ZERO-FINE"
+  },
+  "concept": "A chaotic Delhi street market where a bustling crowd parts instantly around a pristine, untouched stack of academic papers balanced effortlessly on a bicycle carrier.",
+  "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A young Indian researcher in a terracotta-orange hoodie, casually sipping chai while leaning against a vintage bicycle loaded with heavy lab equipment, A stray street dog playfully leaps across the frame, kicking up a dramatic burst of warm dust, yet the research stack remains completely undisturbed and upright. The sharp contrast between the chaotic, blurry street motion and the absolute, razor-sharp stillness of the defended thesis stack. Setting: A bustling sunny lane outside an IIIT Delhi campus gate, layered with parked auto-rickshaws, chai stalls, and overhead power lines. Camera: Vertical 9:16 framing, dynamic low-angle shot, 35mm lens, real motion blur on the edges. Lighting: Golden hour sunlight casting long warm shadows, intense natural rim light hitting the researcher and bicycle. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered, energetic frame: detailed foreground, clear hero subject, lively background, bold saturated colour, high contrast, eye-catching. Looks like a real high-budget ad shoot, not CGI: true-to-life materials and skin, subtle film grain, no plastic sheen, no lens flares, nothing floating in an empty void. Papers, screens and signs are blank or out of focus, never readable letters. Hands and faces are natural and anatomically correct. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, clever, grounded, confident. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+  "picture": "/static/daily/trd_20261120_005_fcd0/picture.jpg",
+  "poster": "/static/daily/trd_20261120_005_fcd0/poster.jpg",
+  "image_model": "FLUX.2 Klein 9B",
+  "picture_score": 7.5,
+  "video": "/static/daily/trd_20261120_005_fcd0/video.mp4",
+  "video_format": "9:16"
+ },
+ {
+  "id": "trd_20261120_002_ae81",
+  "date": "2026-11-20",
+  "created_at": "2026-11-20T12:58:02.082508+00:00",
+  "source": "daily",
+  "trend": {
+   "trend_id": "trd_20261120_002_ae81",
+   "rank": 2,
+   "near_miss": false,
+   "topic_title": "Advances in KV Cache Management and MoBA Optimization",
+   "topic_summary": "Researchers have introduced PRKV, a training-free KV eviction method using Personalized PageRank to handle long-context LLM memory bottlenecks up to 90% compression. Additionally, LightningMoBA was presented to optimize Mixture of Block Attention through dynamic routing, KV-centric ownership, and runtime pipelining. These developments offer practitioners better memory consumption control and execution efficiency for long-context LLM inference.",
+   "topic_key_facts": [
+    "[Webpage] PRKV is a training-free KV eviction method that estimates multi-hop global token importance using Personalized PageRank over attention-induced transition graphs.",
+    "[Webpage] PRKV achieves competitive task performance under moderate to aggressive compression ratios including up to 90%.",
+    "[Hugging Face] FlashMoBA implements Mixture of Block Attention efficiently but retains a fixed Top-k budget and query-centric schedule.",
+    "[Hugging Face] LightningMoBA co-designs selection and execution through dynamic routing, KV-centric ownership, and runtime pipelining."
+   ],
+   "topic_entities": [
+    "Dynamic Routing KV-Centric Execution",
+    "KV Cache Eviction",
+    "Accelerating Mixture",
+    "Block Attention",
+    "Importance Estimation",
+    "Runtime Pipelining"
+   ],
+   "score": 85.1,
+   "r2c_relevance": 98.0,
+   "growth": 91.25,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-20T17:27:31.541806+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.26268",
+     "excerpt": "Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining Mixture of Block Attention (MoBA) reduces long-context computation by selecting key-value (KV) blocks for each query. FlashMoBA implements MoBA efficiently but retains a fixed Top-k budget and query-centric schedule. Fixed Top-k applies one budget across different score distributions and couples routing to task granularity; query-range ownersh",
+     "source_insight": "Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.24969",
+     "excerpt": "Global Importance Estimation for KV Cache Eviction Memory consumption of the key-value (KV) cache remains a central bottleneck for long-context LLM inference. We introduce PRKV, a training-free KV eviction method that estimates multi-hop global token importance by applying Personalized PageRank over attention-induced transition graphs. This enables importance propagation beyond recency or instantaneous attention, without modifying the model. We b",
+     "source_insight": "Global Importance Estimation for KV Cache Eviction"
+    }
+   ]
+  },
+  "ad_type": "engagement",
+  "aspect_ratio": "1:1",
+  "placement": "LinkedIn & Facebook feed",
+  "theme": "solar",
+  "copy": {
+   "audience": "researchers",
+   "eyebrow": "BLOCK ATTENTION",
+   "headline": "Fixed budget or dynamic routing?",
+   "subline": "FlashMoBA uses fixed budgets while LightningMoBA uses dynamic routing. R2C.Ai provides IP protection and governance.",
+   "points": [
+    "AI analysis of your paper or patent",
+    "IP protection and governance",
+    "Matched with industry partners"
+   ],
+   "cta": "Learn More",
+   "caption": "FlashMoBA relies on a fixed Top-k budget, whereas LightningMoBA uses dynamic routing and KV-centric ownership for 90% compression gains. Which scheduling approach do you implement in your long-context models? Share your thoughts below. R2C.Ai provides IP protection and governance for your findings. Learn More.",
+   "hashtags": [
+    "BlockAttention",
+    "DeepLearning",
+    "Research",
+    "AI"
+   ],
+   "sticker": "90% COMPRESSED"
+  },
+  "concept": "A chaotic, high-energy IIT Delhi campus canteen where a stressed PhD researcher expertly juggles two towering stacks of heavy metal cafeteria trays, representing fixed budgets versus dynamic routing.",
+  "image_prompt": "Scroll-stopping social media ad image. Bold flat vector illustration, expressive cartoon characters, chunky shapes, high-contrast saturated colour blocks, playful. A young Indian researcher in a rumpled kurta and sneakers, eyes wide with frantic concentration, balancing an impossibly tall, swaying tower of blue and yellow trays, The researcher is mid-stride, gracefully dodging a dropped samosa on the checkered floor while keeping the massive, wobbling tray-stacks from crashing down. The sheer comical height and gravity-defying balance of the canteen tray towers in a bustling university canteen. Setting: A sunlit, lively IIIT Delhi campus canteen with stainless steel tables, blurred students in the background, and a vintage chalkboard wall. Camera: Dynamic medium-close action shot, slight Dutch angle, 24mm lens to emphasize the towering scale of. Lighting: Bright, harsh midday sunlight streaming through large glass windows, creating sharp shadows on the tiled floor. Colour palette: sunflower yellow, black and cobalt blue dominate the whole scene, bold and saturated. Full, layered, energetic frame: detailed foreground, clear hero subject, lively background, bold saturated colour, high contrast, eye-catching. Looks like a real high-budget ad shoot, not CGI: true-to-life materials and skin, subtle film grain, no plastic sheen, no lens flares, nothing floating in an empty void. Papers, screens and signs are blank or out of focus, never readable letters. Hands and faces are natural and anatomically correct. Main subject centred and whole, nothing important at the edges of the frame. Mood: Frantic, witty, deeply relatable to academic life. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+  "picture": "/static/daily/trd_20261120_002_ae81/picture.jpg",
+  "poster": "/static/daily/trd_20261120_002_ae81/poster.jpg",
+  "image_model": "FLUX.2 Klein 9B",
+  "picture_score": 8.25,
+  "video": "/static/daily/trd_20261120_002_ae81/video.mp4",
+  "video_format": "1:1"
+ }
+]

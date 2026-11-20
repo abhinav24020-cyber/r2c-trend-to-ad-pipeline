@@ -108,5 +108,42 @@ class ReviewEndpointTests(unittest.TestCase):
         self.assertEqual(r.status_code, 503)
 
 
+class GeminiFallbackTests(unittest.TestCase):
+    def test_overloaded_main_model_falls_back_to_the_next_model(self):
+        from trend_pipeline import config
+        from trend_pipeline.gemini_client import GeminiClient
+
+        calls = []
+
+        class Models:
+            def generate_content(self, model, contents, **kwargs):
+                calls.append(model)
+                if model == config.GEMINI_TEXT_MODEL:
+                    raise RuntimeError("503 UNAVAILABLE: high demand")
+                return mock.Mock(text='{"ok": true}')
+
+        client = GeminiClient.__new__(GeminiClient)
+        client.online, client._client = True, mock.Mock(models=Models())
+        client.calls_attempted = client.calls_failed = 0
+        client._pace = lambda: None
+        with mock.patch.object(config, "API_MAX_RETRIES", 2), mock.patch("time.sleep"),                 mock.patch.object(config, "GEMINI_FALLBACK_TEXT_MODELS", ["backup-model"]):
+            text = client.generate_text("prompt", json_mode=True)
+        self.assertEqual(text, '{"ok": true}')
+        self.assertEqual(calls, [config.GEMINI_TEXT_MODEL, config.GEMINI_TEXT_MODEL, "backup-model"])
+
+
+class FormatFallbackTests(unittest.TestCase):
+    def test_failed_planned_format_uses_next_passing_format(self):
+        records = [{"ad_type": "story", "status": "failed"},
+                   {"ad_type": "engagement", "status": "success", "placement": "feed",
+                    "post": {"headline": "H", "visual": {}}}]
+        with mock.patch("prompt_generator.ad_creatives.generate_trend_creatives", return_value=records),                 mock.patch("prompt_generator.ad_creatives.reimagine_visual", side_effect=lambda r, *a, **k: r),                 mock.patch.object(daily_run, "make_picture", side_effect=RuntimeError("stop here")):
+            with self.assertRaises(RuntimeError):
+                daily_run.make_ad({"topic_title": "T"}, "9:16", "story", "solar", mock.Mock(),
+                                  datetime(2026, 11, 20, tzinfo=timezone.utc))
+            daily_run.make_picture.assert_called_once()
+            self.assertEqual(daily_run.make_picture.call_args[0][1], "1:1")  # engagement = 1:1
+
+
 if __name__ == "__main__":
     unittest.main()

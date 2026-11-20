@@ -121,7 +121,7 @@ python app.py                      # http://127.0.0.1:5000
 Every morning at **7:00 AM IST** a GitHub Actions job ([`.github/workflows/daily.yml`](.github/workflows/daily.yml)) runs [`scripts/daily_run.py`](scripts/daily_run.py):
 
 1. Crawls all 48 sources and ranks trends (Gate 1 + Gate 2). The dedup memory (`data/output/post_history.json`) is kept in the repository, so stories from earlier days are not picked again.
-2. Makes one ad for each new trend, up to 5 a day: Gemini copy, the creative-director picture idea, two FLUX.2 Klein 9B pictures with the better one chosen by Gemini vision, the branded poster and the 10-second video. Formats and colour themes rotate.
+2. Makes one ad for each new trend, up to 3 a day (what fits Cloudflare's free daily image allowance): Gemini copy, the creative-director picture idea, two FLUX.2 Klein 9B pictures with the better one chosen by Gemini vision, the branded poster and the 10-second video. Formats and colour themes rotate.
 3. Saves the ads to `web_data/daily.json` and `static/daily/<id>/`, removes ads older than 7 days, refreshes the latest trends, and pushes. Vercel redeploys automatically.
 
 New ads appear on the site under **New ads · pending review**. A reviewer clicks **Approve** to move an ad into Ready ads, or **Reject** to hide it. Decisions are saved to `web_data/reviews.json` in the repository.

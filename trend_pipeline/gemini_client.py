@@ -101,7 +101,7 @@ class GeminiClient:
             )
 
     # -- retry core --------------------------------------------------------
-    def _with_backoff(self, label: str, fn):
+    def _with_backoff(self, label: str, fn, final: bool = True):
         """Run fn with exponential backoff; return None once retries are exhausted."""
         delay = config.API_INITIAL_BACKOFF_SECONDS
         last_exc: Optional[Exception] = None
@@ -126,7 +126,8 @@ class GeminiClient:
                 )
                 time.sleep(wait)
         logger.error("%s exhausted %d retries: %s", label, config.API_MAX_RETRIES, last_exc)
-        self._require_fallback_allowed("{} failed: {}".format(label, last_exc))
+        if final:
+            self._require_fallback_allowed("{} failed: {}".format(label, last_exc))
         return None
 
     # -- embeddings --------------------------------------------------------
@@ -213,25 +214,38 @@ class GeminiClient:
         return vec
 
     # -- generation --------------------------------------------------------
+    def _generate(self, label: str, contents, json_mode: bool = False) -> Optional[str]:
+        """
+        generate_content on the main text model; when it is overloaded or keeps failing
+        (Google's 503 "high demand", empty answers), the same request goes to each
+        GEMINI_FALLBACK_TEXT_MODELS model in turn. Returns the text, or None.
+        """
+        kwargs = {"config": {"response_mime_type": "application/json"}} if json_mode else {}
+        models = [config.GEMINI_TEXT_MODEL] + [m for m in config.GEMINI_FALLBACK_TEXT_MODELS
+                                               if m != config.GEMINI_TEXT_MODEL]
+        for index, model in enumerate(models):
+            def call(model=model):
+                self._pace()
+                return self._client.models.generate_content(model=model, contents=contents, **kwargs)
+
+            last = index == len(models) - 1
+            result = self._with_backoff(label if not index else "{} ({})".format(label, model), call, final=last)
+            text = getattr(result, "text", None) if result is not None else None
+            if isinstance(text, str) and text.strip():
+                if index:
+                    logger.info("%s answered by fallback model %s", label, model)
+                return text.strip()
+            if not last:
+                logger.warning("%s: no answer from %s; trying %s", label, model, models[index + 1])
+        return None
+
     def generate_text(
         self, prompt: str, label: str = "generate_content", json_mode: bool = False
     ) -> Optional[str]:
         """json_mode asks Gemini to return valid JSON (response_mime_type=application/json)."""
         if not (self.online and self._client is not None):
             return None
-        kwargs = {"config": {"response_mime_type": "application/json"}} if json_mode else {}
-
-        def call():
-            self._pace()
-            return self._client.models.generate_content(
-                model=config.GEMINI_TEXT_MODEL, contents=prompt, **kwargs
-            )
-
-        result = self._with_backoff(label, call)
-        if result is None:
-            return None
-        text = getattr(result, "text", None)
-        return text.strip() if isinstance(text, str) and text.strip() else None
+        return self._generate(label, prompt, json_mode=json_mode)
 
     def read_image_text(self, image: object, label: str = "read_image_text") -> Optional[str]:
         """Transcribe all text visible in an image (PIL image). None when Gemini is unavailable."""
@@ -243,31 +257,14 @@ class GeminiClient:
                   "write what it actually looks like (for example 'Uploαd' or 'Uplaod'), never the word "
                   "that was probably intended. Ignore logos. If there is no text at all, reply NONE.")
 
-        def call():
-            self._pace()
-            return self._client.models.generate_content(
-                model=config.GEMINI_TEXT_MODEL, contents=[image, prompt]
-            )
-
-        result = self._with_backoff(label, call)
-        text = getattr(result, "text", None) if result is not None else None
-        return text.strip() if isinstance(text, str) else None
+        return self._generate(label, [image, prompt])
 
     def judge_image(self, image: object, instructions: str, label: str = "judge_image") -> Optional[str]:
         """Ask Gemini for a JSON verdict about an image (PIL image). None when Gemini is unavailable."""
         if not (self.online and self._client is not None):
             return None
 
-        def call():
-            self._pace()
-            return self._client.models.generate_content(
-                model=config.GEMINI_TEXT_MODEL, contents=[image, instructions],
-                config={"response_mime_type": "application/json"},
-            )
-
-        result = self._with_backoff(label, call)
-        text = getattr(result, "text", None) if result is not None else None
-        return text.strip() if isinstance(text, str) and text.strip() else None
+        return self._generate(label, [image, instructions], json_mode=True)
 
     def _pace(self) -> None:
         """Space text-generation calls to stay under GEMINI_MAX_REQUESTS_PER_MINUTE."""
