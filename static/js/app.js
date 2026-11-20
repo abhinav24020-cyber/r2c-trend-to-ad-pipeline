@@ -85,6 +85,7 @@ function renderAds() {
 }
 
 function renderDaily() {
+    if (!$("daily") || !$("daily-grid") || !$("nav-daily")) return;  // an older cached page: skip, never blank the site
     const pending = (DATA.daily || []).filter((d) => d.status === "pending");
     $("daily").hidden = pending.length === 0;
     $("nav-daily").hidden = pending.length === 0;
@@ -480,11 +481,10 @@ async function init() {
         return;
     }
     $("f-cta").innerHTML = DATA.ctas.map((c) => `<option>${esc(c)}</option>`).join("");
-    renderStats();
-    renderDaily();
-    renderAds();
-    renderTrends();
-    renderBench();
+    // Each section renders on its own: one failure must never blank the whole page.
+    [renderStats, renderDaily, renderAds, renderTrends, renderBench].forEach((render) => {
+        try { render(); } catch (err) { console.error(render.name, err); }
+    });
     renderFormatButtons();
     renderThemes();
     syncControls();
