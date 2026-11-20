@@ -27,17 +27,35 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
+      # Runs fully only in a repository that has the API keys set; elsewhere it stops in seconds.
+      - name: Check the API keys are set
+        id: keys
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -n "$GEMINI_API_KEY" ] && [ -n "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::GEMINI_API_KEY / CLOUDFLARE_API_TOKEN secrets are not set in this repository; skipping the daily run."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.keys.outputs.ok == 'true'
 
       - uses: actions/setup-python@v5
+        if: steps.keys.outputs.ok == 'true'
         with:
           python-version: "3.12"
           cache: pip
 
       - name: Install dependencies
+        if: steps.keys.outputs.ok == 'true'
         run: pip install -r requirements.txt
 
       - name: Crawl, rank and make ads
+        if: steps.keys.outputs.ok == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -51,6 +69,7 @@ jobs:
         run: python scripts/daily_run.py
 
       - name: Publish to the site
+        if: steps.keys.outputs.ok == 'true'
         run: |
           git config user.name "r2c-daily-run"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
