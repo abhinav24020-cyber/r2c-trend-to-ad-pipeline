@@ -107,6 +107,17 @@
                     <button class="btn" id="btn-copy-caption" type="button" disabled>Copy caption</button>
                 </div>
                 <p class="preview-meta" id="preview-meta"></p>
+                <div class="video-block">
+                    <div class="video-head">
+                        <div>
+                            <span class="label">Video ad</span>
+                            <p class="hint">A 10-second branded motion video for Reels, Stories and LinkedIn: the picture zooms, the text animates in, and it ends on an R2C card.</p>
+                        </div>
+                        <button class="btn btn-primary" id="btn-video" type="button" disabled>Make video</button>
+                    </div>
+                    <video id="video-player" controls playsinline hidden></video>
+                    <a class="btn" id="btn-video-download" download="r2c_video.mp4" hidden>Download video</a>
+                </div>
             </div>
 
             <form class="controls" id="controls" autocomplete="off" onsubmit="return false">
@@ -126,7 +137,7 @@
                 </div>
 
                 <div class="control-block" id="brief-block" hidden>
-                    <p class="hint">This trend has no ad yet. Gemini writes the R2C ad copy and the picture prompt (about 20 seconds).</p>
+                    <p class="hint">This trend has no ad yet. Gemini writes topic-specific R2C ad copy and the picture prompt, then FLUX paints the picture (about a minute).</p>
                     <button class="btn btn-primary" id="btn-brief" type="button">Write ad copy with Gemini</button>
                 </div>
 
@@ -151,13 +162,14 @@
                     <div class="row-2">
                         <label>Model
                             <select id="f-model">
-                                <option value="klein4b">FLUX.2 Klein 4B (fast, free tier)</option>
-                                <option value="klein9b">FLUX.2 Klein 9B (best quality)</option>
+                                <option value="klein9b" selected>FLUX.2 Klein 9B (best quality)</option>
+                                <option value="klein4b">FLUX.2 Klein 4B (fast draft)</option>
                             </select>
                         </label>
                         <button class="btn btn-primary" id="btn-picture" type="button">Generate picture</button>
                     </div>
-                    <p class="hint">Takes about 10 seconds. The picture has no text; the ad text above is laid out by code, so it is always spelled correctly.</p>
+                    <label class="check"><input type="checkbox" id="f-best" checked> Best of 2: render two pictures and let Gemini pick the better one</label>
+                    <p class="hint">Takes about 15-25 seconds. The picture has no text; the ad text above is laid out by code, so it is always spelled correctly.</p>
                 </details>
 
                 <div class="control-block caption-block">

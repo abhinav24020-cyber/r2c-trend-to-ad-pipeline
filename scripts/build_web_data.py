@@ -9,6 +9,7 @@ or a new sample run:
 """
 import json
 import os
+import shutil
 import sys
 
 from PIL import Image
@@ -19,7 +20,9 @@ from trend_pipeline import config  # noqa: E402
 from trend_pipeline.web_export import slim_trend  # noqa: E402
 
 SAMPLES = os.path.join("data", "output", "samples")
-SHOWCASE_RUN = os.path.join(SAMPLES, "flux-2-klein-9b-v2")
+# The newest showcase run: v3 has the topic-specific copy and a video per ad (scripts/refresh_showcase.py).
+SHOWCASE_RUN = next(p for p in (os.path.join(SAMPLES, "flux-2-klein-9b-v3"), os.path.join(SAMPLES, "flux-2-klein-9b-v2"))
+                    if os.path.isfile(os.path.join(p, "samples.json")))
 SHOWCASE_TRENDS = os.path.join("data", "output", "scrawl", "trends.json")
 OUT_JSON = os.path.join("web_data", "site_data.json")
 OUT_IMG = os.path.join("static", "showcase")
@@ -30,6 +33,15 @@ MODELS = [  # folder, name, size, where
     ("stable-diffusion-xl-base-1.0", "SDXL base 1.0", "~3.5B", "Cloudflare Workers AI"),
 ]
 CRITERIA = ("adherence", "realism", "catchiness", "artifacts")
+
+
+def copy_video(src, trend_id):
+    if not src or not os.path.isfile(src):
+        return None
+    dest = os.path.join(OUT_IMG, "videos", trend_id + ".mp4")
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    shutil.copyfile(src, dest)
+    return "/" + dest.replace(os.sep, "/")
 
 
 def save_jpg(src, dest, max_side=1344, quality=88):
@@ -74,6 +86,8 @@ def main():
             "picture": save_jpg(res["image_path"], os.path.join(OUT_IMG, "pictures", tid + ".jpg")),
             "poster": save_jpg(res["ad_path"], os.path.join(OUT_IMG, "posters", tid + ".jpg"), 1100, 85),
             "image_model": "FLUX.2 Klein 9B",
+            "video": copy_video(res.get("video_path"), tid),
+            "video_format": res.get("video_format"),
         })
 
     # Model benchmark.

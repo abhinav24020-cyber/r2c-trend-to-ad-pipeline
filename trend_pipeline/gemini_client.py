@@ -253,6 +253,22 @@ class GeminiClient:
         text = getattr(result, "text", None) if result is not None else None
         return text.strip() if isinstance(text, str) else None
 
+    def judge_image(self, image: object, instructions: str, label: str = "judge_image") -> Optional[str]:
+        """Ask Gemini for a JSON verdict about an image (PIL image). None when Gemini is unavailable."""
+        if not (self.online and self._client is not None):
+            return None
+
+        def call():
+            self._pace()
+            return self._client.models.generate_content(
+                model=config.GEMINI_TEXT_MODEL, contents=[image, instructions],
+                config={"response_mime_type": "application/json"},
+            )
+
+        result = self._with_backoff(label, call)
+        text = getattr(result, "text", None) if result is not None else None
+        return text.strip() if isinstance(text, str) and text.strip() else None
+
     def _pace(self) -> None:
         """Space text-generation calls to stay under GEMINI_MAX_REQUESTS_PER_MINUTE."""
         rate = config.GEMINI_MAX_REQUESTS_PER_MINUTE

@@ -51,6 +51,18 @@ class TestCrawlerHelpers(unittest.TestCase):
         self.assertTrue(crawler.is_relevant("Regulators look at AI safety"))
         self.assertFalse(crawler.is_relevant("Said the chair in Spain"))  # 'ai' inside words
 
+    def test_google_trend_needs_more_than_one_stray_ai_word(self) -> None:
+        from web_crawler import crawler, trending
+
+        check = crawler.is_relevant
+        football = ["Lazio vs Cagliari: Serie A preview", "Player agent confirms Lazio talks",
+                    "Cagliari injury update"]
+        self.assertFalse(trending.google_trend_is_relevant("lazio - cagliari", football, check))
+        self.assertTrue(trending.google_trend_is_relevant("DeepSeek V4.1 Flash", [], check) or
+                        trending.google_trend_is_relevant("DeepSeek V4.1 Flash",
+                                                          ["DeepSeek releases new AI model", "LLM benchmark results"], check))
+        self.assertTrue(trending.google_trend_is_relevant("openai", ["Sports news"], check))
+
     def test_link_expansion_filter(self) -> None:
         parent = "https://techcrunch.com/2026/10/16/story/"
         self.assertTrue(crawler.expandable_link("https://research.example.org/paper-x", parent))

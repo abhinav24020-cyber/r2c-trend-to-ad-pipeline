@@ -49,7 +49,7 @@ def _good_brief():
             "headline": "Five small models matched a giant",
             "points": ["AI analysis of your paper or patent", "Commercial Readiness Score",
                        "Matched with industry partners"],
-            "subline": "Coordination, not size, closed the gap. R2C.Ai takes results like this to industry.",
+            "subline": "Five Qwen3.8-27B models closed the gap. R2C.Ai takes results like this to industry.",
             "cta": "Get Started Free",
             "caption": ("Five Qwen3.8-27B models matched Claude Fable 5 on LiveCodeBench Hard using the "
                         "GVS5H harness on a single GPU. What could your research do with the right "
@@ -163,7 +163,7 @@ class TestAdCreatives(unittest.TestCase):
         bad = _good_brief()
         bad["creatives"][2]["hashtags"] = []
         client = FakeGemini([json.dumps(bad)] * 3)
-        records = ad_creatives.generate_trend_creatives(_trend(), client)
+        records = ad_creatives.generate_trend_creatives(_trend(), client, attempts=3)
         self.assertEqual(records[2]["status"], "failed")
         self.assertIn("hashtags", records[2]["error_message"])
         self.assertIsNone(records[2]["image_prompt"])
@@ -193,7 +193,7 @@ class TestAdCreatives(unittest.TestCase):
         first = _good_brief()
         first["creatives"][3]["caption"] = "too short"
         client = FakeGemini([json.dumps(first), "not json at all", json.dumps(first)])
-        records = ad_creatives.generate_trend_creatives(_trend(), client)
+        records = ad_creatives.generate_trend_creatives(_trend(), client, attempts=3)
         self.assertEqual([r["status"] for r in records],
                          ["success", "success", "success", "failed", "success"])
 
@@ -336,6 +336,33 @@ class TestAdCreatives(unittest.TestCase):
             self.assertEqual(client.prompts[-1], record["background_prompt"])
             self.assertTrue(result["ad_path"].endswith("_hook_4x5_ad.png"))
             self.assertTrue(os.path.isfile(result["ad_path"]))
+
+    def test_generic_copy_is_rejected_and_specific_copy_passes(self):
+        trend = _trend()
+        good = _good_brief()["creatives"][0]
+        self.assertEqual(ad_creatives.validate_creative(good, "hook", trend), [])
+        generic = dict(good, subline="R2C.Ai turns research into real-world impact.",
+                       caption=("AI is moving fast and research matters more than ever. R2C.Ai helps you turn "
+                                "your work into impact with industry partners and licensing support. "
+                                "Get Started Free today on R2C.Ai."))
+        errors = " ".join(ad_creatives.validate_creative(generic, "hook", trend))
+        self.assertIn("subline must name the trend", errors)
+        self.assertIn("caption must name the trend", errors)
+        filler = dict(good, caption=good["caption"] + " Unlock cutting-edge results.")
+        self.assertTrue(any("cutting-edge" in e for e in ad_creatives.validate_creative(filler, "hook", trend)))
+        vague = dict(good, caption=("Fable is in the news. Researchers should pay attention to what this means "
+                                    "for their own work and their next paper. R2C.Ai matches research with "
+                                    "industry partners. Get Started Free."))
+        self.assertTrue(any("concrete detail" in e for e in ad_creatives.validate_creative(vague, "hook", trend)))
+
+    def test_quoted_words_in_the_picture_are_rejected_and_stripped(self):
+        good = _good_brief()["creatives"][0]
+        bad = dict(good, visual=dict(good["visual"], action="slapping a bright orange 'OPENSHELL' label on a fan"))
+        errors = ad_creatives.validate_creative(bad, "hook", _trend())
+        self.assertTrue(any("written words (OPENSHELL)" in e for e in errors), errors)
+        prompt = ad_creatives.compose_image_prompt("hook", bad["visual"], "solar")
+        self.assertNotIn("OPENSHELL", prompt)
+        self.assertIn("bright orange label on a fan", prompt)
 
     def test_text_check_rules(self):
         from image_generator.text_check import check_ad_text

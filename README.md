@@ -2,7 +2,7 @@
 
 # Trend → Ad: an autonomous AI ad studio
 
-**Crawls the web for what's trending in AI, ranks the trends, and turns each one into a branded, ready-to-post ad for Instagram, Facebook and LinkedIn. It also benchmarks four image models to pick the best.**
+**Crawls 40+ sources for what's trending in AI, ranks the trends, and turns each one into a branded, ready-to-post ad and a 10-second video for Instagram, Facebook and LinkedIn. It also benchmarks four image models to pick the best.**
 
 Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, incubated at IIIT Delhi).
 
@@ -26,12 +26,13 @@ Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, inc
 
 Every ad above was made end to end by the pipeline, with no manual design work:
 
-1. **Discovers** what's moving in AI/ML across 10+ sources: Google Trends, Hugging Face (trending models and daily papers), Reddit, Bluesky, Mastodon, Stack Exchange, YouTube, GitHub and RSS news feeds.
+1. **Discovers** what's moving in AI/ML across 40+ sources: 42 RSS feeds (arXiv, AI labs, tech news, expert newsletters, developer communities and Indian tech and startup media) plus Google Trends, Hugging Face (trending models and daily papers), Hacker News, Reddit, Bluesky, Mastodon, Stack Exchange, YouTube and GitHub.
 2. **Finds real trends**: embeds every item, clusters items into stories, keeps only stories seen on more than one platform, and ranks them by growth and brand fit.
-3. **Writes the ad**: an LLM writes copy on the brand's behalf for a specific audience (researchers or industry), and code rejects hype, invented features, clichés and copy that won't fit the layout.
+3. **Writes the ad**: an LLM writes copy on the brand's behalf for a specific audience (researchers or industry). Code rejects hype, filler, invented features and clichés, and requires every subline and caption to name the trend's model or company and a concrete fact from the evidence.
 4. **Art-directs the picture**: a creative-director LLM pass invents a grounded, witty scene with real people in real Indian settings, plus a "sticker" hook (for example `1M TOKENS` or `5 VS 1`).
-5. **Renders and brands it**: the image model paints a text-free picture in the ad's colour theme. A code-driven poster template then wraps the branding around it: logo, tagline, big headline, picture card with sticker, service chips, CTA and footer, all spelled correctly.
-6. **Benchmarks image models**: the same prompts go to four image models, Gemini vision scores every picture, and a PDF report recommends the best one.
+5. **Renders and brands it**: FLUX.2 Klein 9B paints two text-free pictures in the ad's colour theme, Gemini vision picks the better one, and a code-driven poster template wraps the branding around it: logo, tagline, big headline, picture card with sticker, service chips, CTA and footer, all spelled correctly.
+6. **Makes a video**: a 10-second branded motion video for Reels, Stories and LinkedIn: the picture zooms, the hook, headline and services animate in, and it ends on an R2C card with the CTA.
+7. **Benchmarks image models**: the same prompts go to four image models, Gemini vision scores every picture, and a PDF report recommends the best one.
 
 ## Pipeline
 
@@ -105,8 +106,8 @@ Full report with side-by-side pages for every trend: [`R2C_image_model_compariso
 A Flask web app (`app.py`) puts the whole pipeline in the browser. It is deployed on Vercel: **[https://r2c-trend-to-ad-pipeline.vercel.app](https://r2c-trend-to-ad-pipeline.vercel.app)**
 
 - **Latest trends** from the most recent crawl, with score, platforms and R2C relevance, and a "Make an ad" button
-- **Ready ads**: the finished poster ads, one per trend
-- **Studio**: switch format (4:5, 9:16, 1:1, 1.91:1) and colour theme instantly, edit the copy, generate a new picture (FLUX.2 Klein 4B/9B), download the ad and copy its caption
+- **Ready ads**: the finished poster ads, one per trend, each with its video
+- **Studio**: switch format (4:5, 9:16, 1:1, 1.91:1) and colour theme instantly, edit the copy, generate a new picture (FLUX.2 Klein 9B, best of 2 picked by Gemini vision), make a 10-second video ad, download both and copy the caption
 - **Scrape now**: paste article links (examples from the latest crawl are pre-filled) and click *Scrape & find trends*. The pipeline scrapes them, runs Gate 1 and Gate 2, and lists the topics in about 20 seconds; *Make an ad* turns one into an R2C ad (Gemini copy + FLUX picture + poster)
 - **Model benchmark** scorecard
 

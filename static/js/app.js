@@ -61,7 +61,7 @@ function renderAds() {
             <img src="${esc(item.poster)}" alt="" loading="lazy">
             <div class="ad-card-body">
                 <div class="ad-card-title">${esc(item.trend.topic_title)}</div>
-                <div class="ad-card-meta">${esc(item.aspect_ratio)} · ${esc(FORMAT_SHORT[item.aspect_ratio] || "")} · ${esc(item.theme)}</div>
+                <div class="ad-card-meta">${esc(item.aspect_ratio)} · ${esc(FORMAT_SHORT[item.aspect_ratio] || "")} · ${esc(item.theme)}${item.video ? ' · <span class="has-video">▶ video</span>' : ""}</div>
             </div>
         </button>`).join("");
     $("ad-grid").querySelectorAll(".ad-card").forEach((el) =>
@@ -166,6 +166,7 @@ function syncControls() {
     $("f-cta").value = c && c.cta ? c.cta : DATA.ctas[0];
     $("f-prompt").value = state.prompt || "";
     $("btn-picture").disabled = !c;
+    $("btn-video").disabled = !(c && state.picture);
     renderPoints();
     const hashtags = c && c.hashtags ? "\n\n" + c.hashtags.map((h) => "#" + String(h).replace(/^#/, "")).join(" ") : "";
     $("caption").textContent = c && c.caption ? c.caption + hashtags : "-";
@@ -193,7 +194,30 @@ function clearPreview(message) {
 }
 
 /* ---------------------------------------------------------------- actions */
+function showVideo(src, format, play) {
+    const player = $("video-player");
+    player.src = src;
+    player.hidden = false;
+    const link = $("btn-video-download");
+    link.href = src;
+    link.download = `r2c_video_${String(format).replace(/[:.]/g, "x")}_${state.theme}.mp4`;
+    link.hidden = false;
+    if (play) {
+        player.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        player.play().catch(() => {});
+    }
+}
+
+function resetVideo() {
+    const player = $("video-player");
+    player.pause();
+    player.removeAttribute("src");
+    player.hidden = true;
+    $("btn-video-download").hidden = true;
+}
+
 function openShowcase(item, scroll = true) {
+    resetVideo();
     Object.assign(state, {
         trend: item.trend, copy: JSON.parse(JSON.stringify(item.copy)), picture: item.picture,
         poster: item.poster, prompt: item.image_prompt || "", format: item.aspect_ratio,
@@ -201,10 +225,12 @@ function openShowcase(item, scroll = true) {
     });
     syncControls();
     showPreview(item.poster, `${FORMAT_SHORT[item.aspect_ratio] || item.aspect_ratio} · ${item.placement} · picture by ${item.image_model}`);
+    if (item.video) showVideo(item.video, item.video_format || "9:16", false);
     if (scroll) $("studio").scrollIntoView({ behavior: "smooth" });
 }
 
 function openTrend(trend) {
+    resetVideo();
     Object.assign(state, { trend, copy: null, picture: null, poster: null, prompt: "", audience: "researchers" });
     syncControls();
     clearPreview("Click “Write ad copy with Gemini” to create this ad.");
@@ -291,17 +317,40 @@ async function generatePicture() {
     state.prompt = prompt;
     const btn = $("btn-picture");
     btn.disabled = true;
-    busy(true, "Painting the picture (about 10 s)…");
+    const candidates = $("f-best").checked ? 2 : 1;
+    busy(true, candidates > 1 ? "Painting 2 pictures and picking the better one…" : "Painting the picture…");
     try {
-        const result = await api("/api/generate-picture", { prompt, format: state.format, model: $("f-model").value });
+        const result = await api("/api/generate-picture", { prompt, format: state.format, model: $("f-model").value, candidates });
         state.picture = result.picture;
+        $("btn-video").disabled = false;
+        resetVideo();
         await compose();
-        toast("New picture ready.");
+        const s = (result.scores || [])[result.chosen];
+        toast(s ? `New picture ready (Gemini score ${s.overall}/10, best of ${result.candidates}).` : "New picture ready.");
     } catch (err) {
         toast(err.message, true);
         busy(false);
     } finally {
         btn.disabled = !state.copy;
+    }
+}
+
+async function makeVideo() {
+    if (!state.copy || !state.picture) return;
+    readCopyFields();
+    const btn = $("btn-video");
+    btn.disabled = true;
+    const ratio = ["9:16", "4:5", "1:1"].includes(state.format) ? state.format : "9:16";
+    busy(true, "Rendering the video (about 30 seconds)…");
+    try {
+        const result = await api("/api/video", { picture: state.picture, copy: state.copy, theme: state.theme, format: ratio });
+        showVideo(result.video, result.format, true);
+        toast(`Video ready (${result.format}, ${result.seconds}s).`);
+    } catch (err) {
+        toast(err.message, true);
+    } finally {
+        busy(false);
+        btn.disabled = !(state.copy && state.picture);
     }
 }
 
@@ -373,6 +422,7 @@ async function init() {
     $("btn-picture").addEventListener("click", generatePicture);
     $("btn-scrape").addEventListener("click", scrapeLinks);
     $("btn-copy-caption").addEventListener("click", copyCaption);
+    $("btn-video").addEventListener("click", makeVideo);
     $("btn-examples").addEventListener("click", fillExampleLinks);
     fillExampleLinks();
     if (DATA.showcase.length) openShowcase(DATA.showcase[0], false);  // pre-load the studio, stay at the top

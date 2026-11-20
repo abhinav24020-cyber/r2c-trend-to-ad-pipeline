@@ -136,30 +136,92 @@ def compose():
 
 @app.route("/api/generate-picture", methods=["POST"])
 def generate_picture():
-    """A new text-free picture from an image prompt, at the format's size."""
-    from image_generator import generate_images
+    """
+    A new text-free picture from an image prompt, at the format's size.
+
+    With candidates > 1 the pictures render in parallel, Gemini vision scores each against
+    the prompt (image_generator.picture_quality), and the best one is returned. The winner
+    gets a light sharpen and contrast polish.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+
+    from image_generator import generate_images, picture_quality
+    from trend_pipeline.gemini_client import get_client
 
     body = request.get_json(silent=True) or {}
     prompt = str(body.get("prompt") or "").strip()
     if len(prompt) < 40:
         return _error("Write an image prompt of at least a sentence.")
-    model = IMAGE_MODELS.get(str(body.get("model") or "klein4b"))
+    model = IMAGE_MODELS.get(str(body.get("model") or "klein9b"))
     if not model:
         return _error("Unknown image model.")
+    try:
+        candidates = max(1, min(3, int(body.get("candidates") or 1)))
+    except (TypeError, ValueError):
+        return _error("candidates must be 1, 2 or 3.")
     if not (config.CLOUDFLARE_ACCOUNT_ID and config.CLOUDFLARE_API_TOKEN):
         return _error("Image generation is not configured (CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN).", 503)
     try:
         width, height = _ratio_size(str(body.get("format") or "4:5"))
-        client = generate_images.CloudflareImageClient(
-            config.CLOUDFLARE_ACCOUNT_ID, config.CLOUDFLARE_API_TOKEN, model, config.CLOUDFLARE_IMAGE_STEPS)
-        image = client.text_to_image(prompt=prompt, width=width, height=height,
-                                     negative_prompt=generate_images.NEGATIVE_FOR_BACKGROUND)
     except ValueError as exc:
         return _error(str(exc))
-    except (RuntimeError, OSError) as exc:
-        logger.error("Picture generation failed: %s", exc)
-        return _error(str(exc), 502)
-    return jsonify({"picture": _data_url(image, quality=92), "model": model})
+    client = generate_images.CloudflareImageClient(
+        config.CLOUDFLARE_ACCOUNT_ID, config.CLOUDFLARE_API_TOKEN, model, config.CLOUDFLARE_IMAGE_STEPS)
+
+    def render(_):
+        return client.text_to_image(prompt=prompt, width=width, height=height,
+                                    negative_prompt=generate_images.NEGATIVE_FOR_BACKGROUND)
+
+    images, failures = [], []
+    with ThreadPoolExecutor(max_workers=candidates) as pool:
+        for future in [pool.submit(render, i) for i in range(candidates)]:
+            try:
+                images.append(future.result())
+            except (RuntimeError, OSError) as exc:
+                failures.append(str(exc))
+    if not images:
+        logger.error("Picture generation failed: %s", failures[0] if failures else "no image")
+        return _error(failures[0] if failures else "No picture was generated.", 502)
+    best, scores = 0, [None] * len(images)
+    if len(images) > 1:
+        gemini = get_client()
+        best, scores = picture_quality.choose_best(images, prompt, gemini if gemini.online else None)
+    picture = picture_quality.polish(images[best])
+    return jsonify({"picture": _data_url(picture, quality=92), "model": model, "candidates": len(images),
+                    "chosen": best, "scores": scores})
+
+
+@app.route("/api/video", methods=["POST"])
+def make_video():
+    """A 10-second branded motion video ad (MP4) from the picture, copy and colour theme."""
+    from image_generator import video_ads
+    from prompt_generator import ad_creatives
+
+    body = request.get_json(silent=True) or {}
+    copy = body.get("copy") or {}
+    theme = str(body.get("theme") or "solar")
+    ratio = str(body.get("format") or "9:16")
+    ratio = ratio if ratio in video_ads.VIDEO_SIZES else "9:16"  # link ads (1.91:1) become a vertical Reel
+    if theme not in ad_creatives.THEMES:
+        return _error("Unknown colour theme {!r}.".format(theme))
+    if not str(copy.get("headline") or "").strip():
+        return _error("The video needs a headline.")
+    try:
+        picture = _load_picture(str(body.get("picture") or ""))
+    except ValueError as exc:
+        return _error(str(exc))
+    with tempfile.TemporaryDirectory() as tmp:
+        out = os.path.join(tmp, "ad.mp4")
+        try:
+            video_ads.render_video(picture, copy, out, theme, ratio)
+        except (RuntimeError, OSError) as exc:
+            logger.exception("Video rendering failed")
+            return _error("Could not render the video: {}".format(exc), 502)
+        with open(out, "rb") as handle:
+            data = base64.b64encode(handle.read()).decode("ascii")
+    width, height = video_ads.VIDEO_SIZES[ratio]
+    return jsonify({"video": "data:video/mp4;base64," + data, "format": ratio, "size": [width, height],
+                    "seconds": video_ads.DURATION})
 
 
 @app.route("/api/scrape", methods=["POST"])

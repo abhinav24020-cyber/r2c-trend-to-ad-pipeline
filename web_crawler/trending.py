@@ -54,6 +54,18 @@ _MARKDOWN_NOISE_RE = re.compile(r"!\[[^\]]*\]\([^)]*\)|<[^>]+>|[#>*`|]+")
 _TRAILING_VERSION_RE = re.compile(r"\b\d{4}\b$")
 
 
+def google_trend_is_relevant(term: str, headlines: List[str], is_relevant: Callable[..., bool]) -> bool:
+    """
+    A Google Trends topic is AI-relevant if its own name is, or if at least half of its
+    news headlines (minimum 2) are. One stray keyword in one headline is not enough:
+    on 1 Nov 2026 the football fixture "lazio - cagliari" passed that way.
+    """
+    if is_relevant(term):
+        return True
+    hits = sum(1 for h in headlines if h and is_relevant(h))
+    return hits >= max(2, (len(headlines) + 1) // 2)
+
+
 def model_query(model_id: str) -> str:
     """'deepseek-ai/DeepSeek-V4.1-Flash-1017' -> 'DeepSeek V4.1 Flash'."""
     name = model_id.split("/", 1)[-1]
@@ -175,7 +187,7 @@ def register(
                 "url": n.find("news_item_url").get_text(strip=True) if n.find("news_item_url") else "",
                 "source": n.find("news_item_source").get_text(strip=True) if n.find("news_item_source") else "",
             } for n in item.find_all("news_item")]
-            if not is_relevant(term, *(n["title"] for n in news)):
+            if not google_trend_is_relevant(term, [n["title"] for n in news], is_relevant):
                 continue
             published = item.find("pubDate").get_text(strip=True) if item.find("pubDate") else ""
             if not is_fresh(published, now):

@@ -110,11 +110,14 @@ THEMES = {
 THEME_ORDER = list(THEMES)
 # Real-photo cues instead of the glossy CGI finish image models default to; plus
 # richness so the picture is busy and catchy, not minimal.
-REAL_LOOK = ("Looks like a real, high-budget ad shoot, not CGI: true-to-life materials and skin, natural "
-             "imperfections, subtle film grain, no plastic sheen, no lens flares, no objects floating in an "
-             "empty void.")
-RICH_FRAME = ("Full, layered frame bursting with energy and detail: a detailed foreground, a clear hero "
-              "subject and a lively background, bold saturated colour, high contrast, eye-catching.")
+REAL_LOOK = ("Looks like a real high-budget ad shoot, not CGI: true-to-life materials and skin, subtle film "
+             "grain, no plastic sheen, no lens flares, nothing floating in an empty void.")
+# The commonest defects in the model benchmark: gibberish writing on props and odd hands.
+# Image models follow positive phrasing ("pages are blank") better than "no text".
+CLEAN_DETAILS = ("Papers, screens and signs are blank or out of focus, never readable letters. Hands and faces are "
+                 "natural and anatomically correct.")
+RICH_FRAME = ("Full, layered, energetic frame: detailed foreground, clear hero subject, lively background, "
+              "bold saturated colour, high contrast, eye-catching.")
 # Described, never named: image models draw font names as text.
 BRAND_TYPE = ("headline in a bold, elegant modern serif display typeface; button text in a clean geometric "
               "sans-serif")
@@ -237,7 +240,56 @@ EXAMPLE_SUBJECTS = ["toy car", "miniature car", "model car", "mining truck", "hu
 VISUAL_FIELDS = ("concept", "focal_subject", "action", "scroll_stopper", "setting", "camera",
                  "lighting", "colors", "mood")
 BANNED_COPY = ["revolutionary", "groundbreaking", "game-changing", "game changer", "unprecedented",
-               "mind-blowing", "insane", "you won't believe"]
+               "mind-blowing", "insane", "you won't believe",
+               # Generic marketing filler that fits any topic; reviewers flagged captions like this.
+               "cutting-edge", "cutting edge", "unlock", "leverage", "harness the power", "in today's",
+               "fast-paced", "next level", "landscape", "seamless", "the future of", "paradigm", "synergy",
+               "transformative", "elevate", "supercharge", "revolutioni"]
+# Words that appear in trend titles but say nothing specific about the story.
+_GENERIC_TITLE_WORDS = {"releases", "release", "launches", "launch", "unveils", "introduces", "model", "models",
+                        "open", "source", "open-sources", "weights", "new", "the", "and", "for", "with", "via",
+                        "app", "agents", "agent", "coding", "data", "research", "language", "small", "large",
+                        "why", "how", "what", "matters", "tested", "real-world", "designing", "building",
+                        "built", "last", "lasting", "making", "using", "into", "from", "that", "this", "their",
+                        "your", "about", "after", "over", "detect", "detects", "unauthorized", "major", "match",
+                        "matches", "matched", "lets", "five", "three", "small", "giant", "giants", "beats"}
+
+
+def trend_terms(trend: Optional[Dict[str, Any]]) -> List[str]:
+    """
+    Names that make copy specific to THIS trend: its entities (model, company, product)
+    plus distinctive capitalised or numbered title words (e.g. "DeepSeek", "LFM3", "Mistral").
+    """
+    if not trend:
+        return []
+    terms = []
+    # Title words first: they are clean. Gate 2 entities can carry scraped noise
+    # ("HuggingFaceトレンド LiquidAI ...", "I Verified Myself"), so only short, plain ones are kept.
+    for word in re.findall(r"[A-Za-z][A-Za-z0-9.+-]*[A-Za-z0-9]", str(trend.get("topic_title") or "")):
+        if word.lower() in _GENERIC_TITLE_WORDS or len(word) < 3:
+            continue
+        if any(c.isdigit() for c in word) or word[0].isupper():
+            terms.append(word)
+    # Concept trends ("Designing an AI serving harness built to last") have no product name:
+    # their meaningful title words ("serving", "harness") are what specific copy mentions.
+    title_words = re.findall(r"[a-z][a-z-]{4,}", str(trend.get("topic_title") or "").lower())
+    terms += [w for w in title_words if w not in _GENERIC_TITLE_WORDS]
+    for entity in trend.get("topic_entities") or []:
+        entity = " ".join(str(entity).split())
+        if 3 <= len(entity) <= 30 and entity.isascii() and len(entity.split()) <= 3 and                 any(c.isupper() or c.isdigit() for c in entity) and entity.lower() not in _GENERIC_TITLE_WORDS:
+            terms.append(entity)
+    seen, unique = set(), []
+    for term in terms:
+        key = term.lower()
+        if key not in seen and key not in ("r2c", "r2c.ai", "ai"):
+            seen.add(key)
+            unique.append(term)
+    return unique
+
+
+def _mentions(text: str, terms: List[str]) -> List[str]:
+    low = text.lower()
+    return [t for t in terms if t.lower() in low]
 
 BRIEF_PROMPT = """You are the senior performance-marketing creative for {name} ({expansion}).
 About {name}: {about}
@@ -262,16 +314,21 @@ THIS IS AN ADVERTISEMENT FOR R2C.Ai, written on R2C.Ai's behalf to its customers
 The ad is laid out in the R2C.Ai brand template: logo and site description, eyebrow, headline, subline, a "How R2C.Ai helps you" list, CTA button, website footer. Write every text element:
 - eyebrow: 2-4 word hook naming the trend, e.g. "KIMI K3.1 JUST DROPPED", "AGENT SECURITY WAKE-UP CALL".
 - headline: 3-8 words, spoken TO the reader about THEIR opportunity or problem, sparked by the trend (use "you"/"your" where natural). Not a news headline about another company. No hype words.
-- subline: max 18 words. Links the trend to what R2C.Ai does and must name R2C.Ai.
+- subline: max 18 words. Names the trend's model, company or product ({trend_terms}) AND says what R2C.Ai does about it; must name R2C.Ai.
 - points: exactly 3 items copied word for word from this list for the ad's audience (these are R2C.Ai's real services):
   researchers: {benefits_researchers}
   industry: {benefits_industry}
 - cta: exactly one of {ctas}.
 - audience: "researchers" or "industry".
-- caption: 150-600 characters, plain language, a natural hook in the first line, at least one concrete fact from the evidence, ends with the CTA.
-- hashtags: 3-5 relevant hashtags without the # sign.
+- caption: 250-600 characters, plain language, written for THIS trend only, in this order:
+  1) a hook that names the trend's model, company or product ({trend_terms}) and its single most striking fact (a number, result or claim from KEY FACTS);
+  2) what that means for the reader (a researcher's paper, or an R&D team's roadmap), in one sentence;
+  3) the specific R2C.Ai service from the points that helps here, and the CTA.
+  It must not be reusable for another trend. GENERIC (rejected): "AI is moving fast. R2C.Ai helps you turn research into impact. Get started today!" SPECIFIC (style to follow, for an unrelated trend): "Acme's 2B-parameter TinyVision just matched far larger models on chart reading. Compact vision research now has buyers. R2C.Ai scores your paper's commercial readiness and matches it with industry partners. Upload Your Research."
+  Never use filler such as "cutting-edge", "unlock", "leverage", "in today's fast-paced world", "the future of", "landscape", "seamless", "next level".
+- hashtags: 3-5 hashtags without the # sign; at least one names the trend's model, company or topic.
 - fact_used: the exact key fact the ad relies on, or "none".
-- visual: art direction for the image. You are briefing a top photographer / illustrator. All text and the logo are laid out by the brand template; describe the picture only, never text, signs or screens with writing. Follow the ad's VISUAL brief above for the medium and the kind of boldness wanted.
+- visual: art direction for the image. You are briefing a top photographer / illustrator. All text and the logo are laid out by the brand template; describe the picture only, never text, signs or screens with writing. Never put a word, name or label in quotes (no 'OPENSHELL' tags, no 'LICENSED' stamps): the image model would draw it. Follow the ad's VISUAL brief above for the medium and the kind of boldness wanted.
   The BOLD examples above illustrate OTHER trends. Never reuse their subjects (toy cars, mining trucks, hummingbirds, whales, sprinters, paper walls, conveyor factories, prototype chips). Invent a new image from THIS trend's story: someone who read today's news about it should see the connection at once (its setting, its objects, its people, its stakes).
   - concept: one sentence, the idea that links this trend to the ad's message (for the team, not drawn).
   - focal_subject: who or what fills the frame, described concretely (materials, size, colour, expression). Specific to THIS trend; different for each of the five ads.
@@ -322,6 +379,7 @@ def make_brief_request(trend: Dict[str, Any]) -> str:
         excerpts=_excerpts(trend),
         formats=formats,
         ctas=", ".join('"{}"'.format(c) for c in ALLOWED_CTAS),
+        trend_terms=", ".join(trend_terms(trend)[:8]) or "the names in the trend title",
         benefits_researchers="; ".join('"{}"'.format(b) for b in BENEFITS["researchers"]),
         benefits_industry="; ".join('"{}"'.format(b) for b in BENEFITS["industry"]),
     )
@@ -354,7 +412,8 @@ def _text(value: Any) -> str:
     return str(value or "").strip()
 
 
-def validate_creative(item: Dict[str, Any], expected_type: str) -> List[str]:
+def validate_creative(item: Dict[str, Any], expected_type: str,
+                      trend: Optional[Dict[str, Any]] = None) -> List[str]:
     errors: List[str] = []
     tag = expected_type
     if item.get("ad_type") != expected_type:
@@ -384,6 +443,19 @@ def validate_creative(item: Dict[str, Any], expected_type: str) -> List[str]:
     caption = str(item.get("caption") or "")
     if not 150 <= len(caption) <= 700:
         errors.append("{}: caption must be 150-600 characters (got {})".format(tag, len(caption)))
+    terms = trend_terms(trend)
+    if terms:
+        # Specific to THIS trend: subline and caption name it; the caption carries a concrete detail.
+        if not _mentions(subline, terms):
+            errors.append("{}: subline must name the trend's model, company or product (one of: {})".format(
+                tag, ", ".join(terms[:6])))
+        named = _mentions(caption, terms)
+        if not named:
+            errors.append("{}: caption must name the trend's model, company or product (one of: {})".format(
+                tag, ", ".join(terms[:6])))
+        elif not (re.search(r"[0-9]", re.sub(r"(?i)r2c", "", caption)) or len(named) >= 2):  # "R2C" is not a fact
+            errors.append("{}: caption needs a concrete detail from KEY FACTS (a number, result or second name)"
+                          .format(tag))
     tags = item.get("hashtags")
     if not isinstance(tags, list) or not 3 <= len(tags) <= 5:
         errors.append("{}: hashtags must be a list of 3-5".format(tag))
@@ -408,16 +480,21 @@ def validate_creative(item: Dict[str, Any], expected_type: str) -> List[str]:
     for cliche in BANNED_VISUAL:
         if cliche in visual_text:
             errors.append("{}: visual uses the cliché '{}'; pick a concrete, trend-specific scene".format(tag, cliche))
+    raw_visual = " ".join(_text(v) for v in visual.values())
+    quoted = [single or double for single, double in _QUOTED_WORDS.findall(raw_visual)]
+    if quoted:
+        errors.append("{}: visual asks for written words ({}); describe objects without any text".format(
+            tag, ", ".join(q.strip() for q in quoted[:3])))
     return errors
 
 
-def validate_brief(payload: Any) -> List[str]:
+def validate_brief(payload: Any, trend: Optional[Dict[str, Any]] = None) -> List[str]:
     creatives = payload.get("creatives") if isinstance(payload, dict) else None
     if not isinstance(creatives, list) or len(creatives) != len(AD_TYPES):
         return ["return exactly {} creatives in the order {}".format(len(AD_TYPES), ", ".join(AD_TYPES))]
     errors: List[str] = []
     for item, expected in zip(creatives, AD_TYPES):
-        errors.extend(validate_creative(item if isinstance(item, dict) else {}, expected))
+        errors.extend(validate_creative(item if isinstance(item, dict) else {}, expected, trend))
     visuals = [c.get("visual") or {} for c in creatives if isinstance(c, dict)]
     subjects = [str(v.get("focal_subject", "")).strip().lower() for v in visuals]
     if len(set(subjects)) < len(subjects):
@@ -478,6 +555,19 @@ def compose_ad_prompt(ad_type: str, item: Dict[str, Any]) -> str:
     return prompt
 
 
+# Quoted words in a picture description ('OPENSHELL', "LICENSED") get drawn as text by the image model.
+_QUOTED_WORDS = re.compile(r"'([A-Z0-9][A-Za-z0-9 .!&-]{1,30})'|\"([^\"]{1,40})\"")
+
+
+def _strip_quoted(text: str) -> str:
+    text = re.sub(r"'[A-Z0-9][A-Za-z0-9 .!&-]{1,30}'|\"[^\"]{1,40}\"", "", text)
+    return re.sub(r"\s{2,}", " ", text).strip()
+
+
+FIELD_LIMITS = {"focal_subject": 230, "action": 170, "scroll_stopper": 170, "setting": 150,
+                "camera": 100, "lighting": 120, "colors": 90, "mood": 60}
+
+
 def compose_image_prompt(ad_type: str, visual: Dict[str, Any], theme: Optional[str] = None) -> str:
     """
     Concrete image prompt in the order FLUX weighs most: medium, then subject and
@@ -486,10 +576,13 @@ def compose_image_prompt(ad_type: str, visual: Dict[str, Any], theme: Optional[s
     model cannot draw an abstract idea, only what is described.
     """
     fmt = AD_FORMATS[ad_type]
-    ratio = fmt["aspect_ratio"]
 
     def field(name: str) -> str:
-        return _text(visual.get(name)).rstrip(".")
+        # Gemini's descriptions can run long; capping each keeps the whole prompt under the
+        # image API's 2048-character limit, so the closing rules are never cut off.
+        text = _strip_quoted(_text(visual.get(name))).rstrip(".")
+        limit = FIELD_LIMITS.get(name, 160)
+        return text if len(text) <= limit else text[:limit].rsplit(" ", 1)[0].rstrip(",;:")
 
     colours = ("Colour palette: {} dominate the whole scene, bold and saturated.".format(THEMES[theme])
                if theme in THEMES else "Colour palette: {}, bold and saturated.".format(field("colors")))
@@ -502,6 +595,7 @@ def compose_image_prompt(ad_type: str, visual: Dict[str, Any], theme: Optional[s
         colours,
         RICH_FRAME,
         REAL_LOOK,
+        CLEAN_DETAILS,
         "Main subject centred and whole, nothing important at the edges of the frame.",
         "Mood: {}.".format(field("mood")),
         NEGATIVE,
@@ -530,7 +624,7 @@ What makes it creative:
 - Full of energy and detail, not minimal: a busy, layered, colourful scene with action, expressions and props.
 - The whole picture is in this colour palette: {palette}.
 - sticker: a 1-3 word badge for the ad's corner sticker, ideally a striking number or word from the trend (e.g. "1M TOKENS", "5 vs 1", "NEW", "20x").
-- No text, screens with writing, logos, or these clichés: glowing brains, neural networks, robots, holograms, server racks, padlocks, keys, gears, puzzles, chess, light bulbs, handshakes, rockets, toy cars.
+- No text, quoted words, labels or stamps with writing, screens with writing, logos, or these clichés: glowing brains, neural networks, robots, holograms, server racks, padlocks, keys, gears, puzzles, chess, light bulbs, handshakes, rockets, toy cars.
 {people_rule}{headline_rule}
 Return JSON only:
 {{"headline": "...", "sticker": "...", "visual": {{"concept": "...", "focal_subject": "...", "action": "...", "scroll_stopper": "...", "setting": "...", "camera": "...", "lighting": "...", "colors": "...", "mood": "..."}}}}"""
@@ -568,7 +662,7 @@ def reimagine_visual(record: Dict[str, Any], trend: Dict[str, Any], client: Any,
             payload = parse_json(_generate(client, prompt))
             candidate = dict(post, headline=_text(payload.get("headline")) or post.get("headline"),
                              visual=payload.get("visual"), sticker=_text(payload.get("sticker")).upper())
-            errors = validate_creative(candidate, ad_type)
+            errors = validate_creative(candidate, ad_type, trend)
             if not 1 <= len(candidate["sticker"]) <= 14:
                 errors.append("{}: sticker must be 1-3 words, at most 14 characters".format(ad_type))
         except (ValueError, TypeError, AttributeError) as exc:
@@ -597,7 +691,7 @@ def _generate(client: Any, prompt: str) -> Optional[str]:
         return client.generate_text(prompt, label="ad_creative_brief")
 
 
-def generate_trend_creatives(trend: Dict[str, Any], client: Any, attempts: int = 3) -> List[Dict[str, Any]]:
+def generate_trend_creatives(trend: Dict[str, Any], client: Any, attempts: int = 4) -> List[Dict[str, Any]]:
     """One brief request (plus one repair) for a trend -> five creative records."""
     request = make_brief_request(trend)
     errors: List[str] = ["no response"]
@@ -608,10 +702,10 @@ def generate_trend_creatives(trend: Dict[str, Any], client: Any, attempts: int =
         prompt = request if attempt == 1 else request + REPAIR_SUFFIX.format(errors="\n".join("- " + e for e in errors))
         try:
             payload = parse_json(_generate(client, prompt))
-            errors = validate_brief(payload)
+            errors = validate_brief(payload, trend)
             items = payload.get("creatives") if isinstance(payload, dict) else []
             for item, ad_type in zip(items if isinstance(items, list) else [], AD_TYPES):
-                if ad_type not in best and isinstance(item, dict) and not validate_creative(item, ad_type):
+                if ad_type not in best and isinstance(item, dict) and not validate_creative(item, ad_type, trend):
                     best[ad_type] = item
         except (ValueError, TypeError) as exc:
             errors = [str(exc)]
@@ -625,7 +719,7 @@ def generate_trend_creatives(trend: Dict[str, Any], client: Any, attempts: int =
     records = []
     for index, ad_type in enumerate(AD_TYPES):
         item = creatives[index] if isinstance(creatives, list) and index < len(creatives) else {}
-        item_errors = validate_creative(item, ad_type) if isinstance(item, dict) else ["missing"]
+        item_errors = validate_creative(item, ad_type, trend) if isinstance(item, dict) else ["missing"]
         ok = not item_errors
         record: Dict[str, Any] = {
             "trend_id": trend.get("trend_id"),

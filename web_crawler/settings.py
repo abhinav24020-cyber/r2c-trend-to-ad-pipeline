@@ -72,6 +72,39 @@ RSS_FEEDS: Dict[str, str] = {
     "Berkeley AI Research": "https://bair.berkeley.edu/blog/feed.xml",
     "Google DeepMind": "https://deepmind.google/blog/rss.xml",
     "Apple Machine Learning Research": "https://machinelearning.apple.com/rss.xml",
+    # Added Nov 2026 (each checked live: responds, has items, newest under a week old).
+    # Research and AI labs
+    "arXiv cs.CV": "https://rss.arxiv.org/rss/cs.CV",
+    "arXiv cs.RO": "https://rss.arxiv.org/rss/cs.RO",
+    "Google AI (The Keyword)": "https://blog.google/technology/ai/rss/",
+    "AWS Machine Learning": "https://aws.amazon.com/blogs/machine-learning/feed/",
+    "Together AI": "https://www.together.ai/blog/rss.xml",
+    "MIT News AI": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
+    "IEEE Spectrum AI": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
+    # AI and tech news
+    "Ars Technica AI": "https://arstechnica.com/ai/feed/",
+    "Wired AI": "https://www.wired.com/feed/tag/ai/latest/rss",
+    "ZDNet AI": "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+    "SiliconANGLE AI": "https://siliconangle.com/category/ai/feed/",
+    "The Decoder": "https://the-decoder.com/feed/",
+    "MarkTechPost": "https://www.marktechpost.com/feed/",
+    "KDnuggets": "https://www.kdnuggets.com/feed",
+    # Newsletters and expert blogs
+    "Import AI": "https://importai.substack.com/feed",
+    "Latent Space": "https://www.latent.space/feed",
+    "Interconnects": "https://www.interconnects.ai/feed",
+    "Ahead of AI": "https://magazine.sebastianraschka.com/feed",
+    "Simon Willison": "https://simonwillison.net/atom/everything/",
+    # Developer communities and launches
+    "Lobsters AI": "https://lobste.rs/t/ai.rss",
+    "dev.to AI": "https://dev.to/feed/tag/ai",
+    "Product Hunt": "https://www.producthunt.com/feed",
+    # Indian tech, startups and policy (R2C's home market)
+    "Analytics India Magazine": "https://analyticsindiamag.com/feed/",
+    "Inc42": "https://inc42.com/feed/",
+    "YourStory": "https://yourstory.com/feed",
+    "ET Tech": "https://economictimes.indiatimes.com/tech/rssfeeds/13357270.cms",
+    "MediaNama": "https://www.medianama.com/feed/",
 }
 
 # --------------------------------------------------------------------------

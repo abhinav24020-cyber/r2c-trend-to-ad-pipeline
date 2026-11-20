@@ -22,3 +22,6 @@ Pillow>=10.0
 
 # Web app (app.py): local UI and the Vercel deployment.
 flask>=3.0
+
+# Motion video ads (image_generator/video_ads.py): bundled ffmpeg for H.264 MP4.
+imageio-ffmpeg==0.5.1
