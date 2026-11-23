@@ -45,7 +45,7 @@ GEMINI_TEXT_MODEL: str = os.environ.get(
 # Tried in order when the main text model is overloaded (503 "high demand") or keeps failing,
 # so a busy hour at Google does not cost the day's ads.
 GEMINI_FALLBACK_TEXT_MODELS: list = [
-    m.strip() for m in os.environ.get("GEMINI_FALLBACK_TEXT_MODELS", "gemini-3.5-flash,gemini-2.5-flash").split(",")
+    m.strip() for m in os.environ.get("GEMINI_FALLBACK_TEXT_MODELS", "gemini-3.8-flash,gemini-3.5-flash").split(",")
     if m.strip()
 ]
 
