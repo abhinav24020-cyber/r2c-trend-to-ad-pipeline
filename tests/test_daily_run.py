@@ -145,5 +145,30 @@ class FormatFallbackTests(unittest.TestCase):
             self.assertEqual(daily_run.make_picture.call_args[0][1], "1:1")  # engagement = 1:1
 
 
+class BuildWebDataPathTests(unittest.TestCase):
+    """samples.json keeps Windows paths from the machine that made the ads; CI runs on Linux."""
+
+    def test_foreign_path_maps_into_repo_and_missing_source_keeps_published_copy(self):
+        import tempfile
+        from PIL import Image
+        from scripts import build_web_data as b
+        with tempfile.TemporaryDirectory() as tmp:
+            cwd = os.getcwd(); os.chdir(tmp)
+            try:
+                os.makedirs(os.path.join("data", "output", "samples"))
+                Image.new("RGB", (8, 8)).save(os.path.join("data", "output", "samples", "a.png"))
+                foreign = r"x:\Other\machine\repo\data\output\samples\a.png"
+                self.assertEqual(b.repo_path(foreign), os.path.join("data", "output", "samples", "a.png"))
+                dest = os.path.join("static", "showcase", "pictures", "t.jpg")
+                self.assertEqual(b.save_jpg(foreign, dest), "/static/showcase/pictures/t.jpg")
+                # source gone (as on CI): the already-published copy is kept
+                self.assertEqual(b.save_jpg(r"x:\gone\b.png", dest), "/static/showcase/pictures/t.jpg")
+                self.assertIsNone(b.copy_video(r"x:\gone\v.mp4", "t"))
+                with self.assertRaises(FileNotFoundError):
+                    b.save_jpg(r"x:\gone\c.png", os.path.join("static", "showcase", "pictures", "never.jpg"))
+            finally:
+                os.chdir(cwd)
+
+
 if __name__ == "__main__":
     unittest.main()

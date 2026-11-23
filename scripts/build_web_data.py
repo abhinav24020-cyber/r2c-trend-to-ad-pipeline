@@ -35,22 +35,50 @@ MODELS = [  # folder, name, size, where
 CRITERIA = ("adherence", "realism", "catchiness", "artifacts")
 
 
-def copy_video(src, trend_id):
-    if not src or not os.path.isfile(src):
+def repo_path(path):
+    """A file path recorded on another machine (a Windows path such as C:/Users/.../data/output/x.png) as a path
+    inside this repository ("data/output/x.png"), so the build works on Windows and on Linux CI."""
+    if not path:
         return None
-    dest = os.path.join(OUT_IMG, "videos", trend_id + ".mp4")
-    os.makedirs(os.path.dirname(dest), exist_ok=True)
-    shutil.copyfile(src, dest)
+    if os.path.isfile(path):
+        return path
+    norm = path.replace("\\", "/")
+    for anchor in ("data/output/", "static/"):
+        at = norm.find(anchor)
+        if at >= 0:
+            candidate = os.path.join(*norm[at:].split("/"))
+            if os.path.isfile(candidate):
+                return candidate
+    return None
+
+
+def published(dest):
     return "/" + dest.replace(os.sep, "/")
+
+
+def copy_video(src, trend_id):
+    dest = os.path.join(OUT_IMG, "videos", trend_id + ".mp4")
+    src = repo_path(src)
+    if not src:  # source not in this checkout: keep the copy already published, if any
+        return published(dest) if os.path.isfile(dest) else None
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    if os.path.abspath(src) != os.path.abspath(dest):
+        shutil.copyfile(src, dest)
+    return published(dest)
 
 
 def save_jpg(src, dest, max_side=1344, quality=88):
     os.makedirs(os.path.dirname(dest), exist_ok=True)
+    src = repo_path(src)
+    if not src:  # source not in this checkout: keep the copy already published
+        if os.path.isfile(dest):
+            return published(dest)
+        raise FileNotFoundError("picture missing and never published: " + dest)
     with Image.open(src) as im:
         im = im.convert("RGB")
         im.thumbnail((max_side, max_side))
         im.save(dest, "JPEG", quality=quality, optimize=True)
-    return "/" + dest.replace(os.sep, "/")
+    return published(dest)
 
 
 def main():
