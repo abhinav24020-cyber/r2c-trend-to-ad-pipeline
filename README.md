@@ -2,7 +2,7 @@
 
 # Trend → Ad: an autonomous AI ad studio
 
-**Crawls 40+ sources for what's trending in AI, ranks the trends, and turns each one into a branded, ready-to-post ad and a 10-second video for Instagram, Facebook and LinkedIn. It also benchmarks four image models to pick the best.**
+**Every morning it crawls 48 sources for what's trending in AI, ranks the trends, and turns the best new ones into branded, ready-to-post ads and 10-second videos for Instagram, Facebook and LinkedIn. A reviewer approves each ad on the live site before it is published. It also benchmarks four image models to pick the best.**
 
 Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, incubated at IIIT Delhi).
 
@@ -12,7 +12,8 @@ Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, inc
 ![FLUX.2](https://img.shields.io/badge/FLUX.2%20Klein%209B-image%20generation-111111)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers%20AI-F38020?logo=cloudflare&logoColor=white)
 ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-SD%203.5%20%7C%20Qwen--Image-FFD21E?logo=huggingface&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-138%20passing-2EA44F)
+![Daily run](https://img.shields.io/badge/GitHub%20Actions-daily%207%20AM%20IST-2088FF?logo=githubactions&logoColor=white)
+![Tests](https://img.shields.io/badge/tests-158%20passing-2EA44F)
 
 **[▶ Live demo: R2C.Ai Ad Studio](https://r2c-trend-to-ad-pipeline.vercel.app)**
 
@@ -26,19 +27,22 @@ Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, inc
 
 Every ad above was made end to end by the pipeline, with no manual design work:
 
-1. **Discovers** what's moving in AI/ML across 40+ sources: 42 RSS feeds (arXiv, AI labs, tech news, expert newsletters, developer communities and Indian tech and startup media) plus Google Trends, Hugging Face (trending models and daily papers), Hacker News, Reddit, Bluesky, Mastodon, Stack Exchange, YouTube and GitHub.
+1. **Discovers** what's moving in AI/ML across 48 sources: 42 RSS feeds (arXiv, AI labs, tech news, expert newsletters, developer communities and Indian tech and startup media) plus Google Trends, Hugging Face (trending models and daily papers), Hacker News, Reddit, Bluesky, Mastodon, Stack Exchange, YouTube and GitHub.
 2. **Finds real trends**: embeds every item, clusters items into stories, keeps only stories seen on more than one platform, and ranks them by growth and brand fit.
 3. **Writes the ad**: an LLM writes copy on the brand's behalf for a specific audience (researchers or industry). Code rejects hype, filler, invented features and clichés, and requires every subline and caption to name the trend's model or company and a concrete fact from the evidence.
 4. **Art-directs the picture**: a creative-director LLM pass invents a grounded, witty scene with real people in real Indian settings, plus a "sticker" hook (for example `1M TOKENS` or `5 VS 1`).
 5. **Renders and brands it**: FLUX.2 Klein 9B paints two text-free pictures in the ad's colour theme, Gemini vision picks the better one, and a code-driven poster template wraps the branding around it: logo, tagline, big headline, picture card with sticker, service chips, CTA and footer, all spelled correctly.
 6. **Makes a video**: a 10-second branded motion video for Reels, Stories and LinkedIn: the picture zooms, the hook, headline and services animate in, and it ends on an R2C card with the CTA.
-7. **Benchmarks image models**: the same prompts go to four image models, Gemini vision scores every picture, and a PDF report recommends the best one.
+7. **Runs itself every morning**: a GitHub Actions job crawls, ranks and makes the day's new ads at 7:00 AM IST, then publishes them to the live site.
+8. **Keeps a human in the loop**: new ads wait under *New ads · pending review*; a reviewer approves or rejects each one with a passcode, and only approved ads join the gallery.
+9. **Benchmarks image models**: the same prompts go to four image models, Gemini vision scores every picture, and a PDF report recommends the best one.
 
 ## Pipeline
 
 ```mermaid
 flowchart LR
-    A["Crawl<br/>10+ sources<br/>(Crawlee, feeds, APIs)"] --> B["Embed<br/>gemini-embedding-001"]
+    S(["Daily 7 AM IST<br/>GitHub Actions"]) --> A
+    A["Crawl<br/>48 sources<br/>(Crawlee, feeds, APIs)"] --> B["Embed<br/>gemini-embedding-001"]
     B --> C["Cluster into stories<br/>average linkage + LLM merge"]
     C --> D{"Gate 1<br/>seen on 2+ platforms?"}
     D -- yes --> E{"Gate 2<br/>score ≥ 50 and<br/>brand fit ≥ 40?"}
@@ -47,7 +51,9 @@ flowchart LR
     G --> H["Prompt assembled<br/>by code"]
     H --> I["Image model<br/>FLUX.2 Klein 9B"]
     I --> J["Poster template<br/>logo · type · chips · CTA"]
-    J --> K["Ready-to-post ad<br/>4:5 · 9:16 · 1:1 · 1.91:1"]
+    J --> K["Ad + 10-second video<br/>4:5 · 9:16 · 1:1 · 1.91:1"]
+    K --> L{"Reviewer<br/>approves?"}
+    L -- yes --> M["Live site<br/>Ready ads"]
 ```
 
 ## Prompt → result
@@ -106,6 +112,7 @@ Full report with side-by-side pages for every trend: [`R2C_image_model_compariso
 A Flask web app (`app.py`) puts the whole pipeline in the browser. It is deployed on Vercel: **[https://r2c-trend-to-ad-pipeline.vercel.app](https://r2c-trend-to-ad-pipeline.vercel.app)**
 
 - **Latest trends** from the most recent crawl, with score, platforms and R2C relevance, and a "Make an ad" button
+- **New ads · pending review**: the ads made by the daily run, each with **Approve** / **Reject** buttons (passcode-protected); approved ads move into Ready ads with a NEW badge
 - **Ready ads**: the finished poster ads, one per trend, each with its video
 - **Studio**: switch format (4:5, 9:16, 1:1, 1.91:1) and colour theme instantly, edit the copy, generate a new picture (FLUX.2 Klein 9B, best of 2 picked by Gemini vision), make a 10-second video ad, download both and copy the caption
 - **Scrape now**: paste article links (examples from the latest crawl are pre-filled) and click *Scrape & find trends*. The pipeline scrapes them, runs Gate 1 and Gate 2, and lists the topics in about 20 seconds; *Make an ad* turns one into an R2C ad (Gemini copy + FLUX picture + poster)
@@ -126,7 +133,7 @@ Every morning at **7:00 AM IST** a GitHub Actions job ([`.github/workflows/daily
 
 New ads appear on the site under **New ads · pending review**. A reviewer clicks **Approve** to move an ad into Ready ads, or **Reject** to hide it. Decisions are saved to `web_data/reviews.json` in the repository.
 
-One run takes about 30–40 minutes. It can also be started by hand from the repository's **Actions** tab (**Daily trend-to-ad run → Run workflow**), or locally with `python scripts/daily_run.py`.
+One run takes about 45 minutes (crawl ~13 min, ranking ~20 min, ~3 min per ad). GitHub starts scheduled jobs when it has capacity, so the run can begin later than 7:00. It can also be started by hand from the repository's **Actions** tab (**Daily trend-to-ad run → Run workflow**), or locally with `python scripts/daily_run.py`.
 
 **Setup:**
 
@@ -138,6 +145,10 @@ One run takes about 30–40 minutes. It can also be started by hand from the rep
 | same | `GITHUB_TOKEN` | a fine-grained GitHub token with **Contents: read and write** on this repository only |
 
 ## Engineering decisions worth noting
+
+- **Approvals without a database.** The site runs on Vercel, which keeps no files between requests. A reviewer's decision is checked against a server-side passcode (constant-time compare) and saved as a commit to `web_data/reviews.json` through the GitHub API, so every approval is versioned and the daily job picks it up.
+- **Survives model outages.** When Gemini answers "high demand" (HTTP 503), the request falls back to the next Gemini model in a list instead of failing the ad. If the planned ad format fails its checks, the next passing format is used. The daily job stops cleanly when the free image allowance is used up and keeps the ads already made.
+- **Daily dedup memory.** A story already turned into an ad, even when re-worded by a different source, is skipped on later days (title-overlap check plus the post history committed to the repo).
 
 - **Text is typeset, not generated.** When the image model drew the ad text itself, it was spelled correctly in only about 1 of 25 attempts ("Uppload", "Arrrrive"). The model now paints a text-free picture and code typesets every word, so a misspelled ad can never ship.
 - **Feedback-driven art direction.** The first ads looked "too AI" (glossy, surreal) and all blue. The prompts now ask for a real ad-shoot look (natural imperfections, film grain, no plastic sheen), grounded and witty scenes, and a different colour theme per ad that matches the poster.
@@ -157,7 +168,8 @@ One run takes about 30–40 minutes. It can also be started by hand from the rep
 | Layout & branding | Pillow poster template; Fraunces and Inter fonts (SIL OFL) |
 | Web app | Flask Ad Studio (Vercel-ready), vanilla JS front end |
 | Reports | ReportLab PDFs (procedure, prompts and results, model comparison) |
-| Quality | 156 unit tests (`python -m unittest discover -s tests`) |
+| Automation | GitHub Actions (daily cron + manual run), Vercel auto-deploy, GitHub contents API for review decisions |
+| Quality | 158 unit tests (`python -m unittest discover -s tests`) |
 
 ## Run it
 
@@ -181,9 +193,13 @@ web_crawler/        autonomous discovery crawler (Crawlee + feeds + public APIs)
 trend_pipeline/     ingest → embed → cluster → Gate 1 (cross-platform) → Gate 2 (ranking)
 prompt_generator/   ad copy briefs, validation, creative-director pass, prompt assembly, colour themes
 image_generator/    image clients (Cloudflare, Hugging Face), poster template, text check, logo and fonts
-scripts/            image model benchmark: render, score, report
+scripts/            daily_run.py (the 7 AM job), web data builder, image model benchmark: render, score, report
+.github/workflows/  daily.yml: scheduled daily run that publishes to the site
+app.py              Flask Ad Studio + review API (Vercel)
+web_data/           what the site shows: trends, ads, daily ads, review decisions
+static/daily/       pictures, posters and videos made by the daily run
 data/output/        trends, ad briefs, sample ads per model, PDF reports
-tests/              138 unit tests
+tests/              158 unit tests
 ```
 
 ---
