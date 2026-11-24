@@ -7,7 +7,7 @@ weights. Every other module imports from here; no magic numbers live elsewhere.
 from __future__ import annotations
 
 import os
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 
 def load_env_file(path: str) -> None:
@@ -62,6 +62,13 @@ AD_IMAGE_STEPS: int = int(os.environ.get("AD_IMAGE_STEPS", "30"))
 IMAGE_PROVIDER: str = os.environ.get("IMAGE_PROVIDER", "cloudflare").strip().lower()
 CLOUDFLARE_ACCOUNT_ID: str = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "")
 CLOUDFLARE_API_TOKEN: str = os.environ.get("CLOUDFLARE_API_TOKEN", "")
+# Optional second Cloudflare account (its own free daily allowance). The trend videos use account 1 until its
+# daily limit, then account 2 (image_generator.trend_video.cloudflare).
+CLOUDFLARE_ACCOUNTS: List[Tuple[str, str]] = [
+    (acc.strip(), tok.strip()) for acc, tok in (
+        (CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN),
+        (os.environ.get("CLOUDFLARE_ACCOUNT_ID_2", ""), os.environ.get("CLOUDFLARE_API_TOKEN_2", "")))
+    if acc.strip() and tok.strip()]
 # FLUX.2 Klein 4B accepts width/height, so each post's image is made at its
 # platform's aspect ratio. FLUX.1 schnell (@cf/black-forest-labs/flux-1-schnell)
 # is square-only (1024x1024) and is still supported. Check the model terms

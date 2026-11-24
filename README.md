@@ -13,7 +13,7 @@ Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, inc
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers%20AI-F38020?logo=cloudflare&logoColor=white)
 ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-SD%203.5%20%7C%20Qwen--Image-FFD21E?logo=huggingface&logoColor=black)
 ![Daily run](https://img.shields.io/badge/GitHub%20Actions-daily%207%20AM%20IST-2088FF?logo=githubactions&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-172%20passing-2EA44F)
+![Tests](https://img.shields.io/badge/tests-176%20passing-2EA44F)
 
 **[▶ Live demo: R2C.Ai Ad Studio](https://r2c-trend-to-ad-pipeline.vercel.app)**
 
@@ -133,7 +133,7 @@ python app.py                      # http://127.0.0.1:5000
 Every morning at **7:00 AM IST** the site's Vercel cron calls `/api/cron/daily`, which starts the GitHub Actions job ([`.github/workflows/daily.yml`](.github/workflows/daily.yml)) running [`scripts/daily_run.py`](scripts/daily_run.py). (GitHub's own schedule often starts hours late, so it is kept only as an 11:00 AM backup that does nothing if the day's run is already done.)
 
 1. Crawls all 48 sources and ranks trends (Gate 1 + Gate 2). The dedup memory (`data/output/post_history.json`) is kept in the repository, so stories from earlier days are not picked again.
-2. For each new trend, up to 2 a day, makes the **trend video** ([`image_generator/trend_video.py`](image_generator/trend_video.py)) and the **ad photo and poster** from the video's main picture (Gemini copy, rotating formats and colour themes).
+2. For each new trend, up to 2 a day per Cloudflare account, makes the **trend video** ([`image_generator/trend_video.py`](image_generator/trend_video.py)) and the **ad photo and poster** from the video's main picture (Gemini copy, rotating formats and colour themes).
 3. Saves them to `web_data/daily.json` and `static/daily/<id>/`, removes ads older than 7 days, refreshes the latest trends, writes a run report to `web_data/last_run.json`, and pushes. Vercel redeploys automatically.
 
 **Models used for each video:**
@@ -148,7 +148,7 @@ Every morning at **7:00 AM IST** the site's Vercel cron calls `/api/cron/daily`,
 | Graphics | none: an HTML page animated frame by frame (Playwright) | the runner | free |
 | Assembly | FFmpeg | the runner | free |
 
-**Why 2 a day:** each video needs 3 Klein 9B pictures (about 1,364 of Cloudflare's 10,000 free daily units each), so 2 videos use about 8,200 plus the scripts. When the allowance runs out mid-run, the unfinished trends go into `web_data/video_queue.json` and are made first the next day, so no picked trend is lost.
+**Why 2 a day:** each video needs 3 Klein 9B pictures (about 1,364 of Cloudflare's 10,000 free daily units each), so 2 videos use about 8,200 plus the scripts. An optional second Cloudflare account (`CLOUDFLARE_ACCOUNT_ID_2` / `CLOUDFLARE_API_TOKEN_2`) is used automatically once the first account's allowance is used up, for 4 videos a day. When every allowance runs out mid-run, the unfinished trends go into `web_data/video_queue.json` and are made first the next day, so no picked trend is lost.
 
 New ads appear on the site under **New ads · pending review**. A reviewer clicks **Approve** to move an ad into Ready ads, or **Reject** to hide it. Decisions are saved to `web_data/reviews.json` in the repository.
 
@@ -160,6 +160,7 @@ One run takes about 60–75 minutes (crawl and ranking ~30 min, ~12 min per ad w
 |---|---|---|
 | GitHub → Settings → Secrets and variables → Actions | `GEMINI_API_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN` | same as in `.env` (required) |
 | same | `YOUTUBE_API_KEY`, `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | optional extra sources |
+| same | `CLOUDFLARE_ACCOUNT_ID_2`, `CLOUDFLARE_API_TOKEN_2` | optional second Cloudflare account: 4 videos a day instead of 2 |
 | same | `HF_TOKEN` | optional: a Hugging Face login gets more free LTX-Video motion clips |
 | Vercel → Project → Settings → Environment Variables | `R2C_REVIEW_KEY` | a passcode reviewers type to approve ads |
 | same | `GITHUB_TOKEN` | a fine-grained GitHub token on this repository only with **Contents: read and write** (saves approvals) and **Actions: read and write** (starts the 7 AM run) |
@@ -193,7 +194,7 @@ One run takes about 60–75 minutes (crawl and ranking ~30 min, ~12 min per ad w
 | Web app | Flask Ad Studio (Vercel-ready), vanilla JS front end |
 | Reports | ReportLab PDFs (procedure, prompts and results, model comparison) |
 | Automation | Vercel cron → GitHub Actions (daily run + manual run), Vercel auto-deploy, GitHub API for review decisions |
-| Quality | 172 unit tests (`python -m unittest discover -s tests`) |
+| Quality | 176 unit tests (`python -m unittest discover -s tests`) |
 
 ## Run it
 
@@ -223,7 +224,7 @@ app.py              Flask Ad Studio + review API (Vercel)
 web_data/           what the site shows: trends, ads, daily ads, review decisions
 static/daily/       pictures, posters and trend videos made by the daily run
 data/output/        trends, ad briefs, sample ads per model, PDF reports
-tests/              172 unit tests
+tests/              176 unit tests
 ```
 
 ---

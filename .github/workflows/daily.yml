@@ -4,6 +4,7 @@
 # Needs repository secrets (Settings -> Secrets and variables -> Actions):
 #   GEMINI_API_KEY, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN   (required)
 #   YOUTUBE_API_KEY, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET       (optional extra sources)
+#   CLOUDFLARE_ACCOUNT_ID_2, CLOUDFLARE_API_TOKEN_2               (optional second account: 4 videos a day)
 #   HF_TOKEN                                                      (optional: more free LTX-Video motion clips)
 #
 # Started at 07:00 IST by the site's Vercel cron (/api/cron/daily presses "Run workflow"), because GitHub's
@@ -17,8 +18,8 @@ on:
   workflow_dispatch:         # "Run workflow" button for a manual run
     inputs:
       max_ads:
-        description: "Most new ads + trend videos to make (2 fit Cloudflare's free daily image allowance)"
-        default: "2"
+        description: "Most new ads + trend videos (auto = 2 per Cloudflare account)"
+        default: "auto"
 
 permissions:
   contents: write            # to push the new ads back to the repository
@@ -30,7 +31,7 @@ concurrency:
 jobs:
   daily:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 210
     steps:
       # Runs fully only in a repository that has the API keys set; elsewhere it stops in seconds.
       - name: Check the API keys are set
@@ -67,12 +68,14 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID_2: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_2 }}
+          CLOUDFLARE_API_TOKEN_2: ${{ secrets.CLOUDFLARE_API_TOKEN_2 }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           IMAGE_PROVIDER: cloudflare
-          DAILY_MAX_ADS: ${{ github.event.inputs.max_ads || '2' }}
+          DAILY_MAX_ADS: ${{ github.event.inputs.max_ads || 'auto' }}
           DAILY_KEEP_DAYS: "7"
         run: python scripts/daily_run.py ${{ github.event_name == 'schedule' && '--if-not-ran-today' || '' }}
 

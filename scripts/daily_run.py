@@ -372,7 +372,7 @@ def run(skip_crawl: bool = False, max_ads: int = 2, keep_days: int = 7) -> Dict[
                 summary["new_trends"])
 
     gemini = get_client()
-    can_make = config.CLOUDFLARE_ACCOUNT_ID and config.CLOUDFLARE_API_TOKEN and (
+    can_make = config.CLOUDFLARE_ACCOUNTS and (
         TREND_VIDEOS or getattr(gemini, "online", False))
     if todo and not can_make:
         logger.error("GEMINI_API_KEY / CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN missing: no ads made")
@@ -433,10 +433,17 @@ def run(skip_crawl: bool = False, max_ads: int = 2, keep_days: int = 7) -> Dict[
     return summary
 
 
+def default_max_ads() -> int:
+    """DAILY_MAX_ADS if set to a number, otherwise 2 trend videos per configured Cloudflare account."""
+    value = os.environ.get("DAILY_MAX_ADS", "").strip()
+    return int(value) if value.isdigit() else 2 * max(1, len(config.CLOUDFLARE_ACCOUNTS))
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Daily run: crawl, rank, make new ads + trend videos, update the site data.")
     parser.add_argument("--skip-crawl", action="store_true", help="Use the last crawl's ranked trends")
-    parser.add_argument("--max-ads", type=int, default=int(os.environ.get("DAILY_MAX_ADS", "2")))
+    parser.add_argument("--max-ads", type=int, default=default_max_ads(),
+                        help="Default: 2 per Cloudflare account (what fits the free daily allowance)")
     parser.add_argument("--keep-days", type=int, default=int(os.environ.get("DAILY_KEEP_DAYS", "7")))
     parser.add_argument("--if-not-ran-today", action="store_true",
                         help="Do nothing if a full run already finished today (IST); used by the backup schedule")

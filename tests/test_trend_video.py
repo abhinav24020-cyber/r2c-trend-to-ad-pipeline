@@ -82,6 +82,62 @@ class TimingTests(unittest.TestCase):
         self.assertEqual(tv.ping_pong(5, 1), 0)
 
 
+class TwoAccountTests(unittest.TestCase):
+    def setUp(self):
+        tv._ACCOUNT["index"] = 0
+
+    def tearDown(self):
+        tv._ACCOUNT["index"] = 0
+
+    def test_switches_to_the_second_account_at_the_daily_limit(self):
+        from trend_pipeline import config
+        used = []
+
+        def call(account, token):
+            used.append(account)
+            if account == "acc1":
+                raise RuntimeError("Cloudflare 429: you have used up your daily free allocation of 10,000 neurons")
+            return "picture"
+
+        with mock.patch.object(config, "CLOUDFLARE_ACCOUNTS", [("acc1", "t1"), ("acc2", "t2")]):
+            self.assertEqual(tv.cloudflare(call), "picture")
+            self.assertEqual(tv.cloudflare(call), "picture")  # stays on account 2 for the rest of the run
+        self.assertEqual(used, ["acc1", "acc2", "acc2"])
+
+    def test_limit_on_the_last_account_stops_the_run(self):
+        from trend_pipeline import config
+
+        def call(account, token):
+            raise RuntimeError("429 daily free allocation")
+
+        with mock.patch.object(config, "CLOUDFLARE_ACCOUNTS", [("acc1", "t1"), ("acc2", "t2")]):
+            with self.assertRaises(RuntimeError):
+                tv.cloudflare(call)
+        self.assertEqual(tv._ACCOUNT["index"], 1)
+
+    def test_other_errors_do_not_switch_accounts(self):
+        from trend_pipeline import config
+
+        def call(account, token):
+            raise RuntimeError("500 server error")
+
+        with mock.patch.object(config, "CLOUDFLARE_ACCOUNTS", [("acc1", "t1"), ("acc2", "t2")]):
+            with self.assertRaises(RuntimeError):
+                tv.cloudflare(call)
+        self.assertEqual(tv._ACCOUNT["index"], 0)
+
+    def test_default_daily_ads_is_two_per_account(self):
+        import daily_run
+        from trend_pipeline import config
+        with mock.patch.dict(os.environ, {"DAILY_MAX_ADS": "auto"}):
+            with mock.patch.object(config, "CLOUDFLARE_ACCOUNTS", [("a", "b"), ("c", "d")]):
+                self.assertEqual(daily_run.default_max_ads(), 4)
+            with mock.patch.object(config, "CLOUDFLARE_ACCOUNTS", [("a", "b")]):
+                self.assertEqual(daily_run.default_max_ads(), 2)
+        with mock.patch.dict(os.environ, {"DAILY_MAX_ADS": "1"}):
+            self.assertEqual(daily_run.default_max_ads(), 1)
+
+
 class DailyRunVideoTests(unittest.TestCase):
     def setUp(self):
         import daily_run
@@ -111,7 +167,7 @@ class DailyRunVideoTests(unittest.TestCase):
             json.dump(trends, handle)
         limit = RuntimeError("429: you have used up your daily free allocation of 10,000 neurons")
         with mock.patch.object(config, "RANKED_TRENDS_JSON", ranked), \
-                mock.patch.object(config, "CLOUDFLARE_ACCOUNT_ID", "a"), mock.patch.object(config, "CLOUDFLARE_API_TOKEN", "b"), \
+                mock.patch.object(config, "CLOUDFLARE_ACCOUNTS", [("a", "b")]), \
                 mock.patch.object(self.dr, "TREND_VIDEOS", True), \
                 mock.patch.object(self.dr, "make_ad_with_video", side_effect=limit), \
                 mock.patch("trend_pipeline.gemini_client.get_client", return_value=mock.Mock(online=True)):

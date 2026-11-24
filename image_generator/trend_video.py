@@ -123,19 +123,49 @@ def _parse_json(text: str) -> Dict[str, Any]:
     return data[0] if isinstance(data, list) else data
 
 
+_ACCOUNT = {"index": 0}  # which Cloudflare account is in use this run
+
+
+def is_daily_limit(exc: BaseException) -> bool:
+    text = str(exc).lower()
+    return "429" in text or "allocation" in text or "quota" in text
+
+
+def cloudflare(call: Any) -> Any:
+    """Run call(account_id, api_token) on the Cloudflare account in use. When that account's free daily allowance
+    is used up, switch to the next account (CLOUDFLARE_ACCOUNT_ID_2 / CLOUDFLARE_API_TOKEN_2) for the rest of
+    the run. Raises the limit error when every account is used up."""
+    accounts = config.CLOUDFLARE_ACCOUNTS
+    if not accounts:
+        raise RuntimeError("CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN are not set")
+    while True:
+        index = min(_ACCOUNT["index"], len(accounts) - 1)
+        try:
+            return call(*accounts[index])
+        except Exception as exc:  # noqa: BLE001
+            if is_daily_limit(exc) and index + 1 < len(accounts):
+                _ACCOUNT["index"] = index + 1
+                logger.warning("Cloudflare account %d has used today's free allowance; switching to account %d",
+                               index + 1, index + 2)
+                continue
+            raise
+
+
 def _cloudflare_text(prompt: str) -> str:
     import requests
 
-    url = "https://api.cloudflare.com/client/v4/accounts/{}/ai/run/@cf/openai/gpt-oss-120b".format(
-        config.CLOUDFLARE_ACCOUNT_ID)
-    response = requests.post(url, headers={"Authorization": "Bearer " + config.CLOUDFLARE_API_TOKEN}, json={
-        "input": [{"role": "system", "content": "Reply with one JSON object only, no markdown."},
-                  {"role": "user", "content": prompt}],
-        "reasoning": {"effort": "medium"}}, timeout=240)
-    if response.status_code != 200:
-        raise RuntimeError("Cloudflare text {}: {}".format(response.status_code, response.text[:200]))
-    out = response.json()["result"]["output"]
-    return [c["text"] for o in out for c in (o.get("content") or []) if c.get("type") == "output_text"][-1]
+    def ask(account_id: str, token: str) -> str:
+        url = "https://api.cloudflare.com/client/v4/accounts/{}/ai/run/@cf/openai/gpt-oss-120b".format(account_id)
+        response = requests.post(url, headers={"Authorization": "Bearer " + token}, json={
+            "input": [{"role": "system", "content": "Reply with one JSON object only, no markdown."},
+                      {"role": "user", "content": prompt}],
+            "reasoning": {"effort": "medium"}}, timeout=240)
+        if response.status_code != 200:
+            raise RuntimeError("Cloudflare text {}: {}".format(response.status_code, response.text[:200]))
+        out = response.json()["result"]["output"]
+        return [c["text"] for o in out for c in (o.get("content") or []) if c.get("type") == "output_text"][-1]
+
+    return cloudflare(ask)
 
 
 def write_script(trend: Dict[str, Any], gemini: Any, attempts: int = 3) -> Dict[str, Any]:
@@ -146,7 +176,7 @@ def write_script(trend: Dict[str, Any], gemini: Any, attempts: int = 3) -> Dict[
     best: Optional[Dict[str, Any]] = None
     for attempt in range(attempts):
         text, writer = None, "gpt-oss-120b (Cloudflare)"
-        if attempt < 2 and config.CLOUDFLARE_ACCOUNT_ID and config.CLOUDFLARE_API_TOKEN:
+        if attempt < 2 and config.CLOUDFLARE_ACCOUNTS:
             try:
                 text = _cloudflare_text(prompt)
             except Exception as exc:  # noqa: BLE001
@@ -188,15 +218,16 @@ def make_pictures(script: Dict[str, Any], folder: str) -> List[str]:
                   "top and bottom. No text, no letters, no logos, no watermarks.")
         image = None
         for model in (MAIN_MODEL, SCENE_MODEL):
-            client = generate_images.CloudflareImageClient(config.CLOUDFLARE_ACCOUNT_ID, config.CLOUDFLARE_API_TOKEN,
-                                                           model, config.CLOUDFLARE_IMAGE_STEPS)
+            def paint(account_id: str, token: str, model: str = model):
+                client = generate_images.CloudflareImageClient(account_id, token, model, config.CLOUDFLARE_IMAGE_STEPS)
+                return client.text_to_image(prompt=prompt, width=width, height=height,
+                                            negative_prompt=generate_images.NEGATIVE_FOR_BACKGROUND)
             try:
-                image = client.text_to_image(prompt=prompt, width=width, height=height,
-                                             negative_prompt=generate_images.NEGATIVE_FOR_BACKGROUND)
+                image = cloudflare(paint)  # account 1, then account 2 once account 1's allowance is used up
                 break
             except (RuntimeError, OSError) as exc:
                 logger.warning("Scene %d picture with %s failed: %s", i + 1, model.split("/")[-1], str(exc)[:160])
-                if "429" in str(exc) or "allocation" in str(exc).lower():
+                if is_daily_limit(exc):  # every account is used up for today
                     raise
         if image is None:
             raise RuntimeError("scene {} picture failed".format(i + 1))
