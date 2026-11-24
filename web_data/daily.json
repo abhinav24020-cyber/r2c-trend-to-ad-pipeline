@@ -1,5 +1,132 @@
 [
  {
+  "id": "trd_20261124_001_f2d6",
+  "date": "2026-11-24",
+  "created_at": "2026-11-24T17:29:49.632846+00:00",
+  "source": "daily",
+  "trend": {
+   "trend_id": "trd_20261124_001_f2d6",
+   "rank": 1,
+   "near_miss": false,
+   "topic_title": "Latent Introspection and INSEP Defense in LLMs",
+   "topic_summary": "Researchers have proposed INSEP, a defense mechanism that fine-tunes large language models to reduce the separability of harmful and benign activations along the refusal direction to counter abliteration attacks. Additionally, studies on a Qwen 32B model reveal a latent capacity for introspection, allowing it to detect prior concept injections in its residual stream. This detection signal can be massively strengthened through specific prompting.",
+   "topic_key_facts": [
+    "[Webpage] INSEP fine-tunes models to reduce the separability of harmful and benign activations along the refusal direction as a defense against abliteration.",
+    "[Hacker News] A Qwen 32B model demonstrates a latent capacity for introspection to detect when concepts have been injected into its earlier context.",
+    "[Hacker News] Logit lens analysis reveals clear detection signals in the residual stream, which are attenuated in the final layers.",
+    "[Hacker News] Prompting the model with accurate information about AI introspection mechanisms increases sensitivity to injection from 0.3% to 39.9%.",
+    "[Hacker News] The massive increase in injection sensitivity occurs with only a 0.6% increase in false positives."
+   ],
+   "topic_entities": [
+    "Detect Prior Concept Injections",
+    "INSEP Refusal-Direction Inseparability",
+    "Latent Introspection LLMs",
+    "Abliteration",
+    "Defense"
+   ],
+   "score": 88.1,
+   "r2c_relevance": 95.0,
+   "growth": 90.75,
+   "platforms": [
+    "Hacker News",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.691736+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hacker News",
+     "source_url": "https://arxiv.org/abs/2602.20031",
+     "excerpt": "Latent Introspection: LLMs Can Detect Prior Concept Injections We uncover a latent capacity for introspection in a Qwen 32B model, demonstrating that the model can detect when concepts have been injected into its earlier context and identify which concept was injected. While the model denies injection in sampled outputs, logit lens analysis reveals clear detection signals in the residual stream, which are attenuated in the final layers. Furthermo",
+     "source_insight": "Latent Introspection: LLMs Can Detect Prior Concept Injections"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28314",
+     "excerpt": "INSEP: Refusal-Direction Inseparability as a Defense Against Abliteration Abliteration is a widely used white-box attack against the safety alignment of large language models (LLMs). It elicits harmful behavior by estimating a refusal direction in the model's activation space and projecting that direction out of the residual-stream write-out matrices. We propose INSEP, a defense that fine-tunes the model to reduce the separability of harmful and ",
+     "source_insight": "INSEP: Refusal-Direction Inseparability as a Defense Against Abliteration"
+    }
+   ]
+  },
+  "ad_type": "story",
+  "aspect_ratio": "9:16",
+  "placement": "story",
+  "theme": "cream",
+  "copy": {
+   "audience": "For LLM safety researchers",
+   "eyebrow": "LLM SAFETY",
+   "headline": "Qwen 32B detection boost",
+   "subline": "INSEP fine‑tunes models to blur harmful and safe signals, blocking abliteration attacks effectively.",
+   "points": [
+    "AI analysis of your paper",
+    "Technology readiness assessment",
+    "Matched with industry partners"
+   ],
+   "cta": "Upload Your Research",
+   "caption": "Recent findings show that prompting Qwen raises injection detection from 0.3% to 39.9%, while INSEP fine‑tunes models to blur harmful and safe signals along the Refusal-Direction, limiting abliteration attacks. Understanding these latent introspection signals matters for researchers designing robust safety mechanisms and evaluating false‑positive rise of only 0.6%. R2C.Ai at IIIT Delhi links you with industry partners, so you can share your work and advance the field. Upload Your Research",
+   "hashtags": [
+    "#LatentIntrospection",
+    "#INSEP",
+    "#Qwen",
+    "#RefusalDirection",
+    "#R2CAi"
+   ],
+   "sticker": ""
+  },
+  "caption_writer": "gpt-oss-120b",
+  "concept": null,
+  "image_prompt": "Indian researcher in a sleek data lab, hand hovering over a glowing holographic Qwen 32B brain model, navy walls, amber lights reflecting on glass.",
+  "picture": "/static/daily/trd_20261124_001_f2d6/picture.jpg",
+  "poster": "/static/daily/trd_20261124_001_f2d6/poster.jpg",
+  "image_model": "FLUX.2 Klein 9B",
+  "picture_score": null,
+  "video": "/static/daily/trd_20261124_001_f2d6/trend_video.mp4",
+  "video_format": "9:16",
+  "video_kind": "trend",
+  "video_seconds": 29.2,
+  "video_motion_clips": 0,
+  "video_writer": "gpt-oss-120b (Cloudflare)",
+  "video_check": {
+   "named_terms_used": [
+    "0.3%",
+    "39.9%",
+    "INSEP",
+    "Qwen"
+   ],
+   "scenes_without_trend_terms": [],
+   "end_specific": true,
+   "cta_ok": true,
+   "shape_ok": true,
+   "jargon": [],
+   "pass": true
+  },
+  "video_script": [
+   {
+    "role": "HOOK",
+    "on_screen": "Qwen 32B detection boost",
+    "voiceover": "Prompting Qwen 32B raises injection detection from 0.3% up to 39.9%.",
+    "fact_used": "[Hacker News] Prompting the model with accurate information about AI introspection mechanisms increases sensitivity to injection from 0.3% to 39.9%."
+   },
+   {
+    "role": "PROOF",
+    "on_screen": "INSEP blocks abliteration attacks",
+    "voiceover": "INSEP fine‑tunes models to blur harmful and safe signals, blocking abliteration attacks effectively.",
+    "fact_used": "[Webpage] INSEP fine-tunes models to reduce the separability of harmful and benign activations along the refusal direction as a defense against abliteration."
+   },
+   {
+    "role": "BRIDGE",
+    "on_screen": "R2C.Ai links INSEP research",
+    "voiceover": "Industry needs robust safety like INSEP, and R2C.Ai at IIIT Delhi links you with partners.",
+    "fact_used": "[Webpage] INSEP fine-tunes models to reduce the separability of harmful and benign activations along the refusal direction as a defense against abliteration."
+   },
+   {
+    "role": "CTA",
+    "on_screen": "Join model introspection advances",
+    "voiceover": "Upload Your Research on model introspection with R2C.Ai today.",
+    "fact_used": "[Hacker News] A Qwen 32B model demonstrates a latent capacity for introspection to detect when concepts have been injected into its earlier context."
+   }
+  ]
+ },
+ {
   "id": "trd_20261120_005_fcd0",
   "date": "2026-11-24",
   "created_at": "2026-11-24T17:29:17.332585+00:00",
