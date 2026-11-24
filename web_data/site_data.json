@@ -1,1266 +1,1216 @@
 {
  "latest_trends": [
   {
-   "trend_id": "trd_20261120_001_e058",
+   "trend_id": "trd_20261124_001_f2d6",
    "rank": 1,
    "near_miss": false,
-   "topic_title": "Advancements in Vision-Language Models and Weight-Space Programming",
-   "topic_summary": "Recent research signals highlight novel techniques for improving vision-language models (VLMs) and multimodal large language models (MLLMs), including agentic weight-editing, recursive architectures, and KV cache compression. Additionally, new benchmarks explore LLM-driven weight-space programming and address dataset shortcut learning in video models. These developments matter to AI/ML practitioners seeking to overcome decoding loops, memory bottlenecks, and reasoning limitations in multimodal systems.",
+   "topic_title": "Latent Introspection and INSEP Defense in LLMs",
+   "topic_summary": "Researchers have proposed INSEP, a defense mechanism that fine-tunes large language models to reduce the separability of harmful and benign activations along the refusal direction to counter abliteration attacks. Additionally, studies on a Qwen 32B model reveal a latent capacity for introspection, allowing it to detect prior concept injections in its residual stream. This detection signal can be massively strengthened through specific prompting.",
    "topic_key_facts": [
-    "[Webpage] Keel is introduced as the first agentic weight-editing method for vision-language models on image tasks to fix looping behaviors in reasoning modes.",
-    "[Webpage] VisAlloc is proposed as a dual-level framework combining sample-level visual filtering with token-level counterfactual reweighting for on-policy self-distillation.",
-    "[Webpage] FoldCache is proposed to compress visual key-value (KV) states along the recurrent axis to address memory budget limitations in looped VLMs.",
-    "[Hugging Face] WM^MLLM is presented as the first interactive world model built on multimodal large language models for persistent, editable world generation from a single image.",
-    "[Hugging Face] A new benchmark for LLM-driven weight-space programming on vision models reports more than 2,600 edit processes across datasets like Waterbirds, CIFAR-100, PACS, and Entity-30."
+    "[Webpage] INSEP fine-tunes models to reduce the separability of harmful and benign activations along the refusal direction as a defense against abliteration.",
+    "[Hacker News] A Qwen 32B model demonstrates a latent capacity for introspection to detect when concepts have been injected into its earlier context.",
+    "[Hacker News] Logit lens analysis reveals clear detection signals in the residual stream, which are attenuated in the final layers.",
+    "[Hacker News] Prompting the model with accurate information about AI introspection mechanisms increases sensitivity to injection from 0.3% to 39.9%.",
+    "[Hacker News] The massive increase in injection sensitivity occurs with only a 0.6% increase in false positives."
    ],
    "topic_entities": [
-    "Loop Decoding-Time KV Memory",
-    "VisAlloc Allocating Visual Supervision",
-    "WM MLLM Turning MLLMs",
-    "LLM-Driven Weight-Space Programming",
-    "Recurrent Vision Language",
-    "Shortcut Hidden Behind"
+    "Detect Prior Concept Injections",
+    "INSEP Refusal-Direction Inseparability",
+    "Latent Introspection LLMs",
+    "Abliteration",
+    "Defense"
    ],
-   "score": 86.1,
+   "score": 88.1,
    "r2c_relevance": 95.0,
-   "growth": 100.0,
+   "growth": 90.75,
    "platforms": [
-    "Hugging Face",
+    "Hacker News",
     "Webpage"
    ],
-   "generated_at": "2026-11-20T17:27:31.541806+00:00",
+   "generated_at": "2026-11-24T11:50:27.691736+00:00",
    "source_attribution": [
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.26408",
-     "excerpt": "Training Vision Models for LLM-Driven Weight-Space Programming It has been demonstrated that, in certain settings, large language models can perform weight-space programming to directly modify the weights of neural networks. However, it is unknown how dedicated training of these networks can contribute to the successes of weight-space programming. We present a benchmark of LLM-driven weight-space programming on vision models, in which five LLMs e",
-     "source_insight": "Training Vision Models for LLM-Driven Weight-Space Programming"
-    },
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.25776",
-     "excerpt": "Suppressing the Shortcut Hidden Behind the Gains of VideoLLM Fine-Tuning Supervised fine-tuning (SFT) is the stage in which Video Large Language Models (VideoLLMs) advance their capability to reason over video. However, the VideoLLM also learns to answer from textual regularities of its training data, a shortcut that bypasses the video. The regularities behind the shortcut are hard to define at the data level, and the shortcut forms regardless of",
-     "source_insight": "Suppressing the Shortcut Hidden Behind the Gains of VideoLLM Fine-Tuning"
-    },
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.24193",
-     "excerpt": "WM^MLLM: Turning MLLMs into World Models Video world models keep the world in the context of a generator, so a revisit is synthesized again and earlier edits can drift or disappear. We present WM^MLLM, the first interactive world model built on multimodal large language models (MLLMs), for persistent, editable world generation from a single image. WM^MLLM keeps the world state outside every generator, as a panorama with a revision history, and le",
-     "source_insight": "WM^MLLM: Turning MLLMs into World Models"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25069",
-     "excerpt": "VisAlloc: Allocating Visual Supervision for On-Policy Self-Distillation On-policy self-distillation (OPSD) offers a promising approach to improving visual reasoning in multimodal large language models (MLLMs). However, not all samples benefit equally from privileged visual guidance, and uniform token supervision can dilute visually grounded signals. We propose VisAlloc, a dual-level framework combining sample-level visual filtering with token-lev",
-     "source_insight": "VisAlloc: Allocating Visual Supervision for On-Policy Self-Distillation"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25210",
-     "excerpt": "Recurrent Vision Language Models Solve the Shell Game Tracking a hidden object through a video is effortless for humans, yet it remains a bottleneck for vision language models (VLMs). In the shell game, where a ball is hidden under one of several identical cups that are then swapped, VLMs that answer directly stay near chance, thinking models fail on long games, and fine-tuning learns only the lengths it has seen. We argue that the limit is seria",
-     "source_insight": "Recurrent Vision Language Models Solve the Shell Game"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25257",
-     "excerpt": "Keel: A Frontier Model Teaches a Vision-Language Model by Rewriting Its Weights Can a frontier model repair a vision-language model (VLM) by rewriting its weights? Small reasoning VLMs such as Qwen3.5 need such a repair: in thinking mode they fall into loops on many image questions, repeating themselves until the token limit, spending the whole budget and losing the answer. The usual remedies act on the decoding, leaving the looping model as it w",
-     "source_insight": "Keel: A Frontier Model Teaches a Vision-Language Model by Rewriting Its Weights"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_002_ae81",
-   "rank": 2,
-   "near_miss": false,
-   "topic_title": "Advances in KV Cache Management and MoBA Optimization",
-   "topic_summary": "Researchers have introduced PRKV, a training-free KV eviction method using Personalized PageRank to handle long-context LLM memory bottlenecks up to 90% compression. Additionally, LightningMoBA was presented to optimize Mixture of Block Attention through dynamic routing, KV-centric ownership, and runtime pipelining. These developments offer practitioners better memory consumption control and execution efficiency for long-context LLM inference.",
-   "topic_key_facts": [
-    "[Webpage] PRKV is a training-free KV eviction method that estimates multi-hop global token importance using Personalized PageRank over attention-induced transition graphs.",
-    "[Webpage] PRKV achieves competitive task performance under moderate to aggressive compression ratios including up to 90%.",
-    "[Hugging Face] FlashMoBA implements Mixture of Block Attention efficiently but retains a fixed Top-k budget and query-centric schedule.",
-    "[Hugging Face] LightningMoBA co-designs selection and execution through dynamic routing, KV-centric ownership, and runtime pipelining."
-   ],
-   "topic_entities": [
-    "Dynamic Routing KV-Centric Execution",
-    "KV Cache Eviction",
-    "Accelerating Mixture",
-    "Block Attention",
-    "Importance Estimation",
-    "Runtime Pipelining"
-   ],
-   "score": 85.1,
-   "r2c_relevance": 98.0,
-   "growth": 91.25,
-   "platforms": [
-    "Hugging Face",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.541806+00:00",
-   "source_attribution": [
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.26268",
-     "excerpt": "Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining Mixture of Block Attention (MoBA) reduces long-context computation by selecting key-value (KV) blocks for each query. FlashMoBA implements MoBA efficiently but retains a fixed Top-k budget and query-centric schedule. Fixed Top-k applies one budget across different score distributions and couples routing to task granularity; query-range ownersh",
-     "source_insight": "Accelerating Mixture of Block Attention via Dynamic Routing, KV-Centric Execution and Runtime Pipelining"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.24969",
-     "excerpt": "Global Importance Estimation for KV Cache Eviction Memory consumption of the key-value (KV) cache remains a central bottleneck for long-context LLM inference. We introduce PRKV, a training-free KV eviction method that estimates multi-hop global token importance by applying Personalized PageRank over attention-induced transition graphs. This enables importance propagation beyond recency or instantaneous attention, without modifying the model. We b",
-     "source_insight": "Global Importance Estimation for KV Cache Eviction"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_003_be55",
-   "rank": 3,
-   "near_miss": false,
-   "topic_title": "EgoPass-Bench, EgoCaptioner, and DailySafe Benchmarks Introduced",
-   "topic_summary": "Recent releases introduce new benchmarks and models, including EgoPass-Bench for evaluating observer-relative interactions in egocentric videos, EgoCaptioner for fine-grained egocentric video captioning, and DailySafe for benchmarking dynamic safety awareness in multi-turn multimodal interactions. These developments matter to AI/ML practitioners because they address critical gaps in multimodal foundation models regarding real-world environmental understanding, temporal caption accuracy, and unfolding safety risks.",
-   "topic_key_facts": [
-    "EgoPass-Bench comprises 284 manually reviewed evaluation clips recorded using Ray-Ban Meta (Gen 2) smart glasses and 2,201 total items. [Webpage]",
-    "EgoCaptioner utilizes a coarse-to-fine annotation pipeline paired with a video-level overview and timed steps. [Hugging Face]",
-    "DailySafe benchmarks dynamic safety awareness in everyday multi-turn multimodal interactions. [Hugging Face]"
-   ],
-   "topic_entities": [
-    "DailySafe Benchmarking Dynamic Safety",
-    "Everyday Multi-Turn Multimodal Interactions",
-    "Fine-Grained Egocentric Video Captioning",
-    "EgoCaptioner Towards Comprehensive",
-    "EgoPass-Bench Identifying Objects",
-    "Affect"
-   ],
-   "score": 84.7,
-   "r2c_relevance": 88.0,
-   "growth": 95.0,
-   "platforms": [
-    "Hugging Face",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.542804+00:00",
-   "source_attribution": [
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.26298",
-     "excerpt": "DailySafe: Benchmarking Dynamic Safety Awareness in Everyday Multi-Turn Multimodal Interactions As multimodal large language models (MLLMs) become increasingly integrated into everyday life, their ability to provide safe and reliable assistance in realistic daily activities remains insufficiently explored. Existing safety benchmarks primarily focus on isolated harmful requests or adversarial scenarios, overlooking the safety risks that may arise ",
-     "source_insight": "DailySafe: Benchmarking Dynamic Safety Awareness in Everyday Multi-Turn Multimodal Interactions"
-    },
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.26380",
-     "excerpt": "EgoCaptioner: Towards Comprehensive and Fine-Grained Egocentric Video Captioning Egocentric video captioning requires fine-grained detail and accurate timing, yet current multimodal large language models (MLLMs) often miss brief actions, confuse their order, or misinterpret the wearer's motion. Existing caption formats also offer limited support for combining detailed narration with precise timing. We present EgoCaptioner, which pairs a video-lev",
-     "source_insight": "EgoCaptioner: Towards Comprehensive and Fine-Grained Egocentric Video Captioning"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.24995",
-     "excerpt": "EgoPass-Bench: Identifying Objects That May Affect the Wearer's Passage in Egocentric Video Understanding an egocentric environment requires reasoning about how surrounding entities affect the observer's actions. Existing evaluations of multimodal foundation models (MFMs) examine observer localization, motion trajectories, and action feasibility, but leave the discovery and interpretation of evolving observer-entity interactions insufficiently as",
-     "source_insight": "EgoPass-Bench: Identifying Objects That May Affect the Wearer's Passage in Egocentric Video"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_004_931f",
-   "rank": 4,
-   "near_miss": false,
-   "topic_title": "Mitigating Feature Caching and Distillation Errors in Diffusion Transformers",
-   "topic_summary": "Recent research highlights how acceleration techniques like feature caching and distillation in Diffusion Transformers can cause unintended quality degradation, such as silent text rewriting or sample diversity loss. New methods like CalibCache and Posterior Matching Distillation are proposed to correct these discrepancies and improve generation fidelity. These developments matter to AI/ML practitioners because balancing computational efficiency with output accuracy remains a critical challenge in image and video generation.",
-   "topic_key_facts": [
-    "[Webpage] On Z-Image, TaylorSeer at 2.9x fewer FLOPs lowers word accuracy from 62% to 46%.",
-    "[Webpage] ImageReward and CLIP Score barely change when TaylorSeer is applied at 2.9x fewer FLOPs.",
-    "[Webpage] CalibCache is a lightweight offline calibration method that corrects systematic discrepancies between cached and full-compute feature dynamics.",
-    "[Hugging Face] Posterior Matching Distillation (PMD) combines mode-covering posterior sampling with any-step generation."
-   ],
-   "topic_entities": [
-    "CalibCache Cache-to-Full Feature Dynamics",
-    "Guidance Preventing Silent Text",
-    "Cached Diffusion Transformers",
-    "Posterior Matching Distillation",
-    "Text Lives",
-    "Calibration"
-   ],
-   "score": 84.5,
-   "r2c_relevance": 88.0,
-   "growth": 93.75,
-   "platforms": [
-    "Hugging Face",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.542804+00:00",
-   "source_attribution": [
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.26629",
-     "excerpt": "Posterior Matching Distillation Diffusion distillation accelerates image and video generation by compressing a pretrained teacher's iterative sampling process into a few network evaluations. Distribution-based methods achieve this by matching the student's output distribution to the teacher's. This matching is often driven by reverse-KL objectives, whose mode-seeking bias favors dominant teacher modes at the expense of diversity across samples. W",
-     "source_insight": "Posterior Matching Distillation"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25296",
-     "excerpt": "CalibCache: Cache-to-Full Feature Dynamics Calibration for Diffusion Transformers Diffusion Transformers generate high-quality images, but iterative sampling remains computationally expensive. Feature caching reduces the number of full network evaluations, yet its approximation error can become more severe under short sampling schedules, where fewer full-compute steps and a coarser sampling grid can make history-based extrapolation less reliable.",
-     "source_insight": "CalibCache: Cache-to-Full Feature Dynamics Calibration for Diffusion Transformers"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25382",
-     "excerpt": "Text Lives in the Guidance: Preventing Silent Text Rewriting in Cached Diffusion Transformers Diffusion transformers (DiTs) now render long, legible text in images, and feature caching is a standard way to accelerate them. Caches are judged by image-level metrics, which do not check whether the rendered text is still correct. We find that caching silently rewrites this text. On Z-Image, TaylorSeer at 2.9x fewer FLOPs lowers word accuracy from 62%",
-     "source_insight": "Text Lives in the Guidance: Preventing Silent Text Rewriting in Cached Diffusion Transformers"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_005_fcd0",
-   "rank": 5,
-   "near_miss": false,
-   "topic_title": "Recent Advances in Vision-Language-Action Models and Robotics",
-   "topic_summary": "Recent research signals highlight novel frameworks and models—such as WAMotor, ROAM, CoachSI, A²-VLA, Verify2Act, GraF-VTA, MAWAM, and CHAC—designed to improve robot navigation, manipulation, policy steering, and world-action modeling. These developments matter to AI/ML practitioners as they address key robotics challenges including latency, multi-step planning, tool adaptation, and multi-agent coordination using foundation models and vision-language integration.",
-   "topic_key_facts": [
-    "[Webpage] ROAM (Robust Open-world Autonomous Mobility) combines internet-scale VLM world knowledge with reinforcement learning-based locomotion and local planning for kilometer-scale navigation.",
-    "[Webpage] CoachSI uses a frozen, off-the-shelf VLM to coach policies in language by naming the next step in the format of atomic instructions.",
-    "[Webpage] A²-VLA combines an embodied agent with a VLA policy to treat tool affordances as hypotheses that the agent can construct, test, and revise.",
-    "[Webpage] Verify2Act features a latent world model (V2A-WM) that imagines candidate plans in the DINOv2 feature space and uses a dual-head critic for verification.",
-    "[Webpage] MAWAM is a multi-agent world-action model that jointly generates each robot's future views and executable action chunks in a single sample."
-   ],
-   "topic_entities": [
-    "Verify2Act Critic-Guided Latent World",
-    "Actions Change Action Effect",
-    "CauSyncVLA Causal Latent World",
-    "Cognitive-Horizon Action Chunking Memory-Guided",
-    "Dual Nonuniform Denoising Dynamics",
-    "GraF-VTA Neuro-Symbolic Trajectory Generation"
-   ],
-   "score": 83.9,
-   "r2c_relevance": 72.0,
-   "growth": 100.0,
-   "platforms": [
-    "Hugging Face",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
-   "source_attribution": [
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.25980",
-     "excerpt": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models World models aim to predict environment dynamics under actions, enabling the prediction of action consequences without executing them in the real world. Yet despite producing increasingly realistic videos, current world models often fail to capture how small action changes affect future observations. This limits their use in tasks such as robotic policy evalua",
-     "source_insight": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models"
-    },
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.26414",
-     "excerpt": "ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation ",
-     "source_insight": "ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25105",
-     "excerpt": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation Every move in a robot team changes the world in which its teammates must act. Coordinated manipulation therefore calls for predicting the team's actions together with the physical future they jointly create. We introduce MAWAM, a multi-agent world-action model that jointly generates each robot's future views and executable action chunks in a single sample. Built from a pretraine",
-     "source_insight": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25199",
-     "excerpt": "VG-Steer: Visual-Geometric Policy Steering from In-Context Aligned Abstractions Adapting robot policies to out-of-distribution (OOD) settings with limited real-world data remains a key bottleneck to generalist robots. The multimodality and scarcity of robotics data lead end-to-end approaches to overfit and break under small distribution shifts. Test-time adaptation can alleviate this by correcting frozen policies at inference, but most methods gr",
-     "source_insight": "VG-Steer: Visual-Geometric Policy Steering from In-Context Aligned Abstractions"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25215",
-     "excerpt": "Bridging vision-language reasoning and learned control for legged navigation in the wild Autonomous navigation in diverse real-world environments remains one of the greatest challenges in robotics. It demands both robust low-level motion control to handle diverse terrain and high-level reasoning to interpret environmental cues. We present ROAM (Robust Open-world Autonomous Mobility), a system that enables legged robots to perform kilometer-scale ",
-     "source_insight": "Bridging vision-language reasoning and learned control for legged navigation in the wild"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25243",
-     "excerpt": "Verify2Act: Critic-Guided Latent World Models for Verifying Language-Conditioned Manipulation Plans Vision-Language Models (VLMs) can propose multi-step manipulation plans, but they have no grounded model of how a scene will change, and the pixel-level world models that could check those plans are slow and drift over long horizons. We present Verify2Act, a modular verification framework that separates semantic action proposal from latent physical",
-     "source_insight": "Verify2Act: Critic-Guided Latent World Models for Verifying Language-Conditioned Manipulation Plans"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_006_8ea7",
-   "rank": 6,
-   "near_miss": false,
-   "topic_title": "Advances in Multi-Agent Financial Research and Robustness Analysis",
-   "topic_summary": "Researchers have released new open-source AI prototypes and frameworks, including FinVeriQA for financial research routing and verification, and agentic multiverse analysis frameworks to test the robustness of empirical finance research. These developments matter to AI/ML practitioners because they address critical challenges like multi-agent coordination, computational accuracy, and decision sensitivity to methodological choices.",
-   "topic_key_facts": [
-    "[Webpage] FinVeriQA is an open-source multi-agent research prototype over SEC filings and live market data introduced in arXiv:2611.25071v1.",
-    "[Webpage] A pilot study deployed 150 autonomous AI coding agents on one dataset and one set of research questions as part of an agentic multiverse analysis framework.",
-    "[Webpage] An AI-powered multiverse analysis was conducted on 324 papers reusing 13 natural experiments across grids totaling 62,409 estimated defensible specifications.",
-    "[Webpage] Researchers successfully reproduced 42% of the main estimates of claims in their empirical finance research study."
-   ],
-   "topic_entities": [
-    "AI Analysts Disagree Agentic",
-    "Empirical Finance Research Evidence",
-    "Question Answering Routing Retrieval",
-    "AI-Powered Multiverse Analysis",
-    "FinVeriQA Financial Research",
-    "Provenance-Aware Evidence Verification"
-   ],
-   "score": 83.6,
-   "r2c_relevance": 92.0,
-   "growth": 93.75,
-   "platforms": [
-    "Bluesky",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/sipirtu.com/post/3n2qec7jx3622",
-     "excerpt": "Researchers developed an agentic multiverse analysis framework that makes a conclusion's sensitivity to analytical choices visible at scale. A pilot study deployed autonomous AI coding agents on one dataset and found that they disagree through defensible methodological choices. Source: arXiv",
-     "source_insight": "Researchers developed an agentic multiverse analysis framework that makes a conclusion's sensitivity to analytical choices visible at scale."
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25071",
-     "excerpt": "FinVeriQA: Financial Research Agents for Question Answering: Routing, Retrieval, MCP Tool Use, and Provenance-Aware Evidence Verification arXiv:2611.25071v1 Announce Type: new Abstract: Large language models (LLMs) write fluent financial analyses but miscompute ratios, recall stale prices, and route questions to the wrong tool with high confidence. We ask which component should do each job in a financial question-answering assistant, and study it",
-     "source_insight": "FinVeriQA: Financial Research Agents for Question Answering: Routing, Retrieval, MCP Tool Use, and Provenance-Aware Evidence Verification"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25184",
-     "excerpt": "An AI-Powered Multiverse Analysis of Empirical Finance Research: Evidence from Reused Natural Experiments arXiv:2611.25184v1 Announce Type: new Abstract: Empirical finance research often reuses natural experiments to study other outcomes, raising concerns about multiple testing and publication bias. We use AI agents to run a multiverse analysis of 324 papers that reuse 13 natural experiments. The agents rebuild the data, reproduce each paper's ma",
-     "source_insight": "An AI-Powered Multiverse Analysis of Empirical Finance Research: Evidence from Reused Natural Experiments"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25198",
-     "excerpt": "When AI Analysts Disagree: Agentic Multiverse Analysis and the Robustness of Empirical Research arXiv:2611.25198v1 Announce Type: new Abstract: Every empirical analysis on observational data rests on dozens of defensible analytical choices (\"forks\") that its readers cannot see. We develop an agentic multiverse analysis (AMA) framework that makes a conclusion's sensitivity to those choices visible at scale, and we position it as a decision-support",
-     "source_insight": "When AI Analysts Disagree: Agentic Multiverse Analysis and the Robustness of Empirical Research"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_007_bab8",
-   "rank": 7,
-   "near_miss": false,
-   "topic_title": "Research on Deep Stereo Models and Depth Pro 2",
-   "topic_summary": "Recent research investigates whether deep stereo models learn simple shape priors for localizing object boundaries, revealing that state-of-the-art models still retain systematic boundary errors. Meanwhile, Depth Pro 2 has been introduced to estimate dense metric depth for images and video at full resolution by overcoming the trade-off between temporal consistency and boundary sharpness.",
-   "topic_key_facts": [
-    "[Webpage] Deep stereo models retain systematic boundary errors even when finetuned or trained from scratch on a synthetic stereo dataset.",
-    "[Hugging Face] Depth Pro 2 processes both images and video to predict depth maps at native resolution.",
-    "[Hugging Face] Depth Pro 2 produces depth maps that are metrically accurate, sharp, and temporally consistent."
-   ],
-   "topic_entities": [
-    "Depth Pro 2 Sharp",
-    "Temporally Consistent Metric Monocular",
-    "Do Deep Stereo",
-    "Learn Shape Priors"
-   ],
-   "score": 79.8,
-   "r2c_relevance": 45.0,
-   "growth": 91.25,
-   "platforms": [
-    "Hugging Face",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
-   "source_attribution": [
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.26603",
-     "excerpt": "Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth We present Depth Pro 2, an approach to estimating dense metric depth for images and video at full resolution. By analyzing prior methods for monocular depth estimation, we find that they commonly trade off temporal consistency and boundary sharpness: multi-frame methods favor consistency, single-frame methods favor sharpness. To overcome this trade-off, we train a single, scalabl",
-     "source_insight": "Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://arxiv.org/abs/2611.25113",
-     "excerpt": "Do Deep Stereo Models Learn Shape Priors? Localizing object boundaries is important for embodied visual systems, since small boundary errors can change the inferred geometry of physical surfaces. We study whether deep stereo models produce boundaries consistent with simple shape priors when local image and disparity cues are weak. We create a synthetic stereo dataset consisting of objects drawn from a highly constrained family of shapes, with ran",
-     "source_insight": "Do Deep Stereo Models Learn Shape Priors?"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_008_f871",
-   "rank": 8,
-   "near_miss": false,
-   "topic_title": "NVIDIA AI Releases Nemotron-Labs-Sigma Continuous Diffusion Language Model",
-   "topic_summary": "NVIDIA AI released Nemotron-Labs-Sigma, a collection of 14 open 3B and 8B continuous diffusion language model checkpoints that denoise text in a learned 16-dimensional embedding space. The models distill to few-step samplers and achieve a decoding speedup of up to 4.20x compared to traditional autoregressive decoding.",
-   "topic_key_facts": [
-    "[Mastodon] NVIDIA AI released Nemotron-Labs-Sigma, featuring 14 open 3B and 8B continuous diffusion language model checkpoints.",
-    "[Webpage] Sigma denoises text in a learned 16-D embedding space and decodes up to 4.20x faster than autoregressive decoding.",
-    "[Mastodon] The release was covered by MarkTechPost on November 20, 2026."
-   ],
-   "topic_entities": [
-    "3B 8B",
-    "Continuous Diffusion Language",
-    "NVIDIA AI",
-    "SID-2 Agentic Search",
-    "LLM Traffic Kong Bifrost",
-    "MCP A2A"
-   ],
-   "score": 77.7,
-   "r2c_relevance": 92.0,
-   "growth": 87.5,
-   "platforms": [
-    "Mastodon",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
-   "source_attribution": [
-    {
-     "platform": "Mastodon",
-     "source_url": "https://igeek.gamer-geek-news.com/@feed/statuses/01M7WPW1ANE9WZ3KYNND4F2CD1",
-     "excerpt": "NVIDIA AI Releases Nemotron-Labs-Sigma, a Continuous Diffusion Language Model with 14 checkpoints at 3B/8B 📰 NVIDIA AI Releases Nemotron-Labs-Sigma, a Continuous Diffusion Language Model with 14 checkpoints at 3B/8B NVIDIA released Nemotron-Labs-Sigma, 14 open 3B and 8B continuous diffusion language model checkpoints. Sigma denoises text in a learned 16-D embedding space, distills to few-step samplers, and dec... 📰 Source: MarkTechPost 🔗 Link: ht",
-     "source_insight": "NVIDIA AI Releases Nemotron-Labs-Sigma, a Continuous Diffusion Language Model with 14 checkpoints at 3B/8B"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://www.marktechpost.com/2026/11/20/nvidia-nemotron-labs-sigma-continuous-diffusion-language-model/",
-     "excerpt": "NVIDIA AI Releases Nemotron-Labs-Sigma, a Continuous Diffusion Language Model with 14 checkpoints at 3B/8B NVIDIA released Nemotron-Labs-Sigma, 14 open 3B and 8B continuous diffusion language model checkpoints. Sigma denoises text in a learned 16-D embedding space, distills to few-step samplers, and decodes up to 4.20x faster than autoregressive decoding. The post NVIDIA AI Releases Nemotron-Labs-Sigma, a Continuous Diffusion Language Model with ",
-     "source_insight": "NVIDIA AI Releases Nemotron-Labs-Sigma, a Continuous Diffusion Language Model with 14 checkpoints at 3B/8B"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://www.marktechpost.com/2026/11/19/best-agent-gateways-2026/",
-     "excerpt": "13 Best Agent Gateways in 2026 for MCP, A2A and LLM Traffic: Kong, Bifrost, AgentCore, Arcade We ranked the 13 best agent gateways of 2026 by how they govern model, MCP tool and agent-to-agent traffic, with verified pricing, deployment options and the trade-offs each vendor's marketing leaves out. The post 13 Best Agent Gateways in 2026 for MCP, A2A and LLM Traffic: Kong, Bifrost, AgentCore, Arcade appeared first on MarkTechPost .",
-     "source_insight": "13 Best Agent Gateways in 2026 for MCP, A2A and LLM Traffic: Kong, Bifrost, AgentCore, Arcade"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://www.marktechpost.com/2026/11/19/perplexity-orchestrator-api-failover-model-routing/",
-     "excerpt": "Perplexity Launches Orchestrator API for Failover and Model Routing Perplexity’s Orchestrator API serves OpenAI, Anthropic, Google, xAI and open-weight models through 1 endpoint, with same-model provider failover, unified billing and a preview perplexity/auto router that sends each request to a described route. The post Perplexity Launches Orchestrator API for Failover and Model Routing appeared first on MarkTechPost .",
-     "source_insight": "Perplexity Launches Orchestrator API for Failover and Model Routing"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://www.marktechpost.com/2026/11/17/sid-ai-sid-2-agentic-search-swarm/",
-     "excerpt": "SID AI Releases SID-2 Agentic Search Model With 0.720 NDCG Swarm Mode SID AI released SID-2, an agentic search model trained with reinforcement learning. A single agent reaches 0.585 NDCG in 3.11 seconds, and a 12-agent SID-2 Swarm scores 0.720 NDCG, above GPT-6 Astra on SID’s benchmark. The post SID AI Releases SID-2 Agentic Search Model With 0.720 NDCG Swarm Mode appeared first on MarkTechPost .",
-     "source_insight": "SID AI Releases SID-2 Agentic Search Model With 0.720 NDCG Swarm Mode"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://www.marktechpost.com/2026/11/17/anthropic-claude-code-code-mode-javascript-tool-calls/",
-     "excerpt": "Anthropic Adds Code Mode to Claude Code: Claude Now Chains Tool Calls in JavaScript Anthropic has added Code Mode to Claude Code v2.1.323. The experimental feature lets Claude write JavaScript that chains Bash, Read and Edit calls in 1 step, and keep talking while long commands run. The post Anthropic Adds Code Mode to Claude Code: Claude Now Chains Tool Calls in JavaScript appeared first on MarkTechPost .",
-     "source_insight": "Anthropic Adds Code Mode to Claude Code: Claude Now Chains Tool Calls in JavaScript"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_009_34d4",
-   "rank": 9,
-   "near_miss": false,
-   "topic_title": "Sudo L7 Benchmark And Repo-Premium Code-Search Study",
-   "topic_summary": "Recent releases examine advanced AI coding capabilities through the new Sudo L7 benchmark, which tests staff-level engineering judgment, and Repo-Premium, a realistic repository-level code-search benchmark. These initiatives highlight the gap between narrow technical correctness and broader engineering context, addressing limitations in current evaluation choices and agent behaviors.",
-   "topic_key_facts": [
-    "Sudo L7 is a coding benchmark testing whether AI agents can exercise staff-level engineering judgment. [Hacker News]",
-    "Repo-Premium is a realistic repository-level code-search benchmark built to find out what the dense advantage measures. [Hugging Face]",
-    "Repo-Premium includes pull requests from 2022 to 2026. [Hugging Face]",
-    "Repo-Premium features a preregistered test pool over 91 repositories. [Hugging Face]",
-    "Repo-Premium queries span Python, JavaScript, TypeScript, Go, Rust, and Java. [Hugging Face]"
-   ],
-   "topic_entities": [
-    "Act Like Staff Engineers",
-    "Sudo L7",
-    "Code Search",
-    "Dense Advantage",
-    "Grep Rethinking",
-    "Coding"
-   ],
-   "score": 73.7,
-   "r2c_relevance": 98.0,
-   "growth": 53.92,
-   "platforms": [
-    "Hugging Face",
-    "Hacker News"
-   ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
-   "source_attribution": [
-    {
-     "platform": "Hugging Face",
-     "source_url": "https://huggingface.co/papers/2611.20455",
-     "excerpt": "Embeddings vs. Grep: Rethinking the Dense Advantage in Code Search Code-search benchmarks show dense encoders well ahead of BM25, yet coding agents do well with grep. What does this dense advantage measure? Existing benchmarks cannot tell: they use curated queries, old code and a handicapped BM25. To find out, we build Repo-Premium, a realistic repository-level code-search benchmark. It ranks files in real repositories, with curated and raw queri",
-     "source_insight": "Embeddings vs. Grep: Rethinking the Dense Advantage in Code Search"
-    },
     {
      "platform": "Hacker News",
-     "source_url": "https://surgehq.ai/blog/sudo-l7",
-     "excerpt": "Sudo L7: Can Coding Agents Act Like Staff Engineers? Introducing sudo L7, a coding benchmark testing whether AI agents can go beyond correct code and exercise staff-level engineering judgment. The strange thing about today’s coding agents is that they can be technically right and professionally wrong . Coding agents have become remarkably good at writing code. What they often miss is everything around it: what could go wrong, what the user forgot",
-     "source_insight": "Sudo L7: Can Coding Agents Act Like Staff Engineers?"
+     "source_url": "https://arxiv.org/abs/2602.20031",
+     "excerpt": "Latent Introspection: LLMs Can Detect Prior Concept Injections We uncover a latent capacity for introspection in a Qwen 32B model, demonstrating that the model can detect when concepts have been injected into its earlier context and identify which concept was injected. While the model denies injection in sampled outputs, logit lens analysis reveals clear detection signals in the residual stream, which are attenuated in the final layers. Furthermo",
+     "source_insight": "Latent Introspection: LLMs Can Detect Prior Concept Injections"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28314",
+     "excerpt": "INSEP: Refusal-Direction Inseparability as a Defense Against Abliteration Abliteration is a widely used white-box attack against the safety alignment of large language models (LLMs). It elicits harmful behavior by estimating a refusal direction in the model's activation space and projecting that direction out of the residual-stream write-out matrices. We propose INSEP, a defense that fine-tunes the model to reduce the separability of harmful and ",
+     "source_insight": "INSEP: Refusal-Direction Inseparability as a Defense Against Abliteration"
     }
    ]
   },
   {
-   "trend_id": "trd_20261120_010_9f14",
-   "rank": 10,
+   "trend_id": "trd_20261124_002_55fb",
+   "rank": 2,
    "near_miss": false,
-   "topic_title": "AWS Marketplace Enables AI Agent Payments via Bedrock AgentCore",
-   "topic_summary": "Amazon Bedrock AgentCore payments now supports AWS Marketplace, allowing AI agents to autonomously discover and purchase x402-enabled products and APIs billed directly to a developer's AWS account. This development enables agents to handle transactions using payment limits and full observability without requiring stablecoin wallets or API keys.",
+   "topic_title": "Systematic Study and Design of Agent Harnesses",
+   "topic_summary": "Recent research across web and Hugging Face signals examines how agent harness design—focusing on context management, skill management, and component interaction—shapes the performance of self-evolving, long-horizon AI agents. These studies matter to ML practitioners because optimizing harness architectures directly improves agent robustness, computational efficiency, and compositional generalization across domains like scientific research, gameplay, and robotics.",
    "topic_key_facts": [
-    "[Webpage] Amazon Bedrock AgentCore payments became generally available in August 2026.",
-    "[Webpage] Agents can pay in USD on the developer's AWS bill with no stablecoin wallets or API keys.",
-    "[Webpage] The integration supports discovering and buying x402-enabled products, APIs, data, and content with payment limits and full observability.",
-    "[News] AWS Marketplace lets companies give AI agents a budget to buy software products."
+    "[Webpage] Researchers systematically study harness design for self-evolving autoresearch agents along two dimensions: context management and skill management.",
+    "[Webpage] MatHarness couples execution robustness through pre-flight verification, expert-distilled skills, and just-in-time auditing for open-ended computational materials research.",
+    "[Webpage] AutoPILOT is a visual agent harness that allows a multimodal model to send a primitive action, start an open-loop macro, or write a closed-loop controller in each model call.",
+    "[Hugging Face] Embo-Harness investigates four components of the robotic agentic loop: prompting, planning, action execution, and tool use, distilling six empirical findings."
    ],
    "topic_entities": [
-    "AWS Marketplace x402",
-    "Amazon Bedrock AgentCore",
-    "Exclusive AWS Marketplace",
-    "Enable AI",
-    "People"
+    "Embo-Harness Towards Understanding Frontier-Model-as-Policy",
+    "MatHarness Towards Long-Horizon Open-ended",
+    "Autoresearch",
+    "Computational Materials Science",
+    "Skills Shape Self-Evolving",
+    "Compositional Generalizers"
    ],
-   "score": 72.4,
-   "r2c_relevance": 85.0,
-   "growth": 90.5,
+   "score": 87.5,
+   "r2c_relevance": 98.0,
+   "growth": 98.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.691941+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.31201",
+     "excerpt": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness Frontier multimodal models exhibit extraordinary generalization in generating robot actions from observations and instructions, enabling a new paradigm in which they serve directly as policies within closed-loop robotic harnesses. However, the design principles of such harnesses, and the capabilities underlying their strong performance, remain unclear. We present Embo-Harness, a",
+     "source_insight": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28202",
+     "excerpt": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay Multimodal foundation models can play video games well when the game waits for them, but often fail when it keeps running. We find that much of this gap lies in the harness, which decides what the model sees, what it remembers, and how its outputs become actions over time. Existing harnesses such as VISTA improve the first two, yet turn each model call into at most one action, so the agent ",
+     "source_insight": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28244",
+     "excerpt": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents Autoresearch agents, which autonomously design, run, and refine experiments, are accelerating scientific progress, particularly in AI research. However, existing agents rely on harnesses that combine multiple mechanisms, making it difficult to determine how individual components contribute to performance. We systematically study harness design for long-horizo",
+     "source_insight": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28298",
+     "excerpt": "Language Model Harnesses can be Compositional Generalizers Modern language models (LMs) are post-trained and deployed as agents inside a \"harness\", but standard harness designs accumulate context that the neural network is forced to generalize to, making training for long-horizon tasks expensive and time-consuming. We study an alternative emerging path: training inherently neurosymbolic LM harnesses, which externalize and manage context programma",
+     "source_insight": "Language Model Harnesses can be Compositional Generalizers"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28324",
+     "excerpt": "MatHarness: Towards Long-Horizon Open-ended AutoResearch for Computational Materials Science Materials science research is a non-linear, long-horizon process. Existing scientific agents, however, largely rely on specific task execution or predefined workflows, rendering them brittle in open-ended settings. To bridge this gap, we present MatHarness, an agent harness designed for open-ended, long-horizon computational materials research spanning th",
+     "source_insight": "MatHarness: Towards Long-Horizon Open-ended AutoResearch for Computational Materials Science"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_003_68ff",
+   "rank": 3,
+   "near_miss": false,
+   "topic_title": "Advances in On-Policy Distillation for Language Models",
+   "topic_summary": "Recent research papers introduce novel variants of on-policy distillation (OPD) to improve large language model post-training and agent efficiency. These methods include Contrastive On-Policy Distillation (cOPD) with dual-branch supervision, Muted Distillation (MD) to prevent reasoning length inflation, and Composable Soft-Prompt Distillation (CSPD) for continual RL expert consolidation.",
+   "topic_key_facts": [
+    "cOPD provides dual branch supervision by contrasting strong teacher, weak teacher, and student predictions at student generated prefixes. [Webpage]",
+    "A controlled token intervention study suggests that even a model weaker than the student can serve as an informative contrastive reference. [Webpage]",
+    "Muted Distillation (MD) is a variant of OPD that hides the student's reasoning from the teacher so the teacher judges what the student does without interference. [Webpage]",
+    "CSPD keeps the pre-RL model frozen and distills each RL expert independently into a soft prompt. [Hugging Face]",
+    "CSPD composes experts by concatenating their prompts without joint training. [Hugging Face]"
+   ],
+   "topic_entities": [
+    "Muted Distillation Sealing Reasoning",
+    "RL Experts Toward Continual",
+    "Composable Soft-Prompt Distillation",
+    "Contrastive On-Policy Distillation",
+    "Teacher Unlocks Token-Efficient",
+    "Dual-Branch Supervision"
+   ],
+   "score": 86.3,
+   "r2c_relevance": 98.0,
+   "growth": 93.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692061+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.27376",
+     "excerpt": "Composable Soft-Prompt Distillation of RL Experts: Toward Continual Post-Training RL post-training typically produces domain experts that must then be consolidated into one model, and as new experts keep arriving, this consolidation becomes a continual process. Weight merging and multi-teacher on-policy distillation (MOPD) must re-consolidate the whole model whenever an expert is added, and can erode capabilities outside the target domains. We pr",
+     "source_insight": "Composable Soft-Prompt Distillation of RL Experts: Toward Continual Post-Training"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28359",
+     "excerpt": "Contrastive On-Policy Distillation via Dual-Branch Supervision For on-policy distillation (OPD), more capable models are a natural choice as teachers. However, higher task performance does not necessarily imply greater teachability. A controlled token intervention study suggests that even a model weaker than the student can serve as an informative contrastive reference. Building on this observation, we propose Contrastive On-Policy Distillation (",
+     "source_insight": "Contrastive On-Policy Distillation via Dual-Branch Supervision"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28445",
+     "excerpt": "Muted Distillation: Sealing Reasoning from Teacher Unlocks Token-Efficient Agents On-policy distillation (OPD) is commonly adopted as one of the components in post-training of large language models (LLMs), but in multi-turn agentic tasks we find that the student model increases their reasoning lengths after training. Our empirical analysis shows that the reasoning token lengths is affected by how much the student can distract the teacher's scores",
+     "source_insight": "Muted Distillation: Sealing Reasoning from Teacher Unlocks Token-Efficient Agents"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_004_4212",
+   "rank": 4,
+   "near_miss": false,
+   "topic_title": "Advances in Long-Video Understanding and Memory Systems for AI Agents",
+   "topic_summary": "Recent research papers introduce new frameworks—including VideoGym, VTree, ORDO, and MORSE—to address core challenges in long-video understanding, agentic memory, and motion analysis for video LLMs. These developments matter to AI/ML practitioners because they tackle critical bottlenecks like sparse evidence retrieval, fixed-distribution reinforcement learning limitations, and bounded frame storage in streaming systems.",
+   "topic_key_facts": [
+    "[Webpage] Text-heavy questions account for 58% of samples in the VideoGym source pool, compared to 15% graph-heavy, 17% visual-heavy, and 10% time-range questions.",
+    "[Webpage] VideoGym is presented as an adaptive reinforcement learning environment for long-video agents to locate sparse evidence.",
+    "[Webpage] VTree addresses hierarchical memory growth for agentic long-video understanding where standard uniform frame sampling discards fine-grained evidence.",
+    "[Webpage] ORDO is a proposed framework for fine-grained motion understanding in video large language models via order-dependent supervision.",
+    "[Hugging Face] MORSE stands for Memory Optimization with Recursive Self-Evolvement, an open-world auto-research method optimizing streaming memory design."
+   ],
+   "topic_entities": [
+    "MORSE Optimizing Streaming Memory",
+    "ORDO Fine-Grained Motion Understanding",
+    "Adaptive RL Environment",
+    "Agentic Long-Video Understanding",
+    "VTree Question-Driven Growth",
+    "Hierarchical Memory"
+   ],
+   "score": 86.2,
+   "r2c_relevance": 95.0,
+   "growth": 96.25,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692220+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.30011",
+     "excerpt": "MORSE: Optimizing Streaming Memory Design via Open-World Auto-Research A streaming video system must decide in a single pass what evidence to retain under bounded frame storage, before it knows which details a future question will require. Recent recursive self-improvement methods automate the design of the harness that stores and retrieves this evidence. They revise the harness in response to failures, but the editor must still devise each repai",
+     "source_insight": "MORSE: Optimizing Streaming Memory Design via Open-World Auto-Research"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28093",
+     "excerpt": "VTree: Question-Driven Growth of Hierarchical Memory for Agentic Long-Video Understanding Long videos spanning tens of minutes to hours far exceed the context window of today's vision-language models, and the standard remedy of sparse uniform frame sampling discards exactly the fine-grained evidence that specific questions depend on. Existing video agents explore on demand but re-explore from scratch for every question and discard their explorati",
+     "source_insight": "VTree: Question-Driven Growth of Hierarchical Memory for Agentic Long-Video Understanding"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28097",
+     "excerpt": "ORDO: Fine-Grained Motion Understanding in Video LLMs via Order-Dependent Supervision Video large language models (video LLMs) answer a wide range of questions about real videos, yet they remain weak at fine-grained motion such as whether an object speeds up or slows down. Existing methods train these models on synthetic motion clips, on order pretext tasks such as reordering shuffled clips, or with rewards that compare ordered and perturbed fram",
+     "source_insight": "ORDO: Fine-Grained Motion Understanding in Video LLMs via Order-Dependent Supervision"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28102",
+     "excerpt": "VideoGym: An Adaptive RL Environment for Long-Video Agents Reinforcement learning (RL) trains video agents to locate sparse evidence for long-video question answering through structured memory retrieval and temporal re-observation. This training, however, faces a long-tail modality distribution in the data. In our source pool, text-heavy questions account for 58% of samples, compared with 15% graph-heavy, 17% visual-heavy, and 10% time-range ques",
+     "source_insight": "VideoGym: An Adaptive RL Environment for Long-Video Agents"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_005_1900",
+   "rank": 5,
+   "near_miss": false,
+   "topic_title": "Mitigating Positional and Permutation Biases in Large Models",
+   "topic_summary": "Recent research papers introduce novel methods to address positional and permutation biases in multimodal and language models. These techniques—such as shared positions, attention-only distillation, and Exchangeable Self-Distillation—help models overcome issues like the lost-in-the-middle curve and permutation sensitivity without requiring gold answers.",
+   "topic_key_facts": [
+    "[Webpage] The paper on reducing permutation sensitivity categorizes permutation bias phenomena into four representative scenarios. [Webpage]",
+    "[Webpage] Exchangeable Self-Distillation (ExSD) trains a small adapter on shuffled contexts to reproduce a model's answer when reading the answer document alone. [Webpage]",
+    "[Webpage] ExSD requires no gold answers and only a few thousand examples, tested across six models starting from size 1.5. [Webpage]",
+    "[Hugging Face] The DiLE framework combines task guidance with on-policy retrieval feedback to preserve discriminative evidence in universal multimodal embeddings. [Hugging Face]"
+   ],
+   "topic_entities": [
+    "DiLE Discrimination-Aware Latent-Space Learning",
+    "Make Position Uninformative Exchangeable",
+    "Multimodal Large Language",
+    "Reducing Permutation Sensitivity",
+    "Universal Multimodal Embeddings",
+    "Attention-Only Distillation"
+   ],
+   "score": 86.0,
+   "r2c_relevance": 95.0,
+   "growth": 93.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692361+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.25419",
+     "excerpt": "DiLE: Discrimination-Aware Latent-Space Learning for Universal Multimodal Embeddings Multimodal large language models have greatly improved input understanding in universal multimodal embedding models. However, this understanding does not ensure that their embeddings preserve the evidence needed to distinguish relevant items from confusable alternatives. To preserve essential discriminative evidence in embeddings, this paper proposes DiLE, a disc",
+     "source_insight": "DiLE: Discrimination-Aware Latent-Space Learning for Universal Multimodal Embeddings"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28612",
+     "excerpt": "Reducing Permutation Sensitivity in Multimodal Large Language Models via Shared Positions and Attention-Only Distillation In this paper, we conduct a systematic study on improving permutation robustness while preserving accuracy. First, we categorize permutation bias phenomena into four representative scenarios. Then, we take the multiple-choice question answering (MCQA) dataset as an example under text-option reordering scenario to analyze the r",
+     "source_insight": "Reducing Permutation Sensitivity in Multimodal Large Language Models via Shared Positions and Attention-Only Distillation"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28638",
+     "excerpt": "Make Position Uninformative: Exchangeable Self-Distillation Flattens the Lost-in-the-Middle Curve Retrieval-augmented language models answer well when the relevant document comes first or last and poorly when it sits in the middle. Some fine-tuning recipes lift the middle by lowering the start. We show how training contexts teach positional bias. With a uniform answer slot and shuffled distractors, the optimal reader ignores position. Building on",
+     "source_insight": "Make Position Uninformative: Exchangeable Self-Distillation Flattens the Lost-in-the-Middle Curve"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_006_50b5",
+   "rank": 6,
+   "near_miss": false,
+   "topic_title": "KV Cache Compression and Markovian Reasoning Innovations",
+   "topic_summary": "Recent research introduces specialized large language models and compression techniques to address the key-value (KV) cache bottleneck in long-chain reasoning and long-context decoding. New methods include structural cache compression for Markovian reasoning, the NoHairCache framework uniting eviction strategies via a power-law exponent, and query-adaptive KV cache compression using attention-error bounds. These developments matter to AI/ML practitioners because they directly target memory and throughput limitations in autoregressive generation.",
+   "topic_key_facts": [
+    "[Webpage] Specialized large language models for Markovian reasoning utilize structural cache compression, transition pretraining, and dual-loop transformers.",
+    "[Hugging Face] NoHairCache demonstrates that the decay exponent alpha in KV-cache eviction transfers directly across domains when calibrated once on a single corpus.",
+    "[Hugging Face] Attention-based accumulation (H2O) and recency-based sliding windows (StreamingLLM) correspond to alpha = 0 and alpha to infinity in the power-law family.",
+    "[Webpage] RefineKV addresses long-context decoding by splitting the KV cache into clusters and using compact representatives that incur negligible error."
+   ],
+   "topic_entities": [
+    "Markovian Reasoning Structural Cache",
+    "NoHairCache Calibrate-Once KV Cache",
+    "RefineKV Query-Adaptive KV Cache",
+    "Compression Transition Pretraining",
+    "Specialized Large Language",
+    "Attention-Error Bounds"
+   ],
+   "score": 85.8,
+   "r2c_relevance": 98.0,
+   "growth": 93.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692494+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.29006",
+     "excerpt": "NoHairCache: Calibrate-Once KV Cache Eviction with One Power-Law Exponent The decay exponent α in KV-cache eviction is an intrinsic property of the model: calibrated once on a single corpus, it transfers directly across domains. Attention-based accumulation (H2O) and recency-based sliding windows (StreamingLLM) are two dominant eviction frameworks, often treated as unrelated, but we show that they are the two endpoints of a single power-law famil",
+     "source_insight": "NoHairCache: Calibrate-Once KV Cache Eviction with One Power-Law Exponent"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28285",
+     "excerpt": "Specialized Large Language Models for Markovian Reasoning: Structural Cache Compression, Transition Pretraining, and Dual-Loop Transformers Standard autoregressive large language models attend to the growing history of generated tokens, making the key-value (KV) cache a central memory and throughput bottleneck in long-chain reasoning and multi-branch sampling. Yet an important class of reasoning problems is naturally first-order Markovian: the ne",
+     "source_insight": "Specialized Large Language Models for Markovian Reasoning: Structural Cache Compression, Transition Pretraining, and Dual-Loop Transformers"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28171",
+     "excerpt": "RefineKV: Query-Adaptive KV Cache Compression via Attention-Error Bounds Repeatedly accessing the full key--value (KV) cache is a major bottleneck in long-context language model decoding. We find that small query-specific subsets can accurately approximate full attention, yet their union covers nearly the entire cache, motivating query-adaptive access for the KV cache. A natural approach is to split the KV cache into clusters, using compact repre",
+     "source_insight": "RefineKV: Query-Adaptive KV Cache Compression via Attention-Error Bounds"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_007_990f",
+   "rank": 7,
+   "near_miss": false,
+   "topic_title": "Advancing Reinforcement Learning for Multimodal Tool Use",
+   "topic_summary": "Recent research addresses the challenges of multimodal large language models using external visual tools through advanced reinforcement learning techniques. These approaches tackle issues like reward engineering distortion, inference overhead, and textual reward aliasing by focusing on data-centric methods, scaffolded training, and internal attention processes.",
+   "topic_key_facts": [
+    "[Webpage] MLLMs increasingly use external visual tools to acquire evidence during reasoning, but learning when to invoke these tools remains challenging.",
+    "[Webpage] Tool-to-Self (T2S) is a tool-scaffolded reinforcement learning framework that turns external visual tools into temporary training scaffolds.",
+    "[Hugging Face] The Attention Process Reward Model addresses textual reward aliasing by rewarding how a model thinks internally rather than merely what it says."
+   ],
+   "topic_entities": [
+    "They Think Attention Process",
+    "Data-Centric Reinforcement Learning",
+    "Effective Agentic Visual",
+    "LLM Reinforcement Learning",
+    "Scaffolded Reinforcement Learning",
+    "Tool-to-Self Internalizing Visual"
+   ],
+   "score": 85.4,
+   "r2c_relevance": 95.0,
+   "growth": 93.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692617+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.30627",
+     "excerpt": "From Rewarding What Models Say to How They Think: Attention Process Reward Model for LLM Reinforcement Learning Reinforcement learning (RL) has become an important component in large language models (LLMs). However, existing RL approaches focus on final outputs or textual solution trajectories, leading to coarse-grained rewards and unreliable reasoning. Such paradigms focus mainly on what the model outputs while overlooking how the model internal",
+     "source_insight": "From Rewarding What Models Say to How They Think: Attention Process Reward Model for LLM Reinforcement Learning"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28558",
+     "excerpt": "From Reward Engineering to Data-Centric Reinforcement Learning for Effective Agentic Visual Tool Use Multimodal large language models (MLLMs) increasingly use external visual tools to acquire evidence during reasoning, yet learning when to invoke these tools remains challenging. Existing tool-use reinforcement learning (RL) methods often rely on call-contingent rewards to encourage beneficial tool use, but such reward engineering can distort the ",
+     "source_insight": "From Reward Engineering to Data-Centric Reinforcement Learning for Effective Agentic Visual Tool Use"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28564",
+     "excerpt": "Tool-to-Self: Internalizing Visual Tool Capabilities via Scaffolded Reinforcement Learning Vision-language models (VLMs) increasingly rely on external visual tools to access fine-grained visual evidence, but repeated tool execution incurs substantial inference overhead and deployment dependencies. Moreover, conventional tool-use RL can improve visual-task performance, yet the resulting tool gains are often unstable. Motivated by this, we propose ",
+     "source_insight": "Tool-to-Self: Internalizing Visual Tool Capabilities via Scaffolded Reinforcement Learning"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_008_ef34",
+   "rank": 8,
+   "near_miss": false,
+   "topic_title": "Advancements in Speculative Decoding for Structured and Feedback Transformers",
+   "topic_summary": "Recent research introduces \"Grammar-as-a-Draft\" to merge drafter proposals with grammar-forced tokens for structured outputs, and \"Feedback Shortcut\" to resolve bottlenecks when applying speculative decoding to latent feedback Transformers. These methods address critical efficiency and approximation error challenges during the speculative decoding verification process.",
+   "topic_key_facts": [
+    "[Webpage] Grammar-as-a-Draft (GaaD) treats the grammar as a second drafter to handle structured outputs like JSON schemas, regexes, and tool calls.",
+    "[Webpage] Before each verify step in GaaD, the scheduler merges the drafter's proposal with grammar-forced tokens into one draft row.",
+    "[Hugging Face] Feeding each position's top-layer hidden state back into the next position's input improves Transformer performance but breaks speculative decoding.",
+    "[Hugging Face] Feedback Shortcut uses state alignment to train a lightweight projection from multi-token prediction to address bottlenecks caused by latent feedback."
+   ],
+   "topic_entities": [
+    "Feedback Shortcut Speculative Decoding",
+    "Grammar-Constrained Structured Outputs",
+    "Latent Feedback Transformers",
+    "Speculative Decoding Step",
+    "Grammar-as-a-Draft",
+    "Tokens"
+   ],
+   "score": 84.9,
+   "r2c_relevance": 95.0,
+   "growth": 91.25,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692725+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.28227",
+     "excerpt": "Feedback Shortcut: Speculative Decoding for Latent Feedback Transformers Feeding each position's top-layer hidden state back into the next position's input improves Transformer performance. However, this feedback breaks speculative decoding, since verifying a drafted token requires the top-layer state from its preceding position, which forces the draft to rely on an approximate stand-in. Training the model to adapt to this stand-in can lower the ",
+     "source_insight": "Feedback Shortcut: Speculative Decoding for Latent Feedback Transformers"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28349",
+     "excerpt": "Grammar-as-a-Draft: More Tokens per Speculative Decoding Step on Grammar-Constrained Structured Outputs Under structured outputs (JSON schemas, regexes, tool calls), speculative drafters do not see the grammar constraint and repeatedly propose invalid keys, delimiters, and indentation, while the grammar engine already knows which tokens must come next. We present Grammar-as-a-Draft (GaaD), which treats the grammar as a second drafter. Before each",
+     "source_insight": "Grammar-as-a-Draft: More Tokens per Speculative Decoding Step on Grammar-Constrained Structured Outputs"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_009_8d83",
+   "rank": 9,
+   "near_miss": false,
+   "topic_title": "Recent Research Advances in Vision-Language Models",
+   "topic_summary": "Recent research papers highlight challenges and solutions for vision-language models (VLMs), including fixing hybrid VLM thinking loops, utilizing decoder states for visual in-context learning, and understanding why short chain-of-thought fails in spatial visual question answering. These findings help practitioners improve VLM reasoning reliability and avoid common pitfalls in task execution.",
+   "topic_key_facts": [
+    "[Webpage] Hybrid VLMs often get lost in thought by looping or exhausting their budget without an answer, scoring below answering directly.",
+    "[Webpage] BehaviorICL represents each image and task by a task-conditioned processing signature using hidden states at the final input position across all decoder layers.",
+    "[Hugging Face] Short chain-of-thought turns a perception problem into a transcription problem for spatial questions.",
+    "[Hugging Face] The failure of short chain-of-thought was studied across 15 open VLMs ranging from 2B to 38B parameters and six frontier closed models."
+   ],
+   "topic_entities": [
+    "BehaviorICL Task-Conditioned Decoder States",
+    "Seeing Right Writing Wrong",
+    "Short Chain-of-Thought Breaks Spatial",
+    "You Only Think Once",
+    "Rescuing Hybrid Vision-Language",
+    "Visual In-Context Learning"
+   ],
+   "score": 84.8,
+   "r2c_relevance": 88.0,
+   "growth": 93.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692851+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.28665",
+     "excerpt": "Seeing Right, Writing Wrong: Where Short Chain-of-Thought Breaks Spatial VQA Asking a vision-language model (VLM) to think step by step often makes it worse at spatial questions, even though the image stays in context. We show that short chain-of-thought (CoT) turns a perception problem into a transcription problem. Once a VLM writes a spatial relation, its answer follows that sentence instead of the image, so whether CoT helps or hurts depends l",
+     "source_insight": "Seeing Right, Writing Wrong: Where Short Chain-of-Thought Breaks Spatial VQA"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28081",
+     "excerpt": "BehaviorICL: Task-Conditioned Decoder States for Visual In-Context Learning The usefulness of an in-context demonstration for a vision-language model (VLM) depends on both the query image and the task posed about it. We study whether the frozen target VLM's own decoder states, read before answer generation, can select such demonstrations. BehaviorICL represents each image and task by a task-conditioned processing signature, the hidden states at t",
+     "source_insight": "BehaviorICL: Task-Conditioned Decoder States for Visual In-Context Learning"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28100",
+     "excerpt": "You Only Think Once: Rescuing Hybrid Vision-Language Models Lost in Thought Thinking at length before answering is expected to strengthen the visual reasoning of vision-language models (VLMs), yet hybrid VLMs often get lost in thought: their thoughts loop or exhaust the budget without an answer, so thinking can score below answering directly. Existing early-exit methods watch a thought for the moment its answer is ready and force the answer out o",
+     "source_insight": "You Only Think Once: Rescuing Hybrid Vision-Language Models Lost in Thought"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_010_1bf0",
+   "rank": 10,
+   "near_miss": false,
+   "topic_title": "MMMem and Engram Introduce Advanced Agentic Memory Frameworks",
+   "topic_summary": "Recent research introduces two novel memory frameworks, MMMem and Engram, designed to help AI agents learn from past interactions and trials. MMMem focuses on task-aware multimodal experience consolidation, while Engram provides multi-stage memory for agentic tuning across heterogeneous models. These advancements matter to AI/ML practitioners because they prevent recurring mistakes and eliminate the costly rediscovery of lessons across sessions.",
+   "topic_key_facts": [
+    "[Hugging Face] MMMem is a task-aware multimodal memory framework that extracts and consolidates experience from completed tasks through four components.",
+    "[Hugging Face] Existing multimodal memory methods largely focus on storing and retrieving records, with limited mechanisms for learning from completed tasks and consolidating task-specific experience.",
+    "[Webpage] Engram is a memory system that links past trial outcomes with hypotheses and rationale, assessing whether evidence applies to the current model.",
+    "[Webpage] Engram features an online agent that curates evidence at decision points, with Initial Guidance supplying validated lessons at the start and Session Retrieval supplying related past sessions."
+   ],
+   "topic_entities": [
+    "Task-Aware Multimodal Experience Consolidation",
+    "Engram Multi-Stage Memory",
+    "Agentic Tuning",
+    "MMMem Self-Improving",
+    "Heterogeneous"
+   ],
+   "score": 84.3,
+   "r2c_relevance": 98.0,
+   "growth": 91.25,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692953+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.30287",
+     "excerpt": "MMMem: Self-Improving Agents with Task-Aware Multimodal Experience Consolidation AI agents accumulate conversations, images, and documents through long-term interactions with users. Answering later questions often requires connecting evidence across these records, yet the resulting understanding is rarely retained, allowing mistakes to recur on related questions. Existing multimodal memory methods largely focus on storing and retrieving records, ",
+     "source_insight": "MMMem: Self-Improving Agents with Task-Aware Multimodal Experience Consolidation"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28356",
+     "excerpt": "Engram: Multi-Stage Memory for Agentic Tuning of Heterogeneous Models Large language model (LLM) agents can now tune neural networks, yet without cross-session memory they spend costly trials rediscovering known lessons. Reuse is difficult because production models differ in architecture, training setup and inference budget. We present Engram, a memory system that links past trial outcomes with the hypotheses and rationale behind them and assesse",
+     "source_insight": "Engram: Multi-Stage Memory for Agentic Tuning of Heterogeneous Models"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_011_f7ef",
+   "rank": 11,
+   "near_miss": false,
+   "topic_title": "Recent Advances and Frameworks in Vision-Language-Action Models",
+   "topic_summary": "Recent research signals highlight a surge of new frameworks and benchmarks designed to improve Vision-Language-Action (VLA) and World-Action Models (WAMs) for robotics. These developments target core challenges such as predictive fine-tuning, efficient inference, 3D spatial reasoning, long-horizon memory, and robustness under dynamic environmental perturbations.",
+   "topic_key_facts": [
+    "JEPA-Tuner is introduced as a predictive fine-tuning framework that regularizes a VLA's native policy guidance. [Webpage]",
+    "Entangle is an in-context world-action model that maps a single human video and current context to actions. [Webpage]",
+    "LIBERO-MOR is a multimodal robustness benchmark built on standard LIBERO covering five deployment-facing domains and 22 perturbations. [Webpage]",
+    "MomentMem is a hierarchical architecture accompanied by VMBench, a suite of long-horizon manipulation tasks requiring visual moment memory. [Hugging Face]",
+    "WeaveVLA is a framework enhancing VLA action generation by explicitly modeling task-relevant relative 3D relations using a sparse graph neural network. [Hugging Face]"
+   ],
+   "topic_entities": [
+    "WeaveVLA 3D Relational Grounding",
+    "Robot Manipulation",
+    "AsyncMixVLA Runtime Asynchronous Robot",
+    "DeRail Escaping Trajectory Priors",
+    "Entangle Scaling Human-Video In-Context",
+    "FlowPAC Flow-Guided Visual Pruning"
+   ],
+   "score": 84.0,
+   "r2c_relevance": 65.0,
+   "growth": 100.0,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.693247+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.26745",
+     "excerpt": "MomentMem: Memorizing Key Moments for Robot Manipulation Robotic manipulation often requires remembering visual information that is no longer observable, such as the original location of an object. Existing approaches typically rely on full observation histories, which become redundant over long horizons, or text summaries, which may omit precise visual details. We study visual moment memory, the ability to retain such details from key moments fo",
+     "source_insight": "MomentMem: Memorizing Key Moments for Robot Manipulation"
+    },
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.31126",
+     "excerpt": "WeaveVLA: 3D Relational Grounding for Vision-Language-Action Models Vision-language-action (VLA) models leverage pretrained vision-language representations for instruction-conditioned robot control, yet their understanding of task-relevant 3D relations and how these relations evolve during manipulation remains largely implicit. To address this challenge, we introduce WeaveVLA, a framework that enhances VLA action generation by explicitly modeling",
+     "source_insight": "WeaveVLA: 3D Relational Grounding for Vision-Language-Action Models"
+    },
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.26103",
+     "excerpt": "UniVEP: Unifying Velocity and Endpoint Prediction for Robot Manipulation Flow-matching robot policies usually use one prediction target throughout action generation, even though recovering actions from noise and polishing nearly clean actions bring different challenges. We systematically compare velocity prediction (V), endpoint prediction (X), and velocity-weighted endpoint prediction (X--V) across multiple robot policies, benchmarks, and infere",
+     "source_insight": "UniVEP: Unifying Velocity and Endpoint Prediction for Robot Manipulation"
+    },
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.30813",
+     "excerpt": "HIVE-Bench: Evaluating Patch-Level Visual Representations for Egocentric Robot Manipulation Pretrained vision is a common start for robot learning, but most comparisons still score one pooled vector from a third-person image. Bimanual policies instead read dense patch tokens from cameras on the robot. We introduce HIVE-Bench: one shared flow-matching policy reads 20 encoders from seven families on 24 egocentric bimanual tasks, across adaptation, ",
+     "source_insight": "HIVE-Bench: Evaluating Patch-Level Visual Representations for Egocentric Robot Manipulation"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28256",
+     "excerpt": "FlowPAC: Flow-Guided Visual Pruning and Action Caching for Efficient VLA Inference Vision-Language-Action (VLA) models have emerged as a powerful paradigm for embodied AI, yet their high inference latency and memory footprint remain major barriers to edge deployment. Existing training-free acceleration techniques, such as visual token pruning and action caching, typically rely on static resource allocation. This mismatch with dynamic robotic inte",
+     "source_insight": "FlowPAC: Flow-Guided Visual Pruning and Action Caching for Efficient VLA Inference"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28551",
+     "excerpt": "PhysPPF: Learning Robotic Manipulation with Past, Present, and Future Physical Representations Vision-language-action (VLA) models have advanced robotic manipulation, yet complex tasks requiring both precise 3D contact and long-horizon coordination remain challenging. Most existing studies enhance spatial perception or temporal reasoning in VLAs separately. Spatial methods primarily inject geometric or affordance priors into current-frame percept",
+     "source_insight": "PhysPPF: Learning Robotic Manipulation with Past, Present, and Future Physical Representations"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_012_81a4",
+   "rank": 12,
+   "near_miss": false,
+   "topic_title": "Advancements and Vulnerabilities in World Models for AI",
+   "topic_summary": "Recent research explores leveraging pretrained video world models as native latent action models to extract dynamics with minimal changes, alongside analyzing their security vulnerabilities in embodied AI systems. Additionally, a critical review examines world models using Joint-Embedding Predictive Architectures for ocean engineering and marine robotics.",
+   "topic_key_facts": [
+    "[Hugging Face] World models can be viewed as latent action models, showing that dynamics can be extracted from pretrained video world models with minimal changes to the model.",
+    "[Webpage] Latent dynamic world models serve as versatile tools for embodied AI systems, enabling online action planning, safe policy evaluation, and scalable policy learning.",
+    "[Webpage] A unifying approach was taken to understand world model security by developing two novel attacks against them.",
+    "[Webpage] A critical review develops a functional taxonomy of world models for ocean engineering, focusing on Joint-Embedding Predictive Architectures (JEPAs) and AdaJEPA's test-time adaptation."
+   ],
+   "topic_entities": [
+    "Maritime Autonomy Adaptive Latent",
+    "Toward Adversarially Robust World",
+    "Native Latent Action",
+    "Prediction Digital Twins",
+    "Biodiversity Monitoring",
+    "Ocean Engineering"
+   ],
+   "score": 83.8,
+   "r2c_relevance": 72.0,
+   "growth": 93.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.693388+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.30898",
+     "excerpt": "World Models as Native Latent Action Models Large and diverse video sources, such as egocentric human video and heterogeneous robot recordings, carry rich dynamics but come either without actions or without a shared action space. Latent action models (LAMs) can recover these dynamics, but they train their inverse- and forward-dynamics models (IDM, FDM) from scratch, trading off pixel reconstruction against latent capacity and accuracy. Pretrained",
+     "source_insight": "World Models as Native Latent Action Models"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28345",
+     "excerpt": "Toward Adversarially Robust World Models Latent dynamic world models have proven to be highly versatile tools for embodied artificial intelligence systems, enabling online action planning, safe policy evaluation, and scalable policy learning. However, this versatility makes world models a vulnerable and centralized point of failure as a compromised model can impact planning, evaluation, and training at once. Therefore it is critical that the secu",
+     "source_insight": "Toward Adversarially Robust World Models"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28978",
+     "excerpt": "World Models for Ocean Engineering: A Critical Review of Maritime Autonomy, Adaptive Latent Prediction, Digital Twins, and Biodiversity Monitoring Marine robots face partial observability, non-stationary dynamics, and sparse communication, motivating WMs that learn compact predictive states for planning. This review develops a functional taxonomy of WMs for ocean engineering, focusing on Joint-Embedding Predictive Architectures (JEPAs) and AdaJEP",
+     "source_insight": "World Models for Ocean Engineering: A Critical Review of Maritime Autonomy, Adaptive Latent Prediction, Digital Twins, and Biodiversity Monitoring"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_013_7961",
+   "rank": 13,
+   "near_miss": false,
+   "topic_title": "Z.ai Releases GLM-5.4 Loop Transformer Model",
+   "topic_summary": "Chinese AI lab Z.ai has released GLM-5.4, a 750-billion-parameter flagship model that uses a Loop Transformer architecture to rerun 28 of its 78 layers twice per token. This iterative layer processing achieves an inference depth approaching the 2T-3T class, offering deep reasoning capabilities and a one-million-token context window from fewer parameters.",
+   "topic_key_facts": [
+    "[News] Z.ai released GLM-5.4 on Monday, November 24, 2026.",
+    "[News] The model features 750 billion parameters and is claimed to compete with systems containing two to three trillion parameters.",
+    "[Webpage] GLM-5.4 is Z.ai's first flagship model to adopt a Loop Transformer architecture.",
+    "[Webpage] The 750B-scale model runs 28 GLM-5 layers twice to achieve deeper reasoning.",
+    "[News] GLM-5.4 supports a one-million-token context window, accepts images and video, and can generate up to 128,000 tokens."
+   ],
+   "topic_entities": [
+    "GLM-5.4 Toward Generalized Coding",
+    "Runs 28 Layers Twice",
+    "750B Loop Transformer",
+    "GLM-5.4 AI",
+    "2T-3T",
+    "AI News Arrival"
+   ],
+   "score": 83.1,
+   "r2c_relevance": 98.0,
+   "growth": 99.0,
    "platforms": [
     "News",
     "Webpage"
    ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
+   "generated_at": "2026-11-24T11:50:27.693691+00:00",
    "source_attribution": [
     {
      "platform": "News",
-     "source_url": "https://www.msn.com/en-us/technology/artificial-intelligence/exclusive-aws-marketplace-head-on-letting-ai-agents-shop-for-software-people-can-t-wait-three-months-to-get-access-to-the-latest-one/ar-AA2hNJnk",
-     "excerpt": "Exclusive: AWS Marketplace head on letting AI agents shop for software: “People can’t wait three months to get access to the latest one” AWS Marketplace lets companies give AI agents a budget to buy software products.",
-     "source_insight": "Exclusive: AWS Marketplace head on letting AI agents shop for software: “People can’t wait three months to get access to the latest one”"
+     "source_url": "https://www.msn.com/en-us/news/other/zai-unveils-glm-54-ai-model-rerunning-28-layers-saves-memory-not-compute-china-law-applies/ar-AA2i79AZ",
+     "excerpt": "Z.ai unveils GLM-5.4 AI model: rerunning 28 layers saves memory, not compute; China law applies GLM-5.4 AI model from Z.ai reruns 28 of its 78 layers twice per token, a loop transformer design that saves weight memory but not compute, adding about 36% more layer passes. Benchmark scores exist ...",
+     "source_insight": "Z.ai unveils GLM-5.4 AI model: rerunning 28 layers saves memory, not compute; China law applies"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://tech.yahoo.com/ai/gemini/articles/chinas-z-ai-says-ai-230602353.html",
+     "excerpt": "China's Z.ai Says Its New AI Model Can Think Like One Four Times Its Size GLM-5.4 uses a looping architecture to squeeze more reasoning power from fewer parameters, challenging the expensive approach favored by American AI giants. Chinese AI developer Z.ai released GLM-5.4 on Monday, introducing a new architecture that it claims delivers the reasoning capabilities of models nearly four times its size without requiring nearly as many parameters. T",
+     "source_insight": "China's Z.ai Says Its New AI Model Can Think Like One Four Times Its Size"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://note.com/gifted_snail5503/n/n7805e5bd0e2c?hl=en",
+     "excerpt": "[2026/11/24 AI News] Arrival of 'GLM-5.4', a Loop Transformer approaching 2T-3T class inference depth with 750B parameters—Amazon's $7.5 billion acquisition of Decart and GPT ... 3-point summary for this morning Z.ai has announced 'GLM-5.4', a 750B parameter model that is the first to adopt a 'Loop Transformer' at flagship scale, achieving inference depth approaching the 2T-3T class through iterative layer processing. Amazon has agreed to acquire",
+     "source_insight": "[2026/11/24 AI News] Arrival of 'GLM-5.4', a Loop Transformer approaching 2T-3T class inference depth with 750B parameters—Amazon's $7.5 billion acquisition of Decart and GPT ..."
     },
     {
      "platform": "Webpage",
-     "source_url": "https://aws.amazon.com/blogs/machine-learning/enable-ai-agents-to-pay-for-aws-marketplace-x402-products-with-amazon-bedrock-agentcore-payments/",
-     "excerpt": "Enable AI agents to pay for AWS Marketplace x402 products with Amazon Bedrock AgentCore payments Amazon Bedrock AgentCore payments now supports AWS Marketplace, so agents can discover and buy x402-enabled products, APIs, data, and content and pay in USD on the developer's AWS bill, with no stablecoin wallets or API keys. This post walks through a research agent that finds a tool, pays per request through AWS Billing, and answers with sources. Whe",
-     "source_insight": "Enable AI agents to pay for AWS Marketplace x402 products with Amazon Bedrock AgentCore payments"
+     "source_url": "https://www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer/",
+     "excerpt": "Z AI Releases GLM-5.4: A 750B Loop Transformer That Runs 28 Layers Twice Z.ai released GLM-5.4, its first Loop Transformer flagship. The 750B-scale model runs 28 GLM-5 layers twice for deeper reasoning, with API access and open weights planned after safety work. The post Z AI Releases GLM-5.4: A 750B Loop Transformer That Runs 28 Layers Twice appeared first on MarkTechPost .",
+     "source_insight": "Z AI Releases GLM-5.4: A 750B Loop Transformer That Runs 28 Layers Twice"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://simonwillison.net/2026/Nov/23/glm-54/",
+     "excerpt": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer GLM 5.4 is now available from Chinese AI lab Z.ai. It's their first model to use a looped transformer architecture, which they describe like this: In a standard Transformer, each … GLM-5.4: Toward Generalized Coding with Our First Loop Transformer . GLM 5.4 is now available from Chinese AI lab Z.ai. It's their first model to use a looped transformer architecture, which they descri",
+     "source_insight": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
     }
    ]
   },
   {
-   "trend_id": "trd_20261120_011_2482",
-   "rank": 11,
+   "trend_id": "trd_20261124_014_3cb6",
+   "rank": 14,
    "near_miss": false,
-   "topic_title": "Eclipse Foundation Launches Eclipse Enclave 1.0 Sandbox",
-   "topic_summary": "The Eclipse Foundation has released Eclipse Enclave 1.0, an open-source, vendor-neutral runtime and sandbox designed for autonomous AI coding agents. This tool provides isolated, policy-controlled environments where agents like Claude Code, Codex, and OpenCode can safely execute terminal commands, modify code, and install dependencies within explicitly defined boundaries.",
+   "topic_title": "OX Security Plug and Pray AI Agent Report",
+   "topic_summary": "Recent research demonstrates that AI agents are vulnerable to manipulation through untrusted content, prompt injection, and tool poisoning rather than traditional malicious code. Studies by NebuSec and OX Security highlight that third-party tools and webpages can exploit agent privileges to exfiltrate data, compromise memories, and execute underlying machine takeovers.",
    "topic_key_facts": [
-    "[News] Eclipse Enclave 1.0 was launched by the Eclipse Foundation on November 19, 2026.",
-    "[News] The software serves as an open source, vendor-neutral runtime and sandbox supporting agents such as Claude Code, Codex, and OpenCode.",
-    "[News] The release addresses the need for isolated environments where autonomous coding agents can run commands, modify code, and install dependencies safely."
+    "OX Security analyzed 542,207 open source and AI components between July and October 2026 for its Plug and Pray report. [Webpage]",
+    "Prompt injection and tool poisoning appeared in 22% of flagged MCP servers compared with 16% for install or import-time execution. [Webpage]",
+    "Out of 179 skills OX Security flagged, none executed code at install, yet 44% told the agent to send data out. [Bluesky]",
+    "AIR found all eight search APIs returned known-malicious content to AI coding agents, with 534 searches surfacing malicious results. [News]",
+    "NebuSec demonstrated an attack against Meta's Muse where an AI agent handed over private chats, rewrote memories, and took over the underlying machine from a single webpage. [Webpage]"
    ],
    "topic_entities": [
-    "Eclipse Enclave",
-    "Eclipse Foundation"
+    "Changing Software Supply Chain",
+    "Web Search Indexes WebSec",
+    "AI Attack Path",
+    "Getting Malicious Results",
+    "AI Coding",
+    "Benchmark Finds"
    ],
-   "score": 70.9,
+   "score": 80.8,
    "r2c_relevance": 85.0,
-   "growth": 66.0,
+   "growth": 97.25,
    "platforms": [
     "Bluesky",
-    "News"
+    "News",
+    "Webpage"
    ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
+   "generated_at": "2026-11-24T11:50:27.693897+00:00",
    "source_attribution": [
     {
      "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/tarynplumb.bsky.social/post/3n2pdoutr3s23",
-     "excerpt": "Eclipse Enclave 1.0 provides isolated environments where autonomous #coding agents can run commands, modify #code, and install dependencies within explicitly defined boundaries. #AI #GenAI #GenerativeAI #AIAgents #GitHub #OpenSource www.infoworld.com/article/4251...",
-     "source_insight": "Eclipse Enclave 1.0 provides isolated environments where autonomous #coding agents can run commands, modify #code, and install dependencies"
+     "source_url": "https://bsky.app/profile/ai-nerd.bsky.social/post/3n2yudcygjt2e",
+     "excerpt": "turns out a bad agent skill doesn't need code. of the 179 skills OX Security flagged, none executed code at install, yet 44% told the agent to send data out https://www.ox.security/blog/plug-and-pray-your-ai-agents-are-taking-orders-from-strangers/",
+     "source_insight": "turns out a bad agent skill doesn't need code. of the 179 skills OX Security flagged, none executed code at install, yet 44% told the agent"
     },
     {
      "platform": "News",
-     "source_url": "https://finance.yahoo.com/technology/ai/articles/eclipse-foundation-launches-eclipse-enclave-110000704.html",
-     "excerpt": "Eclipse Foundation launches Eclipse Enclave 1.0, bringing security and choice to autonomous AI coding Open source, vendor-neutral sandbox and runtime lets Claude Code, Codex, OpenCode, and other coding agents work autonomously in isolated environments, with controlled access to files, credentials, and networksBRUSSELS, Nov. 19, 2026 (GLOBE NEWSWIRE) -- The Eclipse Foundation, one of the world’s largest open source software foundations, today anno",
-     "source_insight": "Eclipse Foundation launches Eclipse Enclave 1.0, bringing security and choice to autonomous AI coding"
+     "source_url": "https://www.infosecurity-magazine.com/news/researchers-new-ai-attack-path/",
+     "excerpt": "Researchers Find a New AI Attack Path: Agent Instructions Ox Security warns that agents are being manipulated without the need for executable malware Threat actors are finding new ways to hijack and manipulate AI agents into doing their bidding which don’t require malicious code, Ox Security has warned. The security vendor analyzed 542,207 open source software components between July and October 2026 to compile its Plug and Pray report. It found ",
+     "source_insight": "Researchers Find a New AI Attack Path: Agent Instructions"
     },
     {
      "platform": "News",
-     "source_url": "https://www.infoworld.com/article/4251051/ai-coding-agents-need-a-safe-place-to-work-eclipse-is-building-the-sandbox-to-give-it-to-them.html",
-     "excerpt": "AI coding agents need a safe place to work; Eclipse is building the sandbox to give it to them Eclipse Enclave 1.0 provides isolated environments where autonomous coding agents can run commands, modify code, and install dependencies within explicitly defined boundaries. AI coding tools are moving beyond copilots that make suggestions to independent, autonomous agents that execute terminal commands, write and modify software, run tests, and instal",
-     "source_insight": "AI coding agents need a safe place to work; Eclipse is building the sandbox to give it to them"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_012_51d9",
-   "rank": 12,
-   "near_miss": false,
-   "topic_title": "MIT Panel Explores AI and the Mathocalypse",
-   "topic_summary": "Leading mathematicians at MIT recently gathered for a panel discussion exploring AI's implications for mathematical discovery and research norms. The event examined the evolving opportunities for professionals, categorized humorously by whether they embrace machines or remain AI vegans.",
-   "topic_key_facts": [
-    "[Webpage] Leading mathematicians engaged in a conversation at MIT touching on the quality of AI math and research norms. [Webpage]",
-    "[Webpage] Mathematicians were described as either embracing machines or remaining “AI vegans.” [Webpage]",
-    "[Mastodon] A panel discussion at MIT explored AI’s implications for mathematical discovery and its professionals. [Mastodon]",
-    "[Mastodon] The source of the news was MIT News - Mathematics on November 20, 2026. [Mastodon]"
-   ],
-   "topic_entities": [
-    "Following",
-    "MIT"
-   ],
-   "score": 70.4,
-   "r2c_relevance": 45.0,
-   "growth": 67.5,
-   "platforms": [
-    "Mastodon",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.543810+00:00",
-   "source_attribution": [
-    {
-     "platform": "Mastodon",
-     "source_url": "https://igeek.gamer-geek-news.com/@feed/statuses/01M7WR90JAR3G4K79DKDDB0X30",
-     "excerpt": "🧮 Following the “mathocalypse,” mathematicians consider the future A panel discussion at MIT explored AI’s implications for mathematical discovery and the people who make it their profession. 📰 Source: MIT News - Mathematics 🔗 Link: https://news.mit.edu/2026/following-mathocalypse-mathematicians-consider-future-1120 # AI # ArtificialIntelligence",
-     "source_insight": "🧮 Following the “mathocalypse,” mathematicians consider the future A panel discussion at MIT explored AI’s implications for mathematical dis"
+     "source_url": "https://thehackernews.com/expert-insights/2026/11/ai-coding-agents-are-getting-malicious.html",
+     "excerpt": "AI Coding Agents Are Getting Malicious Results From Web Search Indexes, WebSec Benchmark Finds AIR found all eight search APIs returned known-malicious content to AI coding agents, with 534 searches surfacing malicious results. 11 Real Stories: How Identity Exposure Unlocks Active Attack Paths Map cross-domain privilege escalation to sever breach routes at key choke points.",
+     "source_insight": "AI Coding Agents Are Getting Malicious Results From Web Search Indexes, WebSec Benchmark Finds"
     },
     {
      "platform": "Webpage",
-     "source_url": "https://news.mit.edu/2026/following-mathocalypse-mathematicians-consider-future-1120",
-     "excerpt": "Following the “mathocalypse,” mathematicians consider the future At MIT, leading mathematicians engaged in a conversation that touched on the quality of AI math, how AI and the “mathocalypse” are challenging long-established research norms, and evolving opportunities for mathematicians, whether they embrace machines or remain “AI vegans.” Images for download on the MIT News office website are made available to non-commercial entities, press and t",
-     "source_insight": "Following the “mathocalypse,” mathematicians consider the future"
+     "source_url": "https://dev.to/coridev/your-ai-agent-browses-the-web-with-your-credentials-of-course-a-webpage-can-own-it-3gbp",
+     "excerpt": "Your AI Agent Browses the Web With Your Credentials. Of Course a Webpage Can Own It. Researchers got a personal AI agent to hand over a user's private chats, rewrite its memories, and... Researchers got a personal AI agent to hand over a user's private chats, rewrite its memories, and then used the agent's own browser to take over the machine underneath it. All from one webpage. NebuSec's demonstration against Meta's Muse is worth reading careful",
+     "source_insight": "Your AI Agent Browses the Web With Your Credentials. Of Course a Webpage Can Own It."
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://www.ox.security/reports/plug-and-pray-how-ai-is-changing-software-supply-chain-attacks/",
+     "excerpt": "Plug and Pray: How AI Is Changing Software Supply Chain Attacks 8 Key Findings from 542,207 Open Source and AI Components AI agents are taking instructions from third-party tools, servers, and packages. And attackers are learning how to exploit that trust. OX Security analyzed 542,207 components across npm, PyPI, MCP servers, and Agent Skills between July and October 2026. The research reveals two fundamental shifts: attacks are moving from execu",
+     "source_insight": "Plug and Pray: How AI Is Changing Software Supply Chain Attacks"
     }
    ]
   },
   {
-   "trend_id": "trd_20261120_013_5cbf",
-   "rank": 13,
+   "trend_id": "trd_20261124_015_2764",
+   "rank": 15,
    "near_miss": false,
-   "topic_title": "Postman and Salt Security AI Agent Security Reports",
-   "topic_summary": "Recent surveys from Postman and Salt Security reveal that companies are rapidly deploying AI agents into production without establishing proper API security, identity management, or credential controls. This matters to AI/ML practitioners because a majority of organizations report agents acting outside their authorization while continuing to grant them high levels of autonomy.",
+   "topic_title": "Thinking Machines Lab Releases Inkling 2 Mini",
+   "topic_summary": "Thinking Machines Lab, founded by former OpenAI CTO Mira Murati, has released Inkling 2 Mini, an open-weights 26.4B MoE model that utilizes a looped architecture to run efficiently on consumer hardware like MacBooks. The model excels in coding, agentic, and vision workloads, outperforming various larger models on specific benchmarks while supporting local offline execution.",
    "topic_key_facts": [
-    "[News] A quarter of companies surveyed by Postman currently run AI agents on APIs in production.",
-    "[News] About four in ten Postman survey respondents have not figured out how credentials and identity should work for agents.",
-    "[News] A Salt Security poll published on November 19 found that 77% of organizations using or exploring AI saw agents act outside authorization.",
-    "[News] The Salt Security poll of 500 US and UK executives found that 92% allow agent autonomy."
+    "Inkling 2 Mini was released by Thinking Machines Lab on November 20, 2026, under an Apache 2.0 license. [News]",
+    "The model is a loop-type MoE with 26.4B total parameters (5.4B active) and supports a 1M context window. [Webpage]",
+    "Inkling 2 Mini scores 48.2% on DeepSWE v1.1 and 77.9% on SWEBench Pro v2 (Hard). [Webpage]",
+    "On a single RTX PRO 6000, Inkling-2-Mini achieved a 10.04x score on KernelBench-Mega. [News]",
+    "In a Plotly test, the model scored 36 of 43 overall, getting 20 routine data questions right while struggling with certain hidden-pattern tasks. [News]"
    ],
    "topic_entities": [
-    "Salt Security",
-    "Age",
-    "Read"
+    "Inkling 2 Mini",
+    "Thinking Machines",
+    "inkling-2-mini",
+    "Inkling 2 Mini 2026",
+    "Inkling 2 Mini GGUFs",
+    "Inkling 2 Mini Loop"
    ],
-   "score": 67.0,
-   "r2c_relevance": 45.0,
+   "score": 76.6,
+   "r2c_relevance": 100.0,
+   "growth": 57.22,
+   "platforms": [
+    "Bluesky",
+    "Hacker News",
+    "News",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.694714+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/timkellogg.me/post/3n2vloyke7k2f",
+     "excerpt": "inkling-2-mini is going to be the best thing to happen for ai research in 2026",
+     "source_insight": "inkling-2-mini is going to be the best thing to happen for ai research in 2026"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/unsloth.ai/post/3n2yjogbgxs2f",
+     "excerpt": "We made Inkling 2 Mini run ~1.9x faster locally! ⚡️ Inkling 2 Mini GGUFs can now reach 125 tokens/s on a RTX Pro 6000 GPU via Unsloth, with no accuracy loss. Run faster via Unsloth Desktop! GitHub repo: github.com/unslothai/un... GGUF: huggingface.co/unsloth/Inkl...",
+     "source_insight": "We made Inkling 2 Mini run ~1.9x faster locally! ⚡️ Inkling 2 Mini GGUFs can now reach 125 tokens/s on a RTX Pro 6000 GPU via Unsloth, with"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/caleb.jasik.xyz/post/3n2tpb7qmu22j",
+     "excerpt": "inkling 2 mini + omlx + pi-clm is fantastic, best results i've gotten from a local model on an m1 max 64gb 24c",
+     "source_insight": "inkling 2 mini + omlx + pi-clm is fantastic, best results i've gotten from a local model on an m1 max 64gb 24c"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/timkellogg.me/post/3n2y7rvtig22s",
+     "excerpt": "Comparing to Inkling-2-mini, GLM optimized more for making the second loop fast Inkling had successive loops pick a new token to attend to, whereas GLM merely reasons longer on the same tokens also, GLM doesn’t have the cross-loop residual streams",
+     "source_insight": "Comparing to Inkling-2-mini, GLM optimized more for making the second loop fast Inkling had successive loops pick a new token to attend to,"
+    },
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/alekseialeinikov.com/post/3n2xaxv6og52s",
+     "excerpt": "Inkling 2 Mini & Looped Transformers: Architecture, Benchmarks & Local Setup Deep technical guide to Thinking Machines Lab's Inkling 2 Mini (26.4B MoE, 3.4B active weights, 1M context, Apache 2.0): how its 3x Looped Transformer architecture works, SWE-bench 79.2% vs Qwe… #ai #llm #inkling2mini",
+     "source_insight": "Inkling 2 Mini & Looped Transformers: Architecture, Benchmarks & Local Setup Deep technical guide to Thinking Machines Lab's Inkling 2 Mini"
+    },
+    {
+     "platform": "Hacker News",
+     "source_url": "https://github.com/ShinMegamiBoson/lookatmyquant",
+     "excerpt": "Inkling-2-Mini in 5.4 GB Memory A quantization compiler that delivers 12× lower KL than Q4_K_M at the same file size - ShinMegamiBoson/lookatmyquant LookAtMyQuant is a quantization compiler. It measures how much each stored piece of a model hurts the output when compressed. It then picks a code for each piece so the whole model fits a size budget with the least damage. On Gemma 4 E2B, its GGUF has 12× lower KL than Q4_K_M at the same file size. T",
+     "source_insight": "Inkling-2-Mini in 5.4 GB Memory"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_016_9782",
+   "rank": 16,
+   "near_miss": false,
+   "topic_title": "Anthropic Launches Claude Ship for Automated Code Review and Approval",
+   "topic_summary": "Anthropic has launched Claude Ship in beta, a suite of AI agents designed to automate the final stages of software development by reviewing, fixing, and approving pull requests based on team policies. This release addresses the bottleneck of reviewing high volumes of AI-generated code, shifting the workflow toward autonomous, agent-first deployment.",
+   "topic_key_facts": [
+    "Anthropic announced the launch of Claude Ship in beta on Monday. [Webpage]",
+    "Claude Ship bundles Code Review, PR Steward, and Claude Approvals to review, fix, and approve GitHub pull requests. [Webpage]",
+    "A 5-task blind experiment on Node v24.22.1 showed a single Codex agent scoring 22/22 on small scoped fixes in under 80 seconds. [Webpage]",
+    "Code Review became generally available in October, following an initial announcement in March. [Webpage]",
+    "A cross-model read-only review setup tested 5 blind coding tasks across multi-file tickets. [Webpage]"
+   ],
+   "topic_entities": [
+    "Claude Ship",
+    "Anthropic",
+    "5-Task Blind Experiment",
+    "Cross-Model Review Codex Claude",
+    "GitHub Pull Request Review",
+    "Bring AI"
+   ],
+   "score": 76.0,
+   "r2c_relevance": 85.0,
+   "growth": 100.0,
+   "platforms": [
+    "News",
+    "Mastodon",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.695226+00:00",
+   "source_attribution": [
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.com/en-us/technology/artificial-intelligence/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/ar-AA2i502J",
+     "excerpt": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals.",
+     "source_insight": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+     "excerpt": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals. Anthropic is moving from having Claude write code to helping developers decide when that code is ready to ship. On Monday, the newly public AI company announced the launch of Claude Ship , a suite of AI agents for autom",
+     "source_insight": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes"
+    },
+    {
+     "platform": "Mastodon",
+     "source_url": "https://burningboard.net/@oliverzehentleitner/117671098270532410",
+     "excerpt": "Our AI agents review each other's code. Claude writes, models from other vendors review: at least two per PR, on the same commit, with green CI. One review described a catalog with 36 keys. The code had 3. Its context was compressed right before it answered; it rebuilt the names from memory. What we do now: - a review lead checks quotes word for word against the exact commit - plus spot checks of the prose - one invented sentence blocks the revie",
+     "source_insight": "Our AI agents review each other's code. Claude writes, models from other vendors review: at least two per PR, on the same commit, with green"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests",
+     "excerpt": "Claude AI can review pull requests and ship fixes on its own now Will you let Claude approve pull requests? Anthropic is bringing new AI tools to software engineers with Claude Ship. Anthropic is bringing new AI tools to software engineers with Claude Ship. Anthropic is launching some new Claude AI features to help software engineers ship code. As part of a new Claude Ship product being announced today, Claude now can review, fix, and approve pul",
+     "source_insight": "Claude AI can review pull requests and ship fixes on its own now"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://www.zdnet.com/innovation/claude-ship-code-how-to-try/",
+     "excerpt": "Claude can ship code for you now – how to try it (if you dare) Would you let a few Claude agents review and ship your code for you? Developers are already using Claude Code and other AI-powered coding tools like OpenAI’s Codex in droves, but some still want to check code themselves before pushing it. A new feature from Anthropic is banking on more adventurous, agent-first coders being comfortable with handing even that last step off to AI. With C",
+     "source_insight": "Claude can ship code for you now – how to try it (if you dare)"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://www.marktechpost.com/2026/11/23/anthropic-claude-ship-pull-request-agents/",
+     "excerpt": "Anthropic Launches Claude Ship for GitHub Pull Request Review and Fixes Anthropic's Claude Ship bundles Code Review, PR Steward and Claude Approvals to review, fix and approve GitHub pull requests. Code Review is GA; the other 2 agents are in public beta for Team and Enterprise. The post Anthropic Launches Claude Ship for GitHub Pull Request Review and Fixes appeared first on MarkTechPost .",
+     "source_insight": "Anthropic Launches Claude Ship for GitHub Pull Request Review and Fixes"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_017_907b",
+   "rank": 17,
+   "near_miss": false,
+   "topic_title": "DesignVerse AI Coding Drift Report Findings",
+   "topic_summary": "A new research report from DesignVerse reveals that unmanaged AI coding tools lack company context and frequently fail to use an organization's approved code, resulting in thousands of wasted engineering hours. In contrast, context-engineered AI systems successfully leverage internal codebases significantly more often, unlocking substantial annual engineering capacity.",
+   "topic_key_facts": [
+    "[News] DesignVerse published the AI Coding Drift Report on November 24, 2026.",
+    "[News] Research across 15 enterprise codebases found unmanaged AI coding agents used a firm's own approved code less than 60% of the time.",
+    "[News] A context-engineered AI system used an organization's own approved code 92% of the time.",
+    "[News] One organization freed $882,000 in annual engineering capacity using a context-engineered AI system.",
+    "[News] The study tested agents on 15 private enterprise codebases across aviation, banking, defence, and software."
+   ],
+   "topic_entities": [
+    "Company Context Cost Businesses",
+    "AI Coding",
+    "Engineering Hours",
+    "Fix DesignVerse",
+    "Finds",
+    "Thousands"
+   ],
+   "score": 74.7,
+   "r2c_relevance": 78.0,
    "growth": 92.25,
    "platforms": [
     "Bluesky",
     "News"
    ],
-   "generated_at": "2026-11-20T17:27:31.548078+00:00",
+   "generated_at": "2026-11-24T11:50:27.695481+00:00",
    "source_attribution": [
     {
      "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/helpnetsecurity.com/post/3n2qdot3mtk2z",
-     "excerpt": "AI agent API security hasn’t caught up with agents already running in production 🔗 Read more: www.helpnetsecurity.com/2026/11/20/a... #AgenticAI #AIAgents #Cybersecurity",
-     "source_insight": "AI agent API security hasn’t caught up with agents already running in production 🔗 Read more: www.helpnetsecurity.com/2026/11/20/a... #Age"
+     "source_url": "https://bsky.app/profile/ainieuwtjes.bsky.social/post/3n2vvwai4tn23",
+     "excerpt": "AI coding agents ace isolated tests but complete fewer than one in ten tasks in a simulated workplace A new real-world test puts AI coding agents in a simulated developer job with colleagues, project boards, and incomplete handoffs, where they have to keep developing software… Via The Decoder",
+     "source_insight": "AI coding agents ace isolated tests but complete fewer than one in ten tasks in a simulated workplace A new real-world test puts AI coding"
     },
     {
      "platform": "News",
-     "source_url": "https://www.msn.com/en-us/news/other/salt-security-poll-77-of-firms-using-ai-saw-agents-act-outside-authorization-92-allow-autonomy/ar-AA2hQrS5",
-     "excerpt": "Salt Security poll: 77% of firms using AI saw agents act outside authorization; 92% allow autonomy AI agents acting outside authorization were seen by 77% of organizations using or exploring AI, a Nov. 19 Salt Security poll of 500 US and UK executives found, and 92% would still allow independent ...",
-     "source_insight": "Salt Security poll: 77% of firms using AI saw agents act outside authorization; 92% allow autonomy"
+     "source_url": "https://finance.yahoo.com/technology/ai/articles/ai-coding-tools-without-company-084900700.html",
+     "excerpt": "AI Coding Tools Without Company Context Cost Businesses Thousands of Engineering Hours to Fix, DesignVerse Report Finds LONDON, November 24, 2026--Businesses using AI coding tools without knowledge of their existing systems and technical standards are paying a hidden bill in engineering time, as engineers spend thousands of hours correcting and rebuilding AI-written code, according to new research from DesignVerse. Research across 15 enterprise c",
+     "source_insight": "AI Coding Tools Without Company Context Cost Businesses Thousands of Engineering Hours to Fix, DesignVerse Report Finds"
     },
     {
      "platform": "News",
-     "source_url": "https://www.helpnetsecurity.com/2026/11/20/ai-agent-api-security-production/",
-     "excerpt": "AI agent API security hasn’t caught up with agents already running in production AI agent API security is lagging. A quarter of companies run agents on APIs, but four in ten haven’t yet worked out how those agents log in. Postman asked nearly 9,000 developers, architects and executives how they’re handling AI agents , and the answers tell a familiar story. Companies put the new thing to work first and left the question of who holds the keys for l",
-     "source_insight": "AI agent API security hasn’t caught up with agents already running in production"
+     "source_url": "https://thenextweb.com/news/designverse-ai-coding-drift-report-legacy-codebases",
+     "excerpt": "AI coding agents used firms’ own code under 60% of the time, study finds Unmanaged AI coding agents used firms’ own code under 60% of the time on legacy systems, DesignVerse says. Its AI coding drift report counts the cost. AI coding agents without company context used an organisation’s own approved code in fewer than six tasks in ten. That is the main finding of new research from DesignVerse, a Bucharest-based enterprise AI startup. The rest of ",
+     "source_insight": "AI coding agents used firms’ own code under 60% of the time, study finds"
     }
    ]
   },
   {
-   "trend_id": "trd_20261120_014_b7e2",
-   "rank": 14,
-   "near_miss": false,
-   "topic_title": "Apple's FastFrames Video Generation Models Open Sourced",
-   "topic_summary": "Apple has open-sourced its FastFrames-S and FastFrames-L real-time video generation models, achieving low-latency performance with 480P text-to-video capabilities. Signals also highlight trending Hugging Face repositories including Qwen3.8-27B LoRA adapters and various other open-source releases.",
-   "topic_key_facts": [
-    "[News] Apple released two open-source video generation models, FastFrames-S (1.3 billion parameters) and FastFrames-L (14 billion parameters), on November 18, 2026.",
-    "[News] The models support 480P text-to-video generation with single B200 card latency as low as 36 milliseconds.",
-    "[News] A Qwen3.8-27B LoRA adapter on Hugging Face received 393 likes just three days after its November 16 release.",
-    "[Bluesky] FastFrames provides official implementations of an autoregressive two-step video diffusion model for interactive low-latency video generation."
-   ],
-   "topic_entities": [
-    "HF注目OSS Qwen3.8アダプタから Appleの動画生成 FastFrames",
-    "FastFrames-L FastFramesの公式実装です 480pビデオを生成する自己回帰的な2ステップビデオ拡散モデルのFastFrames-SとFastFrames-Lを",
-    "NVIDIAの4GB小型LMまで Hugging Faceで今日見つけた13件",
-    "36毫秒 AI视频迎来iPhone级体验",
-    "HuggingFaceトレンド"
-   ],
-   "score": 66.9,
-   "r2c_relevance": 45.0,
-   "growth": 66.0,
-   "platforms": [
-    "Bluesky",
-    "News"
-   ],
-   "generated_at": "2026-11-20T17:27:31.548078+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2oqkitke32l",
-     "excerpt": "今日のHuggingFaceトレンド apple/FastFrames-L インタラクティブな低遅延でのビデオ生成を実現するFastFramesの公式実装です。 480pビデオを生成する自己回帰的な2ステップビデオ拡散モデルのFastFrames-SとFastFrames-Lを提供しています。 また、公式より16倍高速で流動的なカメラ制御が可能なLingBot 1.3Bの最適化バージョンも含まれています。",
-     "source_insight": "今日のHuggingFaceトレンド apple/FastFrames-L インタラクティブな低遅延でのビデオ生成を実現するFastFramesの公式実装です。 480pビデオを生成する自己回帰的な2ステップビデオ拡散モデルのFastFrames-SとFastFrames-Lを"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://note.com/cybereye/n/na34dccb94071",
-     "excerpt": "【HF注目OSS】コーディング特化のQwen3.8アダプタから、Appleの動画生成「FastFrames」、NVIDIAの4GB小型LMまで。Hugging Faceで今日見つけた13件 木曜の朝8時半ごろに取れたHugging Faceの数字を見ていて、まず手が止まったのは、Qwen3.8-27B向けのLoRAアダプタでした。公開は11月16日。まだ3日目なのに、いいねが393も付いています。カードに並んだベンチマークの伸び幅が大きくて、つい最後まで読んでしまいました。 今日はそのアダプタを入口に、Tencentの大型MoE、Appleの動画生成モデル、音声で動く人物動画、長文脈向けMoE、NVIDIAの小型LM、Web操作向けの視覚言語モデル、そしてデータセット4件とSpace2件まで、全部で13件をまとめて紹介します。モデル7件、データセット4件、Space2件 木曜の朝8時半ごろに取れたHugging Faceの数字を見ていて、まず手が止まったのは、Qwen3.8-27B向けの",
-     "source_insight": "【HF注目OSS】コーディング特化のQwen3.8アダプタから、Appleの動画生成「FastFrames」、NVIDIAの4GB小型LMまで。Hugging Faceで今日見つけた13件"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://www.sohu.com/a/1103286600_122066679",
-     "excerpt": "苹果开源两大视频生成模型！单卡延迟仅36毫秒，实时AI视频迎来iPhone级体验 2026年11月18日，全球科技圈突然‘抖’了一下——不是因为新iPhone发布，而是苹果干了一件更炸裂的事：把自家打磨三年的实时视频生成核心技术，毫无保留地开源了！没错，就是那个连iOS系统更新都要‘挤牙膏’的苹果，这次直接甩出两枚技术核弹：FastFrames-S（13亿参数）和FastFrames-L（140亿参数）——全系列支持480P文生视频，单卡B200延迟低至36毫秒！什么概念？比眨 ...",
-     "source_insight": "苹果开源两大视频生成模型！单卡延迟仅36毫秒，实时AI视频迎来iPhone级体验"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_015_4ed5",
-   "rank": 15,
-   "near_miss": false,
-   "topic_title": "Google Expands Gemini AI Agent and Desktop Capabilities",
-   "topic_summary": "Google has released significant updates for Gemini, introducing advanced agentic \"Task\" modes, macOS \"computer use\" integration for multi-step workflows, and expanded support for lower-memory Android devices. These developments matter to AI/ML practitioners as they highlight the industry-wide shift toward autonomous, multi-step desktop agents and wider edge-device deployment.",
-   "topic_key_facts": [
-    "Josh Woodward is the vice president responsible for the Gemini app. [Webpage]",
-    "The new computer use feature on macOS requires a Google AI subscription. [Webpage]",
-    "Users can instruct Gemini to launch a local app by including the command \"@Computer use\" in their prompts. [Webpage]",
-    "Google is bringing the Gemini app to eligible Android (Go edition) devices. [Webpage]",
-    "Google is working on adding a \"Draft\" filter, copying text as markdown, and sharing Gemini Live prompts to the Android app. [Mastodon]"
-   ],
-   "topic_entities": [
-    "Gemini",
-    "Google",
-    "Mac",
-    "Android",
-    "Sharing Gemini L",
-    "Copying"
-   ],
-   "score": 65.1,
-   "r2c_relevance": 45.0,
-   "growth": 87.5,
-   "platforms": [
-    "Mastodon",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.549136+00:00",
-   "source_attribution": [
-    {
-     "platform": "Mastodon",
-     "source_url": "https://androiddev.social/@AssembleDebug/117649429029558554",
-     "excerpt": "Google is working on adding three new features to the Gemini app on Android • A \"Draft\" filter • Copying text as markdown • Sharing Gemini Live prompts ✅ Details and screenshots - https://www. androidauthority.com/gemini-ch at-drafts-3737466/ # Android # Gemini # AI",
-     "source_insight": "Google is working on adding three new features to the Gemini app on Android • A \"Draft\" filter • Copying text as markdown • Sharing Gemini L"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/",
-     "excerpt": "Google gives Gemini the ability to use your Mac for you Google's latest update to Gemini brings an AI agent to the Mac that can organize files, fill out forms, and tackle multistep workflows. Google on Thursday announced that it is bringing computer use to its Gemini desktop application on macOS, allowing its AI to complete tasks on users’ behalf, navigating native Mac apps, and browsing websites in the background. The tech giant is a little late",
-     "source_insight": "Google gives Gemini the ability to use your Mac for you"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://www.theverge.com/tech/1037902/google-gemini-macos-ai-computer-use",
-     "excerpt": "Gemini on Mac can now use your computer Users can decide which apps Gemini has access to. With the new computer use feature, Google says Gemini can better help with things like filling in forms and creative workflows. With the new computer use feature, Google says Gemini can better help with things like filling in forms and creative workflows. Google’s Gemini app for macOS now has computer use, meaning it can help you “get multi-step tasks done a",
-     "source_insight": "Gemini on Mac can now use your computer"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
-     "excerpt": "The Gemini app is now available on lower-memory Android devices. The Google Gemini app now supports lower-memory Android devices. Access Gemini Live and custom image creation on your phone. Download the app today. For hundreds of millions of people globally, a lower-memory Android device is their everyday connection to the internet, education, and business. Until recently, hardware limits meant those phones only had basic voice commands. Now, we’",
-     "source_insight": "The Gemini app is now available on lower-memory Android devices."
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://siliconangle.com/2026/11/19/google-adds-computer-use-capabilities-to-geminis-mac-app/",
-     "excerpt": "Google adds computer use capabilities to Gemini’s Mac app Google adds computer use capabilities to Gemini’s Mac app - SiliconANGLE Google LLC today released a new version of Gemini’s Mac client that can interact with other apps on the user’s computer. The feature is available in the U.S. on launch. It requires a Google AI subscription, which equips consumer Google accounts with a broader lineup of artificial intelligence tools. The offering also ",
-     "source_insight": "Google adds computer use capabilities to Gemini’s Mac app"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://siliconangle.com/2026/11/18/google-upgrades-geminis-agentic-task-mode-with-new-model-e-commerce-features/",
-     "excerpt": "Google upgrades Gemini’s agentic Task mode with new model, e-commerce features Google upgrades Gemini’s agentic Task mode with new model, e-commerce features - SiliconANGLE Google LLC is releasing a new version of its Gemini artificial intelligence assistant that is better at performing multistep tasks. Josh Woodward, the vice president responsible for the Gemini app, detailed the update in a Tuesday blog post . The AI assistant has two modes tha",
-     "source_insight": "Google upgrades Gemini’s agentic Task mode with new model, e-commerce features"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_016_3443",
-   "rank": 16,
-   "near_miss": false,
-   "topic_title": "Harvard and OpenAI Research on AI Coding Agents",
-   "topic_summary": "Recent research from Harvard researchers Fiona Chen and James Stratton shows that AI coding agents increase code output by 30 percent while making code reviews take 49 percent longer without increasing finished work. Additionally, OpenAI measurements on research acceleration and a study on token budget constraints highlight the uneven performance and efficiency trade-offs of these coding agents.",
-   "topic_key_facts": [
-    "[Hacker News] A working paper by Harvard Ph.D. candidates Fiona Chen and James Stratton covered 718 firms.",
-    "[Hacker News] AI coding agents raised code output by 30 percent, but getting code through review took 49 percent longer.",
-    "[Bluesky] Running 5,835 tests on AI coding agents found that capping their token budget cut success rates by 20 points while using 12x fewer tokens.",
-    "[Webpage] OpenAI measures how coding agents are accelerating AI research and where their performance remains uneven."
-   ],
-   "topic_entities": [
-    "Running 5 835",
-    "12x",
-    "Harvard",
-    "Research"
-   ],
-   "score": 64.0,
-   "r2c_relevance": 98.0,
-   "growth": 11.32,
-   "platforms": [
-    "Bluesky",
-    "Hacker News",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.549136+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/toriherridge.bsky.social/post/3n2nt6vvdrc27",
-     "excerpt": "This is really interesting on AI coding agents introducing a “supercharged selection bias” akin to p-value hacking, and how to correct it",
-     "source_insight": "This is really interesting on AI coding agents introducing a “supercharged selection bias” akin to p-value hacking, and how to correct it"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/hn100.atproto.rocks/post/3n2kqra7zx525",
-     "excerpt": "Harvard researchers find AI coding agents shifted the bottleneck to code review https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/ https://news.ycombinator.com/item?id=50538303",
-     "source_insight": "Harvard researchers find AI coding agents shifted the bottleneck to code review https://complexdiscovery.com/harvard-researchers-find-ai-cod"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/thempra.bsky.social/post/3n2moga3awk26",
-     "excerpt": "Running 5,835 tests on AI coding agents found a surprise: capping their token budget cut success rates by 20 points but used 12x fewer tokens. And telling the agent about the cap never helped—actually, a random sentence worked better. arxiv.org/html/2611.21... #AI #LLM #CodingAgents",
-     "source_insight": "Running 5,835 tests on AI coding agents found a surprise: capping their token budget cut success rates by 20 points but used 12x fewer token"
-    },
-    {
-     "platform": "Hacker News",
-     "source_url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
-     "excerpt": "Harvard researchers find AI coding agents shifted the bottleneck to code review Harvard study: AI coding agents raised code output 30 percent; finished work did not measurably rise, and getting code through review took 49 percent longer. Editor’s Note: Engineers at firms that adopted AI coding agents added about 30 percent more code, yet finished work did not measurably rise and getting code through review took 49 percent longer, according to a w",
-     "source_insight": "Harvard researchers find AI coding agents shifted the bottleneck to code review"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://openai.com/index/research-acceleration-jagged-frontier",
-     "excerpt": "Research acceleration: The jagged frontier OpenAI measures how coding agents are accelerating AI research, where their performance remains uneven, and what this signals about recursive self-improvement.",
-     "source_insight": "Research acceleration: The jagged frontier"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_017_ef46",
-   "rank": 17,
-   "near_miss": false,
-   "topic_title": "Tencent Releases Hunyuan Hy4 Flash and Flagship Models",
-   "topic_summary": "Tencent has launched and open-sourced its Hunyuan Hy4 flash model family alongside the flagship Hy4 model, which features a one-million-token context window and multimodal capabilities. The lightweight Hy4 flash model achieved massive initial adoption, processing over 50 trillion tokens on its first day and ranking first on OpenRouter's leaderboard. These releases provide AI/ML practitioners with high-speed, cost-efficient deployment options available across major platforms under open-source and Apache 2.0 licenses.",
-   "topic_key_facts": [
-    "Tencent announced Hy4 flash on November 16, 2026. [News]",
-    "Hy4 flash processed more than 50 trillion tokens on its first day after launching. [News]",
-    "On November 17, Hy4 flash ranked first on OpenRouter’s daily LLM leaderboard. [News]",
-    "Tencent released the weights of its flagship Hy4 AI model under the Apache 2.0 license. [News]",
-    "The open-sourced Hy4-Flash variants include Hy4-Flash, Hy4-Flash-FP8, and Hy4-Flash Base available on platforms like GitHub and Hugging Face. [News]"
-   ],
-   "topic_entities": [
-    "Hy4",
-    "Tencent",
-    "API November 2026 Edition",
-    "Hy4 flash-FP8 Hy4",
-    "Tencent Hunyuan",
-    "Tencent Hy4 Flash"
-   ],
-   "score": 62.8,
-   "r2c_relevance": 85.0,
-   "growth": 17.4,
-   "platforms": [
-    "Bluesky",
-    "News",
-    "Webpage"
-   ],
-   "generated_at": "2026-11-20T17:27:31.550124+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/hn100.atproto.rocks/post/3n2kxhip7kd2u",
-     "excerpt": "Tencent Hy4 Flash https://hy.tencent.ai/research/hy4-flash https://news.ycombinator.com/item?id=50538184",
-     "source_insight": "Tencent Hy4 Flash https://hy.tencent.ai/research/hy4-flash https://news.ycombinator.com/item?id=50538184"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/techimo.bsky.social/post/3n2ljeums7b2f",
-     "excerpt": "Tencent Hunyuan open-sources Hy4 flash model series! Weights for Hy4 flash (220B params, text/image input, 1M token context), Hy4 flash-FP8, & Hy4 flash-base now on GitHub. Deployments available too.",
-     "source_insight": "Tencent Hunyuan open-sources Hy4 flash model series! Weights for Hy4 flash (220B params, text/image input, 1M token context), Hy4 flash-FP8,"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/cryptonews-poster.bsky.social/post/3n2krgxnted23",
-     "excerpt": "Tencent Hunyuan open-sources its Hy4 flash model family! Three variants (Hy4 flash, Hy4 flash-FP8, Hy4 flash Base) are now available on GitHub, Hugging Face, ModelScope, & GitCode. More Hy4 models coming soon! #crypto #blockchain #news",
-     "source_insight": "Tencent Hunyuan open-sources its Hy4 flash model family! Three variants (Hy4 flash, Hy4 flash-FP8, Hy4 flash Base) are now available on GitH"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://note.com/kazu_t/n/n40ca31eeab94?hl=en",
-     "excerpt": "What is Hy4 flash? Explaining the features, pricing, and how to use Tencent's new AI with WorkBuddy and API! [November 2026 Edition] Hello, kazu here.I want to leave document drafting and information organization to AI. But don't you worry about the cost and wait times when running it repeatedly?Tencent announced Hy4 flash on November 16, 2026, the date posted on the official page. Among the Hy series, it is a model that emph I want to leave docu",
-     "source_insight": "What is Hy4 flash? Explaining the features, pricing, and how to use Tencent's new AI with WorkBuddy and API! [November 2026 Edition]"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://technode.com/2026/11/19/tencent-says-hunyuan-hy4-flash-surpasses-50-trillion-tokens-in-first-day-usage/",
-     "excerpt": "Tencent says Hunyuan Hy4 flash surpasses 50 trillion tokens in first-day usage The rise of lightweight AI models is challenging the notion that bigger is always better. Tencent's Hunyuan said on Wednesday that Hy4 flash processed The rise of lightweight AI models is challenging the notion that bigger is always better. Tencent’s Hunyuan said on Wednesday that Hy4 flash processed more than 50 trillion tokens on its first day after launching on Nove",
-     "source_insight": "Tencent says Hunyuan Hy4 flash surpasses 50 trillion tokens in first-day usage"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://technode.com/2026/11/20/tencent-releases-hy4-model-weights-with-million-token-context/",
-     "excerpt": "Tencent releases Hy4 model weights with million-token context Tencent released the weights of its flagship Hy4 AI model on Friday, allowing developers to download and deploy the model themselves. The release follows Hy4’s initial launch on November 4 and makes the flagship available under the Apache 2.0 license, which permits commercial use and modification. Hy4 supports text, image and video understanding, with a context window of about one mill",
-     "source_insight": "Tencent releases Hy4 model weights with million-token context"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_018_0753",
+   "trend_id": "trd_20261124_018_c2d3",
    "rank": 18,
    "near_miss": false,
-   "topic_title": "Jagged Intelligence: Why AI Excels and Fumbles",
-   "topic_summary": "AI models from Google and OpenAI can solve complex problems like International Mathematical Olympiad math, yet simultaneously fail at simple everyday tasks like telling a user to walk their car to a repair shop. Researchers call this erratic performance pattern \"jagged intelligence,\" making it difficult for practitioners to anticipate capabilities based on single benchmark scores or demos.",
+   "topic_title": "OpenAI and Cisco Introduce Shirudo Linux Security Platform",
+   "topic_summary": "OpenAI and Cisco have jointly introduced Shirudo, an open-source, eBPF-based runtime platform designed for Linux security and AI-assisted vulnerability mitigation. The tool aims to help engineering teams protect running systems and instantly boost infrastructure security while they prepare and roll out patches.",
    "topic_key_facts": [
-    "[Webpage] AI systems from Google and OpenAI solved five of six problems at the International Mathematical Olympiad.",
-    "[Webpage] Chatbots told a user to walk his car to a repair shop 50 meters away.",
-    "[Webpage] Researchers call the pattern of models acing advanced tasks while fumbling simple ones \"jagged intelligence\".",
-    "[Webpage] Andrej Karpathy is mentioned in relation to the discussion on jagged intelligence.",
-    "[Mastodon] KDnuggets served as a source for the article titled \"Jagged Intelligence: Why AI Is Brilliant One Minute and Clueless the Next\"."
+    "[Webpage] Shirudo Shield Linux is an open-source platform created by OpenAI and Cisco.",
+    "[Mastodon] Shirudo combines eBPF technology and AI-assisted vulnerability mitigation to protect running Linux systems.",
+    "[Webpage] The platform helps teams protect running infrastructure while they roll out patches."
    ],
    "topic_entities": [
-    "Jagged Intelligence",
-    "Brilliant",
-    "Clueless",
-    "Minute",
-    "Next",
-    "Olympiad"
+    "Cisco Shirudo Shield Linux",
+    "Linux Security Platform",
+    "OpenAI",
+    "OpenAI Unveil Shirudo"
    ],
-   "score": 61.0,
-   "r2c_relevance": 85.0,
-   "growth": 22.5,
+   "score": 74.6,
+   "r2c_relevance": 45.0,
+   "growth": 91.25,
    "platforms": [
     "Mastodon",
     "Webpage"
    ],
-   "generated_at": "2026-11-20T17:27:31.551142+00:00",
+   "generated_at": "2026-11-24T11:50:27.695663+00:00",
    "source_attribution": [
     {
      "platform": "Mastodon",
-     "source_url": "https://igeek.gamer-geek-news.com/@feed/statuses/01M7WR95WSK4PFP3221RRQKQZ8",
-     "excerpt": "📰 Jagged Intelligence: Why AI Is Brilliant One Minute and Clueless the Next Why models ace Olympiad math and still fumble simple everyday tasks. 📰 Source: KDnuggets 🔗 Link: https://www.kdnuggets.com/jagged-intelligence-why-ai-is-brilliant-one-minute-and-clueless-the-next # AI # ArtificialIntelligence",
-     "source_insight": "📰 Jagged Intelligence: Why AI Is Brilliant One Minute and Clueless the Next Why models ace Olympiad math and still fumble simple everyday ta"
+     "source_url": "https://mastodon.social/@linuxiac/117671075908650203",
+     "excerpt": "Cisco and OpenAI Unveil Shirudo, an eBPF-Based Linux Security Platform Shirudo is a new open-source Linux security platform from Cisco and OpenAI that combines eBPF and AI-assisted vulnerability mitigation. https:// linuxiac.com/cisco-and-openai- unveil-shirudo-an-ebpf-based-linux-security-platform/ # opensource # security",
+     "source_insight": "Cisco and OpenAI Unveil Shirudo, an eBPF-Based Linux Security Platform"
     },
     {
      "platform": "Webpage",
-     "source_url": "https://www.kdnuggets.com/jagged-intelligence-why-ai-is-brilliant-one-minute-and-clueless-the-next",
-     "excerpt": "Jagged Intelligence: Why AI Is Brilliant One Minute and Clueless the Next Why models ace Olympiad math and still fumble simple everyday tasks. AI systems from Google and OpenAI solved five of six problems at the International Mathematical Olympiad . Months later, chatbots told a user to walk his car to a repair shop 50 meters away. A person who can do the first would never make the second mistake, which is why the gap is so hard to anticipate. Re",
-     "source_insight": "Jagged Intelligence: Why AI Is Brilliant One Minute and Clueless the Next"
+     "source_url": "https://openai.com/index/introducing-shirudo",
+     "excerpt": "OpenAI and Cisco introduce Shirudo OpenAI and Cisco introduce Shirudo, an open-source runtime for Linux. It helps teams protect running systems while they roll out patches.",
+     "source_insight": "OpenAI and Cisco introduce Shirudo"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://dev.to/gp-ia-blog/openai-e-cisco-shirudo-shield-linux-53d0",
+     "excerpt": "OpenAI e Cisco: Shirudo Shield Linux Curious how tech giants are reshaping Linux defense? Explore OpenAI and Cisco's Shirudo Shield to instantly boost your infrastructure's security. It’s 4:45 PM on a Friday, and a critical buffer overflow vulnerability just dropped on the Linux kernel security list. Every systems administrator knows the unspoken dread of this moment. You either deploy an unverified kernel patch, risking a weekend-long outage tha",
+     "source_insight": "OpenAI e Cisco: Shirudo Shield Linux"
     }
    ]
   },
   {
-   "trend_id": "trd_20261120_019_b517",
+   "trend_id": "trd_20261124_019_53ab",
    "rank": 19,
    "near_miss": false,
-   "topic_title": "OpenAI Releases GPT-6.2 Astra and Sol Models",
-   "topic_summary": "OpenAI launched the GPT-6.2 Astra and Sol models on November 17, 2026, targeting professional work and cost efficiency with lower developer usage fees. However, the release received mixed reviews and criticism from early testers regarding real-world usability despite favorable benchmark scores.",
+   "topic_title": "Hugging Face Trending Models Highlight Multimodal and Local GGUF Releases",
+   "topic_summary": "Recent social and news signals highlight a surge of trending open-weight models and tools on Hugging Face, including local GGUF formats, multimodal architectures like Ling-3.2-air, and specialized audio and video generation tools. These releases offer practitioners new options for edge execution, workflow automation, document reasoning, and content isolation.",
    "topic_key_facts": [
-    "OpenAI released GPT-6.2 Astra and GPT-6.2 Sol on November 17, 2026. [News]",
-    "The new Astra scores 62 on the Intelligence Index, just behind Fable 5.2 at 65. [Webpage]",
-    "GPT-6.2 Astra is priced at $8/MTok input and $40/MTok output. [Webpage]",
-    "AI researcher Matt Shumer called GPT-6.2 Astra essentially unusable. [Bluesky]",
-    "Coding YouTuber Theo Browne called GPT-6.2 Astra OpenAI’s worst release. [Bluesky]"
+    "[Hugging Face] Ling-3.2-air by inclusionAI achieved an AutomationBench-AA score increase from 15.7% to 61%.",
+    "[Hugging Face] Ling-3.2-air increased its GDP.pdf all-pass rate from 8.4% to 16%.",
+    "[Hugging Face] Ling-3.2-air gained 353 points on AA-Briefcase v1.1, raising its Elo rating from 987 to 1340.",
+    "[News] The Hugging Face popular list featured 12 items consisting of 5 models, 3 datasets, and 4 Spaces.",
+    "[Bluesky] Inworld's voice-isolator provides 48kHz voice separation with a high-quality offline model and a low-latency real-time model."
    ],
    "topic_entities": [
-    "GPT-6.2 Astra",
-    "OpenAI",
-    "Astra Across Microsoft 365",
-    "AINews GPT-6.2 Astra",
-    "GPT-6.2 Astra Sol",
-    "AI GPT-6.2"
+    "H3をベースとした Sulphur 3 VRAM向けの量子化版やオプションの補正用ファイル",
+    "HuggingFaceトレンド AtomicChat Inkling-2-Mini-Uncensored-GGUF Inkling-2-Miniの検閲解除版をGGUF形式で提供することを目的としています",
+    "HuggingFaceトレンド SulphurAI Sulphur-3 MiniMax",
+    "Inkling-2-Mini-GGUF Inkling 2 Miniは",
+    "Hugging Face",
+    "48kHzの音声分離を提供し 2種類があります"
    ],
-   "score": 59.9,
+   "score": 74.1,
    "r2c_relevance": 85.0,
-   "growth": 13.26,
+   "growth": 69.36,
    "platforms": [
+    "Hugging Face",
     "Bluesky",
-    "News",
-    "Mastodon",
-    "Webpage"
+    "News"
    ],
-   "generated_at": "2026-11-20T17:27:31.552090+00:00",
+   "generated_at": "2026-11-24T11:50:27.695857+00:00",
    "source_attribution": [
     {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+     "excerpt": "Ling 3.2 air by inclusionAI is trending on Hugging Face Trending open model by inclusionAI. 145 likes, 733 downloads. 🤗 Hugging Face &nbsp;&nbsp; &nbsp;&nbsp;🤖 ModelScope Introduction We introduce Ling-3.2-air , an open-weight model that shares the same native multimodal architecture as [ Ling-3.0-flash-VL ](https://huggingface.co/inclusionAI/Ling-3.0-flash-VL). Compared with its predecessor, Ling-3.2-air shows stronger performance in workflow au",
+     "source_insight": "Ling 3.2 air by inclusionAI is trending on Hugging Face"
+    },
+    {
      "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/carnage4life.bsky.social/post/3n2kmka65ek2m",
-     "excerpt": "OpenAI’s GPT-6.2 Astra is getting hammered by early testers. AI researcher Matt Shumer called it essentially unusable. Coding YouTuber Theo Browne called it OpenAI’s worst release. Yet OpenAI reports higher benchmark scores. The gap between benchmarks and real-world usage continues to grow.",
-     "source_insight": "OpenAI’s GPT-6.2 Astra is getting hammered by early testers. AI researcher Matt Shumer called it essentially unusable. Coding YouTuber Theo"
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2w66jggmk2u",
+     "excerpt": "今日のHuggingFaceトレンド AtomicChat/Inkling-2-Mini-Uncensored-GGUF Inkling-2-Miniの検閲解除版をGGUF形式で提供することを目的としています。 ローカル環境での実行を可能にするため、適用済みのGGUFファイルやLoRAアダプタが提供されています。 テキストと画像の入力に対応しており、llama.cppを使用して動作させることができます。",
+     "source_insight": "今日のHuggingFaceトレンド AtomicChat/Inkling-2-Mini-Uncensored-GGUF Inkling-2-Miniの検閲解除版をGGUF形式で提供することを目的としています。 ローカル環境での実行を可能にするため、適用済みのGGUFファイルや"
     },
     {
-     "platform": "News",
-     "source_url": "https://gizmodo.com/anthropic-could-be-the-real-winner-in-openais-latest-model-release-2000841822",
-     "excerpt": "Anthropic Could Be the Real Winner in OpenAI’s Latest Model Release The AI influencers aren't happy with OpenAI's new update. With Anthropic’s IPO expected tomorrow, OpenAI really needed to wow users with its latest model release. Judging from the early reviews, however, GPT-6.2 had exactly the opposite effect. Released Tuesday, the new model is being sold by OpenAI as an expert digital assistant for real-world projects in fields like finance, la",
-     "source_insight": "Anthropic Could Be the Real Winner in OpenAI’s Latest Model Release"
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2z52vzs5e2x",
+     "excerpt": "今日のHuggingFaceトレンド unsloth/Inkling-2-Mini-GGUF Inkling 2 Miniは、テキストと画像を入力してテキストを生成する汎用マルチモーダルモデルです。 多言語やプログラミング言語に対応し、AIエージェントやチャットボット、コーディングアシスタントなどの開発を目的としています。 オープンウェイトで提供されており、研究や微調整、外部製品への統合が可能です。",
+     "source_insight": "今日のHuggingFaceトレンド unsloth/Inkling-2-Mini-GGUF Inkling 2 Miniは、テキストと画像を入力してテキストを生成する汎用マルチモーダルモデルです。 多言語やプログラミング言語に対応し、AIエージェントやチャットボット、コーディ"
     },
     {
-     "platform": "News",
-     "source_url": "https://note.com/godaidenkai/n/n96161d5067eb?hl=en",
-     "excerpt": "OpenAI Releases New AI 'GPT-6.2'—Top Model Price Cut by 20%, Update Follows 2.5 Months After September Release【Shige News】 ■ Lead・On November 17, 2026 (U.S. time), OpenAI released new AI models, 'GPT-6.2 Astra' and 'GPT-6.2 Sol'.・The top-tier Astra model sees a 20% reduction in developer usage fees compared to the previous model from September. The mid-tier Sol model maintains its pricing while reportedly offering i ・On November 17, 2026 (U.S. ti",
-     "source_insight": "OpenAI Releases New AI 'GPT-6.2'—Top Model Price Cut by 20%, Update Follows 2.5 Months After September Release【Shige News】"
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2z5cvlmkg2c",
+     "excerpt": "今日のHuggingFaceトレンド inworld/voice-isolator ノイズの多い音声録音やライブオーディオから声を分離することを目的としています。 高品質なオフラインモデルと低遅延なリアルタイムモデルの2種類を提供しており、録音ファイルのクリーニングやライブ配信、音声データセットの作成などに活用できます。",
+     "source_insight": "今日のHuggingFaceトレンド inworld/voice-isolator ノイズの多い音声録音やライブオーディオから声を分離することを目的としています。 高品質なオフラインモデルと低遅延なリアルタイムモデルの2種類を提供しており、録音ファイルのクリーニングやライブ配信"
     },
     {
-     "platform": "Mastodon",
-     "source_url": "https://mastodon.social/@Dellenny/117649324201472096",
-     "excerpt": "Microsoft Copilot Expands AI Choices With GPT-6.2 Sol and Astra Across Microsoft 365 Microsoft Copilot is expanding its AI model lineup with two new options: GPT-6.2 Sol and GPT-6.2 Astra # MicrosoftCopilot # Microsoft365 # ArtificialIntelligence # OpenAI # AITechnology https:// dellenny.com/microsoft-copilot -expands-ai-choices-with-gpt-6-2-sol-and-astra-across-microsoft-365?utm_source=mastodon&utm_medium=social",
-     "source_insight": "Microsoft Copilot Expands AI Choices With GPT-6.2 Sol and Astra Across Microsoft 365"
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2tm77sn6p2w",
+     "excerpt": "今日のHuggingFaceトレンド inworld/voice-isolator ノイズの多い音声録音やライブオーディオから声を分離するためのツールです。 48kHzの音声分離を提供し、高品質な録音向けモデルと低遅延のリアルタイム向けモデルの2種類があります。 録音のノイズ除去、音声データセットの作成、ライブ通話やストリーミングでの利用を目的としています。",
+     "source_insight": "今日のHuggingFaceトレンド inworld/voice-isolator ノイズの多い音声録音やライブオーディオから声を分離するためのツールです。 48kHzの音声分離を提供し、高品質な録音向けモデルと低遅延のリアルタイム向けモデルの2種類があります。 録音のノイズ除"
     },
     {
-     "platform": "Webpage",
-     "source_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
-     "excerpt": "Introducing GPT-6.2 Astra and Sol Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
-     "source_insight": "Introducing GPT-6.2 Astra and Sol"
-    },
-    {
-     "platform": "Webpage",
-     "source_url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/",
-     "excerpt": "GPT‑6.2 Astra and GPT‑6.2 Sol OpenAI: We’re introducing GPT‑6.2 Astra, our new frontier model for your hardest projects, and GPT‑6.2 Sol, our efficient, versatile model for everyday work. They're available in the API as gpt-6.2-astra … We’re introducing GPT‑6.2 Astra, our new frontier model for your hardest projects, and GPT‑6.2 Sol, our efficient, versatile model for everyday work. They're available in the API as gpt-6.2-astra and gpt-6.2-sol . ",
-     "source_insight": "GPT‑6.2 Astra and GPT‑6.2 Sol"
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2z5kw54of2x",
+     "excerpt": "今日のHuggingFaceトレンド SulphurAI/Sulphur-3 MiniMax H3をベースとした、検閲のない動画生成モデル「Sulphur 3」の提供を目的としています。 メインのモデルファイルのほか、低VRAM向けの量子化版やオプションの補正用ファイル、ComfyUI用のノードとワークフローが提供されています。",
+     "source_insight": "今日のHuggingFaceトレンド SulphurAI/Sulphur-3 MiniMax H3をベースとした、検閲のない動画生成モデル「Sulphur 3」の提供を目的としています。 メインのモデルファイルのほか、低VRAM向けの量子化版やオプションの補正用ファイル、Com"
     }
    ]
   },
   {
-   "trend_id": "trd_20261120_020_b624",
+   "trend_id": "trd_20261124_020_2364",
    "rank": 20,
    "near_miss": false,
-   "topic_title": "MiniMax-H3-Image and Pruna AI P-H3-Image Release",
-   "topic_summary": "MiniMax and Pruna AI have recently released new open-weights image generation and editing models, specifically MiniMax-H3-Image and Pruna AI's P-H3-Image. These models offer high precision for image-to-image editing, support up to 16 reference images, and feature native ComfyUI and Diffusers support.",
+   "topic_title": "Ant Group Open-Sources LingSante Medical AI Models",
+   "topic_summary": "Ant Group has open-sourced the LingSante medical AI model family, releasing two core models on Hugging Face that previously powered its 150-million-user Afu app. This release provides ML practitioners with access to both a lightweight natively multimodal model and a large deep-reasoning model tailored for healthcare applications.",
    "topic_key_facts": [
-    "[News] MiniMax-H3-Image supports up to 16 reference images for image-to-image editing and reconstruction.",
-    "[News] Testing of MiniMax-H3-Image's 16-image composition limit was conducted on a 12GB VRAM RTX 4070.",
-    "[News] PrunaAI created P-H3-Image (P-Image-OSS), a derivative model of MiniMax H3.",
-    "[Bluesky] Pruna AI's P-H3-Image is an open-weights AI model rebuilt from MiniMax's 143 GB H3 video model.",
-    "[Bluesky] MiniMaxAI/MiniMax-H3-Image appeared on the Hugging Face trending list."
+    "Ant Group released LingSante-3.1-flash and LingSante-3.1-air-VL on Hugging Face on November 23, 2026. [Webpage]",
+    "The Afu app serves 150 million users and handles nearly 20 million health consultations every day. [News]",
+    "LingSante-3.1-air-VL is a lightweight natively multimodal model with 124 billion total parameters and 5.5 billion active per token. [Webpage]",
+    "LingSante-3.1-flash is a 560-billion-parameter deep-reasoning model with roughly 25 billion active per token. [Webpage]"
    ],
    "topic_entities": [
-    "12GB VRAM RTX 4070",
-    "HuggingFaceトレンド MiniMaxAI MiniMax-H3-Image",
-    "P-H3 Comparing 11",
-    "GB H3",
-    "MiniMax-H3-Image Competing",
-    "MiniMax-H3-Image Testing"
+    "150-million-user",
+    "Ant Group Open-Sources",
+    "Health Apps",
+    "Medical AI",
+    "Your Hardware",
+    "LingSante"
    ],
-   "score": 58.9,
-   "r2c_relevance": 45.0,
-   "growth": 22.25,
-   "platforms": [
-    "Bluesky",
-    "News"
-   ],
-   "generated_at": "2026-11-20T17:27:31.554092+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2oreu2kj526",
-     "excerpt": "今日のHuggingFaceトレンド MiniMaxAI/MiniMax-H3-Image",
-     "source_insight": "今日のHuggingFaceトレンド MiniMaxAI/MiniMax-H3-Image"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/michabbb.bsky.social/post/3n2ombu2mdw2y",
-     "excerpt": "📋 Pruna AI released P-H3-Image (P-Image-OSS), an open-weights #AI model for image generation and editing, rebuilt from MiniMax's 143 GB H3 video model. Open weights on Hugging Face, with Diffusers and native #ComfyUI support. 🧵👇",
-     "source_insight": "📋 Pruna AI released P-H3-Image (P-Image-OSS), an open-weights #AI model for image generation and editing, rebuilt from MiniMax's 143 GB H3 v"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://note.com/sepiablue/n/n46c01ff75bb9?hl=en",
-     "excerpt": "【MiniMax-H3-Image】Competing with P-H3! Comparing 11 types of anime image editing Hello, this is Kamimoto!The image generation and editing model from MiniMax, \"MiniMax H3 Image\". It is an image generation model that was suddenly announced by the official team, but shortly before that, there was \"P-H3-Image\", an image generation model created by PrunaAI, which is also a deriva The image generation and editing model from MiniMax, \" MiniMax H3 Image ",
-     "source_insight": "【MiniMax-H3-Image】Competing with P-H3! Comparing 11 types of anime image editing"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://note.com/sepiablue/n/n7f2801389c8f?hl=en",
-     "excerpt": "[MiniMax-H3-Image] Testing the 16-image composition limit with 12GB VRAM (RTX 4070) Hello, this is Kamimoto!The recently released \"MiniMax-H3-Image\" not only has high precision for i2i (image-to-image editing and reconstruction), but according to the official announcement and ComfyUI documentation, it supports up to 16 reference images.Setting aside the question of whether anyo The recently released \" MiniMax-H3-Image \" not only has high precisio",
-     "source_insight": "[MiniMax-H3-Image] Testing the 16-image composition limit with 12GB VRAM (RTX 4070)"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_021_e340",
-   "rank": 21,
-   "near_miss": false,
-   "topic_title": "Hugging Face Releases Qwen3.8-27B-pi-adapted LoRA Adapter",
-   "topic_summary": "A new Apache-2.0 LoRA adapter trained with reinforcement learning has been released for the Qwen3.8-27B model to work with the pi coding agent. Testing shows this adapter significantly boosts performance on software engineering benchmarks like SWE-bench Pro.",
-   "topic_key_facts": [
-    "[Bluesky] The Qwen3.8-27B-pi-adapted LoRA adapter lifts SWE-bench Pro hard-51 pass@1 from 39.2% to 64.7%.",
-    "[News] The harness-hub project published the Qwen3.8-27B-pi-adapted LoRA adapter on Hugging Face.",
-    "[News] Tests report a 64.7% score on SWE-bench Pro with reasoning deactivated.",
-    "[Bluesky] Qwen3.8-27B is an Apache-2.0 model released with reinforcement learning for the pi coding agent."
-   ],
-   "topic_entities": [
-    "HuggingFaceトレンド Qwen Qwen3.8-27B Qwen3.8-27Bのモデル重みと設定ファイルを提供するためのリポジトリです",
-    "LoRA Adapter Lifts Qwen3.8",
-    "Qwen3.8-27B-pi-adapted Qwen Qwen3.8-27B向けのLoRAアダプタです",
-    "Apache-2.0 LoRA",
-    "Qwen-Image-2.1-Uncensored-Omni-Quantized Qwen-Image-2.1にOmniアダプターを統合し量子化した",
-    "Qwen3.8-27B-GGUF Qwenオープンモデルの最新世代であるQwen3.8-27Bの提供を目的としています"
-   ],
-   "score": 57.7,
-   "r2c_relevance": 95.0,
-   "growth": 4.25,
-   "platforms": [
-    "Bluesky",
-    "News"
-   ],
-   "generated_at": "2026-11-20T17:27:31.554092+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2m7xya52h2m",
-     "excerpt": "今日のHuggingFaceトレンド harness-hub/Qwen3.8-27B-pi-adapted Qwen/Qwen3.8-27B向けのLoRAアダプタです。 強化学習を用いて、コーディングエージェントpiのソフトウェアエンジニアリングおよびターミナルタスク用モデルとして動作させることを目的としています。 少ないトークン数で高い推論精度を実現しています。",
-     "source_insight": "今日のHuggingFaceトレンド harness-hub/Qwen3.8-27B-pi-adapted Qwen/Qwen3.8-27B向けのLoRAアダプタです。 強化学習を用いて、コーディングエージェントpiのソフトウェアエンジニアリングおよびターミナルタスク用モデルと"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/feed.igeek.gamer-geek-news.com.ap.brid.gy/post/3n2lxi7abiky2",
-     "excerpt": "📰 **New LoRA Adapter Lifts Qwen3.8 Coding Success From 39% to 65%** Hugging Face released Qwen3.8-27B-pi-adapted, an Apache-2.0 LoRA adapter trained with reinforcement learning for the pi coding agent. It lifts SWE-bench Pro hard-51 pass@1 from 39.2% to 64.7% and T... 📰 Source: MarkTechPost 🔗 […]",
-     "source_insight": "📰 **New LoRA Adapter Lifts Qwen3.8 Coding Success From 39% to 65%** Hugging Face released Qwen3.8-27B-pi-adapted, an Apache-2.0 LoRA adapte"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2jqi2ggf72c",
-     "excerpt": "今日のHuggingFaceトレンド unsloth/Qwen3.8-27B-GGUF Qwenオープンモデルの最新世代であるQwen3.8-27Bの提供を目的としています。 コーディングや研究、エージェントタスクの性能が向上したコンパクトなモデルで、画像や動画の理解、柔軟な思考制御を備え、複雑な多段階タスクを高い信頼性で遂行可能です。",
-     "source_insight": "今日のHuggingFaceトレンド unsloth/Qwen3.8-27B-GGUF Qwenオープンモデルの最新世代であるQwen3.8-27Bの提供を目的としています。 コーディングや研究、エージェントタスクの性能が向上したコンパクトなモデルで、画像や動画の理解、柔軟な思"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2ma2nynot2g",
-     "excerpt": "今日のHuggingFaceトレンド Qwen/Qwen3.8-27B Qwen3.8-27Bのモデル重みと設定ファイルを提供するためのリポジトリです。 画像や動画を理解できる視覚言語モデルであり、コーディングや専門業務、研究、複雑なマルチステップタスクにおいて高い性能を発揮します。 Hugging Face TransformersやvLLMなどのツールと互換性があり、効率的なデプロイが可能です。",
-     "source_insight": "今日のHuggingFaceトレンド Qwen/Qwen3.8-27B Qwen3.8-27Bのモデル重みと設定ファイルを提供するためのリポジトリです。 画像や動画を理解できる視覚言語モデルであり、コーディングや専門業務、研究、複雑なマルチステップタスクにおいて高い性能を発揮し"
-    },
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2jqrtnljm2g",
-     "excerpt": "今日のHuggingFaceトレンド chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized Qwen-Image-2.1にOmniアダプターを統合し量子化した、画像生成および画像編集用のトランスフォーマー重みを配布するためのリポジトリです。 テキストエンコーダー、プロセッサ、VAEは含まれていないため、ベースモデルから取得する必要があります。",
-     "source_insight": "今日のHuggingFaceトレンド chatrlabs/Qwen-Image-2.1-Uncensored-Omni-Quantized Qwen-Image-2.1にOmniアダプターを統合し量子化した、画像生成および画像編集用のトランスフォーマー重みを配布するためのリポジ"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://www.diariobitcoin.com/tecnologia/un-adaptador-lora-mejora-los-resultados-de-qwen3-8-en-tareas-de-codigo/",
-     "excerpt": "Un adaptador LoRA mejora los resultados de Qwen3.8 en tareas de código El proyecto harness-hub publicó en Hugging Face un adaptador LoRA para que Qwen3.8-27B trabaje con el agente de código pi. Sus pruebas reportan 64,7% en SWE-bench Pro con el razonamiento desactivado, ...",
-     "source_insight": "Un adaptador LoRA mejora los resultados de Qwen3.8 en tareas de código"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_022_2af6",
-   "rank": 22,
-   "near_miss": false,
-   "topic_title": "RadixArk Launches DaisyRose-27B Model",
-   "topic_summary": "RadixArk has released DaisyRose-27B, its first model built on Qwen3.8-27B and optimized for long-horizon agent tasks with up to 1 million token session lengths. Using reinforcement learning via Miles, the model doubles the Pass@1 score on Terminal-Bench 4.1 from 5.6% to 12.0%.",
-   "topic_key_facts": [
-    "RadixArk launched DaisyRose-27B, achieving 12.0% Pass@1 on Terminal-Bench 4.1. [News]",
-    "The model is built on Qwen3.8-27B and trained using reinforcement learning via Miles. [News]",
-    "It was trained over 18 days on 144 H200 GPUs using only 1,200 curated tasks. [News]",
-    "DaisyRose-27B supports session lengths up to 1 million tokens for long-horizon agent tasks. [News]",
-    "The 1,200-task RL took Qwen3.8 from 5.6% to 12% on Terminal-Bench 4.1. [Bluesky]"
-   ],
-   "topic_entities": [
-    "DaisyRose-27B 1 200-task RL",
-    "Pass 1",
-    "Qwen3.8",
-    "Terminal-Bench",
-    "RadixArk"
-   ],
-   "score": 57.3,
-   "r2c_relevance": 92.0,
-   "growth": 0.0,
-   "platforms": [
-    "Bluesky",
-    "News"
-   ],
-   "generated_at": "2026-11-20T17:27:31.554092+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/hnbot.gsuscs.xyz/post/3n2mg4pk3sk2i",
-     "excerpt": "DaisyRose-27B: 1,200-task RL took Qwen3.8 from 5.6% to 12% on Terminal-Bench 4.1 https://www.radixark.com/blog/daisyrose-27b",
-     "source_insight": "DaisyRose-27B: 1,200-task RL took Qwen3.8 from 5.6% to 12% on Terminal-Bench 4.1 https://www.radixark.com/blog/daisyrose-27b"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://www.kucoin.com/news/flash/radixark-launches-daisyrose-27b-achieving-12-0-pass-1-on-terminal-bench-4-1",
-     "excerpt": "RadixArk launches DaisyRose-27B, achieving 12.0% Pass@1 on Terminal-Bench 4.1 ME AI update: Today, we released DaisyRose-27B, the first model launched by RadixArk. Built on Qwen3.8-27B and trained using reinforcement learning via Miles, the model was optimized for long-horizon agent tasks with session lengths up to 1 million tokens. Trained over 18 days on 144 H200 GPUs using only 1,200 curated tasks, DaisyRose-27B improved the pass@1 score on Te",
-     "source_insight": "RadixArk launches DaisyRose-27B, achieving 12.0% Pass@1 on Terminal-Bench 4.1"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_023_18a4",
-   "rank": 23,
-   "near_miss": false,
-   "topic_title": "Higurashi Releases Haru-4B Full Duplex Voice Model",
-   "topic_summary": "Higurashi Inc. has released Haru-4B, a 4B parameter full-duplex voice dialogue model that combines three streams into one. Released on November 13, 2026, it enables simultaneous listening and speaking to facilitate phone-like conversations with low latency.",
-   "topic_key_facts": [
-    "[News] \"Haru-4B\" was released by higurashi Inc. on November 13, 2026. [News]",
-    "[News] It is a voice dialogue model that combines three streams into one and speaks while listening. [News]",
-    "[Bluesky] It is featured on the HuggingFace trend list as higurashi-ai/Haru-4B. [Bluesky]",
-    "[Bluesky] It is a low-latency, multilingual, full-duplex continuous voice dialogue foundation model supporting English, Japanese, and Korean. [Bluesky]",
-    "[Bluesky] It is a pre-trained model published for research purposes that allows speech in any voice. [Bluesky]"
-   ],
-   "topic_entities": [
-    "Haru-4B Haru-4Bは",
-    "Japanese AI",
-    "HuggingFaceトレンド",
-    "Trying"
-   ],
-   "score": 56.4,
-   "r2c_relevance": 88.0,
-   "growth": 0.0,
-   "platforms": [
-    "Bluesky",
-    "News"
-   ],
-   "generated_at": "2026-11-20T17:27:31.555138+00:00",
-   "source_attribution": [
-    {
-     "platform": "Bluesky",
-     "source_url": "https://bsky.app/profile/huggingfacetrends.bsky.social/post/3n2m7gyvaan2x",
-     "excerpt": "今日のHuggingFaceトレンド higurashi-ai/Haru-4B Haru-4Bは、低遅延で多言語に対応したフルデュプレックスの継続的な音声対話基盤モデルです。 電話のように聞き取りと発話を同時に行うことができ、英語、日本語、韓国語をサポートしています。 研究用に公開された事前学習済みモデルであり、任意の音声での発話が可能です。",
-     "source_insight": "今日のHuggingFaceトレンド higurashi-ai/Haru-4B Haru-4Bは、低遅延で多言語に対応したフルデュプレックスの継続的な音声対話基盤モデルです。 電話のように聞き取りと発話を同時に行うことができ、英語、日本語、韓国語をサポートしています。 研究用に"
-    },
-    {
-     "platform": "News",
-     "source_url": "https://note.com/toreshin/n/nea19875a5a3d?hl=en",
-     "excerpt": "Trying out Haru-4B — The Japanese AI that speaks while listening combined three streams into one by Mu (@mu_t2s)When speaking with an AI via voice, it is normal for the response to come only after you have finished speaking. \"Haru-4B,\" released by higurashi Inc. on November 13, 2026, is a voice dialogue model that speaks while listening to the other person's voice. It decides within a singl When speaking with an AI via voice, it is normal for the",
-     "source_insight": "Trying out Haru-4B — The Japanese AI that speaks while listening combined three streams into one"
-    }
-   ]
-  },
-  {
-   "trend_id": "trd_20261120_024_b525",
-   "rank": 24,
-   "near_miss": false,
-   "topic_title": "Securing Coding Agents With External Sandboxes and Permissions",
-   "topic_summary": "Researchers explored new external sandboxes for coding agents to safely execute code from local models and prevent damaging actions from mistakes or prompt injection attacks. A related news signal emphasizes that AI agent security relies on proper permissions rather than prompts, noting the limitations of shell blocklists and allowlists.",
-   "topic_key_facts": [
-    "[Webpage] The author explored new ways to sandbox code executed by agents to safely try out local models without risking damaging actions from mistakes or prompt injection attacks.",
-    "[Webpage] The project was worked on with Prime Radiant, the AI research lab behind Superpowers and other projects.",
-    "[Webpage] The Prime Radiant blog post introduces the external sandbox pattern where code executed by the agent runs externally.",
-    "[News] AI agent security starts with permissions rather than prompts, because a hijacked agent can only do what its tools allow."
-   ],
-   "topic_entities": [
-    "Permissions Not Prompts",
-    "Security Starts",
-    "External"
-   ],
-   "score": 55.0,
-   "r2c_relevance": 95.0,
-   "growth": 0.5,
+   "score": 74.0,
+   "r2c_relevance": 68.0,
+   "growth": 90.5,
    "platforms": [
     "News",
     "Webpage"
    ],
-   "generated_at": "2026-11-20T17:27:31.555138+00:00",
+   "generated_at": "2026-11-24T11:50:27.696040+00:00",
    "source_attribution": [
     {
      "platform": "News",
-     "source_url": "https://hackernoon.com/why-ai-agent-security-starts-with-permissions-not-prompts",
-     "excerpt": "Why AI Agent Security Starts With Permissions, Not Prompts A hijacked agent can only do what its tools allow. Why shell blocklists fail, how allowlists leak, and a test you can add without running a model.",
-     "source_insight": "Why AI Agent Security Starts With Permissions, Not Prompts"
+     "source_url": "https://www.techwalls.com/ant-group-open-sources-its-medical-ai/",
+     "excerpt": "Ant Group Open-Sources Its Medical AI: What the LingSante Release Means for Your Hardware and Health Apps Ant Group has open-sourced LingSante, the medical AI model family that powers its health app Afu - a service with 150 million users that handles nearly 20 million health consultations every day. Ant Group has open-sourced LingSante, the medical AI model family that powers its health app Afu – a service with 150 million users that handles near",
+     "source_insight": "Ant Group Open-Sources Its Medical AI: What the LingSante Release Means for Your Hardware and Health Apps"
     },
     {
      "platform": "Webpage",
-     "source_url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
-     "excerpt": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake … External sandboxes for coding agents . I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to tak",
-     "source_insight": "External sandboxes for coding agents"
+     "source_url": "https://asiatechtimes.com/story/ant-group-open-sources-lingsante-medical-models",
+     "excerpt": "Ant Group open-sources the AI behind its 150-million-user health app Ant Group has released LingSante-3.1-flash and LingSante-3.1-air-VL on Hugging Face — medical models it says already power its 150-million-user Afu app. Ant Group has released the model weights of LingSante , the medical and health AI family that powers its health app Afu, to the public. The announcement, made on November 23, 2026, puts the weights of two core models on Hugging ",
+     "source_insight": "Ant Group open-sources the AI behind its 150-million-user health app"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_021_7c64",
+   "rank": 21,
+   "near_miss": false,
+   "topic_title": "Amazon Acquires Decart AI Optimization Tech and Team",
+   "topic_summary": "Amazon has signed an agreement to purchase the proprietary technology behind the Decart Optimization Stack and hire its technical staff and co-founders in a reported $7.5 billion deal. The acquisition aims to enhance Amazon's custom silicon performance on Trainium, further optimize AI inference, and help customers train and run models faster and at lower costs.",
+   "topic_key_facts": [
+    "Amazon signed a deal to acquire Israeli AI startup Decart's core technology and hire its technical staff, with sources reporting a price of about $7.5 billion. [Webpage]",
+    "The deal brings Decart AI co-founders Dean Leitersdorf, Moshe Shalev, and Orian Leitersdorf, along with their research and engineering team, to Amazon. [News]",
+    "Decart's technology includes the Decart Optimization Stack (DOS), software that helps AI models run efficiently on hardware from Nvidia, Amazon, and Google. [News]",
+    "Since 2025, Decart's team has worked closely with Amazon to deliver performance results on Trainium using a full-stack approach spanning software and hardware. [Webpage]",
+    "In August, Anthropic reportedly sought to buy Decart for $6 billion before walking away from the deal. [Webpage]"
+   ],
+   "topic_entities": [
+    "Amazon",
+    "Decart",
+    "7.5B",
+    "Trainium",
+    "Decart AI",
+    "Israeli AI"
+   ],
+   "score": 72.6,
+   "r2c_relevance": 75.0,
+   "growth": 100.0,
+   "platforms": [
+    "News",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.696459+00:00",
+   "source_attribution": [
+    {
+     "platform": "News",
+     "source_url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+     "excerpt": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips Amazon is acquiring Decart’s AI optimization technology and research team in a reported $7.5 billion deal. Amazon has agreed to acquire a good chunk of Israeli startup Decart. The e-commerce and cloud giant is paying $7.5 billion for the startup, according to Bloomberg. Decart has made a name for itself building interactive real-time world models — most ",
+     "source_insight": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://seekingalpha.com/news/4675596-amazon-acquires-decart-ais-optimization-tech-to-improve-chip-performance",
+     "excerpt": "Amazon acquires Decart AI's optimization tech to improve chip performance Amazon agrees to acquire Decart's AI technology in a reportedly $7.5B deal to improve custom-chip performance and optimize AI inference.",
+     "source_insight": "Amazon acquires Decart AI's optimization tech to improve chip performance"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://finance.yahoo.com/technology/ai/articles/amazon-purchase-decart-ai-optimization-220035843.html",
+     "excerpt": "Amazon to purchase Decart’s AI optimization technology Amazon announced it has signed an agreement to purchase the proprietary technology behind the Decart Optimization Stack, and bring the Decart AI co-founders – Dean Leitersdorf, Moshe Shalev, and Orian Leitersdorf – along with their team of AI researchers and engineers, to Amazon. “With their deep expertise in full-stack performance optimization across hardware and software, Decart brings a st",
+     "source_insight": "Amazon to purchase Decart’s AI optimization technology"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.calcalistech.com/ctechnews/article/g0mtcg4mi",
+     "excerpt": "Amazon signs $7.5 billion deal for Israeli AI startup Decart's technology and team 24/7 Buzz Startups VC AI DefenseTech Opinions Events ScaleUp House Promising Startups 2026 2026 VC Survey Boarding Pass CTalk BiblioTech Appointments Tech Gateways HR - The Next Leap Ctech Testimonials Projects Corporate About Newsletter Contact us Facebook Twitter ACCESSIBILITY by Homepage Startups Startups HOME 24/7 buzz STARTUPS VC AI DefenseTech OPINIONS ScaleU",
+     "source_insight": "Amazon signs $7.5 billion deal for Israeli AI startup Decart's technology and team"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.com/en-xl/news/other/amazon-signs-deal-to-buy-decart-s-ai-optimization-technology-in-major-trainium-push/ar-AA2i3pSm",
+     "excerpt": "Amazon signs deal to buy Decart’s AI optimization technology in major Trainium push Amazon acquires Decart's AI optimization technology and team to improve Trainium performance, accelerate inference, and lower AI computing costs for customers.",
+     "source_insight": "Amazon signs deal to buy Decart’s AI optimization technology in major Trainium push"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.com/en-in/news/other/amazon-to-buy-decarts-ai-chip-optimization-tech-in-latest-ai-talent-grab/ar-AA2i6L4i",
+     "excerpt": "Amazon to buy Decart's AI chip optimization tech in latest AI talent grab Tech giants are increasingly buying the capabilities needed to advance their AI ambitions instead of building them in-house, as competition at the frontier of AI development intensifies.",
+     "source_insight": "Amazon to buy Decart's AI chip optimization tech in latest AI talent grab"
+    }
+   ]
+  },
+  {
+   "trend_id": "trd_20261124_022_0b4a",
+   "rank": 22,
+   "near_miss": false,
+   "topic_title": "Banks and Companies Restrict AI Agents Over Liability",
+   "topic_summary": "Major U.S. financial institutions and companies like Signal and United Airlines are restricting third-party AI agents and shifting financial liability for bot errors onto customers. This trend highlights growing security and risk concerns for AI/ML practitioners developing autonomous online assistants.",
+   "topic_key_facts": [
+    "Wells Fargo updated its customer agreement starting on Tuesday with the warning that \"Your use of any AI Agent is AT YOUR OWN RISK.\" [Webpage]",
+    "Citibank, Wells Fargo, and PNC are adding terms that shift third-party AI agent risks onto customers. [Bluesky]",
+    "Signal joined United Airlines and JPMorgan Chase in implementing restrictions around AI agents. [News]",
+    "The investigation into banks shifting risks onto customers was published on techcrunch.com on 2026/11/18. [Bluesky]"
+   ],
+   "topic_entities": [
+    "Citibank Wells Fargo PNC",
+    "Banks Have Had",
+    "Including Their Own",
+    "Getting Scared",
+    "United Airlines",
+    "Your AI"
+   ],
+   "score": 69.1,
+   "r2c_relevance": 65.0,
+   "growth": 97.75,
+   "platforms": [
+    "Bluesky",
+    "News",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.696635+00:00",
+   "source_attribution": [
+    {
+     "platform": "Bluesky",
+     "source_url": "https://bsky.app/profile/digitalwarrior.bsky.social/post/3n2wpnjhujt26",
+     "excerpt": "2/ Citibank, Wells Fargo, PNC and others are adding terms that shift risks from third-party AI agents onto customers. If an AI assistant makes a bad transaction, exceeds your instructions or gets compromised, you could face losses. Here’s the investigation: techcrunch.com/2026/11/18/m...",
+     "source_insight": "2/ Citibank, Wells Fargo, PNC and others are adding terms that shift risks from third-party AI agents onto customers. If an AI assistant mak"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.com/en-au/money/general/signal-joins-united-airlines-banks-in-limiting-ai-agents-over-customer-risks/ar-AA2i6qXJ",
+     "excerpt": "Signal joins United Airlines, banks in limiting AI agents over customer risks Privacy-focused messaging application Signal has joined United Airlines and JPMorgan Chase in implementing restrictions around artificial intelligence agents.",
+     "source_insight": "Signal joins United Airlines, banks in limiting AI agents over customer risks"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://gizmodo.com/banks-are-getting-scared-of-ai-agents-including-their-own-2000844134",
+     "excerpt": "Banks Are Getting Scared of AI Agents, Including Their Own Major U.S. banks are tightening restrictions on AI agents after alarming security breaches, while warning customers about the risks.",
+     "source_insight": "Banks Are Getting Scared of AI Agents, Including Their Own"
+    },
+    {
+     "platform": "News",
+     "source_url": "https://www.msn.com/en-us/news/other/are-us-banks-warning-customers-they-could-be-responsible-for-ai-agents-errors/ar-AA2i4JxV",
+     "excerpt": "Are US banks warning customers they could be responsible for AI agents' errors? Some AI agents can log into a person's bank account and make transactions for them. Banks would generally prefer they didn't.",
+     "source_insight": "Are US banks warning customers they could be responsible for AI agents' errors?"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
+     "excerpt": "Banks Have Had It Up to Here With Your AI Agent Major US financial institutions are banning third-party bots from logging into your accounts—and warning that any costly bot mistakes are strictly your problem. Wells Fargo is set to enact an updated agreement with millions of customers, specifically about AI agents , starting on Tuesday. The bank’s warning to early adopters could not be clearer. “Your use of any AI Agent is AT YOUR OWN RISK,” read ",
+     "source_insight": "Banks Have Had It Up to Here With Your AI Agent"
     }
    ]
   }
  ],
- "latest_generated_at": "2026-11-20T17:27:31.555138+00:00",
+ "latest_generated_at": "2026-11-24T11:50:27.696635+00:00",
  "showcase": [
   {
    "trend": {
