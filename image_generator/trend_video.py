@@ -113,9 +113,33 @@ def check_script(script: Dict[str, Any], trend: Dict[str, Any]) -> Dict[str, Any
                     and all(s.get("voiceover") and s.get("on_screen") for s in scenes),
         "jargon": [j for j in JARGON if j in ad_text.lower() and j not in (trend.get("topic_title") or "").lower()],
     }
+    result["unsupported_claims"] = unsupported_claims(ad_text, trend)
     result["pass"] = (len(used) >= 3 and not result["scenes_without_trend_terms"] and result["end_specific"]
-                      and result["cta_ok"] and result["shape_ok"] and not result["jargon"])
+                      and result["cta_ok"] and result["shape_ok"] and not result["jargon"]
+                      and not result["unsupported_claims"])
     return result
+
+
+_MULTIPLIERS = ("double", "doubles", "doubled", "triple", "triples", "tripled", "twice", "halves", "halved",
+                "tenfold", "quadruple")
+
+
+def unsupported_claims(ad_text: str, trend: Dict[str, Any]) -> List[str]:
+    """Numbers, percentages and multiplier words in the ad that the trend's facts and sources never state
+    (e.g. "MatHarness doubles throughput" when no source says so). Model sizes inside names (Qwen 32B) are fine
+    when the name is in the sources."""
+    evidence = " ".join([trend.get("topic_title") or "", trend.get("topic_summary") or ""] +
+                        list(trend.get("topic_key_facts") or []) +
+                        [(s.get("source_insight") or "") + " " + (s.get("excerpt") or "")
+                         for s in trend.get("source_attribution") or []]).lower()
+    claims = []
+    for number in re.findall(r"(?<![A-Za-z0-9.\-])\d+(?:\.\d+)?\s?(?:%|x\b|×)?", ad_text):  # not the 2 in R2C
+        if number.strip().rstrip("%x×").strip() not in evidence:
+            claims.append(number.strip())
+    for word in re.findall(r"[A-Za-z]+", ad_text.lower()):
+        if word in _MULTIPLIERS and word[:4] not in evidence:
+            claims.append(word)
+    return sorted(set(claims))
 
 
 def _parse_json(text: str) -> Dict[str, Any]:

@@ -61,6 +61,16 @@ class ScriptCheckTests(unittest.TestCase):
         self.assertFalse(tv.check_script(script(end_line="Join us today"), TREND)["pass"])
         self.assertFalse(tv.check_script(script(cta="Buy now"), TREND)["pass"])
 
+    def test_invented_numbers_fail(self):
+        invented = script()
+        invented["scenes"][1] = {"role": "PROOF", "on_screen": "INSEP doubles safety",
+                                 "voiceover": "INSEP doubles refusal strength and cuts attacks by 80%."}
+        check = tv.check_script(invented, TREND)
+        self.assertFalse(check["pass"])
+        self.assertIn("doubles", check["unsupported_claims"])
+        self.assertIn("80%", check["unsupported_claims"])
+        self.assertEqual(tv.check_script(script(), TREND)["unsupported_claims"], [])  # 0.3%, 39.9%, 32B are sourced
+
     def test_wrong_shape_fails(self):
         self.assertFalse(tv.check_script(script(chips=["only one"]), TREND)["shape_ok"])
 
