@@ -72,7 +72,7 @@ function adCard(item, attrs) {
             <div class="ad-card-body">
                 ${item.source === "daily" ? `<span class="badge-new">NEW · ${esc(shortDate(item.date))}</span>` : ""}
                 <div class="ad-card-title">${esc(item.trend.topic_title)}</div>
-                <div class="ad-card-meta">${esc(item.aspect_ratio)} · ${esc(FORMAT_SHORT[item.aspect_ratio] || "")} · ${esc(item.theme)}${item.video ? ' · <span class="has-video">▶ video</span>' : ""}</div>
+                <div class="ad-card-meta">${esc(item.aspect_ratio)} · ${esc(FORMAT_SHORT[item.aspect_ratio] || "")} · ${esc(item.theme)}${item.video ? ` · <span class="has-video">▶ ${item.video_kind === "trend" ? `trend video${item.video_seconds ? " · " + Math.round(item.video_seconds) + " s" : ""}` : "video"}</span>` : ""}</div>
             </div>
         </button>`;
 }

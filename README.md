@@ -2,7 +2,7 @@
 
 # Trend → Ad: an autonomous AI ad studio
 
-**Every morning it crawls 48 sources for what's trending in AI, ranks the trends, and turns the best new ones into branded, ready-to-post ads and 10-second videos for Instagram, Facebook and LinkedIn. A reviewer approves each ad on the live site before it is published. It also benchmarks four image models to pick the best.**
+**Every morning it crawls 48 sources for what's trending in AI, ranks the trends, and turns the best new ones into branded, ready-to-post ads and 25–35 second trend-specific video ads (AI pictures and motion, voiceover, music, animated captions) for Instagram, Facebook and LinkedIn. A reviewer approves each ad on the live site before it is published. It also benchmarks four image models to pick the best.**
 
 Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, incubated at IIIT Delhi).
 
@@ -13,7 +13,7 @@ Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, inc
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers%20AI-F38020?logo=cloudflare&logoColor=white)
 ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-SD%203.5%20%7C%20Qwen--Image-FFD21E?logo=huggingface&logoColor=black)
 ![Daily run](https://img.shields.io/badge/GitHub%20Actions-daily%207%20AM%20IST-2088FF?logo=githubactions&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-158%20passing-2EA44F)
+![Tests](https://img.shields.io/badge/tests-172%20passing-2EA44F)
 
 **[▶ Live demo: R2C.Ai Ad Studio](https://r2c-trend-to-ad-pipeline.vercel.app)**
 
@@ -32,8 +32,8 @@ Every ad above was made end to end by the pipeline, with no manual design work:
 3. **Writes the ad**: an LLM writes copy on the brand's behalf for a specific audience (researchers or industry). Code rejects hype, filler, invented features and clichés, and requires every subline and caption to name the trend's model or company and a concrete fact from the evidence.
 4. **Art-directs the picture**: a creative-director LLM pass invents a grounded, witty scene with real people in real Indian settings, plus a "sticker" hook (for example `1M TOKENS` or `5 VS 1`).
 5. **Renders and brands it**: FLUX.2 Klein 9B paints two text-free pictures in the ad's colour theme, Gemini vision picks the better one, and a code-driven poster template wraps the branding around it: logo, tagline, big headline, picture card with sticker, service chips, CTA and footer, all spelled correctly.
-6. **Makes a video**: a 10-second branded motion video for Reels, Stories and LinkedIn: the picture zooms, the hook, headline and services animate in, and it ends on an R2C card with the CTA.
-7. **Runs itself every morning**: a GitHub Actions job crawls, ranks and makes the day's new ads at 7:00 AM IST, then publishes them to the live site.
+6. **Makes a trend-specific video ad**: a 25–35 second vertical video about that one trend. An LLM writes 4 scenes (hook, proof, why it matters, call to action) from the trend's crawled facts only, and a code check rejects any script that could fit another trend. Then: 3 FLUX.2 Klein 9B pictures, LTX-Video motion, a neural voiceover with word-timed captions, original music, animated graphics (logo, trend tag, source credit, kinetic headline, R2C.Ai feature chips, end card) and camera moves, assembled with FFmpeg. The ad's photo and poster are made from the video's main picture.
+7. **Runs itself every morning**: at 7:00 AM IST the site's Vercel cron starts a GitHub Actions job that crawls, ranks and makes the day's new ads and videos, then publishes them to the live site.
 8. **Keeps a human in the loop**: new ads wait under *New ads · pending review*; a reviewer approves or rejects each one with a passcode, and only approved ads join the gallery.
 9. **Benchmarks image models**: the same prompts go to four image models, Gemini vision scores every picture, and a PDF report recommends the best one.
 
@@ -41,7 +41,7 @@ Every ad above was made end to end by the pipeline, with no manual design work:
 
 ```mermaid
 flowchart LR
-    S(["Daily 7 AM IST<br/>GitHub Actions"]) --> A
+    S(["Daily 7 AM IST<br/>Vercel cron → GitHub Actions"]) --> A
     A["Crawl<br/>48 sources<br/>(Crawlee, feeds, APIs)"] --> B["Embed<br/>gemini-embedding-001"]
     B --> C["Cluster into stories<br/>average linkage + LLM merge"]
     C --> D{"Gate 1<br/>seen on 2+ platforms?"}
@@ -51,7 +51,12 @@ flowchart LR
     G --> H["Prompt assembled<br/>by code"]
     H --> I["Image model<br/>FLUX.2 Klein 9B"]
     I --> J["Poster template<br/>logo · type · chips · CTA"]
-    J --> K["Ad + 10-second video<br/>4:5 · 9:16 · 1:1 · 1.91:1"]
+    J --> K["Ad photo + poster<br/>4:5 · 9:16 · 1:1"]
+    E -- "same trend" --> V1["Video script<br/>gpt-oss-120b + trend check"]
+    V1 --> V2["3 pictures FLUX.2 Klein 9B<br/>+ LTX-Video motion"]
+    V2 --> V3["Voice · music · animated graphics<br/>FFmpeg"]
+    V2 -. "main picture" .-> J
+    V3 --> L
     K --> L{"Reviewer<br/>approves?"}
     L -- yes --> M["Live site<br/>Ready ads"]
 ```
@@ -112,7 +117,7 @@ Full report with side-by-side pages for every trend: [`R2C_image_model_compariso
 A Flask web app (`app.py`) puts the whole pipeline in the browser. It is deployed on Vercel: **[https://r2c-trend-to-ad-pipeline.vercel.app](https://r2c-trend-to-ad-pipeline.vercel.app)**
 
 - **Latest trends** from the most recent crawl, with score, platforms and R2C relevance, and a "Make an ad" button
-- **New ads · pending review**: the ads made by the daily run, each with **Approve** / **Reject** buttons (passcode-protected); approved ads move into Ready ads with a NEW badge
+- **New ads · pending review**: the ads and trend videos made by the daily run, each with **Approve** / **Reject** buttons (passcode-protected); approved ads move into Ready ads with a NEW badge
 - **Ready ads**: the finished poster ads, one per trend, each with its video
 - **Studio**: switch format (4:5, 9:16, 1:1, 1.91:1) and colour theme instantly, edit the copy, generate a new picture (FLUX.2 Klein 9B, best of 2 picked by Gemini vision), make a 10-second video ad, download both and copy the caption
 - **Scrape now**: paste article links (examples from the latest crawl are pre-filled) and click *Scrape & find trends*. The pipeline scrapes them, runs Gate 1 and Gate 2, and lists the topics in about 20 seconds; *Make an ad* turns one into an R2C ad (Gemini copy + FLUX picture + poster)
@@ -125,15 +130,29 @@ python app.py                      # http://127.0.0.1:5000
 
 ## Daily automatic run
 
-Every morning at **7:00 AM IST** a GitHub Actions job ([`.github/workflows/daily.yml`](.github/workflows/daily.yml)) runs [`scripts/daily_run.py`](scripts/daily_run.py):
+Every morning at **7:00 AM IST** the site's Vercel cron calls `/api/cron/daily`, which starts the GitHub Actions job ([`.github/workflows/daily.yml`](.github/workflows/daily.yml)) running [`scripts/daily_run.py`](scripts/daily_run.py). (GitHub's own schedule often starts hours late, so it is kept only as an 11:00 AM backup that does nothing if the day's run is already done.)
 
 1. Crawls all 48 sources and ranks trends (Gate 1 + Gate 2). The dedup memory (`data/output/post_history.json`) is kept in the repository, so stories from earlier days are not picked again.
-2. Makes one ad for each new trend, up to 3 a day (what fits Cloudflare's free daily image allowance): Gemini copy, the creative-director picture idea, two FLUX.2 Klein 9B pictures with the better one chosen by Gemini vision, the branded poster and the 10-second video. Formats and colour themes rotate.
-3. Saves the ads to `web_data/daily.json` and `static/daily/<id>/`, removes ads older than 7 days, refreshes the latest trends, and pushes. Vercel redeploys automatically.
+2. For each new trend, up to 2 a day, makes the **trend video** ([`image_generator/trend_video.py`](image_generator/trend_video.py)) and the **ad photo and poster** from the video's main picture (Gemini copy, rotating formats and colour themes).
+3. Saves them to `web_data/daily.json` and `static/daily/<id>/`, removes ads older than 7 days, refreshes the latest trends, writes a run report to `web_data/last_run.json`, and pushes. Vercel redeploys automatically.
+
+**Models used for each video:**
+
+| Job | Model | Provider | Cost |
+|---|---|---|---|
+| Script (voiceover, on-screen text, picture prompts) | gpt-oss-120b (Gemini as backup) | Cloudflare Workers AI | free daily allowance |
+| Scene pictures | FLUX.2 Klein 9B | Cloudflare Workers AI | free daily allowance (about 7 pictures a day) |
+| Motion from the pictures | LTX-Video, distilled | Hugging Face free demo | free, a few clips a day; scenes without a clip get a camera move |
+| Voiceover | Microsoft Edge neural voice "Andrew" (edge-tts) | Microsoft | free |
+| Music and sound effects | none: synthesised in code (numpy) | the runner | free, no copyright issues |
+| Graphics | none: an HTML page animated frame by frame (Playwright) | the runner | free |
+| Assembly | FFmpeg | the runner | free |
+
+**Why 2 a day:** each video needs 3 Klein 9B pictures (about 1,364 of Cloudflare's 10,000 free daily units each), so 2 videos use about 8,200 plus the scripts. When the allowance runs out mid-run, the unfinished trends go into `web_data/video_queue.json` and are made first the next day, so no picked trend is lost.
 
 New ads appear on the site under **New ads · pending review**. A reviewer clicks **Approve** to move an ad into Ready ads, or **Reject** to hide it. Decisions are saved to `web_data/reviews.json` in the repository.
 
-One run takes about 45 minutes (crawl ~13 min, ranking ~20 min, ~3 min per ad). GitHub starts scheduled jobs when it has capacity, so the run can begin later than 7:00. It can also be started by hand from the repository's **Actions** tab (**Daily trend-to-ad run → Run workflow**), or locally with `python scripts/daily_run.py`.
+One run takes about 60–75 minutes (crawl and ranking ~30 min, ~12 min per ad with its video). It can also be started by hand from the repository's **Actions** tab (**Daily trend-to-ad run → Run workflow**), or locally with `python scripts/daily_run.py`.
 
 **Setup:**
 
@@ -141,13 +160,17 @@ One run takes about 45 minutes (crawl ~13 min, ranking ~20 min, ~3 min per ad). 
 |---|---|---|
 | GitHub → Settings → Secrets and variables → Actions | `GEMINI_API_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN` | same as in `.env` (required) |
 | same | `YOUTUBE_API_KEY`, `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | optional extra sources |
+| same | `HF_TOKEN` | optional: a Hugging Face login gets more free LTX-Video motion clips |
 | Vercel → Project → Settings → Environment Variables | `R2C_REVIEW_KEY` | a passcode reviewers type to approve ads |
-| same | `GITHUB_TOKEN` | a fine-grained GitHub token with **Contents: read and write** on this repository only |
+| same | `GITHUB_TOKEN` | a fine-grained GitHub token on this repository only with **Contents: read and write** (saves approvals) and **Actions: read and write** (starts the 7 AM run) |
+| same | `CRON_SECRET` | any long random string; Vercel sends it with the 7 AM cron call so nobody else can start runs |
 
 ## Engineering decisions worth noting
 
 - **Approvals without a database.** The site runs on Vercel, which keeps no files between requests. A reviewer's decision is checked against a server-side passcode (constant-time compare) and saved as a commit to `web_data/reviews.json` through the GitHub API, so every approval is versioned and the daily job picks it up.
 - **Survives model outages.** When Gemini answers "high demand" (HTTP 503), the request falls back to the next Gemini model in a list instead of failing the ad. If the planned ad format fails its checks, the next passing format is used. The daily job stops cleanly when the free image allowance is used up and keeps the ads already made.
+- **Trend-specific, checked in code.** A video script passes only if its first three scenes and its end line use the trend's own names or figures (for example *INSEP*, *Qwen 32B*, *0.3% → 39.9%*), it has at least three of them, its CTA is copied from the brand's list, and it avoids unexplained jargon. Otherwise it is rewritten.
+- **Graphics as a web page.** Captions, kinetic type, chips and wipes are an HTML/CSS page with a `render(t)` function; headless Chrome draws it frame by frame and every frame is composited over the moving picture, so the motion design is ordinary, testable code.
 - **Daily dedup memory.** A story already turned into an ad, even when re-worded by a different source, is skipped on later days (title-overlap check plus the post history committed to the repo).
 
 - **Text is typeset, not generated.** When the image model drew the ad text itself, it was spelled correctly in only about 1 of 25 attempts ("Uppload", "Arrrrive"). The model now paints a text-free picture and code typesets every word, so a misspelled ad can never ship.
@@ -165,11 +188,12 @@ One run takes about 45 minutes (crawl ~13 min, ranking ~20 min, ~3 min per ad). 
 | Trend intelligence | Gemini embeddings, average-linkage clustering, cross-platform validation, SQLite |
 | Copy, art direction & judging | Google Gemini (JSON mode, vision) with code-side validation |
 | Images | FLUX.2 Klein 9B / 4B and SDXL on Cloudflare Workers AI; SD 3.5 Medium and Qwen-Image via Hugging Face |
+| Video | gpt-oss-120b scripts, LTX-Video motion, edge-tts voice, numpy music, Playwright graphics, FFmpeg |
 | Layout & branding | Pillow poster template; Fraunces and Inter fonts (SIL OFL) |
 | Web app | Flask Ad Studio (Vercel-ready), vanilla JS front end |
 | Reports | ReportLab PDFs (procedure, prompts and results, model comparison) |
-| Automation | GitHub Actions (daily cron + manual run), Vercel auto-deploy, GitHub contents API for review decisions |
-| Quality | 158 unit tests (`python -m unittest discover -s tests`) |
+| Automation | Vercel cron → GitHub Actions (daily run + manual run), Vercel auto-deploy, GitHub API for review decisions |
+| Quality | 172 unit tests (`python -m unittest discover -s tests`) |
 
 ## Run it
 
@@ -192,14 +216,14 @@ Full stage-by-stage documentation: [`docs/TECHNICAL.md`](docs/TECHNICAL.md) · b
 web_crawler/        autonomous discovery crawler (Crawlee + feeds + public APIs)
 trend_pipeline/     ingest → embed → cluster → Gate 1 (cross-platform) → Gate 2 (ranking)
 prompt_generator/   ad copy briefs, validation, creative-director pass, prompt assembly, colour themes
-image_generator/    image clients (Cloudflare, Hugging Face), poster template, text check, logo and fonts
+image_generator/    image clients (Cloudflare, Hugging Face), poster template, text check, trend video (trend_video.py + its animated overlay page)
 scripts/            daily_run.py (the 7 AM job), web data builder, image model benchmark: render, score, report
 .github/workflows/  daily.yml: scheduled daily run that publishes to the site
 app.py              Flask Ad Studio + review API (Vercel)
 web_data/           what the site shows: trends, ads, daily ads, review decisions
-static/daily/       pictures, posters and videos made by the daily run
+static/daily/       pictures, posters and trend videos made by the daily run
 data/output/        trends, ad briefs, sample ads per model, PDF reports
-tests/              158 unit tests
+tests/              172 unit tests
 ```
 
 ---

@@ -34,6 +34,9 @@ class SameStoryTests(unittest.TestCase):
         self.assertEqual([t["topic_title"] for t in picked],
                          ["Qwen3.8 matches frontier coding models", "DeepSeek V4.1 Flash released"])
 
+    def test_zero_limit_picks_nothing(self):
+        self.assertEqual(daily_run.pick_trends([{"topic_title": "Gemma 4 runs on phones"}], [], limit=0), [])
+
 
 class PruneTests(unittest.TestCase):
     def test_old_ads_and_their_files_are_removed(self):

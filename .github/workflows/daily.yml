@@ -1,19 +1,24 @@
-# Daily run: crawl all sources, rank trends, make new ads + videos, update the site.
+# Daily run: crawl all sources, rank trends, make new ads + trend-specific videos, update the site.
 # Pushing the results makes Vercel redeploy the site automatically.
 #
 # Needs repository secrets (Settings -> Secrets and variables -> Actions):
 #   GEMINI_API_KEY, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN   (required)
 #   YOUTUBE_API_KEY, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET       (optional extra sources)
+#   HF_TOKEN                                                      (optional: more free LTX-Video motion clips)
+#
+# Started at 07:00 IST by the site's Vercel cron (/api/cron/daily presses "Run workflow"), because GitHub's
+# own schedule often starts hours late. The schedule below is only a backup: it does nothing if a full run
+# already finished today.
 name: Daily trend-to-ad run
 
 on:
   schedule:
-    - cron: "30 1 * * *"   # 01:30 UTC = 07:00 IST, every day
+    - cron: "30 5 * * *"   # backup at 11:00 IST (GitHub may start it late); skipped if today's run is done
   workflow_dispatch:         # "Run workflow" button for a manual run
     inputs:
       max_ads:
-        description: "Most new ads to make (3 fits Cloudflare's free daily image allowance)"
-        default: "3"
+        description: "Most new ads + trend videos to make (2 fit Cloudflare's free daily image allowance)"
+        default: "2"
 
 permissions:
   contents: write            # to push the new ads back to the repository
@@ -25,7 +30,7 @@ concurrency:
 jobs:
   daily:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 150
     steps:
       # Runs fully only in a repository that has the API keys set; elsewhere it stops in seconds.
       - name: Check the API keys are set
@@ -52,7 +57,9 @@ jobs:
 
       - name: Install dependencies
         if: steps.keys.outputs.ok == 'true'
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt -r requirements-video.txt
+          python -m playwright install --with-deps chromium
 
       - name: Crawl, rank and make ads
         if: steps.keys.outputs.ok == 'true'
@@ -63,10 +70,11 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
           IMAGE_PROVIDER: cloudflare
-          DAILY_MAX_ADS: ${{ github.event.inputs.max_ads || '3' }}
+          DAILY_MAX_ADS: ${{ github.event.inputs.max_ads || '2' }}
           DAILY_KEEP_DAYS: "7"
-        run: python scripts/daily_run.py
+        run: python scripts/daily_run.py ${{ github.event_name == 'schedule' && '--if-not-ran-today' || '' }}
 
       - name: Publish to the site
         if: steps.keys.outputs.ok == 'true'

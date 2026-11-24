@@ -123,6 +123,52 @@ def _read_json(path: str, default):
         return default
 
 
+def _github_repo() -> Tuple[str, str]:
+    """(owner/name, branch) of the repository Vercel deploys from; GITHUB_REPO / GITHUB_BRANCH override."""
+    repo = os.environ.get("GITHUB_REPO") or "{}/{}".format(
+        os.environ.get("VERCEL_GIT_REPO_OWNER", ""), os.environ.get("VERCEL_GIT_REPO_SLUG", ""))
+    branch = os.environ.get("GITHUB_BRANCH") or os.environ.get("VERCEL_GIT_COMMIT_REF") or "main"
+    if repo.strip("/") != repo or "/" not in repo:
+        raise RuntimeError("GITHUB_REPO is not set.")
+    return repo, branch
+
+
+@app.route("/api/cron/daily", methods=["GET"])
+def cron_daily():
+    """
+    Vercel cron (vercel.json, 07:00 IST): start the daily GitHub Actions run now. GitHub's own schedule often
+    starts hours late; a workflow_dispatch starts within a minute. Vercel sends "Authorization: Bearer
+    <CRON_SECRET>"; the call needs GITHUB_TOKEN with Actions: write on the repository.
+    """
+    import hmac
+    import urllib.error
+    import urllib.request
+
+    secret = os.environ.get("CRON_SECRET", "")
+    sent = request.headers.get("Authorization", "")
+    if not secret or not hmac.compare_digest(sent.encode("utf-8"), ("Bearer " + secret).encode("utf-8")):
+        return _error("Not allowed.", 401)
+    if not os.environ.get("GITHUB_TOKEN"):
+        return _error("GITHUB_TOKEN is not set.", 503)
+    try:
+        repo, branch = _github_repo()
+    except RuntimeError as exc:
+        return _error(str(exc), 503)
+    url = "https://api.github.com/repos/{}/actions/workflows/daily.yml/dispatches".format(repo)
+    req = urllib.request.Request(url, data=json.dumps({"ref": branch}).encode("utf-8"), method="POST", headers={
+        "Authorization": "Bearer " + os.environ["GITHUB_TOKEN"], "Accept": "application/vnd.github+json",
+        "User-Agent": "r2c-ad-studio", "Content-Type": "application/json"})
+    try:
+        urllib.request.urlopen(req, timeout=20).close()
+    except urllib.error.HTTPError as exc:
+        logger.error("Starting the daily run failed: %s", exc.code)
+        hint = " (the token needs Actions: Read and write)" if exc.code in (403, 404) else ""
+        return _error("GitHub refused to start the daily run ({}){}".format(exc.code, hint), 502)
+    except OSError as exc:
+        return _error("Could not reach GitHub: {}".format(exc), 502)
+    return jsonify({"started": "daily run", "repo": repo, "branch": branch})
+
+
 def _github_save_review(ad_id: str, decision: str, reviewer: str) -> None:
     """
     Record a decision in web_data/reviews.json in the GitHub repository Vercel deploys from,
@@ -133,11 +179,7 @@ def _github_save_review(ad_id: str, decision: str, reviewer: str) -> None:
     import urllib.error
     import urllib.request
 
-    repo = os.environ.get("GITHUB_REPO") or "{}/{}".format(
-        os.environ.get("VERCEL_GIT_REPO_OWNER", ""), os.environ.get("VERCEL_GIT_REPO_SLUG", ""))
-    branch = os.environ.get("GITHUB_BRANCH") or os.environ.get("VERCEL_GIT_COMMIT_REF") or "main"
-    if repo.strip("/") != repo or "/" not in repo:
-        raise RuntimeError("GITHUB_REPO is not set.")
+    repo, branch = _github_repo()
     url = "https://api.github.com/repos/{}/contents/web_data/reviews.json".format(repo)
     headers = {"Authorization": "Bearer " + os.environ["GITHUB_TOKEN"], "Accept": "application/vnd.github+json",
                "User-Agent": "r2c-ad-studio"}

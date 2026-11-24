@@ -46,6 +46,10 @@ logger = logging.getLogger("daily_run")
 DAILY_JSON = os.path.join("web_data", "daily.json")
 SITE_JSON = os.path.join("web_data", "site_data.json")
 DAILY_DIR = os.path.join("static", "daily")
+QUEUE_JSON = os.path.join("web_data", "video_queue.json")
+LAST_RUN_JSON = os.path.join("web_data", "last_run.json")
+# Trend videos (the approved sample's process) for every new ad; DAILY_TREND_VIDEOS=0 turns them off.
+TREND_VIDEOS = os.environ.get("DAILY_TREND_VIDEOS", "1") != "0"
 IST = timezone(timedelta(hours=5, minutes=30))
 # Format rotation: each new ad takes the next format, so a week's ads cover all placements.
 FORMAT_ROTATION = [("4:5", "hook"), ("9:16", "story"), ("1:1", "engagement"), ("1.91:1", "conversion")]
@@ -126,6 +130,8 @@ def fit_sticker(text: Optional[str], limit: int = 14) -> str:
 
 def pick_trends(trends: Sequence[Dict[str, Any]], made_titles: Sequence[str], limit: int) -> List[Dict[str, Any]]:
     picked: List[Dict[str, Any]] = []
+    if limit <= 0:  # --max-ads 0: crawl and rank only
+        return picked
     seen = list(made_titles)
     for trend in trends:
         title = trend.get("topic_title") or ""
@@ -166,9 +172,26 @@ def make_picture(prompt: str, ratio: str, gemini: Any):
     return picture_quality.polish(images[best]), scores[best], best
 
 
+def ad_id_for(trend: Dict[str, Any], now: datetime) -> str:
+    return re.sub(r"[^A-Za-z0-9_-]", "_", str(trend.get("trend_id") or now.strftime("ad_%Y%m%d%H%M%S")))
+
+
+def crop_to(picture: Any, ratio: str) -> Any:
+    """Centre crop of a picture to an ad format's size (the video's 9:16 picture reused for the ad photo)."""
+    from PIL import Image
+
+    width, height = config.AD_ASPECT_SIZES[ratio]
+    pw, ph = picture.size
+    scale = max(width / pw, height / ph)
+    resized = picture.resize((round(pw * scale), round(ph * scale)), Image.LANCZOS)
+    left, top = (resized.width - width) // 2, max(0, (resized.height - height) // 3)  # keep the upper-middle (faces)
+    return resized.crop((left, top, left + width, top + height))
+
+
 def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini: Any,
-            now: datetime) -> Optional[Dict[str, Any]]:
-    """One finished daily ad (copy, picture, poster, video) or None when the copy fails its checks."""
+            now: datetime, picture_path: Optional[str] = None, simple_video: bool = True) -> Optional[Dict[str, Any]]:
+    """One finished daily ad (copy, picture, poster, video) or None when the copy fails its checks.
+    picture_path: use this picture (the trend video's main scene) instead of generating new ones."""
     from PIL import Image
 
     from image_generator import compose_ads, video_ads
@@ -191,9 +214,16 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
     post = dict(record["post"])
     post["sticker"] = fit_sticker(post.get("sticker"))
     prompt = ad_creatives.compose_image_prompt(ad_type, post.get("visual") or {}, theme)
-    picture, score, _ = make_picture(prompt, ratio, gemini)
+    if picture_path:  # the video's FLUX.2 Klein 9B picture: no extra pictures from the daily allowance
+        if ratio == "1.91:1":  # a vertical picture cannot fill a wide banner: square post instead
+            ratio = "1:1"
+        with Image.open(picture_path) as source:
+            picture, score = crop_to(source.convert("RGB"), ratio), None
+        prompt = "(the trend video's main scene picture)"
+    else:
+        picture, score, _ = make_picture(prompt, ratio, gemini)
 
-    ad_id = re.sub(r"[^A-Za-z0-9_-]", "_", str(trend.get("trend_id") or now.strftime("ad_%Y%m%d%H%M%S")))
+    ad_id = ad_id_for(trend, now)
     folder = os.path.join(DAILY_DIR, ad_id)
     os.makedirs(folder, exist_ok=True)
     picture_path = os.path.join(folder, "picture.jpg")
@@ -213,7 +243,8 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
 
     video_ratio = ratio if ratio in video_ads.VIDEO_SIZES else "9:16"
     video_path = os.path.join(folder, "video.mp4")
-    video_ads.render_video(Image.open(picture_path), post, video_path, theme, video_ratio)
+    if simple_video:
+        video_ads.render_video(Image.open(picture_path), post, video_path, theme, video_ratio)
 
     def url(path: str) -> str:
         return "/" + path.replace(os.sep, "/")
@@ -223,7 +254,7 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
         "date": now.astimezone(IST).strftime("%Y-%m-%d"),
         "created_at": now.isoformat(),
         "source": "daily",
-        "trend": slim_trend(trend),
+        "trend": trend if "composite_trend_score" not in trend else slim_trend(trend),
         "ad_type": ad_type, "aspect_ratio": ratio, "placement": record["placement"], "theme": theme,
         "copy": {k: post.get(k) for k in ("audience", "eyebrow", "headline", "subline", "points", "cta",
                                            "caption", "hashtags", "sticker")},
@@ -232,18 +263,94 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
         "picture": url(picture_path), "poster": url(poster_path),
         "image_model": PICTURE_MODEL_NAME,
         "picture_score": (score or {}).get("overall"),
-        "video": url(video_path), "video_format": video_ratio,
+        "video": url(video_path) if simple_video else None, "video_format": video_ratio,
     }
 
 
+# --------------------------------------------------------------------------- ad + trend video
+def entry_from_video(trend: Dict[str, Any], video: Dict[str, Any], theme: str, now: datetime) -> Dict[str, Any]:
+    """The ad photo/poster from the video script when Gemini could not write the poster copy."""
+    from PIL import Image
+
+    from image_generator import compose_ads
+
+    script = video["script"]
+    scenes = script["scenes"]
+    ad_id = ad_id_for(trend, now)
+    folder = os.path.join(DAILY_DIR, ad_id)
+    picture_path = os.path.join(folder, "picture.jpg")
+    with Image.open(video["picture"]) as source:
+        source.convert("RGB").save(picture_path, "JPEG", quality=90, optimize=True)
+    copy = {"audience": script.get("audience_line"), "eyebrow": script.get("tag"), "headline": scenes[0]["on_screen"],
+            "subline": scenes[1]["on_screen"], "points": list(script.get("chips") or [])[:3], "cta": script.get("cta"),
+            "caption": " ".join(s["voiceover"] for s in scenes), "hashtags": [], "sticker": ""}
+    poster_png = os.path.join(folder, "poster.png")
+    compose_ads.compose_poster(picture_path, poster_png, "9:16", copy["headline"], copy["subline"], copy["cta"] or "Learn More",
+                               eyebrow=copy["eyebrow"] or "", points=copy["points"], sticker="", theme_name=theme)
+    poster_path = os.path.join(folder, "poster.jpg")
+    with Image.open(poster_png) as im:
+        im = im.convert("RGB")
+        im.thumbnail((1100, 1100))
+        im.save(poster_path, "JPEG", quality=85, optimize=True)
+    os.remove(poster_png)
+    return {"id": ad_id, "date": now.astimezone(IST).strftime("%Y-%m-%d"), "created_at": now.isoformat(),
+            "source": "daily", "trend": trend if "composite_trend_score" not in trend else slim_trend(trend),
+            "ad_type": "story", "aspect_ratio": "9:16", "placement": "story", "theme": theme, "copy": copy,
+            "concept": None, "image_prompt": scenes[0].get("image_prompt"),
+            "picture": "/" + picture_path.replace(os.sep, "/"), "poster": "/" + poster_path.replace(os.sep, "/"),
+            "image_model": PICTURE_MODEL_NAME, "picture_score": None, "video": None, "video_format": "9:16"}
+
+
+def make_ad_with_video(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini: Any,
+                       now: datetime) -> Optional[Dict[str, Any]]:
+    """The trend-specific video (image_generator.trend_video) and the ad photo/poster made from its main picture.
+    A failed video raises (the trend is retried another day); a failed poster copy falls back to the video script."""
+    from image_generator import trend_video
+
+    folder = os.path.join(DAILY_DIR, ad_id_for(trend, now))
+    video = trend_video.make_trend_video(trend, folder, gemini)
+    try:
+        entry = make_ad(trend, ratio, ad_type, theme, gemini, now, picture_path=video["picture"], simple_video=False)
+    except Exception:  # noqa: BLE001 - the video is done; never lose it over the poster copy
+        logger.exception("Poster copy failed; making the ad photo from the video script")
+        entry = None
+    if entry is None:
+        entry = entry_from_video(trend, video, theme, now)
+    script = video["script"]
+    entry.update({
+        "video": "/" + video["video"].replace(os.sep, "/"), "video_format": "9:16", "video_kind": "trend",
+        "video_seconds": video["duration"], "video_motion_clips": video["motion_clips"],
+        "video_writer": script.get("writer"), "video_check": script.get("check"),
+        "video_script": [{"role": s.get("role"), "on_screen": s.get("on_screen"), "voiceover": s.get("voiceover"),
+                          "fact_used": s.get("fact_used")} for s in script["scenes"]],
+    })
+    return entry
+
+
+def load_queue() -> List[Dict[str, Any]]:
+    """Trends waiting for a video (web_data/video_queue.json), served before the day's new trends."""
+    return [t for t in load_json(QUEUE_JSON, []) if isinstance(t, dict) and t.get("topic_title")]
+
+
 # --------------------------------------------------------------------------- run
-def run(skip_crawl: bool = False, max_ads: int = 3, keep_days: int = 7) -> Dict[str, Any]:
+def ran_today(now: datetime) -> bool:
+    """True when a full daily run already finished today (IST): the backup schedule then does nothing."""
+    last = load_json(LAST_RUN_JSON, {})
+    try:
+        finished = datetime.fromisoformat(last["finished_at"])
+    except (KeyError, TypeError, ValueError):
+        return False
+    return not last.get("skipped_crawl") and finished.astimezone(IST).date() == now.astimezone(IST).date()
+
+
+def run(skip_crawl: bool = False, max_ads: int = 2, keep_days: int = 7) -> Dict[str, Any]:
     from prompt_generator import ad_creatives
     from trend_pipeline.gemini_client import get_client
 
     started = time.monotonic()
     now = datetime.now(timezone.utc)
-    summary: Dict[str, Any] = {"started_at": now.isoformat(), "ads_made": [], "ads_failed": []}
+    summary: Dict[str, Any] = {"started_at": now.isoformat(), "skipped_crawl": skip_crawl,
+                               "trend_videos": TREND_VIDEOS, "ads_made": [], "ads_failed": []}
 
     if not skip_crawl:
         from web_crawler import autopilot, settings
@@ -255,12 +362,18 @@ def run(skip_crawl: bool = False, max_ads: int = 3, keep_days: int = 7) -> Dict[
     daily = prune_old(load_json(DAILY_JSON, []), keep_days, now)
     showcase = load_json(SITE_JSON, {}).get("showcase", [])
     made = [e["trend"]["topic_title"] for e in daily] + [s["trend"]["topic_title"] for s in showcase]
-    todo = pick_trends(trends, made, max_ads)
-    summary["new_trends"] = len(todo)
-    logger.info("%d qualified trends, %d new ones to turn into ads", len(trends), len(todo))
+    # Trends waiting from earlier days come first, then today's new ones.
+    queue = [t for t in load_queue() if not is_same_story(t["topic_title"], made)]
+    todo = queue[:max_ads]
+    todo += pick_trends(trends, made + [t["topic_title"] for t in queue], max_ads - len(todo))
+    summary["from_queue"] = min(len(queue), max_ads)
+    summary["new_trends"] = len(todo) - summary["from_queue"]
+    logger.info("%d qualified trends; %d queued + %d new to turn into ads", len(trends), summary["from_queue"],
+                summary["new_trends"])
 
     gemini = get_client()
-    can_make = getattr(gemini, "online", False) and config.CLOUDFLARE_ACCOUNT_ID and config.CLOUDFLARE_API_TOKEN
+    can_make = config.CLOUDFLARE_ACCOUNT_ID and config.CLOUDFLARE_API_TOKEN and (
+        TREND_VIDEOS or getattr(gemini, "online", False))
     if todo and not can_make:
         logger.error("GEMINI_API_KEY / CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN missing: no ads made")
         todo = []
@@ -271,12 +384,21 @@ def run(skip_crawl: bool = False, max_ads: int = 3, keep_days: int = 7) -> Dict[
         theme = themes[counter % len(themes)]
         t0 = time.monotonic()
         try:
-            entry = make_ad(trend, ratio, ad_type, theme, gemini, now)
+            if TREND_VIDEOS:
+                entry = make_ad_with_video(trend, ratio, ad_type, theme, gemini, now)
+            else:
+                entry = make_ad(trend, ratio, ad_type, theme, gemini, now)
         except Exception as exc:  # noqa: BLE001 - one bad ad must not stop the run
             logger.exception("Ad failed for %s", trend.get("topic_title"))
             summary["ads_failed"].append({"trend": trend.get("topic_title"), "error": str(exc)[:300]})
-            if "429" in str(exc) or "quota" in str(exc).lower() or "limit" in str(exc).lower():
-                logger.error("Daily API limit reached; stopping for today")
+            text = str(exc).lower()
+            if "429" in text or "quota" in text or "limit" in text or "allocation" in text:
+                # keep today's unfinished trends for tomorrow, when the free allowance is back
+                waiting = todo[todo.index(trend):]
+                queue += [t if "composite_trend_score" not in t else slim_trend(t) for t in waiting
+                          if not is_same_story(t.get("topic_title") or "", [q["topic_title"] for q in queue])]
+                save_json(QUEUE_JSON, queue)
+                logger.error("Daily API limit reached; %d trend(s) queued for tomorrow", len(waiting))
                 break
             continue
         counter += 1
@@ -286,8 +408,13 @@ def run(skip_crawl: bool = False, max_ads: int = 3, keep_days: int = 7) -> Dict[
         daily = [e for e in daily if e.get("id") != entry["id"]]  # a re-run replaces, never duplicates
         daily.insert(0, entry)
         save_json(DAILY_JSON, daily)  # save after every ad, so a later failure keeps the earlier ones
+        queue = [t for t in queue if t.get("topic_title") != trend.get("topic_title")]
+        save_json(QUEUE_JSON, queue)
         summary["ads_made"].append({"id": entry["id"], "headline": entry["copy"]["headline"],
-                                    "format": ratio, "theme": theme,
+                                    "format": entry.get("aspect_ratio"), "theme": theme,
+                                    "video": entry.get("video_kind") or ("simple" if entry.get("video") else None),
+                                    "video_seconds": entry.get("video_seconds"),
+                                    "motion_clips": entry.get("video_motion_clips"),
                                     "seconds": round(time.monotonic() - t0)})
         logger.info("Ad %d/%d done in %.0fs: %s", len(summary["ads_made"]), len(todo),
                     time.monotonic() - t0, entry["copy"]["headline"])
@@ -300,29 +427,41 @@ def run(skip_crawl: bool = False, max_ads: int = 3, keep_days: int = 7) -> Dict[
 
     summary["minutes"] = round((time.monotonic() - started) / 60, 1)
     summary["ads_on_site"] = len(daily)
+    summary["queue_left"] = len(queue)
+    summary["finished_at"] = datetime.now(timezone.utc).isoformat()
+    save_json(LAST_RUN_JSON, summary)  # readable on GitHub without opening the run log
     return summary
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="Daily run: crawl, rank, make new ads, update the site data.")
+    parser = argparse.ArgumentParser(description="Daily run: crawl, rank, make new ads + trend videos, update the site data.")
     parser.add_argument("--skip-crawl", action="store_true", help="Use the last crawl's ranked trends")
-    parser.add_argument("--max-ads", type=int, default=int(os.environ.get("DAILY_MAX_ADS", "3")))
+    parser.add_argument("--max-ads", type=int, default=int(os.environ.get("DAILY_MAX_ADS", "2")))
     parser.add_argument("--keep-days", type=int, default=int(os.environ.get("DAILY_KEEP_DAYS", "7")))
+    parser.add_argument("--if-not-ran-today", action="store_true",
+                        help="Do nothing if a full run already finished today (IST); used by the backup schedule")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s",
                         stream=sys.stdout)
     logging.getLogger("crawlee").setLevel(logging.CRITICAL)
+    if args.if_not_ran_today and ran_today(datetime.now(timezone.utc)):
+        print("A full daily run already finished today; nothing to do.")
+        return 0
     summary = run(skip_crawl=args.skip_crawl, max_ads=args.max_ads, keep_days=args.keep_days)
     print("DAILY RUN SUMMARY")
     print(json.dumps(summary, indent=1, ensure_ascii=False))
     summary_file = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary_file:  # shows on the run's page in GitHub Actions
         with open(summary_file, "a", encoding="utf-8") as handle:
-            handle.write("## Daily run\n\n- Minutes: {}\n- New trends: {}\n- Ads made: {}\n- Ads failed: {}\n- Ads on site: {}\n\n"
-                         .format(summary["minutes"], summary.get("new_trends"), len(summary["ads_made"]),
-                                 len(summary["ads_failed"]), summary["ads_on_site"]))
+            handle.write("## Daily run\n\n- Minutes: {}\n- From the video queue: {}\n- New trends: {}\n- Ads made: {}\n"
+                         "- Ads failed: {}\n- Ads on site: {}\n- Still queued: {}\n\n"
+                         .format(summary["minutes"], summary.get("from_queue"), summary.get("new_trends"),
+                                 len(summary["ads_made"]), len(summary["ads_failed"]), summary["ads_on_site"],
+                                 summary["queue_left"]))
             for ad in summary["ads_made"]:
-                handle.write("- {} ({}, {})\n".format(ad["headline"], ad["format"], ad["theme"]))
+                handle.write("- {} ({}, {}, video: {})\n".format(ad["headline"], ad["format"], ad["theme"], ad["video"]))
+            for bad in summary["ads_failed"]:
+                handle.write("- FAILED {}: {}\n".format(bad["trend"], bad["error"]))
     return 0
 
 
