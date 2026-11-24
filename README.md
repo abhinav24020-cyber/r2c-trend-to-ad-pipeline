@@ -13,7 +13,7 @@ Built for [R2C.Ai](https://r2c.iiitd.edu.in) (Research to Commercialization, inc
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers%20AI-F38020?logo=cloudflare&logoColor=white)
 ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-SD%203.5%20%7C%20Qwen--Image-FFD21E?logo=huggingface&logoColor=black)
 ![Daily run](https://img.shields.io/badge/GitHub%20Actions-daily%207%20AM%20IST-2088FF?logo=githubactions&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-176%20passing-2EA44F)
+![Tests](https://img.shields.io/badge/tests-177%20passing-2EA44F)
 
 **[▶ Live demo: R2C.Ai Ad Studio](https://r2c-trend-to-ad-pipeline.vercel.app)**
 
@@ -118,7 +118,8 @@ A Flask web app (`app.py`) puts the whole pipeline in the browser. It is deploye
 
 - **Latest trends** from the most recent crawl, with score, platforms and R2C relevance, and a "Make an ad" button
 - **New ads · pending review**: the ads and trend videos made by the daily run, each with **Approve** / **Reject** buttons (passcode-protected); approved ads move into Ready ads with a NEW badge
-- **Ready ads**: the finished poster ads, one per trend, each with its video
+- **Ready ads**: the finished poster ads, one per trend, each with its video; approved ads stay in the gallery permanently
+- **How each video is made**: the 6 steps and the models table; opening an ad with a trend video shows its 4-scene script, the crawled fact behind each scene and the trend-check result
 - **Studio**: switch format (4:5, 9:16, 1:1, 1.91:1) and colour theme instantly, edit the copy, generate a new picture (FLUX.2 Klein 9B, best of 2 picked by Gemini vision), make a 10-second video ad, download both and copy the caption
 - **Scrape now**: paste article links (examples from the latest crawl are pre-filled) and click *Scrape & find trends*. The pipeline scrapes them, runs Gate 1 and Gate 2, and lists the topics in about 20 seconds; *Make an ad* turns one into an R2C ad (Gemini copy + FLUX picture + poster)
 - **Model benchmark** scorecard
@@ -134,7 +135,7 @@ Every morning at **7:00 AM IST** the site's Vercel cron calls `/api/cron/daily`,
 
 1. Crawls all 48 sources and ranks trends (Gate 1 + Gate 2). The dedup memory (`data/output/post_history.json`) is kept in the repository, so stories from earlier days are not picked again.
 2. For each new trend, up to 2 a day per Cloudflare account, makes the **trend video** ([`image_generator/trend_video.py`](image_generator/trend_video.py)) and the **ad photo and poster** from the video's main picture (Gemini copy, rotating formats and colour themes).
-3. Saves them to `web_data/daily.json` and `static/daily/<id>/`, removes ads older than 7 days, refreshes the latest trends, writes a run report to `web_data/last_run.json`, and pushes. Vercel redeploys automatically.
+3. Saves them to `web_data/daily.json` and `static/daily/<id>/`, removes unapproved ads older than 7 days (approved ones stay in the gallery), refreshes the latest trends, writes a run report to `web_data/last_run.json`, and pushes. Vercel redeploys automatically.
 
 **Models used for each video:**
 
@@ -194,7 +195,7 @@ One run takes about 60–75 minutes (crawl and ranking ~30 min, ~12 min per ad w
 | Web app | Flask Ad Studio (Vercel-ready), vanilla JS front end |
 | Reports | ReportLab PDFs (procedure, prompts and results, model comparison) |
 | Automation | Vercel cron → GitHub Actions (daily run + manual run), Vercel auto-deploy, GitHub API for review decisions |
-| Quality | 176 unit tests (`python -m unittest discover -s tests`) |
+| Quality | 177 unit tests (`python -m unittest discover -s tests`) |
 
 ## Run it
 
@@ -224,7 +225,7 @@ app.py              Flask Ad Studio + review API (Vercel)
 web_data/           what the site shows: trends, ads, daily ads, review decisions
 static/daily/       pictures, posters and trend videos made by the daily run
 data/output/        trends, ad briefs, sample ads per model, PDF reports
-tests/              176 unit tests
+tests/              177 unit tests
 ```
 
 ---

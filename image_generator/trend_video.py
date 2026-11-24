@@ -46,6 +46,7 @@ LOGO = os.path.join(os.path.dirname(HERE), "static", "img", "r2c_logo_white.png"
 W, H = 1080, 1920            # render size (the overlay is laid out for it)
 OUT_W, OUT_H = 720, 1280     # published size: sharp on phones, small enough for the site
 FPS, SR = 30, 44100
+CLIP_W, CLIP_H = 432, 768    # motion clips are decoded at this size, then scaled up per frame
 VOICE = os.environ.get("TREND_VIDEO_VOICE", "en-US-AndrewMultilingualNeural")
 MAIN_MODEL = "@cf/black-forest-labs/flux-2-klein-9b"
 SCENE_MODEL = "@cf/black-forest-labs/flux-2-klein-4b"
@@ -254,7 +255,7 @@ def make_motion(script: Dict[str, Any], pictures: Sequence[str], folder: str) ->
     client = None
     for token in ([os.environ["HF_TOKEN"]] if os.environ.get("HF_TOKEN") else []) + [None]:
         try:  # a Hugging Face login gets more free GPU time than an anonymous visitor
-            client = Client(LTX_SPACE, hf_token=token, verbose=False) if token else Client(LTX_SPACE, verbose=False)
+            client = Client(LTX_SPACE, token=token, verbose=False) if token else Client(LTX_SPACE, verbose=False)
             break
         except Exception as exc:  # noqa: BLE001
             logger.warning("LTX-Video demo unavailable%s: %s", " with HF_TOKEN" if token else "", str(exc)[:200])
@@ -292,10 +293,15 @@ def clip_frames(clip: str, seconds: float):
     match = re.search(r"Duration: (\d+):(\d+):([\d.]+)", probe)
     length = int(match.group(1)) * 3600 + int(match.group(2)) * 60 + float(match.group(3)) if match else 4.0
     slow = min(1.6, max(1.0, seconds / max(0.5, length)))
-    raw = subprocess.run([_ffmpeg(), "-nostdin", "-loglevel", "error", "-i", clip, "-vf",
-                          "setpts={:.3f}*PTS,minterpolate=fps={}:mi_mode=mci,scale=576:1024".format(slow, FPS),
-                          "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
-    return np.frombuffer(raw, np.uint8).reshape(-1, 1024, 576, 3)
+    # Decoded to a file and memory-mapped: a slowed 1080p-bound clip is hundreds of MB, too much to hold in RAM.
+    raw_path = clip + ".rgb"
+    subprocess.run([_ffmpeg(), "-nostdin", "-y", "-loglevel", "error", "-i", clip, "-vf",
+                    "setpts={:.3f}*PTS,minterpolate=fps={}:mi_mode=mci,scale={}:{}".format(slow, FPS, CLIP_W, CLIP_H),
+                    "-f", "rawvideo", "-pix_fmt", "rgb24", raw_path], check=True)
+    frames = os.path.getsize(raw_path) // (CLIP_W * CLIP_H * 3)
+    if frames == 0:
+        raise RuntimeError("clip has no frames")
+    return np.memmap(raw_path, np.uint8, mode="r", shape=(frames, CLIP_H, CLIP_W, 3))
 
 
 def ping_pong(k: int, count: int) -> int:
@@ -613,20 +619,33 @@ def make_trend_video(trend: Dict[str, Any], folder: str, gemini: Any, script: Op
         trend = slim_trend(trend)
     started = time.monotonic()
     os.makedirs(folder, exist_ok=True)
-    work = tempfile.mkdtemp(prefix="trend_video_")
-    try:
-        script = script or write_script(trend, gemini)
+    # Work files live in a resumable folder: if a later step fails, a re-run reuses the script, the pictures and
+    # the motion clips instead of spending the free daily allowances again. Removed once the video is done.
+    work = os.path.join(tempfile.gettempdir(), "trend_video_" + os.path.basename(os.path.abspath(folder)))
+    os.makedirs(work, exist_ok=True)
+    saved_script = os.path.join(work, "script.json")
+    if script is None and os.path.isfile(saved_script):
+        with open(saved_script, encoding="utf-8") as handle:
+            script = json.load(handle)
+        logger.info("Resuming with the saved script and files in %s", work)
+    script = script or write_script(trend, gemini)
+    with open(saved_script, "w", encoding="utf-8") as handle:
+        json.dump(script, handle, ensure_ascii=False, indent=1)
+    pictures = [os.path.join(work, "scene{}.jpg".format(i)) for i in (1, 2, 3)]
+    if not all(os.path.isfile(p) for p in pictures):
         pictures = make_pictures(script, work)
-        shutil.copyfile(pictures[0], os.path.join(folder, "scene1.jpg"))
+    shutil.copyfile(pictures[0], os.path.join(folder, "scene1.jpg"))
+    clips = [os.path.join(work, "clip{}.mp4".format(i)) for i in (1, 2, 3)]
+    if not any(os.path.isfile(c) for c in clips):
         clips = make_motion(script, pictures, work)
-        words = make_voice(script, work)
-        tl = timeline(words)
-        make_music(tl, os.path.join(work, "music.wav"))
-        mix_audio(work, tl, os.path.join(work, "music.wav"), os.path.join(work, "audio.wav"))
-        out = os.path.join(folder, "trend_video.mp4")
-        render_video(script, tl, words, pictures, os.path.join(work, "audio.wav"), out, clips)
-    finally:
-        shutil.rmtree(work, ignore_errors=True)
+    clips = [c if c and os.path.isfile(c) else None for c in clips]
+    words = make_voice(script, work)
+    tl = timeline(words)
+    make_music(tl, os.path.join(work, "music.wav"))
+    mix_audio(work, tl, os.path.join(work, "music.wav"), os.path.join(work, "audio.wav"))
+    out = os.path.join(folder, "trend_video.mp4")
+    render_video(script, tl, words, pictures, os.path.join(work, "audio.wav"), out, clips)
+    shutil.rmtree(work, ignore_errors=True)
     seconds = round(time.monotonic() - started)
     logger.info("Trend video done in %ds (%.1f s long, %.1f MB, %d motion clips): %s", seconds, tl["total"],
                 os.path.getsize(out) / 1e6, sum(1 for c in clips if c), trend.get("topic_title"))

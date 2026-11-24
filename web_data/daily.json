@@ -1,8 +1,8 @@
 [
  {
   "id": "trd_20261120_005_fcd0",
-  "date": "2026-11-20",
-  "created_at": "2026-11-20T12:58:02.082508+00:00",
+  "date": "2026-11-24",
+  "created_at": "2026-11-24T17:29:17.332585+00:00",
   "source": "daily",
   "trend": {
    "trend_id": "trd_20261120_005_fcd0",
@@ -72,38 +72,84 @@
     }
    ]
   },
-  "ad_type": "story",
-  "aspect_ratio": "9:16",
-  "placement": "Instagram & Facebook Stories / Reels",
+  "ad_type": "hook",
+  "aspect_ratio": "4:5",
+  "placement": "feed",
   "theme": "cream",
   "copy": {
-   "audience": "researchers",
-   "eyebrow": "ZERO-FINE-TUNING",
-   "headline": "Protect your VLM architecture.",
-   "subline": "Recent Advances in Vision-Language-Action Models and Robotics prevent weight degradation. R2C.Ai handles your IP governance.",
+   "audience": "For robotics and VLA researchers",
+   "eyebrow": "VISION LANGUAGE ROBOTICS",
+   "headline": "ROAM: robots crossing kilometres",
+   "subline": "MAWAM lets a team of robots predict what each will see and do next, together.",
    "points": [
-    "AI analysis of your paper or patent",
-    "Commercial Readiness Score",
-    "IP protection and governance"
+    "AI analysis",
+    "Technology readiness",
+    "Matched with industry"
    ],
    "cta": "Upload Your Research",
-   "caption": "Recent Advances in Vision-Language-Action Models and Robotics introduce ZeroVLN to navigate without supervised fine-tuning of the VLM brain. Your academic work on preserving base visual capabilities deserves strong IP protection. R2C.Ai provides commercial readiness scores and IP protection and governance. Upload Your Research.",
+   "caption": "New Vision‑Language‑Action models such as ROAM and MAWAM show how internet‑scale visual knowledge and multi‑agent world‑action modeling can drive Autonomous navigation and coordinated robot behavior. This matters for researchers because it bridges perception, planning, and execution, opening pathways to real‑world deployment. R2C.Ai at IIIT Delhi links you with industry partners—Upload Your Research.",
    "hashtags": [
-    "ZeroVLN",
-    "VisionLanguageAction",
-    "ResearchIP",
-    "AI"
+    "#VisionLanguageAction",
+    "#Robotics",
+    "#MAWAM",
+    "#ROAM",
+    "#R2CAi"
    ],
-   "sticker": "ZERO-FINE"
+   "sticker": ""
   },
-  "concept": "A chaotic Delhi street market where a bustling crowd parts instantly around a pristine, untouched stack of academic papers balanced effortlessly on a bicycle carrier.",
-  "image_prompt": "Scroll-stopping social media ad image. Vertical action photograph, real motion caught mid-moment, motion blur, energetic street or campus setting, bold colour. A young Indian researcher in a terracotta-orange hoodie, casually sipping chai while leaning against a vintage bicycle loaded with heavy lab equipment, A stray street dog playfully leaps across the frame, kicking up a dramatic burst of warm dust, yet the research stack remains completely undisturbed and upright. The sharp contrast between the chaotic, blurry street motion and the absolute, razor-sharp stillness of the defended thesis stack. Setting: A bustling sunny lane outside an IIIT Delhi campus gate, layered with parked auto-rickshaws, chai stalls, and overhead power lines. Camera: Vertical 9:16 framing, dynamic low-angle shot, 35mm lens, real motion blur on the edges. Lighting: Golden hour sunlight casting long warm shadows, intense natural rim light hitting the researcher and bicycle. Colour palette: warm cream, terracotta orange and navy dominate the whole scene, bold and saturated. Full, layered, energetic frame: detailed foreground, clear hero subject, lively background, bold saturated colour, high contrast, eye-catching. Looks like a real high-budget ad shoot, not CGI: true-to-life materials and skin, subtle film grain, no plastic sheen, no lens flares, nothing floating in an empty void. Papers, screens and signs are blank or out of focus, never readable letters. Hands and faces are natural and anatomically correct. Main subject centred and whole, nothing important at the edges of the frame. Mood: energetic, clever, grounded, confident. No text, letters, words, numbers, handwriting, logos, watermarks, user-interface elements, charts or labels anywhere in the image.",
+  "caption_writer": "gpt-oss-120b",
+  "concept": null,
+  "image_prompt": "Cinematic photoreal vertical shot of a legged robot crossing rugged, kilometer-long terrain at dusk, navy and amber lighting, no logos or text.",
   "picture": "/static/daily/trd_20261120_005_fcd0/picture.jpg",
   "poster": "/static/daily/trd_20261120_005_fcd0/poster.jpg",
   "image_model": "FLUX.2 Klein 9B",
-  "picture_score": 7.5,
-  "video": "/static/daily/trd_20261120_005_fcd0/video.mp4",
-  "video_format": "9:16"
+  "picture_score": null,
+  "video": "/static/daily/trd_20261120_005_fcd0/trend_video.mp4",
+  "video_format": "9:16",
+  "video_kind": "trend",
+  "video_seconds": 28.1,
+  "video_motion_clips": 0,
+  "video_writer": "gpt-oss-120b (Cloudflare)",
+  "video_check": {
+   "named_terms_used": [
+    "MAWAM",
+    "ROAM"
+   ],
+   "scenes_without_trend_terms": [
+    "bridge"
+   ],
+   "end_specific": true,
+   "cta_ok": true,
+   "shape_ok": true,
+   "jargon": [],
+   "pass": false
+  },
+  "video_script": [
+   {
+    "role": "hook",
+    "on_screen": "ROAM: robots crossing kilometres",
+    "voiceover": "ROAM navigates kilometers of rough terrain using internet-scale visual knowledge.",
+    "fact_used": "[Webpage] ROAM (Robust Open-world Autonomous Mobility) combines internet-scale VLM world knowledge with reinforcement learning-based locomotion and local planning for kilometer-scale navigation."
+   },
+   {
+    "role": "proof",
+    "on_screen": "MAWAM: robot teams that plan together",
+    "voiceover": "MAWAM lets a team of robots predict what each will see and do next, together.",
+    "fact_used": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation"
+   },
+   {
+    "role": "bridge",
+    "on_screen": "World-action modeling fuels factories",
+    "voiceover": "World-action modeling empowers factories with coordinated robots, and R2C.Ai at IIIT Delhi connects researchers to industry partners.",
+    "fact_used": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation"
+   },
+   {
+    "role": "cta",
+    "on_screen": "Upload Your Research now",
+    "voiceover": "Working on robots that see and act? Upload your research to R2C.Ai today.",
+    "fact_used": "[Webpage] ROAM (Robust Open-world Autonomous Mobility) combines internet-scale VLM world knowledge with reinforcement learning-based locomotion and local planning for kilometer-scale navigation."
+   }
+  ]
  },
  {
   "id": "trd_20261120_002_ae81",

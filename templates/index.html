@@ -22,6 +22,7 @@
             <a href="#links">Scrape now</a>
             <a href="#daily" id="nav-daily" hidden>New ads</a>
             <a href="#ads">Ready ads</a>
+            <a href="#how">How videos are made</a>
             <a href="#trends">Trends</a>
             <a href="#studio">Studio</a>
             <a href="#benchmark">Benchmark</a>
@@ -89,6 +90,37 @@
         <div class="ad-grid" id="ad-grid"></div>
     </section>
 
+    <section class="section wrap" id="how">
+        <div class="section-head">
+            <div>
+                <h2>How each video is made</h2>
+                <p>Every new trend gets its own 25–35 second vertical video ad, made automatically each morning. Nothing in it is generic: the script may only use the trend's crawled facts, and code rejects any script that could fit a different trend.</p>
+            </div>
+        </div>
+        <ol class="how-steps">
+            <li><b>Script</b><span>4 scenes: hook, proof, why it matters, call to action, from the trend's facts and sources only.</span></li>
+            <li><b>Trend check</b><span>Every scene and the end line must use the trend's own names or figures (at least 3), the CTA must be a real R2C.Ai CTA, no unexplained jargon. Otherwise it is rewritten.</span></li>
+            <li><b>Pictures &amp; motion</b><span>3 photoreal scenes, brought to life with image-to-video; scenes without a clip get a cinematic camera move.</span></li>
+            <li><b>Voice, music, graphics</b><span>Neural voiceover with word-timed captions, original music ducked under the voice, animated R2C.Ai graphics.</span></li>
+            <li><b>Ad photo &amp; caption</b><span>The video's main picture becomes the poster ad, with trend-specific headline, points and post caption.</span></li>
+            <li><b>Review</b><span>It waits under New ads until a reviewer approves it.</span></li>
+        </ol>
+        <div class="table-wrap">
+            <table class="models">
+                <thead><tr><th>Job</th><th>Model</th><th>Provider</th><th>Cost</th></tr></thead>
+                <tbody>
+                    <tr><td>Script (voiceover, on-screen text, picture prompts)</td><td><b>gpt-oss-120b</b> (OpenAI's open model); Gemini as backup</td><td>Cloudflare Workers AI</td><td>Free daily allowance</td></tr>
+                    <tr><td>Scene pictures</td><td><b>FLUX.2 Klein 9B</b> (Black Forest Labs)</td><td>Cloudflare Workers AI</td><td>Free daily allowance (about 7 pictures a day per account)</td></tr>
+                    <tr><td>Motion from the pictures</td><td><b>LTX-Video, distilled</b> (Lightricks)</td><td>Hugging Face free demo</td><td>Free, a few clips a day</td></tr>
+                    <tr><td>Voiceover</td><td><b>Microsoft Edge neural voice "Andrew"</b> (edge-tts)</td><td>Microsoft</td><td>Free, no key</td></tr>
+                    <tr><td>Music and sound effects</td><td>No AI model: generated in code</td><td>Runs on the build machine</td><td>Free, no copyright issues</td></tr>
+                    <tr><td>Graphics (text animation, captions, logo, end card)</td><td>No AI model: an HTML page recorded frame by frame with Playwright</td><td>Runs on the build machine</td><td>Free</td></tr>
+                    <tr><td>Putting it all together (video + audio)</td><td><b>FFmpeg</b></td><td>Runs on the build machine</td><td>Free</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <section class="section wrap" id="trends">
         <div class="section-head">
             <div>
@@ -122,12 +154,13 @@
                     <div class="video-head">
                         <div>
                             <span class="label">Video ad</span>
-                            <p class="hint">A 10-second branded motion video for Reels, Stories and LinkedIn: the picture zooms, the text animates in, and it ends on an R2C card.</p>
+                            <p class="hint" id="video-hint">A 10-second branded motion video for Reels, Stories and LinkedIn: the picture zooms, the text animates in, and it ends on an R2C card.</p>
                         </div>
                         <button class="btn btn-primary" id="btn-video" type="button" disabled>Make video</button>
                     </div>
                     <video id="video-player" controls playsinline hidden></video>
                     <a class="btn" id="btn-video-download" download="r2c_video.mp4" hidden>Download video</a>
+                    <div class="video-script" id="video-script" hidden></div>
                 </div>
             </div>
 

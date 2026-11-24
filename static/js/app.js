@@ -281,7 +281,34 @@ function showVideo(src, format, play) {
     }
 }
 
+const SIMPLE_VIDEO_HINT = "A 10-second branded motion video for Reels, Stories and LinkedIn: the picture zooms, the text animates in, and it ends on an R2C card.";
+
+/* The trend video's script: what each scene shows and says, and the crawled fact behind it. */
+function renderVideoScript(item) {
+    const box = $("video-script");
+    if (!box) return;
+    const scenes = item && item.video_kind === "trend" ? (item.video_script || []) : [];
+    box.hidden = scenes.length === 0;
+    if (box.hidden) return;
+    const check = item.video_check || {};
+    const terms = (check.named_terms_used || []).slice(0, 6).map((t) => `<span class="chip">${esc(t)}</span>`).join("");
+    box.innerHTML = `
+        <div class="vs-head">
+            ${check.pass ? '<span class="vs-pass">✓ Trend-specific check passed</span>' : ""}
+            <span>Trend terms used:</span> ${terms}
+        </div>
+        ${scenes.map((sc, i) => `
+            <div class="vs-scene">
+                <b>${i + 1}. ${esc(sc.on_screen || "")}</b>
+                <p>“${esc(sc.voiceover || "")}”</p>
+                ${sc.fact_used ? `<p class="vs-fact">Fact used: ${esc(sc.fact_used)}</p>` : ""}
+            </div>`).join("")}
+        <p class="hint">Script by ${esc(item.video_writer || "the script model")} · ${esc(String(item.video_seconds || ""))} s${item.video_motion_clips ? ` · ${item.video_motion_clips} AI motion clip(s)` : " · camera moves"}</p>`;
+}
+
 function resetVideo() {
+    renderVideoScript(null);
+    if ($("video-hint")) $("video-hint").textContent = SIMPLE_VIDEO_HINT;
     const player = $("video-player");
     player.pause();
     player.removeAttribute("src");
@@ -299,6 +326,10 @@ function openShowcase(item, scroll = true) {
     syncControls();
     showPreview(item.poster, `${FORMAT_SHORT[item.aspect_ratio] || item.aspect_ratio} · ${item.placement} · picture by ${item.image_model}`);
     if (item.video) showVideo(item.video, item.video_format || "9:16", false);
+    if (item.video_kind === "trend") {
+        if ($("video-hint")) $("video-hint").textContent = "Trend video: made for this trend only, from its crawled facts (script, AI pictures and motion, voiceover, music, animated captions).";
+        renderVideoScript(item);
+    }
     if (scroll) $("studio").scrollIntoView({ behavior: "smooth" });
 }
 

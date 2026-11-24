@@ -47,6 +47,7 @@ DAILY_JSON = os.path.join("web_data", "daily.json")
 SITE_JSON = os.path.join("web_data", "site_data.json")
 DAILY_DIR = os.path.join("static", "daily")
 QUEUE_JSON = os.path.join("web_data", "video_queue.json")
+REVIEWS_JSON = os.path.join("web_data", "reviews.json")
 LAST_RUN_JSON = os.path.join("web_data", "last_run.json")
 # Trend videos (the approved sample's process) for every new ad; DAILY_TREND_VIDEOS=0 turns them off.
 TREND_VIDEOS = os.environ.get("DAILY_TREND_VIDEOS", "1") != "0"
@@ -95,11 +96,15 @@ def is_same_story(title: str, others: Sequence[str]) -> bool:
     return False
 
 
-def prune_old(entries: List[Dict[str, Any]], keep_days: int, now: datetime) -> List[Dict[str, Any]]:
-    """Drop ads older than keep_days and delete their files."""
+def prune_old(entries: List[Dict[str, Any]], keep_days: int, now: datetime,
+              approved: Sequence[str] = ()) -> List[Dict[str, Any]]:
+    """Drop ads older than keep_days and delete their files. Approved ads are kept: they build the gallery."""
     cutoff = now - timedelta(days=keep_days)
     kept = []
     for entry in entries:
+        if entry.get("id") in approved:
+            kept.append(entry)
+            continue
         try:
             created = datetime.fromisoformat(entry["created_at"])
         except (KeyError, ValueError):
@@ -268,24 +273,65 @@ def make_ad(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini:
 
 
 # --------------------------------------------------------------------------- ad + trend video
-def entry_from_video(trend: Dict[str, Any], video: Dict[str, Any], theme: str, now: datetime) -> Dict[str, Any]:
-    """The ad photo/poster from the video script when Gemini could not write the poster copy."""
+def video_caption(trend: Dict[str, Any], script: Dict[str, Any], gemini: Any) -> Dict[str, Any]:
+    """Post caption + hashtags for the ad, written from the video script and the trend's facts. gpt-oss-120b on
+    Cloudflare first, Gemini as backup; it must name at least two of the trend's own terms, otherwise the voiceover
+    lines are used as the caption."""
+    from image_generator import trend_video
+
+    terms = sorted(trend_video.trend_terms(trend))
+    scenes = script["scenes"]
+    prompt = (
+        "Write the social media post caption for this video ad (Instagram, LinkedIn).\n"
+        "TREND: {}\nKEY FACTS (only these may be stated): {}\nVIDEO SCENES: {}\nCTA: {}\n"
+        "Rules: 40-70 words, plain language, 2-3 sentences. Name at least two of these trend terms exactly as written: "
+        "{}. Say why it matters for researchers in this area, then that R2C.Ai at IIIT Delhi connects them with industry "
+        "partners, and end with the CTA. No hype words, no invented numbers, no emojis. Then 5 hashtags without spaces, "
+        "specific to this trend plus #R2CAi. Return JSON: {{\"caption\": str, \"hashtags\": [str]}}"
+    ).format(trend.get("topic_title"), json.dumps(trend.get("topic_key_facts") or [], ensure_ascii=False),
+             json.dumps([s.get("voiceover") for s in scenes], ensure_ascii=False), script.get("cta"), ", ".join(terms[:20]))
+    writers = [("gpt-oss-120b", lambda: trend_video._cloudflare_text(prompt))]
+    if getattr(gemini, "online", False):
+        writers.append(("gemini", lambda: gemini.generate_text(prompt, label="video_caption", json_mode=True)))
+    for name, write in writers:
+        try:
+            data = trend_video._parse_json(write() or "")
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Caption by %s failed: %s", name, str(exc)[:160])
+            continue
+        caption = str(data.get("caption") or "").strip()
+        tags = ["#" + str(t).lstrip("#").replace(" ", "") for t in (data.get("hashtags") or [])][:6]
+        if sum(1 for t in terms if t in caption) >= 2 and 25 <= len(caption.split()) <= 90:
+            return {"caption": caption, "hashtags": tags, "caption_writer": name}
+        logger.info("Caption by %s missed the trend terms or length; trying the next writer", name)
+    return {"caption": " ".join(s["voiceover"] for s in scenes), "hashtags": ["#R2CAi", "#AIResearch"],
+            "caption_writer": "video voiceover"}
+
+
+def entry_from_video(trend: Dict[str, Any], video: Dict[str, Any], theme: str, now: datetime,
+                     ratio: str = "9:16", ad_type: str = "story", gemini: Any = None) -> Dict[str, Any]:
+    """The ad photo + poster made from the video: its main picture cropped to the format, the headline and subline
+    from the trend-checked video script, the R2C.Ai points from its chips, and a trend-specific post caption."""
     from PIL import Image
 
     from image_generator import compose_ads
 
+    if ratio == "1.91:1":  # a vertical picture cannot fill a wide banner: square post instead
+        ratio = "1:1"
     script = video["script"]
     scenes = script["scenes"]
     ad_id = ad_id_for(trend, now)
     folder = os.path.join(DAILY_DIR, ad_id)
+    os.makedirs(folder, exist_ok=True)
     picture_path = os.path.join(folder, "picture.jpg")
     with Image.open(video["picture"]) as source:
-        source.convert("RGB").save(picture_path, "JPEG", quality=90, optimize=True)
+        crop_to(source.convert("RGB"), ratio).save(picture_path, "JPEG", quality=90, optimize=True)
+    caption = video_caption(trend, script, gemini)
     copy = {"audience": script.get("audience_line"), "eyebrow": script.get("tag"), "headline": scenes[0]["on_screen"],
-            "subline": scenes[1]["on_screen"], "points": list(script.get("chips") or [])[:3], "cta": script.get("cta"),
-            "caption": " ".join(s["voiceover"] for s in scenes), "hashtags": [], "sticker": ""}
+            "subline": scenes[1]["voiceover"], "points": list(script.get("chips") or [])[:3], "cta": script.get("cta"),
+            "caption": caption["caption"], "hashtags": caption["hashtags"], "sticker": ""}
     poster_png = os.path.join(folder, "poster.png")
-    compose_ads.compose_poster(picture_path, poster_png, "9:16", copy["headline"], copy["subline"], copy["cta"] or "Learn More",
+    compose_ads.compose_poster(picture_path, poster_png, ratio, copy["headline"], copy["subline"], copy["cta"] or "Learn More",
                                eyebrow=copy["eyebrow"] or "", points=copy["points"], sticker="", theme_name=theme)
     poster_path = os.path.join(folder, "poster.jpg")
     with Image.open(poster_png) as im:
@@ -293,29 +339,28 @@ def entry_from_video(trend: Dict[str, Any], video: Dict[str, Any], theme: str, n
         im.thumbnail((1100, 1100))
         im.save(poster_path, "JPEG", quality=85, optimize=True)
     os.remove(poster_png)
+    placement = {"9:16": "story", "4:5": "feed", "1:1": "feed"}.get(ratio, "feed")
     return {"id": ad_id, "date": now.astimezone(IST).strftime("%Y-%m-%d"), "created_at": now.isoformat(),
             "source": "daily", "trend": trend if "composite_trend_score" not in trend else slim_trend(trend),
-            "ad_type": "story", "aspect_ratio": "9:16", "placement": "story", "theme": theme, "copy": copy,
-            "concept": None, "image_prompt": scenes[0].get("image_prompt"),
+            "ad_type": ad_type, "aspect_ratio": ratio, "placement": placement, "theme": theme, "copy": copy,
+            "caption_writer": caption["caption_writer"], "concept": None, "image_prompt": scenes[0].get("image_prompt"),
             "picture": "/" + picture_path.replace(os.sep, "/"), "poster": "/" + poster_path.replace(os.sep, "/"),
             "image_model": PICTURE_MODEL_NAME, "picture_score": None, "video": None, "video_format": "9:16"}
 
 
 def make_ad_with_video(trend: Dict[str, Any], ratio: str, ad_type: str, theme: str, gemini: Any,
                        now: datetime) -> Optional[Dict[str, Any]]:
-    """The trend-specific video (image_generator.trend_video) and the ad photo/poster made from its main picture.
-    A failed video raises (the trend is retried another day); a failed poster copy falls back to the video script."""
+    """The trend-specific video (image_generator.trend_video), then the ad photo, poster and caption made from it
+    (same picture, same trend-checked words). A failed video raises: the trend is retried another day."""
     from image_generator import trend_video
 
     folder = os.path.join(DAILY_DIR, ad_id_for(trend, now))
     video = trend_video.make_trend_video(trend, folder, gemini)
-    try:
-        entry = make_ad(trend, ratio, ad_type, theme, gemini, now, picture_path=video["picture"], simple_video=False)
-    except Exception:  # noqa: BLE001 - the video is done; never lose it over the poster copy
-        logger.exception("Poster copy failed; making the ad photo from the video script")
-        entry = None
-    if entry is None:
-        entry = entry_from_video(trend, video, theme, now)
+    entry = entry_from_video(trend, video, theme, now, ratio, ad_type, gemini)
+    return add_video_fields(entry, video)
+
+
+def add_video_fields(entry: Dict[str, Any], video: Dict[str, Any]) -> Dict[str, Any]:
     script = video["script"]
     entry.update({
         "video": "/" + video["video"].replace(os.sep, "/"), "video_format": "9:16", "video_kind": "trend",
@@ -359,7 +404,9 @@ def run(skip_crawl: bool = False, max_ads: int = 2, keep_days: int = 7) -> Dict[
         logger.info("Crawl done in %.0f min: %s", (time.monotonic() - started) / 60, summary["crawl"])
     trends = load_json(config.RANKED_TRENDS_JSON, [])
 
-    daily = prune_old(load_json(DAILY_JSON, []), keep_days, now)
+    reviews = load_json(REVIEWS_JSON, {})
+    approved = [ad_id for ad_id, r in reviews.items() if isinstance(r, dict) and r.get("status") == "approved"]
+    daily = prune_old(load_json(DAILY_JSON, []), keep_days, now, approved)
     showcase = load_json(SITE_JSON, {}).get("showcase", [])
     made = [e["trend"]["topic_title"] for e in daily] + [s["trend"]["topic_title"] for s in showcase]
     # Trends waiting from earlier days come first, then today's new ones.

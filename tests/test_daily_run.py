@@ -50,6 +50,13 @@ class PruneTests(unittest.TestCase):
             self.assertEqual([e["id"] for e in kept], ["new"])
             self.assertFalse(os.path.exists(os.path.join(tmp, "old")))
 
+    def test_approved_ads_are_kept_for_the_gallery(self):
+        now = datetime(2026, 11, 30, tzinfo=timezone.utc)
+        entries = [{"id": "liked", "created_at": (now - timedelta(days=20)).isoformat()},
+                   {"id": "ignored", "created_at": (now - timedelta(days=20)).isoformat()}]
+        kept = daily_run.prune_old(entries, 7, now, approved=["liked"])
+        self.assertEqual([e["id"] for e in kept], ["liked"])
+
 
 class ReviewEndpointTests(unittest.TestCase):
     def setUp(self):
