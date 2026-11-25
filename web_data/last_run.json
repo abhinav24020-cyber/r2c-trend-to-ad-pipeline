@@ -1,0 +1,49 @@
+{
+ "started_at": "2026-11-25T12:15:40.149668+00:00",
+ "skipped_crawl": true,
+ "trend_videos": true,
+ "ads_made": [
+  {
+   "id": "trd_20261124_002_55fb",
+   "headline": "MatHarness robust execution",
+   "format": "1:1",
+   "theme": "mint",
+   "video": "trend",
+   "video_seconds": 29.4,
+   "motion_clips": 0,
+   "seconds": 662
+  },
+  {
+   "id": "trd_20261124_003_68ff",
+   "headline": "cOPD dual‑branch supervision",
+   "format": "1:1",
+   "theme": "night",
+   "video": "trend",
+   "video_seconds": 30.0,
+   "motion_clips": 0,
+   "seconds": 616
+  },
+  {
+   "id": "trd_20261124_004_4212",
+   "headline": "VideoGym finds sparse evidence",
+   "format": "4:5",
+   "theme": "solar",
+   "video": "trend",
+   "video_seconds": 28.4,
+   "motion_clips": 0,
+   "seconds": 567
+  }
+ ],
+ "ads_failed": [
+  {
+   "trend": "Mitigating Positional and Permutation Biases in Large Models",
+   "error": "no usable video script"
+  }
+ ],
+ "from_queue": 4,
+ "new_trends": 0,
+ "minutes": 31.7,
+ "ads_on_site": 6,
+ "queue_left": 1,
+ "finished_at": "2026-11-25T12:47:22.260624+00:00"
+}

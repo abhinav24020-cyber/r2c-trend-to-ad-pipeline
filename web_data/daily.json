@@ -1,5 +1,425 @@
 [
  {
+  "id": "trd_20261124_004_4212",
+  "date": "2026-11-25",
+  "created_at": "2026-11-25T12:15:40.149668+00:00",
+  "source": "daily",
+  "trend": {
+   "trend_id": "trd_20261124_004_4212",
+   "rank": 4,
+   "near_miss": false,
+   "topic_title": "Advances in Long-Video Understanding and Memory Systems for AI Agents",
+   "topic_summary": "Recent research papers introduce new frameworks—including VideoGym, VTree, ORDO, and MORSE—to address core challenges in long-video understanding, agentic memory, and motion analysis for video LLMs. These developments matter to AI/ML practitioners because they tackle critical bottlenecks like sparse evidence retrieval, fixed-distribution reinforcement learning limitations, and bounded frame storage in streaming systems.",
+   "topic_key_facts": [
+    "[Webpage] Text-heavy questions account for 58% of samples in the VideoGym source pool, compared to 15% graph-heavy, 17% visual-heavy, and 10% time-range questions.",
+    "[Webpage] VideoGym is presented as an adaptive reinforcement learning environment for long-video agents to locate sparse evidence.",
+    "[Webpage] VTree addresses hierarchical memory growth for agentic long-video understanding where standard uniform frame sampling discards fine-grained evidence.",
+    "[Webpage] ORDO is a proposed framework for fine-grained motion understanding in video large language models via order-dependent supervision.",
+    "[Hugging Face] MORSE stands for Memory Optimization with Recursive Self-Evolvement, an open-world auto-research method optimizing streaming memory design."
+   ],
+   "topic_entities": [
+    "MORSE Optimizing Streaming Memory",
+    "ORDO Fine-Grained Motion Understanding",
+    "Adaptive RL Environment",
+    "Agentic Long-Video Understanding",
+    "VTree Question-Driven Growth",
+    "Hierarchical Memory"
+   ],
+   "score": 86.2,
+   "r2c_relevance": 95.0,
+   "growth": 96.25,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692220+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.30011",
+     "excerpt": "MORSE: Optimizing Streaming Memory Design via Open-World Auto-Research A streaming video system must decide in a single pass what evidence to retain under bounded frame storage, before it knows which details a future question will require. Recent recursive self-improvement methods automate the design of the harness that stores and retrieves this evidence. They revise the harness in response to failures, but the editor must still devise each repai",
+     "source_insight": "MORSE: Optimizing Streaming Memory Design via Open-World Auto-Research"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28093",
+     "excerpt": "VTree: Question-Driven Growth of Hierarchical Memory for Agentic Long-Video Understanding Long videos spanning tens of minutes to hours far exceed the context window of today's vision-language models, and the standard remedy of sparse uniform frame sampling discards exactly the fine-grained evidence that specific questions depend on. Existing video agents explore on demand but re-explore from scratch for every question and discard their explorati",
+     "source_insight": "VTree: Question-Driven Growth of Hierarchical Memory for Agentic Long-Video Understanding"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28097",
+     "excerpt": "ORDO: Fine-Grained Motion Understanding in Video LLMs via Order-Dependent Supervision Video large language models (video LLMs) answer a wide range of questions about real videos, yet they remain weak at fine-grained motion such as whether an object speeds up or slows down. Existing methods train these models on synthetic motion clips, on order pretext tasks such as reordering shuffled clips, or with rewards that compare ordered and perturbed fram",
+     "source_insight": "ORDO: Fine-Grained Motion Understanding in Video LLMs via Order-Dependent Supervision"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28102",
+     "excerpt": "VideoGym: An Adaptive RL Environment for Long-Video Agents Reinforcement learning (RL) trains video agents to locate sparse evidence for long-video question answering through structured memory retrieval and temporal re-observation. This training, however, faces a long-tail modality distribution in the data. In our source pool, text-heavy questions account for 58% of samples, compared with 15% graph-heavy, 17% visual-heavy, and 10% time-range ques",
+     "source_insight": "VideoGym: An Adaptive RL Environment for Long-Video Agents"
+    }
+   ]
+  },
+  "ad_type": "hook",
+  "aspect_ratio": "4:5",
+  "placement": "feed",
+  "theme": "solar",
+  "copy": {
+   "audience": "For long-video AI researchers",
+   "eyebrow": "LONG VIDEO AI",
+   "headline": "VideoGym finds sparse evidence",
+   "subline": "VTree builds hierarchical memory, preserving fine‑grained details that uniform sampling would miss for any question.",
+   "points": [
+    "AI analysis",
+    "Technology readiness",
+    "Industry matching"
+   ],
+   "cta": "Upload Your Research",
+   "caption": "VideoGym helps agents find sparse evidence in hours-long videos where text-heavy questions account for 58% of samples, while VTree preserves critical details that uniform sampling misses. R2C.Ai at IIIT Delhi connects researchers developing these advanced memory systems with industry partners. Upload Your Research",
+   "hashtags": [
+    "#LongVideoUnderstanding",
+    "#VideoGym",
+    "#VTree",
+    "#AIResearch",
+    "#R2CAi"
+   ],
+   "sticker": ""
+  },
+  "caption_writer": "gemini",
+  "concept": null,
+  "image_prompt": "A modern Indian research lab at dusk, navy walls and amber lighting; Indian scientists gathered around a glowing holographic timeline of a long video, pointing to highlighted frames that represent sparse evidence.",
+  "picture": "/static/daily/trd_20261124_004_4212/picture.jpg",
+  "poster": "/static/daily/trd_20261124_004_4212/poster.jpg",
+  "image_model": "FLUX.2 Klein 9B",
+  "picture_score": null,
+  "video": "/static/daily/trd_20261124_004_4212/trend_video.mp4",
+  "video_format": "9:16",
+  "video_kind": "trend",
+  "video_seconds": 28.4,
+  "video_motion_clips": 0,
+  "video_writer": "gpt-oss-120b (Cloudflare)",
+  "video_check": {
+   "named_terms_used": [
+    "MORSE",
+    "VTree",
+    "VideoGym"
+   ],
+   "scenes_without_trend_terms": [],
+   "end_specific": true,
+   "cta_ok": true,
+   "shape_ok": true,
+   "jargon": [],
+   "unsupported_claims": [],
+   "pass": true
+  },
+  "video_script": [
+   {
+    "role": "HOOK",
+    "on_screen": "VideoGym finds sparse evidence",
+    "voiceover": "VideoGym lets agents find sparse evidence in hours‑long videos efficiently.",
+    "fact_used": "[Webpage] VideoGym is presented as an adaptive reinforcement learning environment for long-video agents to locate sparse evidence."
+   },
+   {
+    "role": "PROOF",
+    "on_screen": "VTree preserves fine details",
+    "voiceover": "VTree builds hierarchical memory, preserving fine‑grained details that uniform sampling would miss for any question.",
+    "fact_used": "[Webpage] VTree addresses hierarchical memory growth for agentic long-video understanding where standard uniform frame sampling discards fine-grained evidence."
+   },
+   {
+    "role": "BRIDGE",
+    "on_screen": "MORSE streaming memory",
+    "voiceover": "Industry craves streaming memory like MORSE, and R2C.Ai at IIIT Delhi links researchers to partners.",
+    "fact_used": "[Hugging Face] MORSE stands for Memory Optimization with Recursive Self-Evolvement, an open-world auto-research method optimizing streaming memory design."
+   },
+   {
+    "role": "CTA",
+    "on_screen": "MORSE research invitation",
+    "voiceover": "If you develop streaming memory like MORSE, meet R2C.Ai.",
+    "fact_used": "[Hugging Face] MORSE stands for Memory Optimization with Recursive Self-Evolvement, an open-world auto-research method optimizing streaming memory design."
+   }
+  ]
+ },
+ {
+  "id": "trd_20261124_003_68ff",
+  "date": "2026-11-25",
+  "created_at": "2026-11-25T12:15:40.149668+00:00",
+  "source": "daily",
+  "trend": {
+   "trend_id": "trd_20261124_003_68ff",
+   "rank": 3,
+   "near_miss": false,
+   "topic_title": "Advances in On-Policy Distillation for Language Models",
+   "topic_summary": "Recent research papers introduce novel variants of on-policy distillation (OPD) to improve large language model post-training and agent efficiency. These methods include Contrastive On-Policy Distillation (cOPD) with dual-branch supervision, Muted Distillation (MD) to prevent reasoning length inflation, and Composable Soft-Prompt Distillation (CSPD) for continual RL expert consolidation.",
+   "topic_key_facts": [
+    "cOPD provides dual branch supervision by contrasting strong teacher, weak teacher, and student predictions at student generated prefixes. [Webpage]",
+    "A controlled token intervention study suggests that even a model weaker than the student can serve as an informative contrastive reference. [Webpage]",
+    "Muted Distillation (MD) is a variant of OPD that hides the student's reasoning from the teacher so the teacher judges what the student does without interference. [Webpage]",
+    "CSPD keeps the pre-RL model frozen and distills each RL expert independently into a soft prompt. [Hugging Face]",
+    "CSPD composes experts by concatenating their prompts without joint training. [Hugging Face]"
+   ],
+   "topic_entities": [
+    "Muted Distillation Sealing Reasoning",
+    "RL Experts Toward Continual",
+    "Composable Soft-Prompt Distillation",
+    "Contrastive On-Policy Distillation",
+    "Teacher Unlocks Token-Efficient",
+    "Dual-Branch Supervision"
+   ],
+   "score": 86.3,
+   "r2c_relevance": 98.0,
+   "growth": 93.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.692061+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.27376",
+     "excerpt": "Composable Soft-Prompt Distillation of RL Experts: Toward Continual Post-Training RL post-training typically produces domain experts that must then be consolidated into one model, and as new experts keep arriving, this consolidation becomes a continual process. Weight merging and multi-teacher on-policy distillation (MOPD) must re-consolidate the whole model whenever an expert is added, and can erode capabilities outside the target domains. We pr",
+     "source_insight": "Composable Soft-Prompt Distillation of RL Experts: Toward Continual Post-Training"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28359",
+     "excerpt": "Contrastive On-Policy Distillation via Dual-Branch Supervision For on-policy distillation (OPD), more capable models are a natural choice as teachers. However, higher task performance does not necessarily imply greater teachability. A controlled token intervention study suggests that even a model weaker than the student can serve as an informative contrastive reference. Building on this observation, we propose Contrastive On-Policy Distillation (",
+     "source_insight": "Contrastive On-Policy Distillation via Dual-Branch Supervision"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28445",
+     "excerpt": "Muted Distillation: Sealing Reasoning from Teacher Unlocks Token-Efficient Agents On-policy distillation (OPD) is commonly adopted as one of the components in post-training of large language models (LLMs), but in multi-turn agentic tasks we find that the student model increases their reasoning lengths after training. Our empirical analysis shows that the reasoning token lengths is affected by how much the student can distract the teacher's scores",
+     "source_insight": "Muted Distillation: Sealing Reasoning from Teacher Unlocks Token-Efficient Agents"
+    }
+   ]
+  },
+  "ad_type": "conversion",
+  "aspect_ratio": "1:1",
+  "placement": "feed",
+  "theme": "night",
+  "copy": {
+   "audience": "For on‑policy distillation researchers",
+   "eyebrow": "ON‑POLICY DISTILLATION",
+   "headline": "cOPD dual‑branch supervision",
+   "subline": "Muted Distillation hides the student’s reasoning, letting the teacher judge actions without interference.",
+   "points": [
+    "AI analysis of paper",
+    "Technology readiness assessment",
+    "Matched with industry partners"
+   ],
+   "cta": "Upload Your Research",
+   "caption": "cOPD’s Dual-Branch supervision and Muted Distillation improve token‑efficient learning by contrasting strong and weak teachers with the student’s reasoning hidden from the teacher. This advancement matters for researchers seeking effective on‑policy distillation without extra model drift, and R2C.Ai at IIIT Delhi connects you with industry partners. Upload Your Research",
+   "hashtags": [
+    "#DualBranch",
+    "#Muted",
+    "#Distillation",
+    "#TokenEfficient",
+    "#R2CAi"
+   ],
+   "sticker": ""
+  },
+  "caption_writer": "gpt-oss-120b",
+  "concept": null,
+  "image_prompt": "Indian researchers in a sleek modern lab gathered around a glowing blue holographic diagram depicting two parallel branches, navy walls, amber accent lighting, vertical framing, cinematic photoreal style.",
+  "picture": "/static/daily/trd_20261124_003_68ff/picture.jpg",
+  "poster": "/static/daily/trd_20261124_003_68ff/poster.jpg",
+  "image_model": "FLUX.2 Klein 9B",
+  "picture_score": null,
+  "video": "/static/daily/trd_20261124_003_68ff/trend_video.mp4",
+  "video_format": "9:16",
+  "video_kind": "trend",
+  "video_seconds": 30.0,
+  "video_motion_clips": 0,
+  "video_writer": "gpt-oss-120b (Cloudflare)",
+  "video_check": {
+   "named_terms_used": [
+    "Distillation",
+    "MD",
+    "Muted",
+    "OPD"
+   ],
+   "scenes_without_trend_terms": [],
+   "end_specific": true,
+   "cta_ok": true,
+   "shape_ok": true,
+   "jargon": [],
+   "unsupported_claims": [],
+   "pass": true
+  },
+  "video_script": [
+   {
+    "role": "hook",
+    "on_screen": "cOPD dual‑branch supervision",
+    "voiceover": "cOPD uses dual‑branch supervision, contrasting strong and weak teachers with student.",
+    "fact_used": "cOPD provides dual branch supervision by contrasting strong teacher, weak teacher, and student predictions at student generated prefixes. [Webpage]"
+   },
+   {
+    "role": "proof",
+    "on_screen": "Muted Distillation hides reasoning",
+    "voiceover": "Muted Distillation hides the student’s reasoning, letting the teacher judge actions without interference.",
+    "fact_used": "Muted Distillation (MD) is a variant of OPD that hides the student's reasoning from the teacher so the teacher judges what the student does without interference. [Webpage]"
+   },
+   {
+    "role": "bridge",
+    "on_screen": "cOPD boosts efficiency for industry",
+    "voiceover": "cOPD sharpens model efficiency, cutting token waste; R2C.Ai at IIIT Delhi connects you with industry partners.",
+    "fact_used": "cOPD provides dual branch supervision by contrasting strong teacher, weak teacher, and student predictions at student generated prefixes. [Webpage]"
+   },
+   {
+    "role": "cta",
+    "on_screen": "Join cOPD & MD innovators",
+    "voiceover": "Advance cOPD and MD breakthroughs—join us, Upload Your Research",
+    "fact_used": "A controlled token intervention study suggests that even a model weaker than the student can serve as an informative contrastive reference. [Webpage]"
+   }
+  ]
+ },
+ {
+  "id": "trd_20261124_002_55fb",
+  "date": "2026-11-25",
+  "created_at": "2026-11-25T12:15:40.149668+00:00",
+  "source": "daily",
+  "trend": {
+   "trend_id": "trd_20261124_002_55fb",
+   "rank": 2,
+   "near_miss": false,
+   "topic_title": "Systematic Study and Design of Agent Harnesses",
+   "topic_summary": "Recent research across web and Hugging Face signals examines how agent harness design—focusing on context management, skill management, and component interaction—shapes the performance of self-evolving, long-horizon AI agents. These studies matter to ML practitioners because optimizing harness architectures directly improves agent robustness, computational efficiency, and compositional generalization across domains like scientific research, gameplay, and robotics.",
+   "topic_key_facts": [
+    "[Webpage] Researchers systematically study harness design for self-evolving autoresearch agents along two dimensions: context management and skill management.",
+    "[Webpage] MatHarness couples execution robustness through pre-flight verification, expert-distilled skills, and just-in-time auditing for open-ended computational materials research.",
+    "[Webpage] AutoPILOT is a visual agent harness that allows a multimodal model to send a primitive action, start an open-loop macro, or write a closed-loop controller in each model call.",
+    "[Hugging Face] Embo-Harness investigates four components of the robotic agentic loop: prompting, planning, action execution, and tool use, distilling six empirical findings."
+   ],
+   "topic_entities": [
+    "Embo-Harness Towards Understanding Frontier-Model-as-Policy",
+    "MatHarness Towards Long-Horizon Open-ended",
+    "Autoresearch",
+    "Computational Materials Science",
+    "Skills Shape Self-Evolving",
+    "Compositional Generalizers"
+   ],
+   "score": 87.5,
+   "r2c_relevance": 98.0,
+   "growth": 98.75,
+   "platforms": [
+    "Hugging Face",
+    "Webpage"
+   ],
+   "generated_at": "2026-11-24T11:50:27.691941+00:00",
+   "source_attribution": [
+    {
+     "platform": "Hugging Face",
+     "source_url": "https://huggingface.co/papers/2611.31201",
+     "excerpt": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness Frontier multimodal models exhibit extraordinary generalization in generating robot actions from observations and instructions, enabling a new paradigm in which they serve directly as policies within closed-loop robotic harnesses. However, the design principles of such harnesses, and the capabilities underlying their strong performance, remain unclear. We present Embo-Harness, a",
+     "source_insight": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28202",
+     "excerpt": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay Multimodal foundation models can play video games well when the game waits for them, but often fail when it keeps running. We find that much of this gap lies in the harness, which decides what the model sees, what it remembers, and how its outputs become actions over time. Existing harnesses such as VISTA improve the first two, yet turn each model call into at most one action, so the agent ",
+     "source_insight": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28244",
+     "excerpt": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents Autoresearch agents, which autonomously design, run, and refine experiments, are accelerating scientific progress, particularly in AI research. However, existing agents rely on harnesses that combine multiple mechanisms, making it difficult to determine how individual components contribute to performance. We systematically study harness design for long-horizo",
+     "source_insight": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28298",
+     "excerpt": "Language Model Harnesses can be Compositional Generalizers Modern language models (LMs) are post-trained and deployed as agents inside a \"harness\", but standard harness designs accumulate context that the neural network is forced to generalize to, making training for long-horizon tasks expensive and time-consuming. We study an alternative emerging path: training inherently neurosymbolic LM harnesses, which externalize and manage context programma",
+     "source_insight": "Language Model Harnesses can be Compositional Generalizers"
+    },
+    {
+     "platform": "Webpage",
+     "source_url": "https://arxiv.org/abs/2611.28324",
+     "excerpt": "MatHarness: Towards Long-Horizon Open-ended AutoResearch for Computational Materials Science Materials science research is a non-linear, long-horizon process. Existing scientific agents, however, largely rely on specific task execution or predefined workflows, rendering them brittle in open-ended settings. To bridge this gap, we present MatHarness, an agent harness designed for open-ended, long-horizon computational materials research spanning th",
+     "source_insight": "MatHarness: Towards Long-Horizon Open-ended AutoResearch for Computational Materials Science"
+    }
+   ]
+  },
+  "ad_type": "engagement",
+  "aspect_ratio": "1:1",
+  "placement": "feed",
+  "theme": "mint",
+  "copy": {
+   "audience": "For agent harness researchers",
+   "eyebrow": "AGENT HARNESS",
+   "headline": "MatHarness robust execution",
+   "subline": "AutoPILOT enables a multimodal model to send primitive actions, start macros, or write controllers each call.",
+   "points": [
+    "AI analysis",
+    "TRL assessment",
+    "Industry matching"
+   ],
+   "cta": "Upload Your Research",
+   "caption": "Researchers are building systematic Harnesses like AutoPILOT and MatHarness to provide reliable execution, context management and skill management for self‑evolving agents. This matters because robust pre‑flight checks and just‑in‑time audits let scientific agents run open‑ended material research with confidence, and R2C.Ai at IIIT Delhi connects you with industry partners. Upload Your Research.",
+   "hashtags": [
+    "#AutoPILOT",
+    "#MatHarness",
+    "#Embo-Harness",
+    "#SelfEvolving",
+    "#R2CAi"
+   ],
+   "sticker": ""
+  },
+  "caption_writer": "gpt-oss-120b",
+  "concept": null,
+  "image_prompt": "Indian researchers in a sleek modern lab, a glowing 3D model of a material research harness floating above a workbench, navy and amber lighting, vertical framing, cinematic photoreal style, no text or screens.",
+  "picture": "/static/daily/trd_20261124_002_55fb/picture.jpg",
+  "poster": "/static/daily/trd_20261124_002_55fb/poster.jpg",
+  "image_model": "FLUX.2 Klein 9B",
+  "picture_score": null,
+  "video": "/static/daily/trd_20261124_002_55fb/trend_video.mp4",
+  "video_format": "9:16",
+  "video_kind": "trend",
+  "video_seconds": 29.4,
+  "video_motion_clips": 0,
+  "video_writer": "gpt-oss-120b (Cloudflare)",
+  "video_check": {
+   "named_terms_used": [
+    "AutoPILOT",
+    "Harness",
+    "MatHarness"
+   ],
+   "scenes_without_trend_terms": [],
+   "end_specific": true,
+   "cta_ok": true,
+   "shape_ok": true,
+   "jargon": [],
+   "unsupported_claims": [],
+   "pass": true
+  },
+  "video_script": [
+   {
+    "role": "HOOK",
+    "on_screen": "MatHarness robust execution",
+    "voiceover": "MatHarness delivers robust execution using pre‑flight checks and just‑in‑time audits.",
+    "fact_used": "MatHarness: Towards Long-Horizon Open-ended AutoResearch for Computational Materials Science"
+   },
+   {
+    "role": "PROOF",
+    "on_screen": "AutoPILOT multimodal control",
+    "voiceover": "AutoPILOT enables a multimodal model to send primitive actions, start macros, or write controllers each call.",
+    "fact_used": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay"
+   },
+   {
+    "role": "BRIDGE",
+    "on_screen": "MatHarness links to industry",
+    "voiceover": "Harnesses like MatHarness make scientific agents reliable, and R2C.Ai at IIIT Delhi links you with industry partners.",
+    "fact_used": "MatHarness: Towards Long-Horizon Open-ended AutoResearch for Computational Materials Science"
+   },
+   {
+    "role": "CTA",
+    "on_screen": "Join agent harness community",
+    "voiceover": "Agent harness researchers, Upload Your Research to R2C.Ai today.",
+    "fact_used": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents"
+   }
+  ]
+ },
+ {
   "id": "trd_20261124_001_f2d6",
   "date": "2026-11-24",
   "created_at": "2026-11-24T17:29:49.632846+00:00",
